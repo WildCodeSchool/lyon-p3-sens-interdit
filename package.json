@@ -1,0 +1,37 @@
+{
+  "name": "lyon-p-3-sens-interdit",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "strapi": "3.2.0",
+    "strapi-admin": "3.2.0",
+    "strapi-utils": "3.2.0",
+    "strapi-plugin-content-type-builder": "3.2.0",
+    "strapi-plugin-content-manager": "3.2.0",
+    "strapi-plugin-users-permissions": "3.2.0",
+    "strapi-plugin-email": "3.2.0",
+    "strapi-plugin-upload": "3.2.0",
+    "strapi-connector-bookshelf": "3.2.0",
+    "knex": "<0.20.0",
+    "sqlite3": "latest"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "55b67b99-c63e-484c-9d20-0fb6b7566c3d"
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
