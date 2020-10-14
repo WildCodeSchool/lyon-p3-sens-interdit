@@ -1,1 +1,3 @@
-# lyon-p3-sens-interdit
+# Strapi application
+
+A quick description of your strapi application
