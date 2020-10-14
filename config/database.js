@@ -1,18 +1,36 @@
+// SQLite config //
 module.exports = ({ env }) => ({
-  defaultConnection: 'default',
+  defaultConnection: "default",
   connections: {
     default: {
-      connector: 'bookshelf',
+      connector: "bookshelf",
       settings: {
-        client: 'mysql',
-        host: env('DATABASE_HOST', '212.129.43.215'),
-        port: env.int('DATABASE_PORT', 3306),
-        database: env('DATABASE_NAME', 'sens-interdit'),
-        username: env('DATABASE_USERNAME', 'sens-interdit'),
-        password: env('DATABASE_PASSWORD', 'F8yuDi3A2ecI'),
-        ssl: env.bool('DATABASE_SSL', false),
+        client: "sqlite",
+        filename: env("DATABASE_FILENAME", ".tmp/data.db"),
       },
-      options: {}
+      options: {
+        useNullAsDefault: true,
+      },
     },
   },
 });
+
+// MySQL/serverdev config //
+// module.exports = ({ env }) => ({
+//   defaultConnection: 'default',
+//   connections: {
+//     default: {
+//       connector: 'bookshelf',
+//       settings: {
+//         client: 'mysql',
+//         host: process.env.DATABASE_HOST,
+//         port: process.env.DATABASE_PORT,
+//         database: process.env.DATABASE_NAME,
+//         username: process.env.DATABASE_USERNAME,
+//         password: process.env.DATABASE_PASSWORD,
+//         ssl: env.bool('DATABASE_SSL', false),
+//       },
+//       options: {}
+//     },
+//   },
+// });
