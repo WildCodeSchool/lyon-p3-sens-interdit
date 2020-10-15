@@ -189,13 +189,15 @@ footer {
   background: #121111;
   padding: 10px;
   margin: 20px 0;
+  width: 800px;
 }
 .newsletter-container input {
   align-self: center;
   background: #2e2e2e;
   border: none;
   height: 35px;
-  width: 60%;
+  width: 75%;
+  color: white;
 }
 .footer-column2-socialnetwork p {
   text-transform: uppercase;
