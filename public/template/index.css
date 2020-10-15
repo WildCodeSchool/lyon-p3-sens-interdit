@@ -13,7 +13,7 @@ body {
 header {
   grid-area: 1 / 1 / 2 / 6;
   color: white;
-  background-color: Black;
+  background-color: rgb(27, 27, 27);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -99,9 +99,31 @@ h3 {
 p {
   margin: 0;
 }
+.next-festival-date .edition {
+  display: flex;
+}
+.next-festival-date .edition-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.next-festival-date .edition :nth-child(1) {
+  font-size: 1.5em;
+}
+.next-festival-date .edition :nth-child(2) {
+  font-size: 0.9em;
+}
+/* edition number */
+.next-festival-date .edition .edition-number {
+  font-size: 2.2em;
+}
+
 .next-festival-date p span {
-  font-size: 2em;
+  font-size: 1.2em;
   color: red;
+}
+.next-festival-date :nth-child(4) {
+  font-size: 0.5em;
 }
 
 /* FOOTER CSS */
