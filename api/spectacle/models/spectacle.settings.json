@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "spectacles",
+  "info": {
+    "name": "spectacle"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}
