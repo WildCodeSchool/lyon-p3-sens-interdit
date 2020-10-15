@@ -2,6 +2,7 @@
 body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
@@ -43,12 +44,14 @@ a {
 .header-row1 {
   display: flex;
   justify-content: space-between;
+  flex-wrap: nowrap;
   align-items: flex-end;
   margin: 5px 30px 0;
   padding: 0;
 }
 .fr-en {
   display: flex;
+  flex-wrap: nowrap;
 }
 .fr-en span {
   margin-left: 10px;
@@ -73,11 +76,12 @@ a {
 .main-logo {
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
   margin: 20px;
-  margin-right: 0;
-  width: 500px;
+  min-width: 500px;
   border-right: solid white 3px;
 }
+
 .main-logo h1,
 h3 {
   margin: 0;
@@ -96,7 +100,7 @@ h3 {
 .next-festival-date {
   display: flex;
   flex-direction: column;
-  width: 200px;
+  min-width: 200px;
   padding-left: 20px;
 }
 .next-festival-date,
@@ -135,6 +139,14 @@ p {
 }
 .billetterie-programme a {
   margin: 20px;
+}
+
+.social-network {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.social-network a {
+  margin-right: 5px;
 }
 
 /* FOOTER CSS */
@@ -224,4 +236,17 @@ footer {
   left: -1em;
   top: 0.9em;
   position: relative;
+}
+
+/* Media Queries **************************/
+@media (max-width: 1024px) {
+  .highlight {
+    display: none;
+  }
+  .fr-en {
+    display: none;
+  }
+  .search-loup {
+    display: none;
+  }
 }
