@@ -55,6 +55,10 @@ a {
   margin-right: 10px;
   color: red;
 }
+.nav-bar {
+  font-size: 0.8em;
+  margin-right: -160px;
+}
 /* HEADER ROW 2 */
 .header-row2 {
   display: flex;
@@ -69,7 +73,7 @@ a {
 .main-logo {
   display: flex;
   flex-direction: column;
-  margin: 30px;
+  margin: 20px;
   margin-right: 0;
   width: 500px;
   border-right: solid white 3px;
@@ -86,14 +90,14 @@ h3 {
 }
 .main-logo :nth-child(3) {
   color: red;
-  margin-left: 250px;
+  margin-left: 230px;
 }
 
 .next-festival-date {
   display: flex;
   flex-direction: column;
   width: 200px;
-  margin-left: 0;
+  padding-left: 20px;
 }
 .next-festival-date,
 p {
@@ -117,13 +121,20 @@ p {
 .next-festival-date .edition .edition-number {
   font-size: 2.2em;
 }
-
 .next-festival-date p span {
   font-size: 1.2em;
   color: red;
 }
 .next-festival-date :nth-child(4) {
-  font-size: 0.5em;
+  font-size: 0.6em;
+}
+
+.billetterie-programme {
+  display: flex;
+  flex-grow: 1;
+}
+.billetterie-programme a {
+  margin: 20px;
 }
 
 /* FOOTER CSS */
