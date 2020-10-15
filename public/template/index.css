@@ -19,6 +19,7 @@ header {
   flex-direction: column;
   justify-content: space-between;
   height: 200px;
+  width: 100%;
 }
 main {
   grid-area: 2 / 1 / 5 / 6;
@@ -46,7 +47,7 @@ a {
   justify-content: space-between;
   flex-wrap: nowrap;
   align-items: flex-end;
-  margin: 5px 30px 0;
+  margin: 5px 10px 0 30px;
   padding: 0;
 }
 .fr-en {
@@ -66,8 +67,7 @@ a {
 .header-row2 {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-right: 20px;
+  align-items: flex-end;
 }
 .header-row2 h1 {
   font-size: 2.5em;
@@ -100,8 +100,8 @@ h3 {
 .next-festival-date {
   display: flex;
   flex-direction: column;
-  min-width: 200px;
-  padding-left: 20px;
+  min-width: 150px;
+  padding-bottom: 30px;
 }
 .next-festival-date,
 p {
@@ -136,14 +136,18 @@ p {
 .billetterie-programme {
   display: flex;
   flex-grow: 1;
+  padding-bottom: 30px;
+  align-items: flex-end;
 }
 .billetterie-programme a {
-  margin: 20px;
+  margin-right: 40px;
 }
 
 .social-network {
   display: flex;
   flex-wrap: nowrap;
+  padding-bottom: 30px;
+  margin-right: 40px;
 }
 .social-network a {
   margin-right: 5px;
