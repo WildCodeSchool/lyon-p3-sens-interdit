@@ -14,7 +14,7 @@ body {
 header {
   grid-area: 1 / 1 / 2 / 6;
   color: white;
-  background-color: rgb(27, 27, 27);
+  background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -60,7 +60,6 @@ a {
   color: red;
 }
 .nav-bar {
-  font-size: 0.8em;
   margin-right: -160px;
 }
 /* HEADER ROW 2 */
@@ -100,6 +99,7 @@ h3 {
 .next-festival-date {
   display: flex;
   flex-direction: column;
+  font-weight: bold;
   min-width: 150px;
   padding-bottom: 30px;
 }
@@ -109,6 +109,7 @@ p {
 }
 .next-festival-date .edition {
   display: flex;
+  height: 40px;
 }
 .next-festival-date .edition-text {
   display: flex;
@@ -123,24 +124,28 @@ p {
 }
 /* edition number */
 .next-festival-date .edition .edition-number {
-  font-size: 2.2em;
+  font-size: 2.6em;
 }
 .next-festival-date p span {
   font-size: 1.2em;
   color: red;
 }
+/* Lyon metropole */
 .next-festival-date :nth-child(4) {
   font-size: 0.6em;
+  padding-left: 2px;
 }
 
 .billetterie-programme {
   display: flex;
   flex-grow: 1;
+  margin-left: 40px;
   padding-bottom: 30px;
   align-items: flex-end;
+  font-size: 1.2em;
 }
 .billetterie-programme a {
-  margin-right: 40px;
+  margin-right: 70px;
 }
 
 .social-network {
