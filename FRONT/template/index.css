@@ -29,7 +29,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 280px;
+  height: 250px;
   width: 100%;
 }
 main {
@@ -46,7 +46,6 @@ footer {
   color: #000000;
   background: white;
   font-weight: bold;
-  font-size: 1.1em;
 }
 
 a {
@@ -60,8 +59,7 @@ a {
   justify-content: space-between;
   flex-wrap: nowrap;
   align-items: flex-end;
-  margin: 10px 30px 0 60px;
-  padding: 0;
+  margin: 10px 30px 0 30px;
   font-size: 1.2em;
 }
 .fr-en {
@@ -74,26 +72,36 @@ a {
   color: red;
 }
 .nav-bar {
-  margin-right: -160px;
+  display: flex;
+  flex-wrap: nowrap;
+  min-width: 50%;
+  font-size: 0.8em;
 }
+
 /* HEADER ROW 2 */
 .header-row2 {
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
-  align-items: center;
+  padding-bottom: 10px;
 }
 
 .main-logo {
   margin-right: 30px;
   margin-bottom: -40px;
+  width: 38%;
+  min-width: 380px;
 }
 
 .next-festival-date {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding-left: 30px;
+  padding-top: 0px;
   font-weight: bold;
   min-width: 200px;
+  max-height: 70%;
   border-left: solid white 4px;
 }
 .next-festival-date,
@@ -102,55 +110,55 @@ p {
 }
 .next-festival-date .edition {
   display: flex;
-  height: 70px;
 }
 .next-festival-date .edition-text {
   display: flex;
   flex-direction: column;
 }
 .next-festival-date .edition :nth-child(1) {
-  font-size: 1.8em;
+  font-size: 1.4em;
 }
 .next-festival-date .edition :nth-child(2) {
-  font-size: 1.2em;
+  font-size: 1em;
 }
 /* edition number */
 .next-festival-date .edition .edition-number {
-  font-size: 4em;
+  font-size: 3em;
+  margin-bottom: -8px;
 }
 .next-festival-date p span {
   color: red;
 }
 .next-festival-date .edition-date {
-  font-size: 1.5em;
+  flex-wrap: nowrap;
+  font-size: 1.1em;
 }
 /* Lyon metropole */
 .next-festival-date .edition-date :nth-child(3) {
   font-size: 0.6em;
-  padding-left: 5px;
 }
 
 .billetterie-programme {
   display: flex;
   flex-grow: 1;
-  margin-left: 40px;
   padding-bottom: 30px;
   align-items: flex-end;
   font-size: 1.2em;
 }
 .billetterie-programme a {
-  margin-right: 70px;
+  margin-right: 50px;
 }
 
 .social-network {
   display: flex;
   flex-wrap: nowrap;
-  margin-left: -30px;
-  margin-right: 50px;
+  justify-content: center;
+  align-items: flex-end;
   margin-bottom: -30px;
+  min-width: 20%;
 }
 .social-network a {
-  margin-right: -60px;
+  margin-right: -55px;
 }
 
 /* FOOTER CSS */
