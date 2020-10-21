@@ -151,11 +151,11 @@ p {
 .social-network {
   display: flex;
   flex-wrap: nowrap;
-  padding-bottom: 30px;
-  margin-right: 40px;
+
+  margin-right: 50px;
 }
 .social-network a {
-  margin-right: 5px;
+  margin-right: -60px;
 }
 
 /* FOOTER CSS */
