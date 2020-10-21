@@ -100,7 +100,7 @@ a {
   padding-left: 30px;
   padding-top: 0px;
   font-weight: bold;
-  min-width: 200px;
+  min-width: 180px;
   max-height: 70%;
   border-left: solid white 4px;
 }
@@ -256,10 +256,16 @@ footer {
   .highlight {
     display: none;
   }
-  .fr-en {
+  .fr-en-right {
     display: none;
   }
   .search-loup {
+    display: none;
+  }
+  header {
+    height: 180px;
+  }
+  header .social-network {
     display: none;
   }
 }
