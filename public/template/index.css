@@ -146,8 +146,9 @@ p {
 .social-network {
   display: flex;
   flex-wrap: nowrap;
-
+  margin-left: -30px;
   margin-right: 50px;
+  margin-bottom: -30px;
 }
 .social-network a {
   margin-right: -60px;
@@ -199,16 +200,15 @@ footer {
   width: 75%;
   color: white;
 }
+.footer-column2-socialnetwork {
+  margin-top: 30px;
+}
 .footer-column2-socialnetwork p {
   text-transform: uppercase;
-}
-.footer-column2-socialnetwork {
-  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 1.5em;
 }
 
-.footer-column2-listlink {
-  margin-top: 20px;
-}
 .footer-column2-listlink div {
   margin: 0 10px;
   border-left: dotted white;
