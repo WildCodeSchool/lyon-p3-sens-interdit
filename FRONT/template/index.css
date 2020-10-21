@@ -1,0 +1,258 @@
+/* GENERAL - GRID LAYOUT GLOBAL */
+@font-face {
+  font-family: "gothamBold";
+  src: url(fonts/gothamBold/gothamBold.eot) format("oet"),
+    url(fonts/gothamBold/gothamBold.ttf) format("tff"),
+    url(fonts/gothamBold/gothamBold.woff) format("woff"),
+    url(fonts/gothamBold/gothamBold.woff2) format("woff2");
+  font-family: "gothamLight";
+  src: url(fonts/gothamLight/Metropolis-Medium.otf) format("otf"),
+    url(fonts/gothamLight/Metropolis-MediumItalic.otf) format("otf");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  font-family: "gothamLight", arial, sans-serif;
+}
+
+header {
+  grid-area: 1 / 1 / 2 / 6;
+  color: white;
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 280px;
+  width: 100%;
+}
+main {
+  grid-area: 2 / 1 / 5 / 6;
+  height: 100vh;
+}
+footer {
+  grid-area: 5 / 1 / 6 / 6;
+  color: white;
+  background-color: black;
+  display: flex;
+}
+.highlight {
+  color: #000000;
+  background: white;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* HEADER CSS */
+/* HEADER ROW 1 */
+.header-row1 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  margin: 10px 30px 0 60px;
+  padding: 0;
+  font-size: 1.2em;
+}
+.fr-en {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.fr-en span {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: red;
+}
+.nav-bar {
+  margin-right: -160px;
+}
+/* HEADER ROW 2 */
+.header-row2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-logo {
+  min-width: 500px;
+  margin-right: 30px;
+  margin-bottom: -40px;
+}
+
+.next-festival-date {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+  font-weight: bold;
+  min-width: 200px;
+  border-left: solid white 4px;
+}
+.next-festival-date,
+p {
+  margin: 0;
+}
+.next-festival-date .edition {
+  display: flex;
+  height: 70px;
+}
+.next-festival-date .edition-text {
+  display: flex;
+  flex-direction: column;
+}
+.next-festival-date .edition :nth-child(1) {
+  font-size: 1.8em;
+}
+.next-festival-date .edition :nth-child(2) {
+  font-size: 1.2em;
+}
+/* edition number */
+.next-festival-date .edition .edition-number {
+  font-size: 4em;
+}
+.next-festival-date p span {
+  color: red;
+}
+.next-festival-date .edition-date {
+  font-size: 1.5em;
+}
+/* Lyon metropole */
+.next-festival-date .edition-date :nth-child(3) {
+  font-size: 0.6em;
+  padding-left: 5px;
+}
+
+.billetterie-programme {
+  display: flex;
+  flex-grow: 1;
+  margin-left: 40px;
+  padding-bottom: 30px;
+  align-items: flex-end;
+  font-size: 1.2em;
+}
+.billetterie-programme a {
+  margin-right: 70px;
+}
+
+.social-network {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-left: -30px;
+  margin-right: 50px;
+  margin-bottom: -30px;
+}
+.social-network a {
+  margin-right: -60px;
+}
+
+/* FOOTER CSS */
+/* FOOTER COLUMN1 */
+.footer-column1 {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+.footer-column1-title {
+}
+.footer-column1-partners ul li {
+  list-style-type: none;
+}
+.footer-column1-partners p {
+  text-transform: uppercase;
+}
+/* FOOTER COLUMN2 */
+
+footer {
+  min-height: 550px;
+}
+.footer-column2 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  margin-top: 80px;
+}
+.footer-column2-listlink {
+  display: flex;
+}
+
+.newsletter-container {
+  display: flex;
+  justify-content: space-between;
+  background: #1b1b1b;
+  padding: 10px;
+  margin: 20px 0;
+  width: 800px;
+}
+.newsletter-container input {
+  align-self: center;
+  background: #3b3b3b;
+  border: none;
+  height: 35px;
+  width: 75%;
+  color: white;
+}
+.footer-column2-socialnetwork {
+  margin-top: 30px;
+}
+.footer-column2-socialnetwork p {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.footer-column2-listlink div {
+  margin: 0 10px;
+  border-left: dotted white;
+  padding-left: 10px;
+}
+
+.footer-column2-listlink div p {
+  margin: 0;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+}
+.footer-column2-listlink div ul {
+  margin: 0;
+}
+
+.footer-column2-listlink div ul {
+  margin-left: 10px;
+  padding: 0 1em;
+  list-style: none;
+}
+
+.footer-column2-listlink div ul li:before {
+  content: "";
+  border-color: transparent rgb(126, 6, 6);
+  border-style: solid;
+  border-width: 0.35em 0 0.35em 0.45em;
+  display: block;
+  height: 0;
+  width: 0;
+  left: -1em;
+  top: 0.9em;
+  position: relative;
+}
+
+/* Media Queries **************************/
+@media (max-width: 1024px) {
+  .highlight {
+    display: none;
+  }
+  .fr-en {
+    display: none;
+  }
+  .search-loup {
+    display: none;
+  }
+}
