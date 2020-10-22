@@ -19,14 +19,17 @@ body {
 
 .body {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: minmax(200px, auto) 1fr minmax(300px, auto);
+  gap: 0px 0px;
+  grid-template-areas:
+    "header header header"
+    "main main main"
+    "footer footer footer";
 }
 
 header {
-  grid-area: 1 / 1 / 2 / 6;
+  grid-area: header;
   color: white;
   background-color: #000000;
   display: flex;
@@ -39,11 +42,11 @@ header {
   margin: 0 auto;
 }
 main {
-  grid-area: 2 / 1 / 5 / 6;
+  grid-area: main;
   height: 100vh;
 }
 footer {
-  grid-area: 5 / 1 / 6 / 6;
+  grid-area: footer;
   color: white;
   background-color: black;
   display: flex;

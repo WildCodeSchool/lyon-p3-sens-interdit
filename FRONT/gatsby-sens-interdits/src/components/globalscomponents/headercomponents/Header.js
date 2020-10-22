@@ -1,10 +1,10 @@
 import React from 'react';
-import magnifier from '../../img/loupe.png';
-import facebook from '../../img/facebook.svg';
-import insta from '../../img/insta.svg';
-import twitter from '../../img/twitter.svg';
-import share from '../../img/share.svg';
-import senslogo from '../../img/logosens.svg';
+import magnifier from '../../../img/loupe.png';
+import facebook from '../../../img/facebook.svg';
+import insta from '../../../img/insta.svg';
+import twitter from '../../../img/twitter.svg';
+import share from '../../../img/share.svg';
+import senslogo from '../../../img/logosens.svg';
 
 
 export default function Header(){
