@@ -20,6 +20,7 @@ body {
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   font-family: "gothamLight", arial, sans-serif;
+  font-size: 14px;
 }
 
 header {
@@ -29,8 +30,11 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 280px;
-  width: 100%;
+  height: 160px;
+}
+.wrapper-header {
+  width: 1080px;
+  margin: 0 auto;
 }
 main {
   grid-area: 2 / 1 / 5 / 6;
@@ -46,7 +50,6 @@ footer {
   color: #000000;
   background: white;
   font-weight: bold;
-  font-size: 1.1em;
 }
 
 a {
@@ -59,42 +62,61 @@ a {
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
-  align-items: flex-end;
-  margin: 10px 30px 0 60px;
-  padding: 0;
-  font-size: 1.2em;
+  align-items: center;
 }
 .fr-en {
   display: flex;
   flex-wrap: nowrap;
+  padding-left: 30px;
+}
+.fr-en-right {
+  font-size: 12px;
 }
 .fr-en span {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
   color: red;
 }
+
 .nav-bar {
-  margin-right: -160px;
+  display: flex;
+  flex-wrap: nowrap;
+  list-style: none;
 }
+.nav-bar li {
+  border-right: solid red 2px;
+  padding: 0 5px;
+}
+.nav-bar :nth-last-child(1) {
+  border-right: none;
+}
+
 /* HEADER ROW 2 */
 .header-row2 {
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .main-logo {
-  margin-right: 30px;
+  margin-right: 20px;
   margin-bottom: -40px;
+}
+.main-logo img {
+  width: 400px;
 }
 
 .next-festival-date {
   display: flex;
   flex-direction: column;
-  padding-left: 30px;
+  justify-content: center;
+  padding-left: 20px;
+  margin-bottom: 30px;
   font-weight: bold;
-  min-width: 200px;
-  border-left: solid white 4px;
+  min-width: 180px;
+  height: 70px;
+  border-left: solid white 2px;
 }
 .next-festival-date,
 p {
@@ -102,58 +124,55 @@ p {
 }
 .next-festival-date .edition {
   display: flex;
-  height: 70px;
 }
 .next-festival-date .edition-text {
   display: flex;
   flex-direction: column;
 }
 .next-festival-date .edition :nth-child(1) {
-  font-size: 1.8em;
+  font-size: 20px;
 }
-.next-festival-date .edition :nth-child(2) {
-  font-size: 1.2em;
-}
+
 /* edition number */
 .next-festival-date .edition .edition-number {
-  font-size: 4em;
+  font-size: 40px;
+  margin-bottom: -8px;
 }
 .next-festival-date p span {
   color: red;
 }
-.next-festival-date .edition-date {
-  font-size: 1.5em;
-}
+
 /* Lyon metropole */
 .next-festival-date .edition-date :nth-child(3) {
-  font-size: 0.6em;
-  padding-left: 5px;
+  font-size: 9px;
 }
 
 .billetterie-programme {
   display: flex;
   flex-grow: 1;
-  margin-left: 40px;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
   align-items: flex-end;
-  font-size: 1.2em;
+  font-size: 16px;
 }
 .billetterie-programme a {
-  margin-right: 70px;
+  margin-right: 30px;
 }
 
 .social-network {
   display: flex;
   flex-wrap: nowrap;
-  margin-left: -30px;
-  margin-right: 50px;
-  margin-bottom: -30px;
+  margin-bottom: -40px;
 }
 .social-network a {
-  margin-right: -60px;
+  margin-right: -50px;
 }
 
 /* FOOTER CSS */
+.wrapper-footer {
+  width: 1080px;
+  margin: 0 auto;
+  display: flex;
+}
 /* FOOTER COLUMN1 */
 .footer-column1 {
   display: flex;
@@ -189,7 +208,7 @@ footer {
   background: #1b1b1b;
   padding: 10px;
   margin: 20px 0;
-  width: 800px;
+  width: 650px;
 }
 .newsletter-container input {
   align-self: center;
@@ -248,10 +267,16 @@ footer {
   .highlight {
     display: none;
   }
-  .fr-en {
+  .fr-en-right {
     display: none;
   }
-  .search-loup {
+  .search-magnifier {
+    display: none;
+  }
+  header {
+    height: 180px;
+  }
+  header .social-network {
     display: none;
   }
 }
