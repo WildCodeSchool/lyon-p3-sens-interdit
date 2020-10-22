@@ -9,18 +9,20 @@
   src: url(fonts/gothamLight/Metropolis-Medium.otf) format("otf"),
     url(fonts/gothamLight/Metropolis-MediumItalic.otf) format("otf");
 }
-
-.body {
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "gothamLight", arial, sans-serif;
+  font-size: 14px;
+}
+
+.body {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  font-family: "gothamLight", arial, sans-serif;
-  font-size: 14px;
 }
 
 header {
