@@ -167,9 +167,10 @@ p {
   display: flex;
   flex-wrap: nowrap;
   margin-bottom: -40px;
+  margin-right: -20px;
 }
 .social-network a {
-  margin-right: -50px;
+  margin-left: -50px;
 }
 
 /* FOOTER CSS */
