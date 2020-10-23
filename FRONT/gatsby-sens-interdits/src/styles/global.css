@@ -73,10 +73,9 @@ a {
   display: flex;
   flex-wrap: nowrap;
   padding-left: 30px;
-}
-.fr-en-right {
   font-size: 12px;
 }
+
 .fr-en span {
   margin-left: 5px;
   margin-right: 5px;
@@ -237,11 +236,10 @@ footer .social-network {
   display: flex;
   flex-wrap: nowrap;
   margin-bottom: 10px;
-  margin-left: 20px;
   margin-top: -20px;
 }
-footer .social-network a {
-  margin-right: 10px;
+footer .social-network li {
+  list-style: none;
 }
 
 .footer-column2-listlink div {
