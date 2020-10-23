@@ -225,12 +225,23 @@ footer {
   color: white;
 }
 .footer-column2-socialnetwork {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 .footer-column2-socialnetwork p {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1.5em;
+}
+
+footer .social-network {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-top: -20px;
+}
+footer .social-network a {
+  margin-right: 10px;
 }
 
 .footer-column2-listlink div {
