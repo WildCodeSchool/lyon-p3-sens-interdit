@@ -1,5 +1,4 @@
-// gatsby_browser.js is a specific Gatsby file that allows us to hook into different APIs of Gatsby if we need to
-// this file will run once the page has been loaded and generated in the browser
+// a copy of gatsby-browser.js file but to generate everything on the server (fast ssr = server-side rendering)
 // (everytime we make a change in this file, we have to kill and re build the app)
 
 import React from "react"
