@@ -6,12 +6,12 @@ export default function Navbar(){
             <ul class="nav-bar">
               <li>Accueil</li>
               <li>Festival</li>
-              <li>Avec les publics</li>
-              <li>Associations</li>
+              <li>Diffusion-Production</li>
+              <li>Ateliers-Transmission</li>
+              <li>Association</li>
               <li>Actualités</li>
               <li>Archives</li>
               <li>Espace pros</li>
-              <li>Contacts</li>
             </ul>
           </nav>
     )

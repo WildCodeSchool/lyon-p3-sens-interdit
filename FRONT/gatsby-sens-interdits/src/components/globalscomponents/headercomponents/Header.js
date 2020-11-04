@@ -17,12 +17,13 @@ export default function Header(){
           <FrEn />
           <NewsletterBtn />
           <Navbar />
+          <Ticketing />
           <SearchBar />
         </div>
         <div class="header-row2">
           <Logo />
           <Edition />
-          <Ticketing />
+
           <SocialNetwork />
         </div>
       </div>
