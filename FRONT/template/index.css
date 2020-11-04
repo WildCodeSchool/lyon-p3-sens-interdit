@@ -14,17 +14,19 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
   font-family: "gothamLight", arial, sans-serif;
-  font-size: 14px;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: minmax(200px, auto) 1fr minmax(300px, auto);
+  gap: 0px 0px;
+  grid-template-areas:
+    "header header header"
+    "main main main"
+    "footer footer footer";
 }
 
 header {
-  grid-area: 1 / 1 / 2 / 6;
+  grid-area: header;
   color: white;
   background-color: #000000;
   display: flex;
@@ -37,11 +39,21 @@ header {
   margin: 0 auto;
 }
 main {
-  grid-area: 2 / 1 / 5 / 6;
-  height: 100vh;
+  width: 1080px;
+  margin: 0 auto;
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: calc(100vh - 280px) repeat(3, minmax(100px, auto));
+  gap: 0px 0px;
+  grid-template-areas:
+    "slider slider slider"
+    "left-side calendar right-side"
+    "tab-module tab-module right-side"
+    "content content content";
 }
 footer {
-  grid-area: 5 / 1 / 6 / 6;
+  grid-area: footer;
   color: white;
   background-color: black;
   display: flex;
@@ -165,6 +177,208 @@ p {
 }
 .social-network a {
   margin-right: -50px;
+}
+
+/* MAIN CSS */
+
+.slider {
+  grid-area: slider;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: url(./images/img-sens-interdit.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.slider div.red {
+  align-self: center;
+  background-color: rgba(255, 0, 0, 1);
+  mix-blend-mode: multiply;
+  width: 450px;
+  height: 150px;
+}
+
+.slider div.image-text {
+  width: 450px;
+  text-align: center;
+  align-self: center;
+  position: absolute;
+}
+
+.slider div.image-text p {
+  color: #fff;
+  font-size: 26px;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+
+.slider div.image-text button {
+  color: white;
+  font-size: 20px;
+  background-color: transparent;
+  padding: 5px;
+  border: 1px dotted #fff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.left-side {
+  grid-area: left-side;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.left-side p {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #fff;
+  background-color: #ed1c24;
+  align-self: start;
+  padding: 14px 5px 7px 5px;
+}
+.calendar {
+  grid-area: calendar;
+  background: #fff;
+}
+.calendar-container {
+  display: flex;
+  justify-content: center;
+}
+.calendar-container div.active {
+  background-color: #ed1c24;
+  color: #fff;
+}
+.calendar-container div.active p {
+  opacity: 1;
+}
+
+.calendar-day {
+  border-left: 1px solid black;
+  padding: 0 20px;
+  margin-top: 10px;
+  text-align: center;
+  line-height: 1;
+}
+
+.calendar-day p {
+  opacity: 0.5;
+}
+.calendar-day span {
+  font-weight: 600;
+  font-size: 32px;
+}
+.right-side {
+  grid-area: right-side;
+  background: #fff;
+}
+
+.right-side-container {
+  margin: 20px 10px;
+  padding: 0 10px;
+  border-left: 1px solid black;
+}
+.info-container p {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.info-container ul li:before {
+  content: "";
+  border-color: transparent #ed1c24;
+  border-style: solid;
+  border-width: 0.35em 0 0.35em 0.45em;
+  display: block;
+  height: 0;
+  width: 0;
+  left: -1em;
+  top: 0.9em;
+  position: relative;
+}
+
+.partners-logo img {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+}
+.accessibility-logo img {
+  margin-right: -55px;
+}
+
+.tab-module {
+  grid-area: tab-module;
+  background: #fff;
+  display: flex;
+  padding: 20px;
+}
+
+.tab-module ul {
+  list-style: none;
+  margin: 0;
+  margin-right: 20px;
+  padding: 0;
+  width: 25%;
+}
+
+.tab-module ul li {
+  border-bottom: 1px solid black;
+  padding: 5px;
+}
+.tab-module ul li a {
+  display: flex;
+  align-items: center;
+}
+.tab-module ul li a img {
+  padding-right: 10px;
+}
+
+.tab-module ul li a.active {
+  color: #ed1c24;
+}
+.tab-module div.tab {
+  display: none;
+}
+.tab-module div.active {
+  display: flex;
+  width: 75%;
+  text-align: justify;
+}
+.tab-module div p {
+  line-height: 1.5;
+  padding-top: 25px;
+}
+
+.content {
+  grid-area: content;
+  background: #fff;
+}
+
+.content p {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 24px;
+  align-items: center;
+}
+
+.content div.content-spectacle {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+.content div.content-spectacle div.spectacle-card {
+  width: 250px;
+  height: 250px;
+  border: 1px solid #000;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin: 20px;
+  margin-right: 0;
 }
 
 /* FOOTER CSS */
