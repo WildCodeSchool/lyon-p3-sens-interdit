@@ -61,6 +61,10 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 /* HEADER CSS */
 /* HEADER ROW 1 */
 .header-row1 {
@@ -165,11 +169,11 @@ p {
 .social-network {
   display: flex;
   flex-wrap: nowrap;
-  margin-bottom: -40px;
-  margin-right: -20px;
+  align-items: flex-end;
 }
 .social-network a {
-  margin-left: -50px;
+  margin-left: 5px;
+  height: 30px;
 }
 
 /* FOOTER CSS */
