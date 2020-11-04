@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/festivals",
+      "handler": "festival.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/festivals/count",
+      "handler": "festival.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/festivals/:id",
+      "handler": "festival.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/festivals",
+      "handler": "festival.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/festivals/:id",
+      "handler": "festival.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/festivals/:id",
+      "handler": "festival.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

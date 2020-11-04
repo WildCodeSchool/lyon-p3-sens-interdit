@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/credited-image",
+      "handler": "credited-image.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/credited-image",
+      "handler": "credited-image.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/credited-image",
+      "handler": "credited-image.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

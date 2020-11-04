@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/spectacles",
+      "handler": "spectacle.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/spectacles/count",
+      "handler": "spectacle.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/spectacles/:id",
+      "handler": "spectacle.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/spectacles",
+      "handler": "spectacle.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/spectacles/:id",
+      "handler": "spectacle.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/spectacles/:id",
+      "handler": "spectacle.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
