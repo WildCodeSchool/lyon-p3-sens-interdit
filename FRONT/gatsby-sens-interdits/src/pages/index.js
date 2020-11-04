@@ -1,11 +1,8 @@
 import React from "react"
-import Footer from "../components/globalscomponents/footercomponents/Footer"
-import Header from "../components/globalscomponents/headercomponents/Header"
-import '../styles/header-footer.css'
+import Layout from "../components/globalscomponents/Layout"
 
 export default function Home() {
-  return <div className="body">
-    <Header />
-    <Footer />
-  </div>
+  return <Layout>
+    <h1>This is the home page</h1>
+  </Layout>
 }
