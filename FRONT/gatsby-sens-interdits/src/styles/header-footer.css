@@ -208,6 +208,9 @@ footer {
   flex-direction: column;
   margin: 20px;
 }
+.footer-column1 .main-logo a img {
+  width: 290px;
+}
 
 .footer-column1-socialnetwork {
   margin-top: 20px;
@@ -217,20 +220,20 @@ footer {
   font-size: 20px;
 }
 
-.footer-column1-listlink {
+.footer-listlink {
   display: flex;
   margin-top: 20px;
   font-size: 16px;
 }
 
-.footer-column1-listlink ul {
+.footer-listlink ul {
   margin: 0;
   margin-left: 10px;
   padding: 0 1em;
   list-style: none;
 }
 
-.footer-column1-listlink ul li:before {
+.footer-listlink ul li:before {
   content: "";
   border-color: transparent rgb(126, 6, 6);
   border-style: solid;
@@ -250,9 +253,6 @@ footer {
   flex-direction: column;
   margin-left: 50px;
 }
-.footer-column2-listlink {
-  display: flex;
-}
 
 .newsletter-container {
   display: flex;
@@ -262,7 +262,7 @@ footer {
   margin: 20px 0;
   width: 650px;
 }
-.newsletter-container input {
+.newsletter-container .input-newsletter {
   align-self: center;
   background: #3b3b3b;
   border: none;
@@ -271,39 +271,14 @@ footer {
   color: white;
 }
 
-.footer-column2-listlink div {
-  margin: 0 10px;
-  border-left: dotted white;
-  padding-left: 10px;
+.newsletter-container .submit-newsletter {
+  align-self: center;
+  background: #3b3b3b;
+  border: none;
+  height: 35px;
+  width: 15%;
+  color: white;
 }
-
-.footer-column2-listlink div p {
-  margin: 0;
-  padding-left: 10px;
-  padding-bottom: 10px;
-  text-transform: uppercase;
-}
-
-.footer-column2-listlink div ul {
-  margin: 0;
-  margin-left: 10px;
-  padding: 0 1em;
-  list-style: none;
-}
-
-.footer-column2-listlink div ul li:before {
-  content: "";
-  border-color: transparent rgb(126, 6, 6);
-  border-style: solid;
-  border-width: 0.35em 0 0.35em 0.45em;
-  display: block;
-  height: 0;
-  width: 0;
-  left: -1em;
-  top: 0.9em;
-  position: relative;
-}
-
 /* Media Queries **************************/
 /* @media (max-width: 1024px) {
   .highlight {
