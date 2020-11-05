@@ -39,18 +39,7 @@ header {
   margin: 0 auto;
 }
 main {
-  /* width: 1080px;
-  margin: 0 auto; */
   grid-area: main;
-  /* display: grid;
-  grid-template-columns: 20% 60% 20%;
-  grid-template-rows: calc(100vh - 280px) repeat(3, minmax(100px, auto));
-  gap: 0px 0px;
-  grid-template-areas:
-    "slider slider slider"
-    "left-side calendar right-side"
-    "tab-module tab-module right-side"
-    "content content content"; */
 }
 
 .wrapper-main {
@@ -399,8 +388,6 @@ div.spectacle-image {
   border: 1px solid #000;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  /* margin: 20px;
-  margin-right: 0; */
   background: url(./images/vignetteSpectacle1.jpg) no-repeat;
   background-size: cover;
   background-position: center;
