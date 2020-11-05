@@ -17,7 +17,7 @@ body {
   font-family: "gothamLight", arial, sans-serif;
   display: grid;
   grid-template-columns: 20% 60% 20%;
-  grid-template-rows: minmax(200px, auto) 1fr minmax(300px, auto);
+  grid-template-rows: minmax(160px, auto) 1fr minmax(300px, auto);
   gap: 0px 0px;
   grid-template-areas:
     "header header header"
@@ -39,15 +39,17 @@ header {
   margin: 0 auto;
 }
 main {
+  grid-area: main;
+}
+
+.wrapper-main {
   width: 1080px;
   margin: 0 auto;
-  grid-area: main;
   display: grid;
   grid-template-columns: 20% 60% 20%;
-  grid-template-rows: calc(100vh - 280px) repeat(3, minmax(100px, auto));
+  grid-template-rows: repeat(3, minmax(100px, auto));
   gap: 0px 0px;
   grid-template-areas:
-    "slider slider slider"
     "left-side calendar right-side"
     "tab-module tab-module right-side"
     "content content content";
@@ -182,11 +184,10 @@ p {
 /* MAIN CSS */
 
 .slider {
-  grid-area: slider;
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height: calc(90vh - 160px);
   background: url(./images/img-sens-interdit.jpg) no-repeat;
   background-size: cover;
   background-position: center;
@@ -363,22 +364,70 @@ p {
   font-weight: 600;
   font-size: 24px;
   align-items: center;
+  margin-bottom: 32px;
 }
 
-.content div.content-spectacle {
+.content div.wrapper-content {
   display: flex;
   margin: auto;
   justify-content: center;
+  margin-bottom: 42px;
 }
 
-.content div.content-spectacle div.spectacle-card {
+div.spectacle-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: auto auto 500px;
+}
+
+div.spectacle-image {
   width: 250px;
   height: 250px;
   border: 1px solid #000;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  margin: 20px;
-  margin-right: 0;
+  background: url(./images/vignetteSpectacle1.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+div.spectacle-image span.spectacle-date {
+  background-color: white;
+  border-bottom-right-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 7px;
+}
+div.spectacle-image span.spectacle-country {
+  background-color: red;
+  border-bottom-right-radius: 10px;
+  text-transform: uppercase;
+  color: white;
+  position: absolute;
+  top: 33px; /* height + 1px of span#spectacle-date */
+  left: 0;
+  padding: 7px;
+}
+div.spectacle-image img {
+  position: absolute;
+  margin: 10px;
+  bottom: 0;
+  right: 0;
+}
+
+div.spectacle-title h2,
+div.spectacle-title h3 {
+  margin: 0;
+  padding: 0;
+}
+div.spectacle-title h2 {
+  text-transform: uppercase;
+  color: red;
+}
+div.spectacle-title {
+  max-width: 250px;
 }
 
 /* FOOTER CSS */
