@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "spectacles",
+  "info": {
+    "name": "spectacle",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "duration": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "info": {
+      "type": "text"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "tab_element": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.tab-element"
+    }
+  }
+}

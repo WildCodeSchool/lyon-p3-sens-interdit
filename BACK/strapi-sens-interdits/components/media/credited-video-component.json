@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_media_credited_video_components",
+  "info": {
+    "name": "credited_video_component",
+    "icon": "file-video"
+  },
+  "options": {},
+  "attributes": {
+    "video": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "credit": {
+      "type": "string"
+    }
+  }
+}

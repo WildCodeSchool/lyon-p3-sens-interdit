@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "festivals",
+  "info": {
+    "name": "festival"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "year": {
+      "type": "integer"
+    },
+    "title": {
+      "type": "string"
+    },
+    "theme": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "spectacles": {
+      "collection": "spectacle"
+    }
+  }
+}
