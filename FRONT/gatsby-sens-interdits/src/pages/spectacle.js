@@ -1,6 +1,5 @@
 import React from "react"
-import{TabSystemH} from "../components/globalscomponents/TabSystem/TabSystemH"
-
+import TabSystemH from "../components/globalscomponents/TabSystems/TabSystemH";
 const Spectacle = () => {
   return (
       <div>
