@@ -1,20 +1,18 @@
-import React from 'react'
-import "./homepage.css"
-import photoTest from '../../../img/img-sens-interdit.jpg'
-import DisplayTabMenu from './DisplayTabMenu'
+import React from "react"
+import "./Homepage.css"
+import DisplayTabMenu from "./DisplayTabMenu"
+import Slider from "../Slider/Slider"
 
-export default function Homepage(){
-    return(
-        <div className="global-homepage">
-            <div className="slider">
-                <img src={photoTest} alt="sens"/>
-            </div>
-            <div className="content-homepage">
-                <DisplayTabMenu />
-                <DisplayTabMenu />
-                <DisplayTabMenu />
-                <DisplayTabMenu />
-            </div>
-          </div>
-    )
+export default function Homepage() {
+  return (
+    <div className="global-homepage">
+      <Slider />
+      <div className="content-homepage">
+        <DisplayTabMenu />
+        <DisplayTabMenu />
+        <DisplayTabMenu />
+        <DisplayTabMenu />
+      </div>
+    </div>
+  )
 }

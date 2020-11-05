@@ -1,0 +1,40 @@
+div.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: calc(90vh - 160px);
+}
+div.container img {
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+div.red {
+  align-self: center;
+  background-color: rgba(255, 0, 0, 1);
+  mix-blend-mode: multiply;
+  width: 40%;
+  height: 150px;
+  position: absolute;
+}
+div.image-text {
+  text-align: center;
+  position: absolute;
+  align-self: center;
+}
+div.image-text p {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+div.image-text button {
+  color: white;
+  font-size: 20px;
+  background-color: transparent;
+  padding: 5px;
+  border: 1px dotted #fff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}

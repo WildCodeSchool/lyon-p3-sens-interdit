@@ -1,0 +1,31 @@
+.calendar {
+  grid-area: calendar;
+  background: #fff;
+}
+.calendar-container {
+  display: flex;
+  justify-content: center;
+}
+.calendar-container div.active {
+  background-color: #ed1c24;
+  color: #fff;
+}
+.calendar-container div.active p {
+  opacity: 1;
+}
+
+.calendar-day {
+  border-left: 1px solid black;
+  padding: 0 20px;
+  margin-top: 10px;
+  text-align: center;
+  line-height: 1;
+}
+
+.calendar-day p {
+  opacity: 0.5;
+}
+.calendar-day span {
+  font-weight: 600;
+  font-size: 32px;
+}

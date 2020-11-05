@@ -1,0 +1,78 @@
+.country-label {
+  grid-area: country-label;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+.country-label p {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #fff;
+  background-color: #ed1c24;
+  align-self: start;
+  padding: 14px 5px 7px 5px;
+}
+
+.spectacle-info {
+  grid-area: spectacle-info;
+  background: #fff;
+}
+
+.spectacle-info-container {
+  margin: 20px 10px;
+  padding: 0 10px;
+  border-left: 1px solid black;
+}
+.info-container p {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.info-container ul li:before {
+  content: "";
+  border-color: transparent #ed1c24;
+  border-style: solid;
+  border-width: 0.35em 0 0.35em 0.45em;
+  display: block;
+  height: 0;
+  width: 0;
+  left: -1em;
+  top: 0.9em;
+  position: relative;
+}
+
+.partners-logo img {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+}
+.accessibility-logo img {
+  margin-right: -55px;
+}
+
+.content {
+  grid-area: content;
+  margin-bottom: 42px;
+}
+
+.content p {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 24px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.content div.wrapper-content {
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px 0; */
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  margin-bottom: 42px;
+  flex-wrap: wrap;
+}

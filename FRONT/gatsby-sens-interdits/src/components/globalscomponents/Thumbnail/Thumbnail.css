@@ -1,0 +1,49 @@
+div.spectacle-image {
+  width: 250px;
+  height: 250px;
+  border: 1px solid #000;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: url(../../../img/vignetteSpectacle1.jpg) no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+div.spectacle-image span.spectacle-date {
+  background-color: white;
+  border-bottom-right-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 7px;
+}
+div.spectacle-image span.spectacle-country {
+  background-color: red;
+  border-bottom-right-radius: 10px;
+  text-transform: uppercase;
+  color: white;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  padding: 7px;
+}
+div.spectacle-image img {
+  position: absolute;
+  margin: 10px;
+  bottom: 0;
+  right: 0;
+}
+
+div.spectacle-title h2,
+div.spectacle-title h3 {
+  margin: 0;
+  padding: 0;
+}
+div.spectacle-title h2 {
+  text-transform: uppercase;
+  color: red;
+}
+div.spectacle-title {
+  max-width: 250px;
+}

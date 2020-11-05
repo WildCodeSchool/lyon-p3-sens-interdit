@@ -50,8 +50,8 @@ main {
   grid-template-rows: repeat(3, minmax(100px, auto));
   gap: 0px 0px;
   grid-template-areas:
-    "left-side calendar right-side"
-    "tab-module tab-module right-side"
+    "left-side calendar spectacle-info"
+    "tab-module tab-module spectacle-info"
     "content content content";
 }
 footer {
@@ -226,14 +226,14 @@ p {
   border-bottom-right-radius: 10px;
 }
 
-.left-side {
-  grid-area: left-side;
+.country-label {
+  grid-area: country-label;
   background: #fff;
   display: flex;
   justify-content: center;
 }
 
-.left-side p {
+.country-label p {
   text-transform: uppercase;
   font-weight: 600;
   color: #fff;
@@ -272,12 +272,12 @@ p {
   font-weight: 600;
   font-size: 32px;
 }
-.right-side {
-  grid-area: right-side;
+.spectacle-info {
+  grid-area: spectacle-info;
   background: #fff;
 }
 
-.right-side-container {
+.spectacle-info-container {
   margin: 20px 10px;
   padding: 0 10px;
   border-left: 1px solid black;
@@ -368,16 +368,17 @@ p {
 }
 
 .content div.wrapper-content {
-  display: flex;
-  margin: auto;
-  justify-content: center;
-  margin-bottom: 42px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* display: flex;
+margin: auto;
+justify-content: center;
+margin-bottom: 42px; */
 }
 
 div.spectacle-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  grid-auto-rows: auto auto 500px;
 }
 
 div.spectacle-image {
