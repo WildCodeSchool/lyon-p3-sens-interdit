@@ -1,0 +1,42 @@
+/* CSS composant TabSystem :horizontal */
+
+.tab-module {
+    grid-area: tab-module;
+    background: #fff;
+    display: flex;
+    padding: 20px;
+    }
+.tab-module ul {
+    list-style: none;
+    margin: 0;
+    margin-right: 20px;
+    padding: 0;
+    width: 25%;
+    }
+.tab-module ul li {
+    border-bottom: 1px solid black;
+    padding: 5px;
+    }
+.tab-module ul li a {
+    display: flex;
+    align-items: center;
+    }
+.tab-module ul li a img {
+    padding-right: 10px;
+    }
+.active {
+    color: #ed1c24;
+    }
+.tab-module div.tab {
+    display: none;
+    }
+.tab-module div.active {
+    display: flex;
+    width: 75%;
+    text-align: justify;
+    }
+.tab-module div p {
+    line-height: 1.5;
+    padding-top: 25px;
+    }
+    
