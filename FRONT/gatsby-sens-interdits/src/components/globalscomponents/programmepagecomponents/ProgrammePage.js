@@ -15,15 +15,12 @@ export default function ProgrammePage(){
                 <div>calendar component</div>
                 <div>filter component</div>
                 <div>
-                    <SpectacleMiniTab />
-                    <SpectacleMiniTab />
-                    <SpectacleMiniTab />
-                    <SpectacleMiniTab />
-                    <SpectacleMiniTab />
-                    <SpectacleMiniTab />
-                    <SpectacleMiniTab />
-                    <SpectacleMiniTab />
-                    <SpectacleMiniTab />
+                    <SpectacleMiniTab  
+                    affiche={photoTest}
+                    date="26 Octobre" 
+                    country="Russie" 
+                    name="Titre du spectacle" 
+                    team="Metteur en scène"/>
                 </div>
             </div>
         </div>
