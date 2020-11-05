@@ -1,6 +1,7 @@
 import React from 'react';
 import './ProgrammePage.css'
 import photoTest from '../../../img/img-sens-interdit.jpg'
+import SpectacleMiniTab from './SpectacleMiniTab';
 
 
 
@@ -13,7 +14,17 @@ export default function ProgrammePage(){
             <div className="content-programmepage">
                 <div>calendar component</div>
                 <div>filter component</div>
-                <div>display spectacle component</div>
+                <div>
+                    <SpectacleMiniTab />
+                    <SpectacleMiniTab />
+                    <SpectacleMiniTab />
+                    <SpectacleMiniTab />
+                    <SpectacleMiniTab />
+                    <SpectacleMiniTab />
+                    <SpectacleMiniTab />
+                    <SpectacleMiniTab />
+                    <SpectacleMiniTab />
+                </div>
             </div>
         </div>
     )
