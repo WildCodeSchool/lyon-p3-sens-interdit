@@ -1,0 +1,53 @@
+{
+  "collectionName": "components_menu_tab_elements",
+  "info": {
+    "name": "tab_element",
+    "icon": "list-ul"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "video": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "file": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "credited_image": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.credited-image-component"
+    },
+    "credited_video": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.credited-video-component"
+    }
+  }
+}

@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "spectacles",
   "info": {
-    "name": "spectacle"
+    "name": "spectacle",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -24,6 +25,11 @@
     },
     "content": {
       "type": "richtext"
+    },
+    "tab_element": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.tab-element"
     }
   }
 }

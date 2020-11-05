@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_media_credited_image_components",
+  "info": {
+    "name": "credited_image_component",
+    "icon": "address-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "credit": {
+      "type": "string"
+    }
+  }
+}
