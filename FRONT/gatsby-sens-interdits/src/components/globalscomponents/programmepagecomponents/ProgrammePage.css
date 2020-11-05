@@ -1,0 +1,17 @@
+.global-programmepage {
+  display: flex;
+  flex-direction: column;
+}
+
+.global-programmepage .slider img {
+  width: 100%;
+  height: 100%;
+}
+
+.global-homepage .content-homepage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto 0 auto;
+  max-width: 1080px;
+}
