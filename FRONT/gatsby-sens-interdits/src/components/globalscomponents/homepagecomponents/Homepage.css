@@ -5,7 +5,8 @@
 
 .global-homepage .slider img {
   width: 100%;
-  height: 100%;
+  height: 500px;
+  object-fit: cover;
 }
 
 .global-homepage .content-homepage {
