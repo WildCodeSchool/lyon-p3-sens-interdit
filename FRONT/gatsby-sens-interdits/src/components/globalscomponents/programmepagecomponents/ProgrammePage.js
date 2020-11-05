@@ -14,13 +14,79 @@ export default function ProgrammePage(){
             <div className="content-programmepage">
                 <div>calendar component</div>
                 <div>filter component</div>
-                <div>
-                    <SpectacleMiniTab  
-                    affiche={photoTest}
-                    date="26 Octobre" 
-                    country="Russie" 
-                    name="Titre du spectacle" 
-                    team="Metteur en scène"/>
+                <div className="display-miniTab">
+                        <SpectacleMiniTab  
+                        affiche={photoTest}
+                        date="26 Octobre" 
+                        country="Russie" 
+                        name="Titre du spectacle" 
+                        team="Metteur en scène"/>
+                        <SpectacleMiniTab  
+                        affiche={photoTest}
+                        date="26 Octobre" 
+                        country="Russie" 
+                        name="Titre du spectacle" 
+                        team="Metteur en scène"/>
+                        <SpectacleMiniTab  
+                        affiche={photoTest}
+                        date="26 Octobre" 
+                        country="Russie" 
+                        name="Titre du spectacle" 
+                        team="Metteur en scène"/>
+                        <SpectacleMiniTab  
+                        affiche={photoTest}
+                        date="26 Octobre" 
+                        country="Russie" 
+                        name="Titre du spectacle" 
+                        team="Metteur en scène"/>
+                        <SpectacleMiniTab  
+                        affiche={photoTest}
+                        date="26 Octobre" 
+                        country="Russie" 
+                        name="Titre du spectacle" 
+                        team="Metteur en scène"/>
+                        <SpectacleMiniTab  
+                        affiche={photoTest}
+                        date="26 Octobre" 
+                        country="Russie" 
+                        name="Titre du spectacle" 
+                        team="Metteur en scène"/>
+                        <SpectacleMiniTab  
+                        affiche={photoTest}
+                        date="26 Octobre" 
+                        country="Russie" 
+                        name="Titre du spectacle" 
+                        team="Metteur en scène"/>
+                        <SpectacleMiniTab  
+                        affiche={photoTest}
+                        date="26 Octobre" 
+                        country="Russie" 
+                        name="Titre du spectacle" 
+                        team="Metteur en scène"/>
+                        <SpectacleMiniTab  
+                        affiche={photoTest}
+                        date="26 Octobre" 
+                        country="Russie" 
+                        name="Titre du spectacle" 
+                        team="Metteur en scène"/>
+                        <SpectacleMiniTab  
+                        affiche={photoTest}
+                        date="26 Octobre" 
+                        country="Russie" 
+                        name="Titre du spectacle" 
+                        team="Metteur en scène"/>
+                        <SpectacleMiniTab  
+                        affiche={photoTest}
+                        date="26 Octobre" 
+                        country="Russie" 
+                        name="Titre du spectacle" 
+                        team="Metteur en scène"/>
+                        <SpectacleMiniTab  
+                        affiche={photoTest}
+                        date="26 Octobre" 
+                        country="Russie" 
+                        name="Titre du spectacle" 
+                        team="Metteur en scène"/>
                 </div>
             </div>
         </div>

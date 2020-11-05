@@ -16,3 +16,10 @@
   margin: 0 auto 0 auto;
   max-width: 1080px;
 }
+
+.display-miniTab {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1080px;
+  margin: auto;
+}
