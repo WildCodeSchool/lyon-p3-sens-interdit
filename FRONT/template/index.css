@@ -184,11 +184,9 @@ p {
 /* MAIN CSS */
 
 .slider {
-  /* grid-area: slider; */
   display: flex;
   justify-content: center;
   width: 100%;
-  /* height: 100%; */
   height: calc(90vh - 160px);
   background: url(./images/img-sens-interdit.jpg) no-repeat;
   background-size: cover;
