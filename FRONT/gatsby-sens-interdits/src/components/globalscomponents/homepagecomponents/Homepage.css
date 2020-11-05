@@ -29,12 +29,16 @@
   z-index: 1;
   color: white;
   top: 50%;
-  left: 10%;
+  left: 20%;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .global-homepage .display-tab-sticker .display-tab-logo {
   position: absolute;
   left: -15%;
+}
+
+.global-homepage .display-tab-sticker .display-tab-title p {
+  max-width: 200px;
 }
