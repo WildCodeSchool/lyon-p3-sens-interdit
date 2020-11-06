@@ -2,6 +2,7 @@ import React from 'react';
 import './ProgrammePage.css'
 import photoTest from '../../../img/img-sens-interdit.jpg'
 import SpectacleMiniTab from './SpectacleMiniTab';
+import FilterTab from './FilterTab';
 
 
 
@@ -13,80 +14,80 @@ export default function ProgrammePage(){
             </div>
             <div className="content-programmepage">
                 <div>calendar component</div>
-                <div>filter component</div>
+                <FilterTab />
                 <div className="display-miniTab">
                         <SpectacleMiniTab  
-                        affiche={photoTest}
-                        date="26 Octobre" 
-                        country="Russie" 
-                        name="Titre du spectacle" 
-                        team="Metteur en scène"/>
+                            affiche={photoTest}
+                            date="26 Octobre" 
+                            country="Russie" 
+                            name="Titre du spectacle" 
+                            team="Metteur en scène"/>
                         <SpectacleMiniTab  
-                        affiche={photoTest}
-                        date="26 Octobre" 
-                        country="Russie" 
-                        name="Titre du spectacle" 
-                        team="Metteur en scène"/>
+                            affiche={photoTest}
+                            date="26 Octobre" 
+                            country="Russie" 
+                            name="Titre du spectacle" 
+                            team="Metteur en scène"/>
                         <SpectacleMiniTab  
-                        affiche={photoTest}
-                        date="26 Octobre" 
-                        country="Russie" 
-                        name="Titre du spectacle" 
-                        team="Metteur en scène"/>
+                            affiche={photoTest}
+                            date="26 Octobre" 
+                            country="Russie" 
+                            name="Titre du spectacle" 
+                            team="Metteur en scène"/>
                         <SpectacleMiniTab  
-                        affiche={photoTest}
-                        date="26 Octobre" 
-                        country="Russie" 
-                        name="Titre du spectacle" 
-                        team="Metteur en scène"/>
+                            affiche={photoTest}
+                            date="26 Octobre" 
+                            country="Russie" 
+                            name="Titre du spectacle" 
+                            team="Metteur en scène"/>
                         <SpectacleMiniTab  
-                        affiche={photoTest}
-                        date="26 Octobre" 
-                        country="Russie" 
-                        name="Titre du spectacle" 
-                        team="Metteur en scène"/>
+                            affiche={photoTest}
+                            date="26 Octobre" 
+                            country="Russie" 
+                            name="Titre du spectacle" 
+                            team="Metteur en scène"/>
                         <SpectacleMiniTab  
-                        affiche={photoTest}
-                        date="26 Octobre" 
-                        country="Russie" 
-                        name="Titre du spectacle" 
-                        team="Metteur en scène"/>
+                            affiche={photoTest}
+                            date="26 Octobre" 
+                            country="Russie" 
+                            name="Titre du spectacle" 
+                            team="Metteur en scène"/>
                         <SpectacleMiniTab  
-                        affiche={photoTest}
-                        date="26 Octobre" 
-                        country="Russie" 
-                        name="Titre du spectacle" 
-                        team="Metteur en scène"/>
+                            affiche={photoTest}
+                            date="26 Octobre" 
+                            country="Russie" 
+                            name="Titre du spectacle" 
+                            team="Metteur en scène"/>
                         <SpectacleMiniTab  
-                        affiche={photoTest}
-                        date="26 Octobre" 
-                        country="Russie" 
-                        name="Titre du spectacle" 
-                        team="Metteur en scène"/>
+                            affiche={photoTest}
+                            date="26 Octobre" 
+                            country="Russie" 
+                            name="Titre du spectacle" 
+                            team="Metteur en scène"/>
                         <SpectacleMiniTab  
-                        affiche={photoTest}
-                        date="26 Octobre" 
-                        country="Russie" 
-                        name="Titre du spectacle" 
-                        team="Metteur en scène"/>
+                            affiche={photoTest}
+                            date="26 Octobre" 
+                            country="Russie" 
+                            name="Titre du spectacle" 
+                            team="Metteur en scène"/>
                         <SpectacleMiniTab  
-                        affiche={photoTest}
-                        date="26 Octobre" 
-                        country="Russie" 
-                        name="Titre du spectacle" 
-                        team="Metteur en scène"/>
+                            affiche={photoTest}
+                            date="26 Octobre" 
+                            country="Russie" 
+                            name="Titre du spectacle" 
+                            team="Metteur en scène"/>
                         <SpectacleMiniTab  
-                        affiche={photoTest}
-                        date="26 Octobre" 
-                        country="Russie" 
-                        name="Titre du spectacle" 
-                        team="Metteur en scène"/>
+                            affiche={photoTest}
+                            date="26 Octobre" 
+                            country="Russie" 
+                            name="Titre du spectacle" 
+                            team="Metteur en scène"/>
                         <SpectacleMiniTab  
-                        affiche={photoTest}
-                        date="26 Octobre" 
-                        country="Russie" 
-                        name="Titre du spectacle" 
-                        team="Metteur en scène"/>
+                            affiche={photoTest}
+                            date="26 Octobre" 
+                            country="Russie" 
+                            name="Titre du spectacle" 
+                            team="Metteur en scène"/>
                 </div>
             </div>
         </div>
