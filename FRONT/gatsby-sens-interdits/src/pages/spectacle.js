@@ -1,13 +1,13 @@
 import React from "react"
-import TabSystemH from "../components/globalscomponents/TabSystems/TabSystemH";
+import ImageCarousel from "../components/globalscomponents/Carousel/ImageCarousel"
+import TabSystemH from "../components/globalscomponents/TabSystems/TabSystemH"
 const Spectacle = () => {
   return (
-      <div>
-        <h1>This is the Spectacle page</h1>
-        <TabSystemH/>
-      </div>
-
+    <div>
+      <ImageCarousel />
+      <TabSystemH />
+    </div>
   )
 }
 
-export default Spectacle;
+export default Spectacle
