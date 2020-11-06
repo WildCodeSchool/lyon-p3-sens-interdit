@@ -23,13 +23,15 @@
     "subtitle": {
       "type": "string"
     },
-    "content": {
-      "type": "richtext"
-    },
     "tab_element": {
       "type": "component",
       "repeatable": true,
       "component": "menu.tab-element"
+    },
+    "carousel": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.medias-slider"
     }
   }
 }
