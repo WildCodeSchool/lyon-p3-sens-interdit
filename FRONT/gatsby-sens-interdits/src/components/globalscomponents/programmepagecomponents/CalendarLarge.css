@@ -1,0 +1,9 @@
+.global-CalendarLarge {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 1080px;
+  margin: auto;
+  margin-top: 20px;
+}
