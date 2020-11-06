@@ -3,6 +3,7 @@ import './ProgrammePage.css'
 import photoTest from '../../../img/img-sens-interdit.jpg'
 import SpectacleMiniTab from './SpectacleMiniTab';
 import FilterTab from './FilterTab';
+import CalendarLarge from './CalendarLarge';
 
 
 
@@ -13,7 +14,7 @@ export default function ProgrammePage(){
                 <img src={photoTest} alt="sens"/>
             </div>
             <div className="content-programmepage">
-                <div>calendar component</div>
+                <CalendarLarge />
                 <FilterTab />
                 <div className="display-miniTab">
                         <SpectacleMiniTab  
