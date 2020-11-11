@@ -13,15 +13,15 @@ import './header-footer.css'
 export default function Header(){
     return(
 <header>
-      <div class="wrapper-header">
-        <div class="header-row1">
+      <div className="wrapper-header">
+        <div className="header-row1">
           <FrEn />
           <NewsletterBtn />
           <Navbar />
           <Ticketing />
           <SearchBar />
         </div>
-        <div class="header-row2">
+        <div className="header-row2">
           <Logo />
           <Edition />
 
