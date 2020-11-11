@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function ListLink(){
     return(
-        <div class="footer-listlink">
+        <div className="footer-listlink">
             <ul>
               <li><a>Contacts</a></li>
               <li><a>Mentions Légales</a></li>

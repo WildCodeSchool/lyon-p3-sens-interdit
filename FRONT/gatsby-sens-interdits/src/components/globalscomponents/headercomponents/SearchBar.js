@@ -4,7 +4,7 @@ import magnifier from '../../../img/loupe.png';
 
 export default function SearchBar(){
     return(
-        <div class="search-magnifier">
+        <div className="search-magnifier">
             <img
               src={magnifier}
               alt="search-magnifier"

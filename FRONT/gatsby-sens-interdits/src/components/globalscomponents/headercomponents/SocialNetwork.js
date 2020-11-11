@@ -7,7 +7,7 @@ import share from '../../../img/share.svg';
 
 export default function SocialNetwork(){
     return(
-        <ul class="social-network">
+        <ul className="social-network">
             <li><a href="https://www.facebook.com/sens.interdits/" title="link to facebook" target="_blank"
               ><img
                 src={facebook}
