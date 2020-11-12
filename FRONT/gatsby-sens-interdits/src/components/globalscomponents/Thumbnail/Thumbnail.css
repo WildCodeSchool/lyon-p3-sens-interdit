@@ -1,0 +1,65 @@
+.miniTab {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin: 20px;
+  flex-wrap: wrap;
+}
+
+.global-miniTab {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.img-miniTab {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0 0 20px 20px;
+  border: solid black 1px;
+}
+
+.title-miniTab {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.date-miniTab {
+  background-color: white;
+  padding: 4px;
+  border-radius: 0 0 5px 0;
+  border: solid grey 1px;
+  width: max-content;
+}
+
+.country-miniTab {
+  background-color: red;
+  color: white;
+  padding: 4px;
+  border-radius: 0 0 7px 0;
+  border: solid grey 1px;
+  width: max-content;
+}
+
+.pictoPlus {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.name-miniTab {
+  color: red;
+  margin-top: 5px;
+  margin-left: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.team-miniTab {
+  margin-top: 5px;
+  margin-left: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}

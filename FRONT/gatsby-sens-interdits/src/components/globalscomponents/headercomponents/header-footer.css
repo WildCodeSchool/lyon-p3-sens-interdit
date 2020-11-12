@@ -1,0 +1,237 @@
+/* HEADER CSS */
+/* HEADER ROW 1 */
+.header-row1 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.fr-en {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: max-content;
+  font-size: 12px;
+}
+
+.fr-en span {
+  margin-left: 5px;
+  margin-right: 5px;
+  color: red;
+}
+
+/* BOUTON HIGHLIGHT */
+.highlight {
+  color: #000000;
+  background: white;
+  border-top: solid red 4px;
+  border-left: solid red 1px;
+  border-right: solid red 1px;
+  border-radius: 0 0 7px 7px;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 0;
+}
+.nav-bar li {
+  border-right: solid red 2px;
+  padding: 0 5px;
+  width: max-content;
+}
+.nav-bar :nth-last-child(1) {
+  border-right: none;
+}
+
+/* button billetterie et programme */
+.billetterie-programme {
+  display: flex;
+  align-items: flex-end;
+  margin-left: 10px;
+}
+.billetterie-programme a {
+  margin-right: 10px;
+}
+
+/* HEADER ROW 2 */
+.header-row2 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.main-logo {
+  margin-right: 20px;
+  margin-bottom: -40px;
+}
+.main-logo img {
+  width: 400px;
+}
+
+.next-festival-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  min-width: 180px;
+  height: 70px;
+  border-left: solid white 2px;
+}
+.next-festival-date,
+p {
+  margin: 0;
+}
+.next-festival-date .edition {
+  display: flex;
+}
+.next-festival-date .edition-text {
+  display: flex;
+  flex-direction: column;
+}
+.next-festival-date .edition :nth-child(1) {
+  font-size: 20px;
+}
+
+/* edition number */
+.next-festival-date .edition .edition-number {
+  font-size: 40px;
+  margin-bottom: -8px;
+}
+.next-festival-date p span {
+  color: red;
+}
+
+/* Lyon metropole */
+.next-festival-date .edition-date :nth-child(3) {
+  font-size: 9px;
+}
+
+.social-network {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 0;
+  flex-grow: 1;
+  padding: 0;
+}
+.social-network a {
+  margin-left: 5px;
+  height: 30px;
+}
+
+.header-row2 .social-network {
+  justify-content: flex-end;
+  margin-right: 30px;
+}
+
+/* FOOTER CSS */
+footer {
+  height: 350px;
+  color: rgb(190, 190, 190);
+}
+.wrapper-footer {
+  width: 1080px;
+  margin: 0 auto;
+  display: flex;
+}
+/* FOOTER COLUMN1 */
+.footer-column1 {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+.footer-column1 .main-logo a img {
+  width: 290px;
+}
+
+.footer-column1-socialnetwork {
+  margin-top: 20px;
+}
+.footer-column1-socialnetwork p {
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+.footer-listlink {
+  display: flex;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.footer-listlink ul {
+  margin: 0;
+  margin-left: 10px;
+  padding: 0 1em;
+  list-style: none;
+}
+
+.footer-listlink ul li:before {
+  content: "";
+  border-color: transparent rgb(126, 6, 6);
+  border-style: solid;
+  border-width: 0.35em 0 0.35em 0.45em;
+  display: block;
+  height: 0;
+  width: 0;
+  left: -1em;
+  top: 0.9em;
+  position: relative;
+}
+
+/* FOOTER COLUMN2 */
+
+.footer-column2 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.newsletter-container {
+  display: flex;
+  justify-content: space-between;
+  background: #1b1b1b;
+  padding: 10px;
+  margin: 20px 0;
+  width: 650px;
+}
+.newsletter-container .input-newsletter {
+  align-self: center;
+  background: #3b3b3b;
+  border: none;
+  height: 35px;
+  width: 75%;
+  color: white;
+}
+
+.newsletter-container .submit-newsletter {
+  align-self: center;
+  background: #3b3b3b;
+  border: none;
+  height: 35px;
+  width: 15%;
+  color: white;
+}
+/* Media Queries **************************/
+/* @media (max-width: 1024px) {
+  .highlight {
+    display: none;
+  }
+  .fr-en-right {
+    display: none;
+  }
+  .search-magnifier {
+    display: none;
+  }
+  header {
+    height: 180px;
+  }
+  header .social-network {
+    display: none;
+  }
+} */

@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function Ticketing(){
     return(
-        <div class="billetterie-programme">
-        <a href="#" title="billetterie" class="highlight">BILLETTERIE </a>
-        <a href="#" title="programme" class="highlight">PROGRAMME</a>
+        <div className="billetterie-programme">
+        <a href="#" title="billetterie" className="highlight">BILLETTERIE </a>
+        <a href="#" title="programme" className="highlight">PROGRAMME</a>
       </div>
     )
 }
