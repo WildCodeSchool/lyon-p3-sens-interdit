@@ -1,45 +1,49 @@
-
 /* CSS composant TabSystem :Vertical */
 
 .tab-moduleV {
-    grid-area: tab-module;
-    display: flex;
-    flex-direction: column;
-    background:pink;
-    display: flex;
-    padding: 20px;
-  }
-  
-  #tab-contentV {
-    text-align: justify;
-    margin: 0px;
-  }
-  
-  /* signe + et title*/
-  .tab-titleV {
-    display: flex;
-    flex-direction: row;
-    min-width: 200px;
-    border-bottom: 1px solid black;
-  }
-  .tab-titleV img {
-    margin-top: 5px;
-  }
-  .tab-titleV h3{
-    margin-left: 20px;
-    margin-top: 10px;
-  }
-  
-  /* tab active*/
-  .active {
-    color: #ed1c24;
-  }
-  
-  div.active-tab {
-    display: block;
-  }
-  
-  div.disabled-tab {
-    display: none;
-  }
-  
+  grid-area: tab-module;
+  display: flex;
+  flex-direction: column;
+  background: pink;
+  display: flex;
+  padding: 20px;
+}
+
+#tab-contentV {
+  text-align: justify;
+  margin: 0px;
+}
+
+/* signe + et title*/
+.tab-titleV {
+  display: flex;
+  flex-direction: row;
+  min-width: 200px;
+  border-bottom: 1px solid black;
+}
+
+.tab-titleV:hover {
+  cursor: pointer;
+}
+
+.tab-titleV img {
+  margin-top: 5px;
+}
+
+.tab-titleV h3 {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+/* tab active*/
+.active {
+  color: #ed1c24;
+}
+
+div.active-tab {
+  display: block;
+}
+
+div.disabled-tab {
+  display: none;
+}
