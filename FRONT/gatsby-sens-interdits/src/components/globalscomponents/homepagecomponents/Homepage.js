@@ -1,5 +1,5 @@
 import React from 'react'
-import "./homepage.css"
+import "./Homepage.css"
 import photoTest from '../../../img/img-sens-interdit.jpg'
 import DisplayTabMenu from './DisplayTabMenu'
 
