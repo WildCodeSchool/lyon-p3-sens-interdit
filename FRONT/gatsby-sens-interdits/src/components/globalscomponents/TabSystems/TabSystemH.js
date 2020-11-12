@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 import picto from "../../../img/picto.svg"
-import "./tabsystem.css"
+import "./tabSystemH.css";
+
 
 function TabSystemH() {
   const [isLoading, setIsLoading] = useState(true)
