@@ -1,0 +1,19 @@
+.global-FilterTab {
+  width: 1080px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: auto;
+}
+
+.global-FilterTab h2 {
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.global-FilterTab p {
+  margin-right: 10px;
+  padding-right: 10px;
+  border-right: solid red 1px;
+}
