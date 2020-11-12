@@ -32,6 +32,11 @@
       "type": "component",
       "repeatable": false,
       "component": "menu.medias-slider"
+    },
+    "spectacle_dates": {
+      "type": "component",
+      "repeatable": true,
+      "component": "info.spectacle-date"
     }
   }
 }

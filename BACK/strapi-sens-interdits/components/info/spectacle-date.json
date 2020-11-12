@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_info_spectacle_dates",
+  "info": {
+    "name": "spectacle_date",
+    "icon": "calendar-alt"
+  },
+  "options": {},
+  "attributes": {
+    "date": {
+      "type": "date"
+    },
+    "time": {
+      "type": "time"
+    }
+  }
+}
