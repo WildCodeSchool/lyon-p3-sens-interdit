@@ -22,10 +22,15 @@
   min-width: 200px;
   border-bottom: 1px solid black;
 }
+
+.tab-title:hover {
+  cursor: pointer;
+}
+
 .tab-title img {
   margin-top: 5px;
 }
-.tab-title h3{
+.tab-title h3 {
   margin-left: 20px;
   margin-top: 10px;
 }
