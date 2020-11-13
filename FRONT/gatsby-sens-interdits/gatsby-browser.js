@@ -3,8 +3,8 @@
 // (everytime we make a change in this file, we have to kill and re build the app)
 
 import React from "react"
-import Layout from "./src/components/globalscomponents/Layout"
-import "./src/styles/global.css"
+import Layout from "./src/components/globals/Layout/Layout.js"
+import "./src/assets/styles/global.css"
 
 // wrapPageElement is in Gatsby Browser APIs Documentation and allows a plugin to wrap the page element
 export function wrapPageElement({ element, props }) {

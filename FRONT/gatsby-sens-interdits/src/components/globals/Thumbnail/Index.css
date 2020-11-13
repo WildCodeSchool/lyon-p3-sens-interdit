@@ -1,0 +1,65 @@
+.mini-tab {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin: 20px;
+  flex-wrap: wrap;
+}
+
+.global-mini-tab {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.img-mini-tab {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0 0 20px 20px;
+  border: solid black 1px;
+}
+
+.title-mini-tab {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.date-mini-tab {
+  background-color: white;
+  padding: 4px;
+  border-radius: 0 0 5px 0;
+  border: solid grey 1px;
+  width: max-content;
+}
+
+.country-mini-tab {
+  background-color: #E30613;
+  color: white;
+  padding: 4px;
+  border-radius: 0 0 7px 0;
+  border: solid grey 1px;
+  width: max-content;
+}
+
+.pictoPlus {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.name-mini-tab {
+  color: #E30613;
+  margin-top: 5px;
+  margin-left: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.team-mini-tab {
+  margin-top: 5px;
+  margin-left: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}

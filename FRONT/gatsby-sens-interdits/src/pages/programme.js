@@ -1,5 +1,5 @@
 import React from "react"
-import ProgrammePage from "../components/globalscomponents/programmepagecomponents/ProgrammePage"
+import ProgrammePage from "../components/specifics/Programme"
 
 export default function Programme() {
   return (

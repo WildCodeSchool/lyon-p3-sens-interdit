@@ -1,5 +1,5 @@
 import React from "react"
-import Homepage from "../components/globalscomponents/homepagecomponents/Homepage"
+import Homepage from "../components/specifics/Homepage"
 
 export default function Home() {
   return (
