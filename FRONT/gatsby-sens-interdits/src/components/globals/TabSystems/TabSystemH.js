@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import AxiosCallToApi from "../Function/AxiosCallToApi.js";
+import AxiosCallToApi from "../../../utils/AxiosCallToApi.js";
 import picto from "../../../assets/img/picto.svg";
 import "./tabSystemH.css";
 
@@ -40,16 +40,16 @@ function TabSystemH() {
                 weight="30"
                 height="30"
               />
-              <h3
+              <a
+                href={handleOnClick}
+                title="action"
                 id={tab.title}
                 className={
-                  "tab-link" + " " + (activeClass === tab.title ? "active" : "")
+                  "tab-link " + (activeClass === tab.title ? "active" : "")
                 }
-                id={tab.title}
-                onClick={handleOnClick}
               >
-                {tab.title}
-              </h3>
+                <h3>{tab.title}</h3>
+              </a>
             </div>
           ))}
         </div>
