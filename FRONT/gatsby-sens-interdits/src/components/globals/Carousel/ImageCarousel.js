@@ -55,7 +55,7 @@ function ImageCarousel() {
           showIndicators={false}
         >
           {images.map(image => (
-            <div className="size-adjustment">
+            <div className="size-adjustment" id={image.image.name}>
               <img
                 src={"http://localhost:1337" + image.image.url}
                 alt={image.image.name}

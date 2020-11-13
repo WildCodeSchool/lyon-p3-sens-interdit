@@ -40,16 +40,17 @@ function TabSystemH() {
                 weight="30"
                 height="30"
               />
-              <a
-                href={handleOnClick}
+              <h3
                 title="action"
                 id={tab.title}
                 className={
                   "tab-link " + (activeClass === tab.title ? "active" : "")
                 }
+                onClick={handleOnClick}
+                onKeyDown={handleOnClick}
               >
-                <h3>{tab.title}</h3>
-              </a>
+                {tab.title}
+              </h3>
             </div>
           ))}
         </div>
