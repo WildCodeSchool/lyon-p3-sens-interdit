@@ -3,7 +3,7 @@ import "./ImageCarousel.css"
 import axios from "axios"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from "react-responsive-carousel"
-import placeholder from "../../../img/placeholder-photo-slider.jpg"
+import placeholder from "../../../assets/img/placeholder-photo-slider.jpg"
 
 function ImageCarousel() {
   const [isLoading, setIsLoading] = useState(true)
@@ -32,7 +32,7 @@ function ImageCarousel() {
   return isLoading ? (
     <>
       <div className="red"></div>
-      <div class="image-text">
+      <div className="image-text">
         <p>Contenu en cours de chargement</p>
       </div>
       <div className="carousel-loading">
@@ -40,31 +40,31 @@ function ImageCarousel() {
       </div>
     </>
   ) : (
-    <>
-      <div className="red"></div>
-      <div class="image-text">
-        <p>{spectacleTitle}</p>
-        <button>Réserver</button>
-      </div>
-      <Carousel
-        autoPlay={true}
-        infiniteLoop={true}
-        interval={5000}
-        showThumbs={false}
-        showStatus={false}
-        showIndicators={false}
-      >
-        {images.map(image => (
-          <div className="size-adjustment">
-            <img
-              src={"http://localhost:1337" + image.image.url}
-              alt={image.image.name}
-            />
-          </div>
-        ))}
-      </Carousel>
-    </>
-  )
+      <>
+        <div className="red"></div>
+        <div className="image-text">
+          <p>{spectacleTitle}</p>
+          <button>Réserver</button>
+        </div>
+        <Carousel
+          autoPlay={true}
+          infiniteLoop={true}
+          interval={5000}
+          showThumbs={false}
+          showStatus={false}
+          showIndicators={false}
+        >
+          {images.map(image => (
+            <div className="size-adjustment">
+              <img
+                src={"http://localhost:1337" + image.image.url}
+                alt={image.image.name}
+              />
+            </div>
+          ))}
+        </Carousel>
+      </>
+    )
 }
 
 export default ImageCarousel

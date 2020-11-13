@@ -1,6 +1,6 @@
 import React from "react"
 import "./Index.css"
-import photoTest from "../../../img/img-sens-interdit.jpg"
+import photoTest from "../../../assets/img/img-sens-interdit.jpg"
 import Thumbnail from "../../globals/Thumbnail"
 import FilterTab from "./FilterTab"
 import CalendarLarge from "../../globals/Calendar/CalendarLarge"

@@ -1,11 +1,11 @@
 import React from "react"
 import "./Index.css"
-import lefestival from "../../../img/photosFiltre/lefestival.png"
+import lefestival from "../../../assets/img/photosFiltre/lefestival.png"
 import DisplayTabMenu from '../../globals/DisplayTabMenu/DisplayTabMenu.js'
-import photoTest from "../../../img/img-sens-interdit.jpg"
-import aveclespublics from "../../../img/photosFiltre/aveclespublics.png"
-import spectaclesentournee from "../../../img/photosFiltre/spectaclesentournee.png"
-import lassociation from "../../../img/photosFiltre/lassociation.png"
+import photoTest from "../../../assets/img/img-sens-interdit.jpg"
+import aveclespublics from "../../../assets/img/photosFiltre/aveclespublics.png"
+import spectaclesentournee from "../../../assets/img/photosFiltre/spectaclesentournee.png"
+import lassociation from "../../../assets/img/photosFiltre/lassociation.png"
 
 export default function Homepage() {
   return (

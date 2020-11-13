@@ -1,15 +1,15 @@
 import React from 'react';
-import magnifier from '../../../img/loupe.png';
+import magnifier from '../../../assets/img/loupe.png';
 
 
-export default function SearchBar(){
-    return(
+export default function SearchBar() {
+    return (
         <div className="search-magnifier">
             <img
-              src={magnifier}
-              alt="search-magnifier"
-              style={{filter: "invert(100%)"}}
-              width="40"
+                src={magnifier}
+                alt="search-magnifier"
+                style={{ filter: "invert(100%)" }}
+                width="40"
             />
         </div>
     )

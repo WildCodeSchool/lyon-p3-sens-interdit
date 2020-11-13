@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AxiosCallToApi from "../Function/AxiosCallToApi.js";
-import picto from "../../../img/picto.svg";
+import picto from "../../../assets/img/picto.svg";
 import "./tabSystemH.css";
 
 function TabSystemH() {

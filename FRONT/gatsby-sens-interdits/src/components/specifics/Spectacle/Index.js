@@ -5,7 +5,7 @@ import TabSystemH from "../../globals/TabSystems/TabSystemH"
 import Thumbnail from "../../globals/Thumbnail"
 import ImageCarousel from "../../globals/Carousel/ImageCarousel"
 import CalendarLarge from "../../globals/Calendar/CalendarLarge"
-import photoTest from "../../../img/img-sens-interdit.jpg"
+import photoTest from "../../../assets/img/img-sens-interdit.jpg"
 
 const SpectaclePage = () => {
     return (

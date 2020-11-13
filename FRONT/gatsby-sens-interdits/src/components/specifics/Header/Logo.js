@@ -1,5 +1,5 @@
 import React from 'react';
-import logosens from '../../../img/logosens.svg';
+import logosens from '../../../assets/img/logosens.svg';
 
 
 export default function Logo() {

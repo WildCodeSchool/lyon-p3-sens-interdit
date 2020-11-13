@@ -1,5 +1,5 @@
 import React from 'react';
-import picto from '../../../img/picto+.svg'
+import picto from '../../../assets/img/picto+.svg'
 import './DisplayTabMenu.css'
 
 export default function DisplayTabMenu(props) {

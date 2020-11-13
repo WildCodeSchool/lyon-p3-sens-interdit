@@ -1,8 +1,8 @@
 import React from "react"
 import "./SpectacleInfos.css"
 
-import handiPicto from "../../../../src/img/handivisuel.svg"
-import partnerLogo from "../../../../src/img/logo_lpa.png"
+import handiPicto from "../../../assets/img/handivisuel.svg"
+import partnerLogo from "../../../assets/img/logo_lpa.png"
 
 const SpectacleInfos = () => {
   // just to display something on the page
