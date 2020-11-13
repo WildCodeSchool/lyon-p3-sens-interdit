@@ -16,9 +16,11 @@
   "dependencies": {
     "axios": "^0.21.0",
     "gatsby": "^2.24.79",
+    "gatsby-cli": "^2.13.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-responsive-carousel": "^3.2.10"
+    "react-responsive-carousel": "^3.2.10",
+    "strapi-cli": "^2.0.0"
   },
   "devDependencies": {
     "prettier": "2.1.2"
