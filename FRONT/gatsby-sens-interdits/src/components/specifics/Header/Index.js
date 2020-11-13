@@ -6,8 +6,9 @@ import Ticketing from './Ticketing';
 import Edition from './Edition';
 import Logo from './Logo';
 import SearchBar from './SearchBar';
-import FrEn from './FrEn'
 import NewsletterBtn from './NewsletterBtn';
+// import FrEn from './FrEn'
+
 
 
 export default function Header() {
@@ -26,7 +27,6 @@ export default function Header() {
         <div className="header-row2">
           <Logo />
           <Edition />
-
           <SocialNetwork />
         </div>
       </div>

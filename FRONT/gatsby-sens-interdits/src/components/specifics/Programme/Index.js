@@ -4,13 +4,12 @@ import photoTest from "../../../assets/img/img-sens-interdit.jpg"
 import Thumbnail from "../../globals/Thumbnail"
 import FilterTab from "./FilterTab"
 import CalendarLarge from "../../globals/Calendar/CalendarLarge"
+import ImageCarousel from "../../globals/Carousel/ImageCarousel"
 
 export default function ProgrammePage() {
   return (
     <div className="global-programmepage">
-      <div className="slider">
-        <img src={photoTest} alt="sens" />
-      </div>
+      <ImageCarousel />
       <div className="content-programmepage">
         <CalendarLarge />
         <FilterTab />

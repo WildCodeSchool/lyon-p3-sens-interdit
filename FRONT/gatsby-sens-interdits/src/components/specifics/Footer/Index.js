@@ -2,7 +2,7 @@ import React from 'react';
 import './Footer.css'
 import Logo from '../Header/Logo';
 import SocialNetwork from '../Header/SocialNetwork';
-import AdressList from './AdressList';
+import AddressList from './AddressList';
 import ListLink from './ListLink';
 import Newsletter from './Newsletter';
 
@@ -21,7 +21,7 @@ export default function Footer() {
         </div>
         <div className="footer-column2">
           <Newsletter />
-          <AdressList />
+          <AddressList />
         </div>
       </div>
     </footer>

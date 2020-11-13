@@ -23,12 +23,12 @@ const SpectacleInfos = () => {
         </div>
         <div className="accessibility-logo">
           {arrayHandiPicto.map((picto, i) => (
-            <img key={i} src={picto} alt="picto" width="70" height="70" />
+            <img key={i} src={picto} alt="pictogramme" width="70" height="70" />
           ))}
         </div>
         <div className="partners-logo">
           {arrayPartnerLogo.map((picto, i) => (
-            <img key={i} src={picto} alt="picto" width="70" height="70" />
+            <img key={i} src={picto} alt="pictogramme" width="70" height="70" />
           ))}
         </div>
       </div>

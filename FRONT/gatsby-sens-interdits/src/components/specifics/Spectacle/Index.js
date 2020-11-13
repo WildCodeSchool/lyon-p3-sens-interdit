@@ -11,18 +11,13 @@ const SpectaclePage = () => {
     return (
         <div>
             <ImageCarousel />
-
             <div className="content-spectaclepage">
                 <div className="country-label">
                     <p>Kosovo</p>
                 </div>
-
                 <CalendarLarge />
-
                 <SpectacleInfos />
-
                 <TabSystemH />
-
                 <div className="content">
                     <p className="content-title to-uppercase">Autour du spectacle</p>
                     <div className="display-miniTab">
