@@ -1,7 +1,7 @@
 import React from "react";
-import FestivalPage from "../components/globalscomponents/festival/festivalPage";
+import FestivalPage from "../components/specifics/Festival/";
 
-export default function festival ()  {
+export default function Festival ()  {
 
     return (
     <>
