@@ -14,7 +14,7 @@ export default function Footer() {
         <div className="footer-column1">
           <Logo />
           <div className="footer-column1-socialnetwork">
-            <p>Suivez-nous !</p>
+            <p className="to-uppercase">Suivez-nous !</p>
             <SocialNetwork />
           </div>
           <ListLink />

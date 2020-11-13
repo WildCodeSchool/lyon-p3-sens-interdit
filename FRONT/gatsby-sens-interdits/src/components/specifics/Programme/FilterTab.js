@@ -1,13 +1,13 @@
 import React from 'react';
 import './FilterTab.css'
 
-export default function FilterTab(){
-    return(
-        <div className="global-FilterTab">
-            <h2>FILTREZ PAR :</h2>
-            <p>PAYS</p>
-            <p>METTEUR EN SCÈNE</p>
-            <p>LIEUX</p>
+export default function FilterTab() {
+    return (
+        <div className="global-FilterTab to-uppercase">
+            <h2>Filtrer par :</h2>
+            <p>Pays</p>
+            <p>Metteur en scène</p>
+            <p>Lieux</p>
         </div>
     )
 }

@@ -7,7 +7,7 @@ import CalendarLarge from "../../globals/Calendar/CalendarLarge"
 
 export default function ProgrammePage() {
   return (
-    <div class="global-programmepage">
+    <div className="global-programmepage">
       <div className="slider">
         <img src={photoTest} alt="sens" />
       </div>

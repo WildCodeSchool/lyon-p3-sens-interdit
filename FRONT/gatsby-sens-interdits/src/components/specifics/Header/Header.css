@@ -71,6 +71,11 @@ header {
   margin-right: 10px;
 }
 
+/*magnifier search bar*/
+.search-magnifier img{
+  width: 40px;
+}
+
 /* HEADER ROW 2 */
 .header-row2 {
   display: flex;

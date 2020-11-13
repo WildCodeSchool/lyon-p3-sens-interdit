@@ -24,7 +24,7 @@ const SpectaclePage = () => {
                 <TabSystemH />
 
                 <div className="content">
-                    <p className="content-title">Autour du spectacle</p>
+                    <p className="content-title to-uppercase">Autour du spectacle</p>
                     <div className="display-miniTab">
                         <Thumbnail
                             affiche={photoTest}

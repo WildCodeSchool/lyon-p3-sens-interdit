@@ -26,7 +26,6 @@ footer {
   margin-top: 20px;
 }
 .footer-column1-socialnetwork p {
-  text-transform: uppercase;
   font-size: 20px;
 }
 
@@ -72,6 +71,11 @@ footer {
   margin: 20px 0;
   width: 650px;
 }
+
+.newsletter-title :nth-child(1n){
+  margin:0;
+}
+
 .newsletter-container .input-newsletter {
   align-self: center;
   background: #3b3b3b;

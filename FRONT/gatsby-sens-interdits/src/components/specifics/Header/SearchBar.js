@@ -8,8 +8,7 @@ export default function SearchBar() {
             <img
                 src={magnifier}
                 alt="search-magnifier"
-                style={{ filter: "invert(100%)" }}
-                width="40"
+                className="filter-invert"
             />
         </div>
     )
