@@ -25,7 +25,7 @@
   background-color: grey;
 }
 
-.global-homepage .display-tab-sticker .display-tab-title {
+.display-tab-sticker .display-tab-title {
   position: absolute;
   z-index: 1;
   color: white;
@@ -35,11 +35,11 @@
   font-size: 30px;
 }
 
-.global-homepage .display-tab-sticker .display-tab-logo {
+.display-tab-sticker .display-tab-logo {
   position: absolute;
   left: -15%;
 }
 
-.global-homepage .display-tab-sticker .display-tab-title p {
+.display-tab-sticker .display-tab-title p {
   max-width: 200px;
 }

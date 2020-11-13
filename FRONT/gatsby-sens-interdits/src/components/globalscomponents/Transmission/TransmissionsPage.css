@@ -1,0 +1,26 @@
+.transmission-grid-layout {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 0;
+  grid-template-areas: "transmission-public transmission-pro";
+}
+
+div.red-arrow {
+  position: relative;
+  top: 0;
+  left: 60px;
+  width: 40px;
+  height: 45px;
+  background-color: #e30613;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+
+.transmission-content h1 {
+  font-family: "Gotham bold", sans-serif;
+  font-weight: 1000;
+  text-transform: uppercase;
+}
+
+.transmission-content p {
+  font-family: "Gotham light", sans-serif;
+}

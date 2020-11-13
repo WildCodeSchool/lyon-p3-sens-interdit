@@ -9,6 +9,12 @@
   src: url(fonts/gothamLight/Metropolis-Medium.otf) format("otf"),
     url(fonts/gothamLight/Metropolis-MediumItalic.otf) format("otf");
 }
+
+.global-margin {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
 body {
   margin: 0;
   padding: 0;
