@@ -10,16 +10,16 @@ import Newsletter from './Newsletter';
 export default function Footer(){
     return(
 <footer>
-      <div class="wrapper-footer">
-        <div class="footer-column1">
+      <div className="wrapper-footer">
+        <div className="footer-column1">
           <Logo/>
-          <div class="footer-column1-socialnetwork">
+          <div className="footer-column1-socialnetwork">
             <p>Suivez-nous !</p>
             <SocialNetwork />
           </div>
           <ListLink />
         </div>
-        <div class="footer-column2">
+        <div className="footer-column2">
         <Newsletter />
         <AdressList />
         </div>
