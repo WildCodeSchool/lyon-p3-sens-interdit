@@ -42,6 +42,11 @@ footer {
   list-style: none;
 }
 
+.footer-list-link ul a {
+  color: rgb(190, 190, 190);
+
+}
+
 .footer-list-link ul li:before {
   content: "";
   border-color: transparent rgb(126, 6, 6);
