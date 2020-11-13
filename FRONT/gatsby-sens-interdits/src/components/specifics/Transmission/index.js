@@ -1,7 +1,15 @@
 import React from "react";
-import ImageCarousel from "../Carousel/ImageCarousel";
-import DisplayTabMenu from "../homepagecomponents/DisplayTabMenu";
+import { Carousel } from "react-responsive-carousel";
+import DisplayTabMenu from "../../globals/DisplayTabMenu/DisplayTabMenu";
 import "./TransmissionsPage.css";
+import placeholder from "../../../assets/img/placeholder-photo-slider.jpg";
+
+const imageTransmission = [
+  {
+    title: "placeholder",
+    url: "",
+  },
+];
 
 const datasTransmission = {
   title: "Ateliers-Transmission",
@@ -29,7 +37,20 @@ const datasPro = [
 function TransmissionsPage() {
   return (
     <>
-      <ImageCarousel />
+      <Carousel
+        autoPlay={true}
+        infiniteLoop={true}
+        interval={5000}
+        showThumbs={false}
+        showStatus={false}
+        showIndicators={false}
+      >
+        {imageTransmission.map(image => (
+          <div className="size-adjustment">
+            <img src={placeholder} alt={image.title} />
+          </div>
+        ))}
+      </Carousel>
       <div className="global-margin">
         <div className="red-arrow"></div>
         <div className="transmission-content">
