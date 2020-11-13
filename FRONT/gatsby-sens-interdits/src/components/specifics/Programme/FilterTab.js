@@ -3,7 +3,7 @@ import './FilterTab.css'
 
 export default function FilterTab() {
     return (
-        <div className="global-FilterTab to-uppercase">
+        <div className="global-Filter-tab to-uppercase">
             <h2>Filtrer par :</h2>
             <p>Pays</p>
             <p>Metteur en scène</p>

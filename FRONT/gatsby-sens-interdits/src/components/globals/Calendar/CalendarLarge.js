@@ -4,7 +4,7 @@ import CalendarOneDay from "./CalendarOneDay"
 
 export default function CalendarLarge() {
   return (
-    <div className="global-CalendarLarge">
+    <div className="global-calendar-large">
       <CalendarOneDay day="mer" num="16" month="Oct" />
       <CalendarOneDay day="jeu" num="17" month="Oct" />
       <CalendarOneDay day="ven" num="18" month="Oct" />

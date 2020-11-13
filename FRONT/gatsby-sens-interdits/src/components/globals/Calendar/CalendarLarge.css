@@ -1,4 +1,4 @@
-.global-CalendarLarge {
+.global-calendar-large {
   grid-area: calendar;
   display: flex;
   flex-direction: row;

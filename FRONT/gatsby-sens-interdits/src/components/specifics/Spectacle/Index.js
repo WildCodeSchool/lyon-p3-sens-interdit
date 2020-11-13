@@ -11,7 +11,7 @@ const SpectaclePage = () => {
     return (
         <div>
             <ImageCarousel />
-            <div className="content-spectaclepage">
+            <div className="content-spectacle-page">
                 <div className="country-label">
                     <p>Kosovo</p>
                 </div>
@@ -20,7 +20,7 @@ const SpectaclePage = () => {
                 <TabSystemH />
                 <div className="content">
                     <p className="content-title to-uppercase">Autour du spectacle</p>
-                    <div className="display-miniTab">
+                    <div className="display-mini-tab">
                         <Thumbnail
                             affiche={photoTest}
                             date="26 Octobre"

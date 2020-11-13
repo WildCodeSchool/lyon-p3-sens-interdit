@@ -29,20 +29,20 @@ footer {
   font-size: 20px;
 }
 
-.footer-listlink {
+.footer-list-link {
   display: flex;
   margin-top: 20px;
   font-size: 16px;
 }
 
-.footer-listlink ul {
+.footer-list-link ul {
   margin: 0;
   margin-left: 10px;
   padding: 0 1em;
   list-style: none;
 }
 
-.footer-listlink ul li:before {
+.footer-list-link ul li:before {
   content: "";
   border-color: transparent rgb(126, 6, 6);
   border-style: solid;

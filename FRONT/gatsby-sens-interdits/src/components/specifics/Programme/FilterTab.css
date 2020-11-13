@@ -1,4 +1,4 @@
-.global-FilterTab {
+.global-Filter-tab {
   width: 1080px;
   display: flex;
   justify-content: flex-end;
@@ -6,13 +6,13 @@
   margin: auto;
 }
 
-.global-FilterTab h2 {
+.global-Filter-tab h2 {
   font-weight: bold;
   font-size: 20px;
   margin-right: 20px;
 }
 
-.global-FilterTab p {
+.global-Filter-tab p {
   margin-right: 10px;
   padding-right: 10px;
   border-right: solid red 1px;

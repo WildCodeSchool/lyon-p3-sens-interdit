@@ -8,12 +8,12 @@ import ImageCarousel from "../../globals/Carousel/ImageCarousel"
 
 export default function ProgrammePage() {
   return (
-    <div className="global-programmepage">
+    <div className="global-programme-page">
       <ImageCarousel />
-      <div className="content-programmepage">
+      <div className="content-programme-page">
         <CalendarLarge />
         <FilterTab />
-        <div className="display-miniTab">
+        <div className="display-mini-tab">
           <Thumbnail
             affiche={photoTest}
             date="26 Octobre"

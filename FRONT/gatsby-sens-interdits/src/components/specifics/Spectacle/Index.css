@@ -1,4 +1,4 @@
-.content-spectaclepage {
+.content-spectacle-page {
   width: 1080px;
   margin: 0 auto;
   display: grid;
@@ -40,7 +40,7 @@
   margin-bottom: 32px;
 }
 
-.display-miniTab {
+.display-mini-tab {
   display: flex;
   flex-wrap: wrap;
   width: 1080px;

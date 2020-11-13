@@ -1,4 +1,4 @@
-.oneDay {
+.one-day {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,11 +9,11 @@
   border-left: solid black 1px;
 }
 
-.oneDay p {
+.one-day p {
   color: rgb(94, 94, 94);
 }
 
-.oneDay p strong {
+.one-day p strong {
   font-size: 20px;
   color: black;
 }
