@@ -1,14 +1,15 @@
 #festival-content {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 /*calendrier*/
 #festival-calendar{
     max-width: 1080px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 50px;
 }
-.global-CalendarLarge{
+.global-calendar-large {
     justify-content: flex-end;
 }
 /*content*/
@@ -19,26 +20,23 @@
 }
 #festival-description p {
     text-align: justify;
+    margin-bottom: 50px;
 }
 #festival-description h3 {
-    color: red;
+    color:#E30613;
 }
 /*Menu*/
 #festival-menu {
     max-width: 1080px;
     margin:auto;
-}
-#menu-container {
-    max-width: 1080px;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat (3,400px);
+    grid-template-columns: repeat (3,33vw);
+    grid-gap: 10px;
     grid-template-areas: "link1 link2 link3"
                          "link4 link5 link6"
                          "link7 link8 link9";
 }
-.isplay-tab-sticker {
-    grid-area : link2;
-    width: 400px;
+.display-tab-sticker {
+    margin: 0;
 }
-
