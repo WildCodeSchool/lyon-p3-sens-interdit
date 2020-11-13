@@ -31,16 +31,16 @@ header {
 .fr-en span {
   margin-left: 5px;
   margin-right: 5px;
-  color: red;
+  color: #E30613;
 }
 
 /* BOUTON HIGHLIGHT */
 .highlight {
   color: #000000;
   background: white;
-  border-top: solid red 4px;
-  border-left: solid red 1px;
-  border-right: solid red 1px;
+  border-top: solid #E30613 4px;
+  border-left: solid #E30613 1px;
+  border-right: solid #E30613 1px;
   border-radius: 0 0 7px 7px;
   font-weight: bold;
   font-size: 10px;
@@ -53,7 +53,7 @@ header {
   padding: 0;
 }
 .nav-bar li {
-  border-right: solid red 2px;
+  border-right: solid #E30613 2px;
   padding: 0 5px;
   width: max-content;
 }
@@ -124,7 +124,7 @@ p {
   margin-bottom: -8px;
 }
 .next-festival-date p span {
-  color: red;
+  color: #E30613;
 }
 
 /* Lyon metropole */

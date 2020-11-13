@@ -49,7 +49,7 @@ footer {
 
 .footer-list-link ul li:before {
   content: "";
-  border-color: transparent rgb(126, 6, 6);
+  border-color: transparent #E30613;
   border-style: solid;
   border-width: 0.35em 0 0.35em 0.45em;
   display: block;

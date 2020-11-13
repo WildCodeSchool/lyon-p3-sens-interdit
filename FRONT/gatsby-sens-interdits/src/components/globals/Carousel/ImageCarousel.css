@@ -24,7 +24,7 @@ div.red {
   left: calc(50vw - 225px);
   z-index: 1;
   align-self: center;
-  background-color: rgb(255, 0, 0);
+  background-color: #E30613;
   mix-blend-mode: multiply;
   width: 450px;
   height: 150px;
