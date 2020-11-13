@@ -1,4 +1,5 @@
 import React from 'react';
+import './Header.css'
 import Navbar from './Navbar';
 import SocialNetwork from './SocialNetwork';
 import Ticketing from './Ticketing';
@@ -7,15 +8,16 @@ import Logo from './Logo';
 import SearchBar from './SearchBar';
 import FrEn from './FrEn'
 import NewsletterBtn from './NewsletterBtn';
-import './header-footer.css'
 
 
-export default function Header(){
-    return(
-<header>
+export default function Header() {
+  return (
+    <header>
       <div className="wrapper-header">
         <div className="header-row1">
-          <FrEn />
+          {/* Option not functionnal yet
+          <FrEn /> 
+          */}
           <NewsletterBtn />
           <Navbar />
           <Ticketing />
@@ -29,5 +31,5 @@ export default function Header(){
         </div>
       </div>
     </header>
-    )
+  )
 }

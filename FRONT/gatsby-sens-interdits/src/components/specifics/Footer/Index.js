@@ -1,18 +1,18 @@
 import React from 'react';
-
-import Logo from '../headercomponents/Logo';
-import SocialNetwork from '../headercomponents/SocialNetwork';
+import './Footer.css'
+import Logo from '../Header/Logo';
+import SocialNetwork from '../Header/SocialNetwork';
 import AdressList from './AdressList';
 import ListLink from './ListLink';
 import Newsletter from './Newsletter';
 
 
-export default function Footer(){
-    return(
-<footer>
+export default function Footer() {
+  return (
+    <footer>
       <div className="wrapper-footer">
         <div className="footer-column1">
-          <Logo/>
+          <Logo />
           <div className="footer-column1-socialnetwork">
             <p>Suivez-nous !</p>
             <SocialNetwork />
@@ -20,10 +20,10 @@ export default function Footer(){
           <ListLink />
         </div>
         <div className="footer-column2">
-        <Newsletter />
-        <AdressList />
+          <Newsletter />
+          <AdressList />
         </div>
       </div>
     </footer>
-    )
+  )
 }

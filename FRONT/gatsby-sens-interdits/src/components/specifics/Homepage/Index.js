@@ -1,7 +1,7 @@
 import React from "react"
-import "./Homepage.css"
+import "./Index.css"
 import lefestival from "../../../img/photosFiltre/lefestival.png"
-import DisplayTabMenu from "./DisplayTabMenu"
+import DisplayTabMenu from '../../globals/DisplayTabMenu/DisplayTabMenu.js'
 import photoTest from "../../../img/img-sens-interdit.jpg"
 import aveclespublics from "../../../img/photosFiltre/aveclespublics.png"
 import spectaclesentournee from "../../../img/photosFiltre/spectaclesentournee.png"

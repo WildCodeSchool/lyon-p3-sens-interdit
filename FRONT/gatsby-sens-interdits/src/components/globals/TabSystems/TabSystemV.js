@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import AxiosCallToApi from "../AxiosCallToApi";
+import AxiosCallToApi from "../Function/AxiosCallToApi.js";
 import picto from "../../../img/picto.svg";
 import "./tabSystemV.css";
 
@@ -30,39 +30,39 @@ function TabSystemV() {
   return isLoading ? (
     <p>Loading please wait </p>
   ) : (
-    <div className="tab-moduleV">
-      {contentTab.map(tab => (
-        <div className="tab-moduleV">
-          <div className="tab-titleV">
-            <img
-              src={picto}
-              alt="pictogramme cliquable"
-              weight="30"
-              height="30"
-            />
-            <h3
-              id={tab.title}
+      <div className="tab-moduleV">
+        {contentTab.map(tab => (
+          <div className="tab-moduleV">
+            <div className="tab-titleV">
+              <img
+                src={picto}
+                alt="pictogramme cliquable"
+                weight="30"
+                height="30"
+              />
+              <h3
+                id={tab.title}
+                className={
+                  "tab-link" + " " + (activeClass === tab.title ? "active" : "")
+                }
+                id={tab.title}
+                onClick={handleOnClick}
+              >
+                {tab.title}
+              </h3>
+            </div>
+            <div
+              id="tab-contentV"
               className={
-                "tab-link" + " " + (activeClass === tab.title ? "active" : "")
+                activeTabContent === tab.title ? "active-tab" : "disabled-tab"
               }
-              id={tab.title}
-              onClick={handleOnClick}
             >
-              {tab.title}
-            </h3>
+              {tab.content}
+            </div>
           </div>
-          <div
-            id="tab-contentV"
-            className={
-              activeTabContent === tab.title ? "active-tab" : "disabled-tab"
-            }
-          >
-            {tab.content}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
+        ))}
+      </div>
+    );
 }
 
 export default TabSystemV;

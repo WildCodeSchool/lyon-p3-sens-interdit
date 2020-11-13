@@ -1,9 +1,9 @@
 import React from "react"
-import "./ProgrammePage.css"
+import "./Index.css"
 import photoTest from "../../../img/img-sens-interdit.jpg"
-import Thumbnail from "./../Thumbnail/Thumbnail"
+import Thumbnail from "../../globals/Thumbnail"
 import FilterTab from "./FilterTab"
-import CalendarLarge from "../Calendar/CalendarLarge"
+import CalendarLarge from "../../globals/Calendar/CalendarLarge"
 
 export default function ProgrammePage() {
   return (

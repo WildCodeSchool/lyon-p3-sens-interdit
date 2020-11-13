@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import AxiosCallToApi from "../AxiosCallToApi";
+import AxiosCallToApi from "../Function/AxiosCallToApi.js";
 import picto from "../../../img/picto.svg";
 import "./tabSystemH.css";
 
@@ -30,43 +30,43 @@ function TabSystemH() {
   return isLoading ? (
     <p>Loading please wait </p>
   ) : (
-    <div className="tab-module">
-      <div>
-        {contentTab.map(tab => (
-          <div className="tab-title">
-            <img
-              src={picto}
-              alt="pictogramme cliquable"
-              weight="30"
-              height="30"
-            />
-            <h3
-              id={tab.title}
+      <div className="tab-module">
+        <div>
+          {contentTab.map(tab => (
+            <div className="tab-title">
+              <img
+                src={picto}
+                alt="pictogramme cliquable"
+                weight="30"
+                height="30"
+              />
+              <h3
+                id={tab.title}
+                className={
+                  "tab-link" + " " + (activeClass === tab.title ? "active" : "")
+                }
+                id={tab.title}
+                onClick={handleOnClick}
+              >
+                {tab.title}
+              </h3>
+            </div>
+          ))}
+        </div>
+        <div>
+          {contentTab.map(tab => (
+            <div
+              id="tab-content"
               className={
-                "tab-link" + " " + (activeClass === tab.title ? "active" : "")
+                activeTabContent === tab.title ? "active-tab" : "disabled-tab"
               }
-              id={tab.title}
-              onClick={handleOnClick}
             >
-              {tab.title}
-            </h3>
-          </div>
-        ))}
+              {tab.content}
+            </div>
+          ))}
+        </div>
       </div>
-      <div>
-        {contentTab.map(tab => (
-          <div
-            id="tab-content"
-            className={
-              activeTabContent === tab.title ? "active-tab" : "disabled-tab"
-            }
-          >
-            {tab.content}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+    );
 }
 
 export default TabSystemH;

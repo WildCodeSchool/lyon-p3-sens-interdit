@@ -1,5 +1,5 @@
 import React from "react"
-import "./Thumbnail.css"
+import "./Index.css"
 import pictoPlus from "../../../img/picto+.svg"
 
 export default function Thumbnail(props) {
