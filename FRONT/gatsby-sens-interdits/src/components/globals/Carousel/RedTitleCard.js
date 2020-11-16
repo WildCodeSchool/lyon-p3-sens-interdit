@@ -2,7 +2,7 @@ import React from "react";
 import "./RedTitleCard.css";
 
 function RedTitleCard(props) {
-  return (
+  return props.displayed ? (
     <>
       <div className="red"></div>
       <div className="image-text">
@@ -10,6 +10,8 @@ function RedTitleCard(props) {
         <button>Réserver</button>
       </div>
     </>
+  ) : (
+    <></>
   );
 }
 

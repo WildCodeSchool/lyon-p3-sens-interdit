@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "workshop_transmissions",
+  "info": {
+    "name": "workshop_transmission",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "public_card_content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.credited-image-component"
+    },
+    "pro_card_content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.credited-image-component"
+    },
+    "slider_image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.medias-slider"
+    }
+  }
+}

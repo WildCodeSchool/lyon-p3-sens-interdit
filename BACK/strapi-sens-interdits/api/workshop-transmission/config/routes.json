@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/workshop-transmissions",
+      "handler": "workshop-transmission.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/workshop-transmissions/count",
+      "handler": "workshop-transmission.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/workshop-transmissions/:id",
+      "handler": "workshop-transmission.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/workshop-transmissions",
+      "handler": "workshop-transmission.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/workshop-transmissions/:id",
+      "handler": "workshop-transmission.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/workshop-transmissions/:id",
+      "handler": "workshop-transmission.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
