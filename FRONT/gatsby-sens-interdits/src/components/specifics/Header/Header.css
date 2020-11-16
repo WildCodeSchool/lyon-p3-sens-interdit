@@ -1,0 +1,152 @@
+/* HEADER CSS */
+header {
+  grid-area: header;
+  color: white;
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 160px;
+}
+
+.wrapper-header {
+  width: 1080px;
+  margin: 0 auto;
+}
+/* HEADER ROW 1 */
+.header-row1 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.fr-en {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: max-content;
+  font-size: 12px;
+}
+
+.fr-en span {
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #E30613;
+}
+
+/* BOUTON HIGHLIGHT */
+.highlight {
+  color: #000000;
+  background: white;
+  border-top: solid #E30613 4px;
+  border-left: solid #E30613 1px;
+  border-right: solid #E30613 1px;
+  border-radius: 0 0 7px 7px;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 0;
+}
+.nav-bar li {
+  border-right: solid #E30613 2px;
+  padding: 0 5px;
+  width: max-content;
+}
+.nav-bar :nth-last-child(1) {
+  border-right: none;
+}
+
+/* button billetterie et programme */
+.billetterie-programme {
+  display: flex;
+  align-items: flex-end;
+  margin-left: 10px;
+}
+.billetterie-programme a {
+  margin-right: 10px;
+}
+
+/*magnifier search bar*/
+.search-magnifier img{
+  width: 40px;
+}
+
+/* HEADER ROW 2 */
+.header-row2 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.main-logo {
+  margin-right: 20px;
+  margin-bottom: -40px;
+}
+.main-logo img {
+  width: 400px;
+}
+
+.next-festival-date {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  min-width: 180px;
+  height: 70px;
+  border-left: solid white 2px;
+}
+.next-festival-date,
+p {
+  margin: 0;
+}
+.next-festival-date .edition {
+  display: flex;
+}
+.next-festival-date .edition-text {
+  display: flex;
+  flex-direction: column;
+}
+.next-festival-date .edition :nth-child(1) {
+  font-size: 20px;
+}
+
+/* edition number */
+.next-festival-date .edition .edition-number {
+  font-size: 40px;
+  margin-bottom: -8px;
+}
+.next-festival-date p span {
+  color: #E30613;
+}
+
+/* Lyon metropole */
+.next-festival-date .edition-date :nth-child(3) {
+  font-size: 9px;
+}
+
+.social-network {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 0;
+  flex-grow: 1;
+  padding: 0;
+}
+.social-network a {
+  margin-left: 5px;
+  height: 30px;
+}
+
+.header-row2 .social-network {
+  justify-content: flex-end;
+  margin-right: 30px;
+}
+
+

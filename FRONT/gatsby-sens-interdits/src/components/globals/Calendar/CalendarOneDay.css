@@ -1,0 +1,19 @@
+.one-day {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 40px;
+  border-right: solid black 1px;
+  border-left: solid black 1px;
+}
+
+.one-day p {
+  color: rgb(94, 94, 94);
+}
+
+.one-day p strong {
+  font-size: 20px;
+  color: black;
+}
