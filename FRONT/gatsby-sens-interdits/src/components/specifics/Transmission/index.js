@@ -11,7 +11,7 @@ function TransmissionsPage() {
   const [datasPro, setDataPro] = useState([]);
   const [description, setDescription] = useState("");
 
-  const uriTransmissions = "workshop-transmissions/2";
+  const uriTransmissions = "transmissions/1";
 
   function datasTransmissionTreatment(data) {
     setDescription(data.content);
@@ -27,8 +27,11 @@ function TransmissionsPage() {
 
   return (
     <>
-      <ImageCarousel images={imagesCarousel} displayed={false} />
-
+      <ImageCarousel
+        isLoading={isLoading}
+        images={imagesCarousel}
+        displayed={false}
+      />
       <div className="global-margin">
         <div className="red-arrow"></div>
         <div className="transmission-content">

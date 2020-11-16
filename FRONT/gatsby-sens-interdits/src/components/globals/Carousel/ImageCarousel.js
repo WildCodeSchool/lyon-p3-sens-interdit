@@ -24,11 +24,8 @@ function ImageCarousel(props) {
         showIndicators={false}
       >
         {props.images.map(image => (
-          <div className="size-adjustment" id={image.image.name}>
-            <img
-              src={"http://localhost:1337" + image.image.url}
-              alt={image.image.name}
-            />
+          <div className="size-adjustment">
+            <img src={"http://localhost:1337" + image.url} alt={image.name} />
           </div>
         ))}
       </Carousel>
