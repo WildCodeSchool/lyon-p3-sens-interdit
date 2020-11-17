@@ -5,6 +5,10 @@
   grid-template-areas: "transmission-public transmission-pro";
 }
 
+.transmission-grid-layout div div.display-tab-sticker {
+  margin: 20px 0 20px 0;
+}
+
 .transmission-grid-layout span {
   color: #e30613;
 }
