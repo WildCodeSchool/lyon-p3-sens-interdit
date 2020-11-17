@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "global_menus",
+  "info": {
+    "name": "global_menu",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "global_menu_link": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.global-menu-link"
+    }
+  }
+}

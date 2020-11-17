@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_menu_global_menu_links",
+  "info": {
+    "name": "global_menu_link",
+    "icon": "unlink",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}
