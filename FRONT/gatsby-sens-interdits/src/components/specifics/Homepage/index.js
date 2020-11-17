@@ -5,7 +5,7 @@ import DisplayTabMenu from "../../globals/DisplayTabMenu/DisplayTabMenu.js";
 import aveclespublics from "../../../assets/img/photosFiltre/aveclespublics.png";
 import spectaclesentournee from "../../../assets/img/photosFiltre/spectaclesentournee.png";
 import lassociation from "../../../assets/img/photosFiltre/lassociation.png";
-import ImageCarousel from "../../globals/Carousel/ImageCarousel";
+//import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 
 export default function Homepage() {
   return (

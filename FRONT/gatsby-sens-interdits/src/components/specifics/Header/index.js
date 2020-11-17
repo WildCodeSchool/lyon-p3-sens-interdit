@@ -1,15 +1,13 @@
-import React from 'react';
-import './Header.css'
-import Navbar from './Navbar';
-import SocialNetwork from './SocialNetwork';
-import Ticketing from './Ticketing';
-import Edition from './Edition';
-import Logo from './Logo';
-import SearchBar from './SearchBar';
-import NewsletterBtn from './NewsletterBtn';
+import React from "react";
+import "./Header.css";
+//import Navbar from './Navbar';
+import SocialNetwork from "./SocialNetwork";
+import Ticketing from "./Ticketing";
+import Edition from "./Edition";
+import Logo from "./Logo";
+import SearchBar from "./SearchBar";
+import NewsletterBtn from "./NewsletterBtn";
 // import FrEn from './FrEn'
-
-
 
 export default function Header() {
   return (
@@ -20,7 +18,7 @@ export default function Header() {
           <FrEn /> 
           */}
           <NewsletterBtn />
-          <Navbar />
+          {/* <Navbar /> */}
           <Ticketing />
           <SearchBar />
         </div>
@@ -31,5 +29,5 @@ export default function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }
