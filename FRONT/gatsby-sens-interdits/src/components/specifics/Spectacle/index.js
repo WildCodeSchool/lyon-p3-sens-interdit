@@ -26,7 +26,7 @@ const SpectaclePage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="global-spectacle-page">
       <ImageCarousel
         isLoading={isLoading}
         title={spectacleTitle}

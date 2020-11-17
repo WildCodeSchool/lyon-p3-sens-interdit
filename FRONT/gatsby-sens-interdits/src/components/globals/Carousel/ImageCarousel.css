@@ -11,9 +11,49 @@ div.carousel-loading img {
 
 div.size-adjustment {
   width: auto;
-  height: 450px;
+  max-height: calc(100vh - 280px); /*450px*/
 }
 
 div.size-adjustment img {
   transform: translate(0, -25%);
+}
+
+div.carousel-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.red {
+  position: absolute;
+  z-index: 1;
+  align-self: center;
+  background-color: #e30613;
+  mix-blend-mode: multiply;
+  width: 450px;
+  height: 150px;
+}
+
+div.image-text {
+  z-index: 1;
+  text-align: center;
+  position: absolute;
+}
+
+div.image-text p {
+  color: #fff;
+  font-size: 26px;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+
+div.image-text button {
+  color: white;
+  font-size: 20px;
+  background-color: transparent;
+  padding: 5px;
+  border: 1px dotted #fff;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
