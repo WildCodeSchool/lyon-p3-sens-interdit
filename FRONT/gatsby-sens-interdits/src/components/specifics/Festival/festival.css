@@ -1,42 +1,40 @@
 #festival-content {
-    margin-left: 50px;
-    margin-right: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 /*calendrier*/
-#festival-calendar{
-    max-width: 1080px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
+#festival-calendar {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
 }
 .global-calendar-large {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 /*content*/
 #festival-description {
-    max-width: 1080px;
-    margin-left: auto;
-    margin-right: auto;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
 }
 #festival-description p {
-    text-align: justify;
-    margin-bottom: 50px;
+  text-align: justify;
+  margin-bottom: 50px;
 }
 #festival-description h3 {
-    color:#E30613;
+  color: #e30613;
 }
 /*Menu*/
 #festival-menu {
-    max-width: 1080px;
-    margin:auto;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat (3,33vw);
-    grid-gap: 10px;
-    grid-template-areas: "link1 link2 link3"
-                         "link4 link5 link6"
-                         "link7 link8 link9";
-}
-.display-tab-sticker {
-    margin: 0;
+  max-width: 1080px;
+  margin: auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat (3, 33vw);
+  grid-gap: 10px;
+  grid-template-areas:
+    "link1 link2 link3"
+    "link4 link5 link6"
+    "link7 link8 link9";
 }

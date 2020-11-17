@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Index.css";
+import AxiosCallToApi from "../../../utils/AxiosCallToApi";
 import SpectacleInfos from "./SpectacleInfos";
 import TabSystemH from "../../globals/TabSystems/TabSystemH";
 import Thumbnail from "../../globals/Thumbnail";
@@ -8,9 +9,30 @@ import CalendarLarge from "../../globals/Calendar/CalendarLarge";
 import photoTest from "../../../assets/img/img-sens-interdit.jpg";
 
 const SpectaclePage = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [images, setImages] = useState([]);
+  const [spectacleTitle, setSpectacleTitle] = useState("");
+
+  function dataImageTreatment(data) {
+    setSpectacleTitle(data[0].title);
+    setImages(data[0].carousel.image);
+    setIsLoading(false);
+  }
+
+  const uriSpectacles = "spectacles";
+
+  useEffect(() => {
+    AxiosCallToApi(uriSpectacles, dataImageTreatment);
+  }, []);
+
   return (
     <div className="global-spectacle-page">
-      <ImageCarousel />
+      <ImageCarousel
+        isLoading={isLoading}
+        title={spectacleTitle}
+        images={images.map(image => image.image)}
+        displayed={true}
+      />
       <div className="content-spectacle-page">
         <div className="country-label">
           <p>Kosovo</p>
