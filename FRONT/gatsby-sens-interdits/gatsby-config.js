@@ -10,9 +10,7 @@ module.exports = {
         apiURL: process.env.API_URL || "http://localhost:1337",
         queryLimit: -1, // -1 = No limits // Default to 100
         contentTypes: [`festival`, `spectacle`],
-        //If using single types place them in this array.
-        //singleTypes: [`credited_image`],
-        // Possibility to login with a strapi user, when content types are not publically available (optional).
+        singleTypes: [`global-menu`]
       },
     },
   ],
