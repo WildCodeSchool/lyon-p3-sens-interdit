@@ -5,11 +5,11 @@
 
 .global-programme-page .slider img {
   width: 100%;
-  max-height: 500px;
+  /* max-height: 500px; */
   object-fit: cover;
 }
 
-.global-homepage .content-homepage {
+.global-programme-page .content-programme-page {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

@@ -1,10 +1,19 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
+require("dotenv").config({
+  path: `.env`,
+});
 
 module.exports = {
-  /* Your site config here */
-  plugins: [],
-}
+  plugins: [
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: process.env.API_URL || "http://localhost:1337",
+        queryLimit: -1, // -1 = No limits // Default to 100
+        contentTypes: [`festival`, `spectacle`],
+        //If using single types place them in this array.
+        //singleTypes: [`credited_image`],
+        // Possibility to login with a strapi user, when content types are not publically available (optional).
+      },
+    },
+  ],
+};
