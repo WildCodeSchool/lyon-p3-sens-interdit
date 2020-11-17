@@ -57,6 +57,11 @@ header {
   padding: 0 5px;
   width: max-content;
 }
+
+.nav-bar li a {
+  color: white;
+}
+
 .nav-bar :nth-last-child(1) {
   border-right: none;
 }
