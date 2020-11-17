@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Index.css";
 import photoTest from "../../../assets/img/img-sens-interdit.jpg";
 import Thumbnail from "../../globals/Thumbnail";
-import FilterTab from "./FilterTab";
 import CalendarLarge from "../../globals/Calendar/CalendarLarge";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 
-export default function ProgrammePage(props) {
+export default function ProgrammePage() {
   const [list, setList] = useState(props.list);
 
   useEffect(() => {
@@ -33,7 +32,7 @@ export default function ProgrammePage(props) {
   }
 
   const affichageList = () => {
-    console.log("AAAAAAAAAAAAAAAA", list);
+    console.log("AAAAAAAAAAAAAAAA", "list");
     if (list.length === 0) {
       return (
         <img
@@ -43,16 +42,38 @@ export default function ProgrammePage(props) {
       );
     } else {
       return list.map(spectacle => {
+        console.log(spectacle.all_photos.photo_1);
         return (
           <Thumbnail
             key={
-              spectacle.node.id
+              spectacle.titre +
+              Math.floor(Math.random() * 10) +
+              Math.floor(Math.random() * 10)
             }
-            affiche={photoTest}
-            date={spectacle.node.created_at}
-            country={"inconnu"}
-            name={spectacle.node.title}
-            team={"inconnu"}
+            affiche={
+              spectacle.all_photos.photo_1 !== undefined
+                ? spectacle.all_photos.photo_1
+                : photoTest
+            }
+            date={
+              spectacle.info_pratique.dates === undefined ||
+              spectacle.info_pratique.dates.date_1 === undefined
+                ? "inconnu"
+                : spectacle.info_pratique.dates.date_1
+            }
+            country={
+              spectacle.credits === undefined ||
+              spectacle.credits.pays === undefined
+                ? "inconnu"
+                : spectacle.credits.pays
+            }
+            name={spectacle.titre}
+            team={
+              spectacle.credits === undefined ||
+              spectacle.credits.auteur === undefined
+                ? "inconnu"
+                : spectacle.credits.auteur
+            }
           />
         );
       });
@@ -63,93 +84,22 @@ export default function ProgrammePage(props) {
       <ImageCarousel />
       <div className="content-programme-page">
         <CalendarLarge />
-        <FilterTab />
-        <div className="display-mini-tab">
-          <Thumbnail
-            affiche={photoTest}
-            date="26 Octobre"
-            country="Russie"
-            name="Titre du spectacle"
-            team="Metteur en scène"
-          />
-          <Thumbnail
-            affiche={photoTest}
-            date="26 Octobre"
-            country="Russie"
-            name="Titre du spectacle"
-            team="Metteur en scène"
-          />
-          <Thumbnail
-            affiche={photoTest}
-            date="26 Octobre"
-            country="Russie"
-            name="Titre du spectacle"
-            team="Metteur en scène"
-          />
-          <Thumbnail
-            affiche={photoTest}
-            date="26 Octobre"
-            country="Russie"
-            name="Titre du spectacle"
-            team="Metteur en scène"
-          />
-          <Thumbnail
-            affiche={photoTest}
-            date="26 Octobre"
-            country="Russie"
-            name="Titre du spectacle"
-            team="Metteur en scène"
-          />
-          <Thumbnail
-            affiche={photoTest}
-            date="26 Octobre"
-            country="Russie"
-            name="Titre du spectacle"
-            team="Metteur en scène"
-          />
-          <Thumbnail
-            affiche={photoTest}
-            date="26 Octobre"
-            country="Russie"
-            name="Titre du spectacle"
-            team="Metteur en scène"
-          />
-          <Thumbnail
-            affiche={photoTest}
-            date="26 Octobre"
-            country="Russie"
-            name="Titre du spectacle"
-            team="Metteur en scène"
-          />
-          <Thumbnail
-            affiche={photoTest}
-            date="26 Octobre"
-            country="Russie"
-            name="Titre du spectacle"
-            team="Metteur en scène"
-          />
-          <Thumbnail
-            affiche={photoTest}
-            date="26 Octobre"
-            country="Russie"
-            name="Titre du spectacle"
-            team="Metteur en scène"
-          />
-          <Thumbnail
-            affiche={photoTest}
-            date="26 Octobre"
-            country="Russie"
-            name="Titre du spectacle"
-            team="Metteur en scène"
-          />
-          <Thumbnail
-            affiche={photoTest}
-            date="26 Octobre"
-            country="Russie"
-            name="Titre du spectacle"
-            team="Metteur en scène"
-          />
+        <div className="global-FilterTab">
+          <h2> FILTREZ PAR: </h2>
+          <a href="#" onClick={countryFilter}>
+            <p> PAYS </p>
+          </a>
+          <a href="#" onClick={authorFilter}>
+            <p> METTEUR EN SCÈNE </p>
+          </a>
+          <a href="#" onClick={placeFilter}>
+            <p> LIEUX </p>
+          </a>
+          <a href="#" onClick={resetFilter}>
+            <h3> supprimer </h3>
+          </a>
         </div>
+        <div className="display-miniTab"> {affichageList(list)} </div>
       </div>
     </div>
   );
