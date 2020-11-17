@@ -1,0 +1,441 @@
+{
+  "kind": "collectionType",
+  "collectionName": "oldarchives",
+  "info": {
+    "name": "oldarchive",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "archive": {
+      "type": "string"
+    },
+    "titre": {
+      "type": "string"
+    },
+    "auteur": {
+      "type": "string"
+    },
+    "credits_mise_en_scene_1": {
+      "type": "text"
+    },
+    "credits_pays": {
+      "type": "string"
+    },
+    "credits_act": {
+      "type": "richtext"
+    },
+    "credits_adaptation": {
+      "type": "text"
+    },
+    "credits_direction_chorale": {
+      "type": "text"
+    },
+    "credits_creation_integrale": {
+      "type": "string"
+    },
+    "presentation": {
+      "type": "richtext"
+    },
+    "info_pratique_duree": {
+      "type": "string"
+    },
+    "info_pratique_lieu": {
+      "type": "richtext"
+    },
+    "info_pratique_date_1": {
+      "type": "string"
+    },
+    "info_pratique_date_2": {
+      "type": "string"
+    },
+    "info_pratique_date_3": {
+      "type": "string"
+    },
+    "info_pratique_a_noter": {
+      "type": "richtext"
+    },
+    "photo_1": {
+      "type": "richtext"
+    },
+    "photo_2": {
+      "type": "richtext"
+    },
+    "photo_4": {
+      "type": "richtext"
+    },
+    "photo_5": {
+      "type": "richtext"
+    },
+    "photo_6": {
+      "type": "richtext"
+    },
+    "credits_dramaturge": {
+      "type": "string"
+    },
+    "credits_createur_lumiere": {
+      "type": "string"
+    },
+    "credits_soutien": {
+      "type": "richtext"
+    },
+    "info_pratique_date_4": {
+      "type": "string"
+    },
+    "tournee_date_1": {
+      "type": "text"
+    },
+    "tournee_date_2": {
+      "type": "text"
+    },
+    "tournee_date_3": {
+      "type": "text"
+    },
+    "credits_distribution_texte": {
+      "type": "text"
+    },
+    "credits_scenographie": {
+      "type": "text"
+    },
+    "credits_lumiere": {
+      "type": "text"
+    },
+    "credits_son": {
+      "type": "text"
+    },
+    "credits_production": {
+      "type": "text"
+    },
+    "info_pratique_tarifs_plein_tarif": {
+      "type": "string"
+    },
+    "info_pratique_tarifs_tarif_reduit": {
+      "type": "string"
+    },
+    "info_pratique_tarifs_moins_26_ans": {
+      "type": "string"
+    },
+    "info_pratique_tarifs_rsa": {
+      "type": "string"
+    },
+    "info_pratique_hors_scene": {
+      "type": "text"
+    },
+    "photo_7": {
+      "type": "text"
+    },
+    "photo_8": {
+      "type": "text"
+    },
+    "photo_9": {
+      "type": "text"
+    },
+    "photo_10": {
+      "type": "text"
+    },
+    "photo_11": {
+      "type": "text"
+    },
+    "tournee_date_4": {
+      "type": "string"
+    },
+    "tournee_date_5": {
+      "type": "string"
+    },
+    "tournee_date_6": {
+      "type": "string"
+    },
+    "photo_12": {
+      "type": "text"
+    },
+    "credits_act_body_revolution": {
+      "type": "text"
+    },
+    "credits_act_waiting": {
+      "type": "text"
+    },
+    "credits_video": {
+      "type": "text"
+    },
+    "credits_corealisation": {
+      "type": "text"
+    },
+    "credits_accessoirist": {
+      "type": "text"
+    },
+    "credits_collaboration": {
+      "type": "text"
+    },
+    "credits_production_delegue": {
+      "type": "text"
+    },
+    "info_pratique_date_5": {
+      "type": "string"
+    },
+    "credits_compagnie": {
+      "type": "text"
+    },
+    "soutien": {
+      "type": "text"
+    },
+    "info_pratique_date_6": {
+      "type": "string"
+    },
+    "credits_assistant_mise_scene": {
+      "type": "text"
+    },
+    "credits_presse": {
+      "type": "richtext"
+    },
+    "info_pratique_dates": {
+      "type": "string"
+    },
+    "credits_dramaturgie": {
+      "type": "string"
+    },
+    "credits_conseil_musical": {
+      "type": "string"
+    },
+    "credits_orchestration": {
+      "type": "string"
+    },
+    "credits_supervision": {
+      "type": "string"
+    },
+    "credits_createur_son": {
+      "type": "string"
+    },
+    "credits_createur_video": {
+      "type": "string"
+    },
+    "credits_conception_mise_en_scene": {
+      "type": "text"
+    },
+    "credits_ecriture": {
+      "type": "text"
+    },
+    "credits_coordination_generale": {
+      "type": "string"
+    },
+    "credits_assistanat_mise_en_scene": {
+      "type": "text"
+    },
+    "credits_mediatrice_culturel": {
+      "type": "text"
+    },
+    "credits_choregraphe": {
+      "type": "text"
+    },
+    "credits_collaboration_artistique": {
+      "type": "text"
+    },
+    "credits_scenographe": {
+      "type": "text"
+    },
+    "credits_distribution_recherche": {
+      "type": "text"
+    },
+    "credits_scenographie_costumes": {
+      "type": "text"
+    },
+    "credits_assistantes_scenographie_costumes": {
+      "type": "text"
+    },
+    "credits_assistantes_mise_en_scene": {
+      "type": "text"
+    },
+    "credits_administration_production": {
+      "type": "text"
+    },
+    "credits_figuration_video": {
+      "type": "text"
+    },
+    "credits_fabrication_marionnette": {
+      "type": "text"
+    },
+    "credits_coproductions": {
+      "type": "richtext"
+    },
+    "credits_soutien_tournee": {
+      "type": "text"
+    },
+    "credits_conception": {
+      "type": "text"
+    },
+    "photo_13": {
+      "type": "text"
+    },
+    "credits_equipe_musicien": {
+      "type": "text"
+    },
+    "credits_direction_musicale": {
+      "type": "string"
+    },
+    "credits_musiciens": {
+      "type": "text"
+    },
+    "creditsd_apres": {
+      "type": "text"
+    },
+    "credits_en_collaboration": {
+      "type": "text"
+    },
+    "credits_partenariat": {
+      "type": "text"
+    },
+    "credits_anime_par": {
+      "type": "text"
+    },
+    "credits_choeur": {
+      "type": "text"
+    },
+    "credits_greco_dramaturge": {
+      "type": "string"
+    },
+    "credits_hors_scene": {
+      "type": "richtext"
+    },
+    "credits_hors_scene_2": {
+      "type": "richtext"
+    },
+    "info_pratique_tarifs_full_price": {
+      "type": "string"
+    },
+    "info_pratique_tarifs_reduced_rate": {
+      "type": "string"
+    },
+    "credits_mise_en_scene": {
+      "type": "string"
+    },
+    "credits_dramaturgie_production": {
+      "type": "string"
+    },
+    "credits_assistante_mise_scene": {
+      "type": "text"
+    },
+    "credits_direction_technique": {
+      "type": "string"
+    },
+    "credits_regie_son": {
+      "type": "string"
+    },
+    "credits_conseil_costumes": {
+      "type": "text"
+    },
+    "credits_conseil_maquillage": {
+      "type": "string"
+    },
+    "credits_diffusion": {
+      "type": "text"
+    },
+    "credits_accueil": {
+      "type": "string"
+    },
+    "credits_choregraphie": {
+      "type": "string"
+    },
+    "credits_costumes": {
+      "type": "string"
+    },
+    "credits_marionnettes": {
+      "type": "string"
+    },
+    "credits_partenaires": {
+      "type": "text"
+    },
+    "credits_projet_co_finance": {
+      "type": "text"
+    },
+    "credits_coordination_tournee_francaise": {
+      "type": "text"
+    },
+    "info_pratique_tarifs_abonnes": {
+      "type": "text"
+    },
+    "info_pratique_tarifs_tarif_normal": {
+      "type": "string"
+    },
+    "info_pratique_tarifs_demandeurs_emploi": {
+      "type": "string"
+    },
+    "info_pratique_soutien": {
+      "type": "text"
+    },
+    "credits_interpretation": {
+      "type": "text"
+    },
+    "credits_images_animations": {
+      "type": "text"
+    },
+    "credits_images_graphisme": {
+      "type": "text"
+    },
+    "credits_mix_images": {
+      "type": "string"
+    },
+    "credits_post_production_images": {
+      "type": "text"
+    },
+    "credits_conception_decor_construction": {
+      "type": "text"
+    },
+    "credits_chargee_production": {
+      "type": "string"
+    },
+    "credits_production_deleguee": {
+      "type": "string"
+    },
+    "nfo_pratique_tarifs_pass_festival": {
+      "type": "string"
+    },
+    "info_pratique_tarifs_pass_festival_moins_26": {
+      "type": "string"
+    },
+    "credits_musique": {
+      "type": "text"
+    },
+    "credits_createur_costumes": {
+      "type": "text"
+    },
+    "credits_d_apres_oeuvre": {
+      "type": "text"
+    },
+    "credits_decor": {
+      "type": "text"
+    },
+    "credits_coproduction": {
+      "type": "richtext"
+    },
+    "credits_recompenses_prix_1": {
+      "type": "text"
+    },
+    "credits_recompenses_prix_2": {
+      "type": "text"
+    },
+    "credits_recompenses_prix_3": {
+      "type": "text"
+    },
+    "credits_recompenses_prix_4": {
+      "type": "text"
+    },
+    "info_pratique_tarifs_moins_28_ans": {
+      "type": "string"
+    },
+    "info_pratique_tarifs_pass_festival_moins_28_ans": {
+      "type": "string"
+    },
+    "photo_3": {
+      "type": "text"
+    },
+    "info_pratique_tarifs_pass_festival": {
+      "type": "string"
+    },
+    "annee_edition": {
+      "type": "string"
+    }
+  }
+}
