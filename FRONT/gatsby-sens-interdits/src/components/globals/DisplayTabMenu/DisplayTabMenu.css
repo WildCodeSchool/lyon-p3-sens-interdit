@@ -1,27 +1,26 @@
 .display-tab-sticker {
-    position: relative;
-    width: 350px;
-    height: 250px;
-    margin: 20px;
-    background-color: grey;
-  }
-  
- .display-tab-sticker .display-tab-title {
-    position: absolute;
-    z-index: 1;
-    color: white;
-    top: 50%;
-    left: 20%;
-    font-weight: bold;
-    font-size: 30px;
-  }
-  
- .display-tab-sticker .display-tab-logo {
-    position: absolute;
-    left: -15%;
-  }
-  
+  position: relative;
+  width: 350px;
+  height: 250px;
+  margin: 20px 0 20px 0;
+  background-color: grey;
+}
+
+.display-tab-sticker .display-tab-title {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  top: 50%;
+  left: 20%;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.display-tab-sticker .display-tab-logo {
+  position: absolute;
+  left: -15%;
+}
+
 .display-tab-sticker .display-tab-title p {
-    max-width: 200px;
-  }
-  
+  max-width: 200px;
+}

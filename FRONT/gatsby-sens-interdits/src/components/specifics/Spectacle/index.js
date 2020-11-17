@@ -30,7 +30,7 @@ const SpectaclePage = () => {
       <ImageCarousel
         isLoading={isLoading}
         title={spectacleTitle}
-        images={images}
+        images={images.map(image => image.image)}
         displayed={true}
       />
       <div className="content-spectacle-page">

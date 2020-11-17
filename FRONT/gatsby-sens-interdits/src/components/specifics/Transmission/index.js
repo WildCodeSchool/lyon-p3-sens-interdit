@@ -46,7 +46,7 @@ function TransmissionsPage() {
               Avec <span>les publics</span>
             </h1>
             {datasPublic.map(data => (
-              <DisplayTabMenu image={data.image} title={data.text} />
+              <DisplayTabMenu image={data.image} title={data.credit} />
             ))}
           </div>
           <div className="transmission-pro">
@@ -54,7 +54,7 @@ function TransmissionsPage() {
               Avec <span>les professionnels</span>
             </h1>
             {datasPro.map(data => (
-              <DisplayTabMenu image={data.image} title={data.text} />
+              <DisplayTabMenu image={data.image} title={data.credit} />
             ))}
           </div>
         </div>

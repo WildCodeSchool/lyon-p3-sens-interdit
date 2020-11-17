@@ -11,7 +11,7 @@ div.carousel-loading img {
 
 div.size-adjustment {
   width: auto;
-  max-height: 450px;
+  height: 450px;
 }
 
 div.size-adjustment img {
