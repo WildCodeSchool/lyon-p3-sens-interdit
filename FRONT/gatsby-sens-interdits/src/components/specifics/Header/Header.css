@@ -19,6 +19,11 @@ header {
   justify-content: space-between;
   flex-wrap: nowrap;
   align-items: center;
+  position : fixed;
+  background-color: black;
+  z-index: 1;
+  padding: auto;
+  border-radius: 0 0 10px 10px;
 }
 .fr-en {
   display: flex;
@@ -87,6 +92,7 @@ header {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: flex-end;
+  padding-top: 40px;
 }
 
 .main-logo {
