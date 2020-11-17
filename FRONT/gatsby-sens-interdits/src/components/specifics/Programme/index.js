@@ -1,10 +1,10 @@
-import React from "react"
-import "./Index.css"
-import photoTest from "../../../assets/img/img-sens-interdit.jpg"
-import Thumbnail from "../../globals/Thumbnail"
-import FilterTab from "./FilterTab"
-import CalendarLarge from "../../globals/Calendar/CalendarLarge"
-import ImageCarousel from "../../globals/Carousel/ImageCarousel"
+import React from "react";
+import "./Index.css";
+import photoTest from "../../../assets/img/img-sens-interdit.jpg";
+import Thumbnail from "../../globals/Thumbnail";
+import FilterTab from "./FilterTab";
+import CalendarLarge from "../../globals/Calendar/CalendarLarge";
+import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 
 export default function ProgrammePage() {
   return (
@@ -101,5 +101,5 @@ export default function ProgrammePage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

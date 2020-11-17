@@ -1,11 +1,11 @@
-import React from "react"
-import "./Index.css"
-import lefestival from "../../../assets/img/photosFiltre/lefestival.png"
-import DisplayTabMenu from '../../globals/DisplayTabMenu/DisplayTabMenu.js'
-import aveclespublics from "../../../assets/img/photosFiltre/aveclespublics.png"
-import spectaclesentournee from "../../../assets/img/photosFiltre/spectaclesentournee.png"
-import lassociation from "../../../assets/img/photosFiltre/lassociation.png"
-import ImageCarousel from "../../globals/Carousel/ImageCarousel"
+import React from "react";
+import "./Index.css";
+import lefestival from "../../../assets/img/photosFiltre/lefestival.png";
+import DisplayTabMenu from "../../globals/DisplayTabMenu/DisplayTabMenu.js";
+import aveclespublics from "../../../assets/img/photosFiltre/aveclespublics.png";
+import spectaclesentournee from "../../../assets/img/photosFiltre/spectaclesentournee.png";
+import lassociation from "../../../assets/img/photosFiltre/lassociation.png";
+import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 
 export default function Homepage() {
   return (
@@ -21,5 +21,5 @@ export default function Homepage() {
         <DisplayTabMenu image={lassociation} title="L'association'" />
       </div>
     </div>
-  )
+  );
 }

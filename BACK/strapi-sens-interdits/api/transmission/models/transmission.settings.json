@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transmissions",
+  "info": {
+    "name": "transmission",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "description": {
+      "type": "richtext"
+    },
+    "slider_image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "media.credited-image-component"
+    },
+    "public_card_content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.credited-image-component"
+    },
+    "pro_card_content": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.credited-image-component"
+    }
+  }
+}
