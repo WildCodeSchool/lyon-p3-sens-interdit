@@ -15,6 +15,7 @@ function ImageCarousel(props) {
   ) : (
     <>
       <RedTitleCard title={props.title} displayed={props.displayed} />
+      <Carousel>
         {props.images.map(image => (
           <div className="size-adjustment">
             <img src={"http://localhost:1337" + image.url} alt={image.name} />
@@ -26,4 +27,3 @@ function ImageCarousel(props) {
 }
 
 export default ImageCarousel;
-
