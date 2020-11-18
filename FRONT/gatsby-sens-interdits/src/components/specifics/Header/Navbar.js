@@ -1,11 +1,11 @@
- import React from 'react';
+import React from 'react';
 
- import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 
- export default function Navbar() {
+export default function Navbar() {
 
-   const { strapiGlobalMenu } = useStaticQuery(graphql`
-   query MyQuery {
+  const { strapiGlobalMenu } = useStaticQuery(graphql`
+   query MyQueryHeader {
      strapiGlobalMenu {
        global_menu_link {
          id
@@ -15,13 +15,13 @@
      }
    }
    `);
-   return (
-     <nav>
-       <ul className="nav-bar">
-         {strapiGlobalMenu.global_menu_link.map(elem => (
-           <li key={elem.id}><a href={elem.url}>{elem.title}</a></li>
-         ))}
-       </ul>
-     </nav >
-   )
- }
+  return (
+    <nav>
+      <ul className="nav-bar">
+        {strapiGlobalMenu.global_menu_link.map(elem => (
+          <li key={elem.id}><a href={elem.url}>{elem.title}</a></li>
+        ))}
+      </ul>
+    </nav >
+  )
+}
