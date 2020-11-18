@@ -1,12 +1,12 @@
 import React from "react";
 import "./RedTitleCard.css";
 
-function RedTitleCard(props) {
-  return props.displayed ? (
+function RedTitleCard({ title, displayed }) {
+  return displayed ? (
     <>
       <div className="red"></div>
       <div className="image-text">
-        <p>{props.title}</p>
+        <p>{title}</p>
         <button>Réserver</button>
       </div>
     </>

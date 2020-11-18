@@ -5,12 +5,12 @@ import "./DisplayTabMenu.css";
 export default function DisplayTabMenu(props) {
   return (
     <div className="display-tab-sticker">
-      <img
+      {/* <img
         src={"http://localhost:1337" + props.image[0].url}
         alt={props.title}
         width="100%"
         height="100%"
-      />
+      /> */}
       <div className="display-tab-title">
         <img
           className="display-tab-logo"

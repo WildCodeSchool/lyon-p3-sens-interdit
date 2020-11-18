@@ -5,8 +5,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import placeholder from "../../../assets/img/placeholder-photo-slider.jpg";
 
-function ImageCarousel(props) {
-  return props.isLoading ? (
+function ImageCarousel({ title, images, displayed }) {
+  return !images ? (
     <>
       <div className="carousel-loading">
         <img src={placeholder} alt="placeholder_photo" />
@@ -14,7 +14,7 @@ function ImageCarousel(props) {
     </>
   ) : (
     <>
-      <RedTitleCard title={props.title} displayed={props.displayed} />
+      <RedTitleCard title={title} displayed={displayed} />
       <Carousel
         autoPlay={true}
         infiniteLoop={true}
@@ -23,9 +23,12 @@ function ImageCarousel(props) {
         showStatus={false}
         showIndicators={false}
       >
-        {props.images.map(image => (
+        {images.map(image => (
           <div className="size-adjustment">
-            <img src={"http://localhost:1337" + image.url} alt={image.name} />
+            <img
+              src={"http://localhost:1337" + image[0].url}
+              alt={image[0].name}
+            />
           </div>
         ))}
       </Carousel>
@@ -34,4 +37,3 @@ function ImageCarousel(props) {
 }
 
 export default ImageCarousel;
-
