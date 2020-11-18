@@ -6,6 +6,8 @@ import CalendarLarge from "../../globals/Calendar/CalendarLarge";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 
 export default function ProgrammePage() {
+
+  const props = {list: {}};
   const [list, setList] = useState(props.list);
 
   useEffect(() => {
