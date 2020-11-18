@@ -63,7 +63,8 @@ export default function SpectaclePage({ data }) {
   );
 }
 
-// This query needs to be dynamic based on the strapiId passed in via context in gatsby-node.js
+// This query needs to be dynamic based on the id of the spectacle 
+// (example: id="test-spectacle" --> the route will be: http://localhost:8000/spectacle/test-spectacle/
 export const query = graphql`
   query($id: String!) {
     spectacle: strapiSpectacle(id: { eq: $id }) {
