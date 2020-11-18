@@ -9,8 +9,8 @@ module.exports = {
       options: {
         apiURL: process.env.API_URL || "http://localhost:1337",
         queryLimit: -1, // -1 = No limits // Default to 100
-        contentTypes: [`festival`, `spectacle`],
-        singleTypes: [`global-menu`]
+        contentTypes: [`festival`, `spectacle`, `transmission`],
+        singleTypes: [`global-menu`],
       },
     },
   ],
