@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-//import Navbar from './Navbar';
+import Navbar from './Navbar';
 import SocialNetwork from "./SocialNetwork";
 import Ticketing from "./Ticketing";
 import Edition from "./Edition";
@@ -18,7 +18,7 @@ export default function Header() {
           <FrEn /> 
           */}
           <NewsletterBtn />
-          {/* <Navbar /> */}
+          <Navbar />
           <Ticketing />
           <SearchBar />
         </div>
