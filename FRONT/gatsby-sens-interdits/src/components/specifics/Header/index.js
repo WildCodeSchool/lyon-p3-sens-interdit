@@ -12,7 +12,7 @@ import NewsletterBtn from "./NewsletterBtn";
 export default function Header() {
   return (
     <header>
-      <div className="wrapper-header">
+      <div className="wrapper-header-row1">
         <div className="header-row1">
           {/* Option not functionnal yet
           <FrEn /> 
@@ -22,6 +22,10 @@ export default function Header() {
           <Ticketing />
           <SearchBar />
         </div>
+      </div>
+
+      <div className="wrapper-header">
+
         <div className="header-row2">
           <Logo />
           <Edition />
