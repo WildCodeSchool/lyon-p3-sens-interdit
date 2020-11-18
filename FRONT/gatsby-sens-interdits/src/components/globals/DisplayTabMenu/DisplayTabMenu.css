@@ -13,7 +13,7 @@
   top: 50%;
   left: 20%;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .display-tab-sticker .display-tab-logo {
@@ -22,7 +22,7 @@
   top: -5px;
 }
 
-.display-tab-sticker .display-tab-title p {
-
+.display-tab-sticker .display-tab-title a {
   max-width: 200px;
+  color: white;
 }
