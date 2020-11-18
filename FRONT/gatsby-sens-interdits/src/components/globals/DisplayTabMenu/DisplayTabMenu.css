@@ -2,7 +2,7 @@
   position: relative;
   width: 350px;
   height: 250px;
-  margin: 0;
+  margin: 30px;
   background-color: grey;
 }
 
@@ -18,9 +18,11 @@
 
 .display-tab-sticker .display-tab-logo {
   position: absolute;
-  left: -15%;
+  left: -23px;
+  top: -5px;
 }
 
 .display-tab-sticker .display-tab-title p {
+
   max-width: 200px;
 }

@@ -1,6 +1,7 @@
 #festival-content {
   margin-left: 50px;
   margin-right: 50px;
+
 }
 /*calendrier*/
 #festival-calendar {
@@ -9,7 +10,7 @@
   margin-right: auto;
   margin-bottom: 50px;
 }
-.global-calendar-large {
+#festival-calendar .global-calendar-large {
   justify-content: flex-end;
 }
 /*content*/
@@ -27,14 +28,13 @@
 }
 /*Menu*/
 #festival-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto 0 auto;
   max-width: 1080px;
-  margin: auto;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat (3, 33vw);
-  grid-gap: 10px;
-  grid-template-areas:
-    "link1 link2 link3"
-    "link4 link5 link6"
-    "link7 link8 link9";
+}
+
+#festival-menu .display-tab-sticker {
+  width: 250px;
 }
