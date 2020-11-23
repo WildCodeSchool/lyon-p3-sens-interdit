@@ -61,7 +61,3 @@ li {
 .grayscale {
   filter: grayscale(1);
 }
-
-.redscale {
-  mix-blend-mode: multiply;
-}

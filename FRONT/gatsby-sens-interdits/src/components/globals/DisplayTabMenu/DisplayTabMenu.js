@@ -23,6 +23,6 @@ export default function DisplayTabMenu(props) {
         />
         <a href={props.url} title={props.title} className="to-uppercase">{props.title}</a>
       </div>
-    </div>
+    </div >
   );
 }
