@@ -1,7 +1,8 @@
-import React from "react"
+import React from "react";
+import Archive from "../components/specifics/Archive";
 
 const Archives = () => {
-  return <h1>This is the archives page</h1>
-}
+  return <Archive />;
+};
 
-export default Archives
+export default Archives;

@@ -1,0 +1,26 @@
+.archive-festivals-grid-wrapper {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  column-gap: 5vw;
+}
+
+.archive-transmission-grid-wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  column-gap: 1vw;
+}
+
+.festival-poster-wrapper {
+  overflow: hidden;
+  height: 40vh;
+}
+
+.festival-poster-wrapper img.festival-poster {
+  object-fit: scale-down;
+}
+
+img.picto-plus {
+  width: 50px;
+  height: 50px;
+}
