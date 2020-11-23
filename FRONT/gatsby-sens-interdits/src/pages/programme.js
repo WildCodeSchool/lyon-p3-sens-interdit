@@ -4,9 +4,10 @@ import { useStaticQuery, graphql } from "gatsby";
 
 export default function Programme() {
   const data = useStaticQuery(graphql`
-  query {
-    spectacles {
-      id
+  query MyQuery {
+    spectacle {
+      nodes {
+        id
         title
         tab_element {
           content
@@ -22,8 +23,9 @@ export default function Programme() {
             id
           }
         }
-        
+        strapiId
         duration
+      }
     }
   }
   
