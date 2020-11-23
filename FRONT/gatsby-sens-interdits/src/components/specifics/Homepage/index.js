@@ -26,8 +26,6 @@ export default function Homepage() {
         {strapiHomeDisplayTab.Display_tab_menu.map(elem => (
           <DisplayTabMenu key={elem.id} title={elem.title} image={elem.image[0].url} url={elem.url} />
         ))}
-
-
       </div>
     </div>
   );
