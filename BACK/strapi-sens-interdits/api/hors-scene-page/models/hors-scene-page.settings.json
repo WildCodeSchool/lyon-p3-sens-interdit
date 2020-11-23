@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "hors_scene_pages",
+  "info": {
+    "name": "Hors_scene_page",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
+    }
+  }
+}

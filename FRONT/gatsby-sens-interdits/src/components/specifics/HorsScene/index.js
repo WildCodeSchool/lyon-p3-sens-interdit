@@ -1,10 +1,17 @@
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import "./index.css";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import CalendarLarge from "../../globals/Calendar/CalendarLarge";
 import TabSystemHorsScene from "../../globals/TabSystems/TabSystemHorsScene";
 
-function HorsScenePage() {
+export default function HorsScenePage() {
+
+  // const data = useStaticQuery(graphql`
+  //   query {
+
+  //   }`)
+    
   return (
     <div>
       <ImageCarousel/> {/* TODO : passer les props pour ce composant */}
@@ -36,4 +43,4 @@ function HorsScenePage() {
   );
 }
 
-export default HorsScenePage;
+ 
