@@ -2,7 +2,7 @@
   position: relative;
   width: 350px;
   height: 250px;
-  margin: 0;
+  margin: 30px;
   background-color: grey;
 }
 
@@ -13,14 +13,28 @@
   top: 50%;
   left: 20%;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .display-tab-sticker .display-tab-logo {
   position: absolute;
-  left: -15%;
+  left: -23px;
+  top: -5px;
 }
 
-.display-tab-sticker .display-tab-title p {
+.display-tab-sticker .display-tab-title a {
   max-width: 200px;
+  color: white;
 }
+
+.red-wrapper {
+  position: absolute;
+  width: 350px;
+  height: 250px;
+  mix-blend-mode: multiply;
+  background-color: #e30613;
+  z-index: 1;
+  display: none;
+}
+
+

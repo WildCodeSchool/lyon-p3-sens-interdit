@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_menu_display_tab_menus",
+  "info": {
+    "name": "Display_tab_menu",
+    "icon": "chess-board",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "url": {
+      "type": "string"
+    }
+  }
+}
