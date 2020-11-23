@@ -14,16 +14,26 @@ header {
   margin: 0 auto;
 }
 /* HEADER ROW 1 */
+
+.wrapper-header-row1{
+  width: 100vw;
+  position : fixed;
+  z-index: 2;
+  background-color: black;
+  box-shadow: 0 2px 5px black;
+}
+
 .header-row1 {
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
   align-items: center;
-  position : fixed;
   background-color: black;
-  z-index: 1;
+
   padding: auto;
   border-radius: 0 0 10px 10px;
+  width: 1080px;
+  margin : auto;
 }
 .fr-en {
   display: flex;
@@ -49,6 +59,11 @@ header {
   border-radius: 0 0 7px 7px;
   font-weight: bold;
   font-size: 10px;
+}
+
+.newsletter-header a {
+  color: #000000;
+
 }
 
 .nav-bar {

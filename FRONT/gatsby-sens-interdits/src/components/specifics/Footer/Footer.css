@@ -88,13 +88,17 @@ footer {
   height: 35px;
   width: 75%;
   color: white;
+  outline: none;
+  padding-left:10px;
 }
+
 
 .newsletter-container .submit-newsletter {
   align-self: center;
   background: #3b3b3b;
   border: none;
-  height: 35px;
+  height: 37px;
   width: 15%;
   color: white;
 }
+

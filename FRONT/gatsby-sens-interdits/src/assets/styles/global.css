@@ -57,3 +57,11 @@ li {
 .to-uppercase {
   text-transform: uppercase;
 }
+
+.grayscale {
+  filter: grayscale(1);
+}
+
+.redscale {
+  mix-blend-mode: multiply;
+}

@@ -8,7 +8,7 @@ export default function Newsletter() {
           <h3 className="to-uppercase">Newsletter</h3>
           <p>Recevez nos actualités</p>
         </div>
-        <input type="text" className="input-newsletter" />
+        <input type="text" className="input-newsletter" id="newsletter" />
         <input type="submit" value="ok" className="submit-newsletter" />
       </div>
     </div>

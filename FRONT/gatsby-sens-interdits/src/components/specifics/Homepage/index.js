@@ -1,24 +1,33 @@
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+
 import "./Index.css";
-import lefestival from "../../../assets/img/photosFiltre/lefestival.png";
 import DisplayTabMenu from "../../globals/DisplayTabMenu/DisplayTabMenu.js";
-import aveclespublics from "../../../assets/img/photosFiltre/aveclespublics.png";
-import spectaclesentournee from "../../../assets/img/photosFiltre/spectaclesentournee.png";
-import lassociation from "../../../assets/img/photosFiltre/lassociation.png";
-//import ImageCarousel from "../../globals/Carousel/ImageCarousel";
+import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 
 export default function Homepage() {
+  const { strapiHomeDisplayTab } = useStaticQuery(graphql`
+  query MyQuery {
+    strapiHomeDisplayTab {
+      Display_tab_menu {
+        id
+        title
+        url
+        image{
+          url
+        }
+      }
+    }
+  }`)
   return (
     <div className="global-homepage">
-      {/* <ImageCarousel /> we need to pass props to this component */}
+      <ImageCarousel />
       <div className="content-homepage">
-        <DisplayTabMenu image={lefestival} title="Le Festival" />
-        <DisplayTabMenu image={aveclespublics} title="Avec les publics" />
-        <DisplayTabMenu
-          image={spectaclesentournee}
-          title="Spectacles en tournée"
-        />
-        <DisplayTabMenu image={lassociation} title="L'association'" />
+        {strapiHomeDisplayTab.Display_tab_menu.map(elem => (
+          <DisplayTabMenu key={elem.id} title={elem.title} image={elem.image[0].url} url={elem.url} />
+        ))}
+
+
       </div>
     </div>
   );

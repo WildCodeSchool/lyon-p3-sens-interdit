@@ -14,10 +14,10 @@
     "description": {
       "type": "richtext"
     },
-    "slider_image": {
+    "carousel": {
       "type": "component",
       "repeatable": false,
-      "component": "media.credited-image-component"
+      "component": "menu.medias-slider"
     },
     "public_card_content": {
       "type": "component",
