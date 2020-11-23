@@ -21,9 +21,7 @@ export default function festivalPage() {
                 </div>
                 <nav id="festival-menu">
                     {festivalMenu.map(title =>
-                        <div>
-                            <DisplayTabMenu title={title} />
-                        </div>
+                        <DisplayTabMenu title={title} />
                     )
                     }
                 </nav>
