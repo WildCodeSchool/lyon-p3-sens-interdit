@@ -47,3 +47,16 @@ div.active-tab {
 div.disabled-tab {
   display: none;
 }
+
+
+/*________________spécifique à Hors Scene Page ______*/
+
+.tab-module-HS{
+  margin: 50px;
+}
+
+.Thumbnail-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
