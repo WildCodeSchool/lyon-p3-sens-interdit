@@ -5,9 +5,7 @@ import Thumbnail from "../../globals/Thumbnail";
 import CalendarLarge from "../../globals/Calendar/CalendarLarge";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 
-export default function ProgrammePage() {
-
-  const props = {list: {}};
+export default function ProgrammePage(props) {
   const [list, setList] = useState(props.list);
 
   useEffect(() => {
@@ -34,7 +32,7 @@ export default function ProgrammePage() {
   }
 
   const affichageList = () => {
-    console.log("AAAAAAAAAAAAAAAA", "list");
+    console.log("AAAAAAAAAAAAAAAA", list);
     if (list.length === 0) {
       return (
         <img
@@ -44,38 +42,16 @@ export default function ProgrammePage() {
       );
     } else {
       return list.map(spectacle => {
-        console.log(spectacle.all_photos.photo_1);
         return (
           <Thumbnail
             key={
-              spectacle.titre +
-              Math.floor(Math.random() * 10) +
-              Math.floor(Math.random() * 10)
+              spectacle.node.id
             }
-            affiche={
-              spectacle.all_photos.photo_1 !== undefined
-                ? spectacle.all_photos.photo_1
-                : photoTest
-            }
-            date={
-              spectacle.info_pratique.dates === undefined ||
-              spectacle.info_pratique.dates.date_1 === undefined
-                ? "inconnu"
-                : spectacle.info_pratique.dates.date_1
-            }
-            country={
-              spectacle.credits === undefined ||
-              spectacle.credits.pays === undefined
-                ? "inconnu"
-                : spectacle.credits.pays
-            }
-            name={spectacle.titre}
-            team={
-              spectacle.credits === undefined ||
-              spectacle.credits.auteur === undefined
-                ? "inconnu"
-                : spectacle.credits.auteur
-            }
+            affiche={photoTest}
+            date={spectacle.node.created_at}
+            country={"inconnu"}
+            name={spectacle.node.title}
+            team={"inconnu"}
           />
         );
       });
