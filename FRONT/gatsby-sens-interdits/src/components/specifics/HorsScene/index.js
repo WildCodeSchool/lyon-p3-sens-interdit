@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
+// import { graphql, useStaticQuery } from "gatsby";
 import "./index.css";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import CalendarLarge from "../../globals/Calendar/CalendarLarge";
@@ -7,10 +7,15 @@ import TabSystemHorsScene from "../../globals/TabSystems/TabSystemHorsScene";
 
 export default function HorsScenePage() {
 
-  // const data = useStaticQuery(graphql`
+  // const {strapiHorsscenepage} = useStaticQuery(graphql`
   //   query {
+  
+
+      //   }
 
   //   }`)
+
+
     
   return (
     <div>
