@@ -5,7 +5,7 @@ module.exports = {
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: process.env.API_URL || "http://localhost:1337",
+        apiURL: process.env.GATSBY_API_URL,
         queryLimit: -1, // -1 = No limits // Default to 100
         contentTypes: [`festival`, `spectacle`, `transmission`],
         singleTypes: [`global-menu`, `home-display-tab`, `hors-scene-page`, `logo-principal`]
