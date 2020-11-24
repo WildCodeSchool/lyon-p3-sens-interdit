@@ -28,7 +28,9 @@ export default function Header() {
 
         <div className="header-row2">
           <Logo />
-          {/* <Edition /> */}
+          {/* We don't use it anymore because this is a logo part
+          <Edition /> 
+          */}
           <SocialNetwork />
         </div>
       </div>
