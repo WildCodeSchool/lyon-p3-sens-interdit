@@ -114,8 +114,10 @@ header {
   margin-right: 20px;
   margin-bottom: -20px;
 }
+
 .main-logo img {
-  width: 570px;
+  width: auto;
+  height: 110px;
 }
 
 .next-festival-date {
