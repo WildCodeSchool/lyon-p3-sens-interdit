@@ -1,7 +1,7 @@
 module.exports = ({ env }) => ({
-  defaultConnection: "default",
+  defaultConnection: "mysql",
   connections: {
-    default: {
+    mysql: {
       connector: "bookshelf",
       settings: {
         client: "mysql",
