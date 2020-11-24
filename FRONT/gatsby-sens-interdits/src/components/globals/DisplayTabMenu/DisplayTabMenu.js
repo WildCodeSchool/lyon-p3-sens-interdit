@@ -8,7 +8,7 @@ export default function DisplayTabMenu(props) {
     <div className="display-tab-sticker">
       <div className="red-wrapper"></div>
       <img
-        src={"http://146.59.198.111:1337" + props.image}
+        src={process.env.GATSBY_API_URL + props.image}
         alt={props.title}
         width="100%"
         height="100%"

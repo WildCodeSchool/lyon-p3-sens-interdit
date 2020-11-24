@@ -26,7 +26,7 @@ function ImageCarousel({ title, images, displayed }) {
           {images.map(image => (
             <div className="size-adjustment">
               <img
-                src={"http://146.59.198.111:1337" + image[0].url}
+                src={process.env.GATSBY_API_URL + image[0].url}
                 alt={image[0].name}
               />
             </div>
