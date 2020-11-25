@@ -1,0 +1,14 @@
+[
+  {
+    "name": "strapi",
+    "merge_logs": true,
+    "error_file": "/var/log/pm2/strapi-error.log",
+    "out_file": "/var/log/pm2/strapi.out",
+    "pid_file": "/var/log/pm2/strapi.pid",
+    "exec_mode": "fork",
+    "script": "./develop.js",
+    "interpreter": "none",
+    "args": "",
+    "watch": false
+  }
+]
