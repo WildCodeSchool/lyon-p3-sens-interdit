@@ -8,14 +8,30 @@ import { graphql, useStaticQuery } from "gatsby";
 export default function AssociationPage() {
     const { strapiAssopage } = useStaticQuery(graphql`
     query MyQueryAsso {
-      strapiAssopage {
-        title
-        content
-      }
+        strapiAssopage {
+            id
+            title
+            content
+            carousel {
+              id
+              image {
+                credit
+                id
+                image {
+                  url
+                  name
+                }
+              }
+            }
+          }
     }`)
+    const imageArray =
+        strapiAssopage.carousel !== null
+            ? strapiAssopage.carousel[0].image.map(image => image.image)
+            : false;
     return (
         <>
-            <ImageCarousel />
+            <ImageCarousel images={imageArray} />
             <div className="global-margin">
                 <div className="red-arrow"></div>
                 <div className="association-content">
