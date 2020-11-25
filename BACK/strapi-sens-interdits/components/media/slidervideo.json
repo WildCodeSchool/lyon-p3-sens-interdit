@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_media_slidervideos",
+  "info": {
+    "name": "slidervideo",
+    "icon": "arrow-circle-right"
+  },
+  "options": {},
+  "attributes": {
+    "video": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}
