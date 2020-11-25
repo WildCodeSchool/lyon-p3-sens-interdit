@@ -1,5 +1,4 @@
 import React from 'react';
-import logosens from '../../../assets/img/logoheader.png';
 import { graphql, useStaticQuery } from "gatsby";
 
 
