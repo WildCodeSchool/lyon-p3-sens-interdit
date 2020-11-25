@@ -3,7 +3,7 @@ import "./Header.css";
 import Navbar from './Navbar';
 import SocialNetwork from "./SocialNetwork";
 import Ticketing from "./Ticketing";
-import Edition from "./Edition";
+// import Edition from "./Edition";
 import Logo from "./Logo";
 import SearchBar from "./SearchBar";
 import NewsletterBtn from "./NewsletterBtn";
@@ -28,7 +28,9 @@ export default function Header() {
 
         <div className="header-row2">
           <Logo />
-          <Edition />
+          {/* We don't use it anymore because this is a logo part
+          <Edition /> 
+          */}
           <SocialNetwork />
         </div>
       </div>

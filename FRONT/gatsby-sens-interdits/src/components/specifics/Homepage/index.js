@@ -7,7 +7,7 @@ import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 
 export default function Homepage() {
   const { strapiHomeDisplayTab } = useStaticQuery(graphql`
-  query MyQuery {
+  query MyQueryHome {
     strapiHomeDisplayTab {
       Display_tab_menu {
         id
