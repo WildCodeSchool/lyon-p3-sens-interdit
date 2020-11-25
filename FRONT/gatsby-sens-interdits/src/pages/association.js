@@ -1,8 +1,8 @@
 import React from "react";
 import AssociationPage from "../components/specifics/Association";
 
-const Associations = () => {
+const Association = () => {
     return <AssociationPage />;
 };
 
-export default Associations;
+export default Association;

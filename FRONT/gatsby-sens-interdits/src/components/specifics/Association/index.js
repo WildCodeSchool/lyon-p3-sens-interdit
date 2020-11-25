@@ -3,7 +3,7 @@ import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import TabSystemHorsScene from "../../globals/TabSystems/TabSystemHorsScene";
 import "./Association.css";
 
-export default function AssociationPage(data) {
+export default function AssociationPage() {
 
     return (
         <>
