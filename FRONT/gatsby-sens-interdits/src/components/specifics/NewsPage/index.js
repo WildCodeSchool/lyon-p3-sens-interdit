@@ -46,7 +46,7 @@ export default function NewsPage() {
             </div>
             <div>
                 <TabSystemH tabContent={newsTabQuery}/>
-            </div>   
+            </div>
         </div>
     )
 }

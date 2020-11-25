@@ -52,7 +52,7 @@ export default function HorsScenePage () {
   const horsSceneTabQuery= strapiHorsSceneQuery.allStrapiHorsSceneTab.nodes[0].horsscenetab;
   const horsScenePageQuery = strapiHorsSceneQuery.strapiHorsScenePage;
   const spectacleQuery = strapiHorsSceneQuery.allStrapiSpectacle.nodes;
- 
+
   return (
     <div>
       <ImageCarousel/> {/* TODO : passer les props pour ce composant */}
@@ -69,11 +69,11 @@ export default function HorsScenePage () {
           </div>
         </div>
         <div id="hors-scene-tabsystem">
-            <TabSystemV tabContent={horsSceneTabQuery} spectacleQuery={spectacleQuery} />                     
-        </div> 
+            <TabSystemV tabContent={horsSceneTabQuery} spectacleQuery={spectacleQuery} />
+        </div>
       </div>
     </div>
   );
 }
 
- 
+
