@@ -13,27 +13,27 @@ function ImageCarousel({ title, images, displayed }) {
       </div>
     </>
   ) : (
-    <>
-      <RedTitleCard title={title} displayed={displayed} />
-      <Carousel
-        autoPlay={true}
-        infiniteLoop={true}
-        interval={5000}
-        showThumbs={false}
-        showStatus={false}
-        showIndicators={false}
-      >
-        {images.map(image => (
-          <div className="size-adjustment">
-            <img
-              src={"http://localhost:1337" + image[0].url}
-              alt={image[0].name}
-            />
-          </div>
-        ))}
-      </Carousel>
-    </>
-  );
+      <>
+        <RedTitleCard title={title} displayed={displayed} />
+        <Carousel
+          autoPlay={true}
+          infiniteLoop={true}
+          interval={5000}
+          showThumbs={false}
+          showStatus={false}
+          showIndicators={false}
+        >
+          {images.map(image => (
+            <div className="size-adjustment">
+              <img
+                src={process.env.GATSBY_API_URL + image[0].url}
+                alt={image[0].name}
+              />
+            </div>
+          ))}
+        </Carousel>
+      </>
+    );
 }
 
 export default ImageCarousel;

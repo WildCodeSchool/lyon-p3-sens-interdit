@@ -10,7 +10,7 @@ function DisplayPicture({ imageContent }) {
           <p>{img.credit}</p>
           {img.image.map(elem => (
             <img
-              src={"http://localhost:1337" + elem.url}
+              src={process.env.GATSBY_API_URL + elem.url}
               alt="noalt"
               width="150"
             />
