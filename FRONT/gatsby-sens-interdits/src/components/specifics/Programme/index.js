@@ -9,6 +9,7 @@ export default function ProgrammePage(props) {
   const [list, setList] = useState(props.list);
 
   useEffect(() => {
+    
     setList(props.list);
   }, [props]);
 
@@ -32,8 +33,8 @@ export default function ProgrammePage(props) {
   }
 
   const affichageList = () => {
-    console.log("AAAAAAAAAAAAAAAA", list);
-    if (list.length === 0) {
+    
+    if (list.length === 0 || list === undefined) {
       return (
         <img
           src="https://media.giphy.com/media/WiIuC6fAOoXD2/giphy.gif"
@@ -45,13 +46,14 @@ export default function ProgrammePage(props) {
         return (
           <Thumbnail
             key={
-              spectacle.node.id
+              spectacle.id
             }
             affiche={photoTest}
-            date={spectacle.node.created_at}
+            date={spectacle.created_at}
             country={"inconnu"}
-            name={spectacle.node.title}
+            name={spectacle.title}
             team={"inconnu"}
+            props={...spectacle}
           />
         );
       });
