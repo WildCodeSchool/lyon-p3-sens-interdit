@@ -12,7 +12,7 @@ export default function DisplayTabMenu(props) {
         alt={props.title}
         width="100%"
         height="100%"
-        className="grayscale"
+        className="grayscale img-homepage"
       />
       <div className="display-tab-title">
         <img
