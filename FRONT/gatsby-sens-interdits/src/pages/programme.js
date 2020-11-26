@@ -4,15 +4,18 @@ import { useStaticQuery, graphql } from "gatsby";
 
 export default function Programme() {
   const data = useStaticQuery(graphql`
-    query {
+    query listProgrammes {
       allStrapiSpectacle {
         nodes {
           id
           title
+          strapiId
+          duration
+          horaires {
+            Day
+          }
           tab_element {
             content
-            id
-            title
             credited_image {
               credit
               image {
@@ -20,11 +23,8 @@ export default function Programme() {
                 id
                 url
               }
-              id
             }
           }
-
-          duration
         }
       }
     }

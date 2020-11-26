@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import moment from 'moment';
 import "./Index.css";
 import photoTest from "../../../assets/img/img-sens-interdit.jpg";
 import Thumbnail from "../../globals/Thumbnail";
@@ -16,6 +17,8 @@ export default function ProgrammePage(props) {
   function countryFilter(e) {
     e.preventDefault();
     console.log("Le filtre pays a été cliqué.");
+    console.log(("horaires", list[2].horaires[1].Day));
+    console.log("date", moment(list[2].horaires[1].Day))
   }
 
   function authorFilter(e) {
@@ -53,7 +56,7 @@ export default function ProgrammePage(props) {
             country={"inconnu"}
             name={spectacle.title}
             team={"inconnu"}
-            props={...spectacle}
+            props={spectacle}
           />
         );
       });
@@ -79,7 +82,7 @@ export default function ProgrammePage(props) {
             <h3> supprimer </h3>
           </a>
         </div>
-        <div className="display-miniTab"> {affichageList(list)} </div>
+        <div className="display-mini-tab"> {affichageList(list)} </div>
       </div>
     </div>
   );
