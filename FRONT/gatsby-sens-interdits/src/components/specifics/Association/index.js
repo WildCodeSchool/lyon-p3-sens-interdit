@@ -27,11 +27,12 @@ export default function AssociationPage() {
     }`)
     const imageArray =
         strapiAssopage.carousel !== null
-            ? strapiAssopage.carousel[0].image.map(image => image.image)
+            ? strapiAssopage.carousel.image.map(image => image.image)
             : false;
     return (
         <>
             <ImageCarousel images={imageArray} />
+            {console.log(imageArray)}
             <div className="global-margin">
                 <div className="red-arrow"></div>
                 <div className="association-content">
