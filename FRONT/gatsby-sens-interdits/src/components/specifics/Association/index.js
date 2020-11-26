@@ -1,8 +1,8 @@
 import React from "react";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
-import TabSystemHorsScene from "../../globals/TabSystems/TabSystemHorsScene";
 import "./Association.css";
 import { graphql, useStaticQuery } from "gatsby";
+import TabSystemV from "../../globals/TabSystems/TabSystemV";
 
 
 export default function AssociationPage() {
@@ -19,7 +19,17 @@ export default function AssociationPage() {
                 id
                 image {
                   url
-                  name
+                }
+              }
+            }
+            tab_element {
+              content
+              id
+              title
+              credited_image {
+                id
+                image {
+                  url
                 }
               }
             }
@@ -32,7 +42,6 @@ export default function AssociationPage() {
     return (
         <>
             <ImageCarousel images={imageArray} />
-            {console.log(imageArray)}
             <div className="global-margin">
                 <div className="red-arrow"></div>
                 <div className="association-content">
@@ -42,7 +51,7 @@ export default function AssociationPage() {
                     </p>
                 </div>
                 <div>
-                    <TabSystemHorsScene />
+                    <TabSystemV tabContent={strapiAssopage.tab_element} />
                 </div>
             </div>
         </>

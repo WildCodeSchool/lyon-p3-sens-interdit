@@ -2,6 +2,29 @@ import React, { useState } from "react";
 import picto from "../../../assets/img/picto.svg";
 import "./tabSystemV.css";
 
+function DisplayPicture({ imageContent }) {
+  return (
+    <>
+      <p className="institut-partners">Partenaires Institutionnels</p>
+      <div className="display-img-tab-element">
+        {imageContent.map(img => (
+          <div key={img.id}>
+            <p>{img.credit}</p>
+            {img.image.map(elem => (
+              <img
+                key={elem.url}
+                src={process.env.GATSBY_API_URL + elem.url}
+                alt="noalt"
+                width="150"
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+    </>
+  );
+}
+
 export default function TabSystemV({ tabContent }) {
   const [activeTabContent, setActiveTabContent] = useState("");
   const [activeClass, setActiveClass] = useState("");
@@ -14,7 +37,7 @@ export default function TabSystemV({ tabContent }) {
   return (
     <div className="tab-moduleV">
       {tabContent.map(tab => (
-        <div className="tab-moduleV">
+        <div className="tab-moduleV" key={tab.id}>
           <div className="tab-titleV">
             <img
               src={picto}
@@ -40,6 +63,9 @@ export default function TabSystemV({ tabContent }) {
             }
           >
             {tab.content}
+            {tab.credited_image[0] !== undefined ? (
+              <DisplayPicture imageContent={tab.credited_image} />
+            ) : ""}
           </div>
         </div>
       ))}
