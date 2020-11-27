@@ -4,11 +4,13 @@
   grid-area: tab-module;
   display: flex;
   flex-direction: column;
+  background: #fff;
   display: flex;
   padding: 20px;
 }
 
 #tab-contentV {
+  padding-top: 10px;
   text-align: justify;
   margin: 0px;
 }
