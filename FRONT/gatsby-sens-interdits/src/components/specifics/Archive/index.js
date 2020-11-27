@@ -26,13 +26,28 @@ function Archive(props) {
       posterUrl:
         "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
     },
+    {
+      title: "Édition 2013",
+      posterUrl:
+        "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
+    },
+    {
+      title: "Édition 2013",
+      posterUrl:
+        "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
+    },
+    {
+      title: "Édition 2013",
+      posterUrl:
+        "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
+    },
   ];
 
   return (
     <>
       <ImageCarousel displayed={true} images={props.images} title={title} />
       <div className="global-margin archive-global-styling">
-        <p>{content}</p>
+        <p className="archive-description">{content}</p>
         <h1 className="to-uppercase">
           Découvrez <span>les archives du festival</span>
         </h1>
@@ -43,6 +58,7 @@ function Archive(props) {
               <FestivalPoster
                 title={festival.title}
                 poster={festival.posterUrl}
+                url=""
               />
             );
           })}

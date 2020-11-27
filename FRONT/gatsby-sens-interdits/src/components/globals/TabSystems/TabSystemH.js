@@ -6,7 +6,7 @@ function DisplayPicture({ imageContent }) {
   return (
     <>
       {imageContent.map(img => (
-        <div>
+        <div key={img.id}>
           <p>{img.credit}</p>
           {img.image.map(elem => (
             <img
@@ -34,7 +34,7 @@ export default function TabSystemH({ tabContent }) {
     <div className="tab-module">
       <div>
         {tabContent.map(tab => (
-          <div className="tab-title">
+          <div className="tab-title" key={tab.id}>
             <img
               src={picto}
               alt="pictogramme cliquable"
@@ -57,7 +57,7 @@ export default function TabSystemH({ tabContent }) {
       </div>
       <div>
         {tabContent.map(tab => (
-          <>
+          <div key={tab.id}>
             <div
               id="tab-content"
               className={
@@ -69,7 +69,7 @@ export default function TabSystemH({ tabContent }) {
                 <DisplayPicture imageContent={tab.credited_image} />
               ) : null}
             </div>
-          </>
+          </div>
         ))}
       </div>
     </div>

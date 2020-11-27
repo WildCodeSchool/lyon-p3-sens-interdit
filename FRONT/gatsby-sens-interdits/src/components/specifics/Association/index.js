@@ -1,35 +1,57 @@
 import React from "react";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
-import TabSystemHorsScene from "../../globals/TabSystems/TabSystemHorsScene";
 import "./Association.css";
+import { graphql, useStaticQuery } from "gatsby";
+import TabSystemV from "../../globals/TabSystems/TabSystemV";
 
-export default function AssociationPage(data) {
 
+export default function AssociationPage() {
+    const { strapiAssopage } = useStaticQuery(graphql`
+    query MyQueryAsso {
+        strapiAssopage {
+            id
+            title
+            content
+            carousel {
+              id
+              image {
+                credit
+                id
+                image {
+                  url
+                }
+              }
+            }
+            tab_element {
+              content
+              id
+              title
+              credited_image {
+                id
+                image {
+                  url
+                }
+              }
+            }
+          }
+    }`)
+    const imageArray =
+        strapiAssopage.carousel !== null
+            ? strapiAssopage.carousel.image.map(image => image.image)
+            : false;
     return (
         <>
-            <ImageCarousel />
+            <ImageCarousel images={imageArray} />
             <div className="global-margin">
                 <div className="red-arrow"></div>
                 <div className="association-content">
-                    <h1 className="to-uppercase">Association</h1>
+                    <h1 className="to-uppercase">{strapiAssopage.title}</h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-                        risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec,
-                        ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula
-                        massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci
-                        nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl
-                        sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae,
-                        consequat in, pretium a, enim. Pellentesque congue. Ut in risus
-                        volutpat libero pharetra tempor. Cras vestibulum bibendum augue.
-                        Praesent egestas leo in pede. Praesent blandit odio eu enim.
-                        Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum
-                        primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                        Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum.
-                        Maecenas adipiscing ante non diam sodales hendrerit.
+                        {strapiAssopage.content}
                     </p>
                 </div>
                 <div>
-                    <TabSystemHorsScene />
+                    <TabSystemV tabContent={strapiAssopage.tab_element} />
                 </div>
             </div>
         </>

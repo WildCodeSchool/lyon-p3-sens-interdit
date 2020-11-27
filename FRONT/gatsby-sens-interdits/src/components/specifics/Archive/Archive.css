@@ -1,26 +1,52 @@
+.archive-global-styling p.archive-description {
+  letter-spacing: 1px;
+  text-align: justify;
+  margin-bottom: 4vh;
+}
+
+.archive-global-styling h1 {
+  font-weight: 1000;
+  font-size: 1.8em;
+}
+
+.archive-global-styling h1 span {
+  color: #e30613;
+}
+
 .archive-festivals-grid-wrapper {
   display: grid;
-  grid-template-columns: 33% 33% 33%;
-  column-gap: 5vw;
+  grid-template-columns: 32% 32% 32%;
+  column-gap: 6%;
 }
 
 .archive-transmission-grid-wrapper {
-  width: 100%;
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
-  column-gap: 1vw;
+  column-gap: 1%;
 }
 
-.festival-poster-wrapper {
-  overflow: hidden;
-  height: 40vh;
+.archive-transmission-grid-wrapper .mini-tab {
+  width: auto;
 }
 
-.festival-poster-wrapper img.festival-poster {
-  object-fit: scale-down;
+img.festival-poster {
+  margin-top: 2vh;
+  width: 75%;
+  height: auto;
+}
+
+.festival-title-flex {
+  display: flex;
+  justify-content: baseline;
+}
+
+.festival-title-flex p {
+  font-weight: 1000;
+  /* font-family: inherit; */
+  font-size: 1.2em;
 }
 
 img.picto-plus {
-  width: 50px;
-  height: 50px;
+  width: 38px;
+  height: 38px;
 }

@@ -1,15 +1,14 @@
 /* GENERAL - GRID LAYOUT GLOBAL */
 @font-face {
   font-family: "gothamBold";
-  src: url(fonts/gothamBold/gothamBold.eot) format("oet"),
+  src: url(fonts/gothamBold/gothamBold.eot) format("eot"),
     url(fonts/gothamBold/gothamBold.ttf) format("tff"),
     url(fonts/gothamBold/gothamBold.woff) format("woff"),
     url(fonts/gothamBold/gothamBold.woff2) format("woff2");
   font-family: "gothamLight";
-  src: url(fonts/gothamLight/Metropolis-Medium.otf) format("otf"),
-    url(fonts/gothamLight/Metropolis-MediumItalic.otf) format("otf");
+  src: url(fonts/GothamLightRegular.otf) format("otf"),
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
 .global-margin {
   margin-left: 15%;
   margin-right: 15%;
@@ -19,8 +18,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "gothamLight", arial, sans-serif;
-  font-size: 14px;
+  font-family: 'Quicksand', "gothamLight", arial, sans-serif;
+  font-size: 16px;
 }
 
 .body {
@@ -42,6 +41,7 @@ main {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 li {
