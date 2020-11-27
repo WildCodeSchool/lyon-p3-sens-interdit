@@ -1,9 +1,13 @@
 .display-tab-sticker {
   position: relative;
-  width: 350px;
-  height: 250px;
-  margin: 30px;
+  width: 450px;
+  height: 300px;
+  margin: 40px;
   background-color: grey;
+}
+
+.display-tab-sticker .img-homepage {
+  object-fit: cover;
 }
 
 .display-tab-sticker .display-tab-title {

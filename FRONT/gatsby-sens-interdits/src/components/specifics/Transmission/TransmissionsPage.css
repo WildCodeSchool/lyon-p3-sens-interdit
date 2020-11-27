@@ -7,6 +7,8 @@
 
 .transmission-grid-layout div div.display-tab-sticker {
   margin: 20px 0 20px 0;
+  width: 250px;
+  height: 250px;
 }
 
 .transmission-grid-layout span {

@@ -4,7 +4,6 @@
   grid-area: tab-module;
   display: flex;
   flex-direction: column;
-  background: pink;
   display: flex;
   padding: 20px;
 }
@@ -33,6 +32,7 @@
 .tab-titleV h3 {
   margin-left: 20px;
   margin-top: 10px;
+  font-size: 22px;
 }
 
 /* tab active*/
@@ -48,6 +48,17 @@ div.disabled-tab {
   display: none;
 }
 
+/* DISPLAY CREDITED_IMG */
+
+.display-img-tab-element {
+  display: flex;
+}
+
+.institut-partners {
+  font-size: 20px;
+  margin: 20px;
+  color : #E30613;
+}
 
 /*________________spécifique à Hors Scene Page ______*/
 

@@ -24,7 +24,7 @@ function ImageCarousel({ title, images, displayed }) {
           showIndicators={false}
         >
           {images.map(image => (
-            <div className="size-adjustment">
+            <div className="size-adjustment" key={image[0]}>
               <img
                 src={process.env.GATSBY_API_URL + image[0].url}
                 alt={image[0].name}

@@ -19,7 +19,8 @@ footer {
   margin: 20px;
 }
 .footer-column1 .main-logo a img {
-  width: 290px;
+  width: 330px;
+  height: auto;
 }
 
 .footer-column1-socialnetwork {
@@ -65,7 +66,7 @@ footer {
 .footer-column2 {
   display: flex;
   flex-direction: column;
-  margin-left: 50px;
+  margin-left: 10px;
 }
 
 .newsletter-container {

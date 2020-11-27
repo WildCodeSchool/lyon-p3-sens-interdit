@@ -57,7 +57,6 @@ header {
   border-left: solid #E30613 1px;
   border-right: solid #E30613 1px;
   border-radius: 0 0 7px 7px;
-  font-weight: bold;
   font-size: 10px;
 }
 
@@ -107,7 +106,7 @@ header {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: flex-end;
-  padding-top: 40px;
+  padding-top:50px;
 }
 
 .main-logo {
