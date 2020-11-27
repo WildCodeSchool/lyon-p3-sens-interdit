@@ -1,8 +1,9 @@
 {
   "kind": "singleType",
-  "collectionName": "transmissions",
+  "collectionName": "assopages",
   "info": {
-    "name": "transmission"
+    "name": "assopage",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -10,23 +11,21 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "description": {
-      "type": "richtext"
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
     },
     "carousel": {
       "type": "component",
       "repeatable": false,
       "component": "menu.medias-slider"
     },
-    "publiccardcontent": {
+    "tab_element": {
       "type": "component",
       "repeatable": true,
-      "component": "media.credited-image-component"
-    },
-    "procardcontent": {
-      "type": "component",
-      "repeatable": true,
-      "component": "media.credited-image-component"
+      "component": "menu.tab-element"
     }
   }
 }

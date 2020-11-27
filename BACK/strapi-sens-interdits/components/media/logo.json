@@ -1,8 +1,8 @@
 {
-  "collectionName": "components_media_credited_image_components",
+  "collectionName": "components_media_logos",
   "info": {
-    "name": "credited_image_component",
-    "icon": "address-card",
+    "name": "logo",
+    "icon": "check-circle",
     "description": ""
   },
   "options": {},
@@ -14,10 +14,7 @@
         "images"
       ],
       "plugin": "upload",
-      "required": true
-    },
-    "credit": {
-      "type": "string"
+      "required": false
     },
     "url": {
       "type": "string"

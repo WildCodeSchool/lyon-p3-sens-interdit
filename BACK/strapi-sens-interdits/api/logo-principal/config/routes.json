@@ -2,24 +2,24 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/transmission",
-      "handler": "transmission.find",
+      "path": "/logo-principal",
+      "handler": "logo-principal.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/transmission",
-      "handler": "transmission.update",
+      "path": "/logo-principal",
+      "handler": "logo-principal.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/transmission",
-      "handler": "transmission.delete",
+      "path": "/logo-principal",
+      "handler": "logo-principal.delete",
       "config": {
         "policies": []
       }

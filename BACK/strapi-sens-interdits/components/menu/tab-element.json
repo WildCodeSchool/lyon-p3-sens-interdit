@@ -2,7 +2,8 @@
   "collectionName": "components_menu_tab_elements",
   "info": {
     "name": "tab_element",
-    "icon": "list-ul"
+    "icon": "list-ul",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -48,6 +49,11 @@
       "type": "component",
       "repeatable": true,
       "component": "media.credited-video-component"
+    },
+    "logo": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.logo"
     }
   }
 }

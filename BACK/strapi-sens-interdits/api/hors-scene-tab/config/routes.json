@@ -2,24 +2,24 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/transmission",
-      "handler": "transmission.find",
+      "path": "/hors-scene-tab",
+      "handler": "hors-scene-tab.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/transmission",
-      "handler": "transmission.update",
+      "path": "/hors-scene-tab",
+      "handler": "hors-scene-tab.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/transmission",
-      "handler": "transmission.delete",
+      "path": "/hors-scene-tab",
+      "handler": "hors-scene-tab.delete",
       "config": {
         "policies": []
       }

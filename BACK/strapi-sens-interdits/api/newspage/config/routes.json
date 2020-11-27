@@ -2,24 +2,24 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/transmission",
-      "handler": "transmission.find",
+      "path": "/newspage",
+      "handler": "newspage.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/transmission",
-      "handler": "transmission.update",
+      "path": "/newspage",
+      "handler": "newspage.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/transmission",
-      "handler": "transmission.delete",
+      "path": "/newspage",
+      "handler": "newspage.delete",
       "config": {
         "policies": []
       }

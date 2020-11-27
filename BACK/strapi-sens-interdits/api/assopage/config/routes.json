@@ -2,24 +2,24 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/transmission",
-      "handler": "transmission.find",
+      "path": "/assopage",
+      "handler": "assopage.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/transmission",
-      "handler": "transmission.update",
+      "path": "/assopage",
+      "handler": "assopage.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/transmission",
-      "handler": "transmission.delete",
+      "path": "/assopage",
+      "handler": "assopage.delete",
       "config": {
         "policies": []
       }
