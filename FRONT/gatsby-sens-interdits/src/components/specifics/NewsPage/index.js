@@ -1,6 +1,6 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
-import TabSystemNews from "../../globals/TabSystems/TabSystemNews";
+// import { graphql, useStaticQuery } from "gatsby";
+// import TabSystemNews from "../../globals/TabSystems/TabSystemNews";
 import "../../../assets/styles/global.css";
 
 
