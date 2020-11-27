@@ -11,47 +11,25 @@
 }
 
 #hors-scene-pres div {
-    width: 600px;
+    width: 400px;
 
 }
 #hors-scene-Cal {
     margin-left: auto;
-
+    margin-right: auto;
 }
 
 #hors-scene-tabsystem {
     margin-right: auto;
     margin-left: auto;
-    width: 70%;
 }
-
-.red-arrow {
-    position: relative;
-    top: 0;
-    left: 100px;
-    width: 40px;
-    height: 45px;
-    background-color: #e30613;
-    clip-path: polygon(50% 100%, 0 0, 100% 0);
-  }
-
 /*________________responsive__________*/
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 762px) {
 
     #hors-scene-pres {
         display: flex;
         flex-direction: column;
         padding : 20px;
         text-align: justify;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    #hors-scene-pres div {
-        width: 400px;
-    }
-    #hors-scene-pres div:first-child {
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 20px;
     }
 }

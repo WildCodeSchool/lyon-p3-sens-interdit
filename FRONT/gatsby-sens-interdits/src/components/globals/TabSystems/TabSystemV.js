@@ -31,12 +31,14 @@ export default function TabSystemV ({tabContent, spectacleQuery}) {
 
   const [activeTabContent, setActiveTabContent] = useState("");
   const [activeClass, setActiveClass] = useState("");
+  const templinktoevent = [{categorie:"Débat", event:"event1"},{categorie:"Débat", event:"event2"},{categorie:"Partenaires", event:"event4"},{categorie:"Expositions", event:"event4"},{categorie:"Concerts", event:"event5"},{categorie:"Débat", event:"event6"}]
+
 
   function handleOnClick(e) {
     setActiveTabContent(e.target.id);
     setActiveClass(e.target.id);
   }
- 
+
   return (
     <div className="tab-moduleV">
      {tabContent.map(tab => (
@@ -69,12 +71,12 @@ export default function TabSystemV ({tabContent, spectacleQuery}) {
             {tab.credited_image !== undefined ? (
               <DisplayPicture imageContent={tab.credited_image} />
             ) : ""}
-            <div className="thumbnail-list"> 
-              {spectacleQuery.map (spect => 
-                        spect.type_of_events.map(cat => 
-                              cat.category === tab.title ? 
-                                  <Thumbnail 
-                                                  name={spect.title} 
+            <div className="thumbnail-list">
+              {spectacleQuery.map (spect =>
+                        spect.type_of_events.map(cat =>
+                              cat.category === tab.title ?
+                                  <Thumbnail
+                                                  name={spect.title}
                                                   team={spect.author === null ? "" : spect.author}
                                                   country={spect.country === null ? "" : spect.country}
                                                   date={spect.country === null ? "" : spect.country}
@@ -88,7 +90,7 @@ export default function TabSystemV ({tabContent, spectacleQuery}) {
             </div>
           </div>
         </div>
-      ))} 
+      ))}
     </div>
   );
 }

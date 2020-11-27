@@ -6,9 +6,10 @@ import "../../../assets/styles/global.css";
 
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import CalendarLarge from "../../globals/Calendar/CalendarLarge";
+// import TabSystemHorsScene from "../../globals/TabSystems/TabSystemHorsScene";
 import TabSystemV from "../../globals/TabSystems/TabSystemV"
 
-export default function HorsScenePage () {
+export default function HorsScenePage() {
 
   const strapiHorsSceneQuery = useStaticQuery(graphql`
     query strapiHorsSceneQuery {
@@ -26,54 +27,32 @@ export default function HorsScenePage () {
         id
         content
       }
-      allStrapiSpectacle {
-        nodes {
-          title
-          strapiId
-          horaires {
-            Day
-          }
-          country
-          place
-          author
-          thumbnail {
-            internal {
-              description
-            }
-          }
-          type_of_events {
-            category
-          }
-        }
-      }
     }
   `)
 
-  const horsSceneTabQuery= strapiHorsSceneQuery.allStrapiHorsSceneTab.nodes[0].horsscenetab;
-  const horsScenePageQuery = strapiHorsSceneQuery.strapiHorsScenePage;
-  const spectacleQuery = strapiHorsSceneQuery.allStrapiSpectacle.nodes;
+  const tabContent = strapiHorsSceneQuery.allStrapiHorsSceneTab.nodes[0].horsscenetab;
+  console.log ("tabcontent", tabContent)
 
   return (
     <div>
       <ImageCarousel/> {/* TODO : passer les props pour ce composant */}
       <div id="hors-scene-page">
-        <div className="red-arrow"></div>
         <div id="hors-scene-pres">
           <div>
-            <h3 className="to-uppercase">{horsScenePageQuery.Title}</h3>
-            <p>{horsScenePageQuery.content}</p>
+            <h3 className=".to-uppercase">{strapiHorsSceneQuery.strapiHorsScenePage.Title}</h3>
+            <p>{strapiHorsSceneQuery.strapiHorsScenePage.content}</p>
           </div>
           <div id="hors-scene-Cal">
-            <p>A update une fois le composant finit avec condition (page sans calendrier)</p>
             <CalendarLarge />
           </div>
         </div>
         <div id="hors-scene-tabsystem">
-            <TabSystemV tabContent={horsSceneTabQuery} spectacleQuery={spectacleQuery} />
-        </div>
+            {/* <TabSystemHorsScene tabContent={tabContent} />    */}
+            <TabSystemV tabContent={tabContent} />                     
+        </div> 
       </div>
     </div>
   );
 }
 
-
+ 
