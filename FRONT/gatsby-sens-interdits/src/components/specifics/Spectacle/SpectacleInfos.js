@@ -39,8 +39,8 @@ const SpectacleInfos = ({
             {tarif.tarif}
           </span>
           <ul>
-            {tarif.category.map((tarif, i) => (
-              <li key={i}>{tarif.category}</li>
+            {tarif.category.map((el, i) => (
+              <li key={i}>{el.category}</li>
             ))}
           </ul>
         </div>
