@@ -6,74 +6,57 @@ import Thumbnail from "../../globals/Thumbnail";
 import CalendarLarge from "../../globals/Calendar/CalendarLarge";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 
-/* 
-let data = {
-    a: 'aaaa',
-    b: 'aaaa',
-    c: 'aaaa',
-    horaires: [{Day: 1},{Day: 2},{Day: 3}]
-}
-let datas = [];
-data.horaires.forEach(date => {
-   let data2 = Object.assign({}, data);
-   data2.Day = date.Day;
-   datas.push(data2);
-});
-console.log(datas);
-})
- */
-
-function listTreatment(spectacle) {
-  let treatment = [];
-  spectacle.horaires.forEach(date => {
-    let data = { ...spectacle };
-    data.day = date.Day;
-    console.log("data", data);
-    treatment.push(data);
-  });
-  return treatment;
-}
-
 export default function ProgrammePage(props) {
   const [list, setList] = useState("");
 
-  useEffect(() => {
-    let fullList = [];
-    props.list.map(spectacle => {
-      if (spectacle.horaires[0]) {
-        return fullList.push(...listTreatment(spectacle));
-      } else {
-        return fullList.push(spectacle);
-      }
-    });
-    console.log("full list", fullList);
-    /* .horaires.forEach(date => {
-      let data = { ...props.list };
-      data.day = date.Day;
-      treatment.push(data);
-    }); */
+  const fullList = [];
 
+  props.list.map(spectacle => {
+    if (spectacle.horaires[0]) {
+      return fullList.push(...listTreatment(spectacle));
+    } else {
+      return fullList.push(spectacle);
+    }
+  });
+
+  function listTreatment(spectacle) {
+    let treatment = [];
+    spectacle.horaires.forEach(date => {
+      let data = { ...spectacle };
+      data.day = date.Day;
+
+      treatment.push(data);
+    });
+    return treatment;
+  }
+
+  useEffect(() => {
     setList(fullList);
   }, [props]);
 
   function countryFilter(e) {
     e.preventDefault();
-    console.log("Le filtre pays a été cliqué.");
-    console.log(list[5]);
+    const list2 = [...list];
+    const countryList = list2.sort((a, b) => (a.country > b.country ? -1 : 1));
+    setList(countryList);
   }
 
   function authorFilter(e) {
     e.preventDefault();
-    console.log("Le filtre metteur en scene a été cliqué.");
+    const list2 = [...list];
+    const authorList = list2.sort((a, b) => (a.author > b.author ? 1 : -1));
+    setList(authorList);
   }
 
   function placeFilter(e) {
     e.preventDefault();
-    console.log("Le filtre lieu a été cliqué.");
+    const list2 = [...list];
+    const placeList = list2.sort((a, b) => (a.place > b.place ? -1 : 1));
+    setList(placeList);
   }
   function resetFilter(e) {
     e.preventDefault();
-    console.log("Les filtres sont reinitialisés.");
+    setList(fullList);
   }
 
   const affichageList = () => {
@@ -88,7 +71,7 @@ export default function ProgrammePage(props) {
       return list.map(spectacle => {
         return (
           <Thumbnail
-            key={spectacle.title+spectacle.day}
+            key={spectacle.title + spectacle.day}
             affiche={
               spectacle.thumbnail
                 ? spectacle.thumbnail.internal.description.split('"')[1]
