@@ -30,8 +30,8 @@ export default function TabSystemV({ tabContent }) {
 
   const [activeTabContent, setActiveTabContent] = useState("");
   const [activeClass, setActiveClass] = useState("");
-  const templinktoevent = [{categorie:"Débat", event:"event1"},{categorie:"Débat", event:"event2"},{categorie:"Partenaires", event:"event4"},{categorie:"Expositions", event:"event4"},{categorie:"Concerts", event:"event5"},{categorie:"Débat", event:"event6"}]
-
+  // const templinktoevent = [{categorie:"Débat", event:"event1"},{categorie:"Débat", event:"event2"},{categorie:"Partenaires", event:"event4"},{categorie:"Expositions", event:"event4"},{categorie:"Concerts", event:"event5"},{categorie:"Débat", event:"event6"}]
+  console.log ("tab content in tab syst", tabContent)
 
   function handleOnClick(e) {
     setActiveTabContent(e.target.id);
@@ -67,11 +67,11 @@ export default function TabSystemV({ tabContent }) {
             }
           >
             {tab.content}
-            {tab.credited_image[0] !== undefined ? (
+            {tab.credited_image !== undefined ? (
               <DisplayPicture imageContent={tab.credited_image} />
             ) : ""}
             <div className="Thumbnail-list"> 
-                {templinktoevent.map((item)=> (<Thumbnail/>))}
+                {/* {templinktoevent.map((item)=> (<Thumbnail/>))} */}
               </div>
           </div>
         </div>
