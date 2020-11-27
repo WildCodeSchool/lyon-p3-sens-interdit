@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
-import moment from "moment";
 import "./Index.css";
 import photoTest from "../../../assets/img/img-sens-interdit.jpg";
 import Thumbnail from "../../globals/Thumbnail";
 import CalendarLarge from "../../globals/Calendar/CalendarLarge";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
+import dayjs from "dayjs";
+import "dayjs/locale/fr";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+dayjs.locale("fr");
+dayjs.extend(localizedFormat);
 
 export default function ProgrammePage(props) {
   const [list, setList] = useState("");
@@ -32,7 +36,7 @@ export default function ProgrammePage(props) {
 
   useEffect(() => {
     setList(fullList);
-  }, [props]);
+  }, []);
 
   function countryFilter(e) {
     e.preventDefault();
@@ -79,7 +83,7 @@ export default function ProgrammePage(props) {
             }
             date={
               spectacle.day
-                ? moment(spectacle.day).format("ddd do MMM, H:mm ")
+                ? dayjs(spectacle.day).format("ddd D MMM à HH:mm")
                 : "inconnue"
             }
             country={spectacle.country ? spectacle.country : "inconnu"}
@@ -90,7 +94,6 @@ export default function ProgrammePage(props) {
       });
     }
   };
-  //BACK/strapi-sens-interdits/public/uploads/Capture_d_ecran_de_2020_09_24_19_38_35_39c8a71ce4.png
   return (
     <div className="global-programme-page">
       <ImageCarousel />
@@ -108,7 +111,7 @@ export default function ProgrammePage(props) {
             <p> LIEUX </p>
           </a>
           <a href="#" onClick={resetFilter}>
-            <h3> supprimer </h3>
+            <h3> supprimer filtres </h3>
           </a>
         </div>
         <div className="display-mini-tab"> {affichageList(list)} </div>
