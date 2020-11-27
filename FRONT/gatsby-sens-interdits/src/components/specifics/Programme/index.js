@@ -1,24 +1,65 @@
 import React, { useState, useEffect } from "react";
-import moment from 'moment';
+import moment from "moment";
 import "./Index.css";
 import photoTest from "../../../assets/img/img-sens-interdit.jpg";
 import Thumbnail from "../../globals/Thumbnail";
 import CalendarLarge from "../../globals/Calendar/CalendarLarge";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 
+/* 
+let data = {
+    a: 'aaaa',
+    b: 'aaaa',
+    c: 'aaaa',
+    horaires: [{Day: 1},{Day: 2},{Day: 3}]
+}
+let datas = [];
+data.horaires.forEach(date => {
+   let data2 = Object.assign({}, data);
+   data2.Day = date.Day;
+   datas.push(data2);
+});
+console.log(datas);
+})
+ */
+
+function listTreatment(spectacle) {
+  let treatment = [];
+  spectacle.horaires.forEach(date => {
+    let data = { ...spectacle };
+    data.day = date.Day;
+    console.log("data", data);
+    treatment.push(data);
+  });
+  return treatment;
+}
+
 export default function ProgrammePage(props) {
-  const [list, setList] = useState(props.list);
+  const [list, setList] = useState("");
 
   useEffect(() => {
-    
-    setList(props.list);
+    let fullList = [];
+    props.list.map(spectacle => {
+      if (spectacle.horaires[0]) {
+        return fullList.push(...listTreatment(spectacle));
+      } else {
+        return fullList.push(spectacle);
+      }
+    });
+    console.log("full list", fullList);
+    /* .horaires.forEach(date => {
+      let data = { ...props.list };
+      data.day = date.Day;
+      treatment.push(data);
+    }); */
+
+    setList(fullList);
   }, [props]);
 
   function countryFilter(e) {
     e.preventDefault();
     console.log("Le filtre pays a été cliqué.");
-    console.log(("horaires", list[2].horaires[1].Day));
-    console.log("date", moment(list[2].horaires[1].Day))
+    console.log(list[5]);
   }
 
   function authorFilter(e) {
@@ -36,7 +77,6 @@ export default function ProgrammePage(props) {
   }
 
   const affichageList = () => {
-    
     if (list.length === 0 || list === undefined) {
       return (
         <img
@@ -48,20 +88,26 @@ export default function ProgrammePage(props) {
       return list.map(spectacle => {
         return (
           <Thumbnail
-            key={
-              spectacle.id
+            key={spectacle.title+spectacle.day}
+            affiche={
+              spectacle.thumbnail
+                ? spectacle.thumbnail.internal.description.split('"')[1]
+                : photoTest
             }
-            affiche={photoTest}
-            date={spectacle.created_at}
-            country={"inconnu"}
+            date={
+              spectacle.day
+                ? moment(spectacle.day).format("ddd do MMM, H:mm ")
+                : "inconnue"
+            }
+            country={spectacle.country ? spectacle.country : "inconnu"}
             name={spectacle.title}
-            team={"inconnu"}
-            props={spectacle}
+            team={spectacle.author ? spectacle.author : "inconnu"}
           />
         );
       });
     }
   };
+  //BACK/strapi-sens-interdits/public/uploads/Capture_d_ecran_de_2020_09_24_19_38_35_39c8a71ce4.png
   return (
     <div className="global-programme-page">
       <ImageCarousel />

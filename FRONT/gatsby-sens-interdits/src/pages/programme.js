@@ -7,7 +7,6 @@ export default function Programme() {
     query listProgrammes {
       allStrapiSpectacle {
         nodes {
-          id
           title
           strapiId
           duration
@@ -19,10 +18,37 @@ export default function Programme() {
             credited_image {
               credit
               image {
-                alternativeText
-                id
                 url
               }
+            }
+            title
+          }
+          country
+          carousel {
+            id
+            image {
+              image {
+                url
+              }
+            }
+          }
+          accessibility {
+            url
+          }
+          partners {
+            url
+          }
+          place
+          tarif {
+            tarif
+            category {
+              category
+            }
+          }
+          author
+          thumbnail {
+            internal {
+              description
             }
           }
         }
