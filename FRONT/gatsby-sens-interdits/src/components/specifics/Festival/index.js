@@ -3,25 +3,53 @@ import CalendarLarge from "../../globals/Calendar/CalendarLarge";
 import DisplayTabMenu from "../../globals/DisplayTabMenu/DisplayTabMenu";
 import "./festival.css";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
+import { graphql, useStaticQuery } from "gatsby";
 
-export default function festivalPage() {
-
-    const festivalMenu = ["Programme", "Hors-scène", "Ecole", "Billeterie", "Infos pratiques", "Lieux"];
-
+export default function FestivalPage() {
+    const { strapiFestival } = useStaticQuery(graphql`
+    query strapiFestival {
+        strapiFestival {
+          carousel {
+            id
+            image {
+              credit
+              id
+              image {
+                url
+              }
+            }
+          }
+          content
+          id
+          title
+          squaremenu {
+            id
+            title
+            url
+            image {
+              url
+            }
+          }
+        }
+      }`)
+    const imageArray =
+        strapiFestival.carousel !== null
+            ? strapiFestival.carousel.image.map(image => image.image)
+            : false;
     return (
         <div className="global-festival">
-            <ImageCarousel />
+            <ImageCarousel images={imageArray} />
             <div id="festival-content">
                 <div id="festival-calendar">
                     <CalendarLarge />
                 </div>
                 <div id="festival-description">
-                    <h3>10 ans déjà</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <h3>{strapiFestival.title}</h3>
+                    <p>{strapiFestival.content}</p>
                 </div>
                 <nav id="festival-menu">
-                    {festivalMenu.map(title =>
-                        <DisplayTabMenu title={title} />
+                    {strapiFestival.squaremenu.map(elem =>
+                        <DisplayTabMenu key={elem.id} title={elem.title} url={elem.url} image={elem.image[0].url} />
                     )
                     }
                 </nav>

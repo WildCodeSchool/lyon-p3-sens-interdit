@@ -13,7 +13,8 @@ module.exports = {
           `hors-scene-page`,
           `logo-principal`,
           `transmission`,
-          `assopage`, `homepage`
+          `assopage`,
+          `homepage`
         ],
       },
     },
