@@ -30,10 +30,14 @@ export default function Homepage() {
       description
     }
   }`)
+  const imageArray =
+    strapiHomepage.carousel !== null
+      ? strapiHomepage.carousel.image.map(image => image.image)
+      : false;
   return (
 
     <>
-      <ImageCarousel />
+      <ImageCarousel images={imageArray} />
 
       <div className="global-homepage">
         {strapiHomepage.description ?
@@ -49,7 +53,7 @@ export default function Homepage() {
 
         <div className="content-homepage">
           {strapiHomepage.squaremenu.map(elem => (
-            <DisplayTabMenu key={elem.id} title={elem.title} image={elem.image[0].url} url={process.env.GATSBY_API_URL + elem.url} />
+            <DisplayTabMenu key={elem.id} title={elem.title} image={elem.image[0].url} url={elem.url} />
           ))}
         </div>
       </div>
