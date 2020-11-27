@@ -15,7 +15,10 @@ module.exports = {
           `transmission`,
           `assopage`,
           `homepage`,
-          `partnerpage`
+          `partnerpage`,
+          `home-display-tab`,
+          `newspage`,
+          `hors-scene-tab`
         ],
       },
     },
