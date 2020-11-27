@@ -4,10 +4,10 @@
 }
 
 .content-spectacle-page {
-  width: 1080px;
+  width: 1280px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 20% 60% 20%;
+  grid-template-columns: 15% 60% 25%;
   grid-template-rows: 100px repeat(2, minmax(100px, auto));
   gap: 10px;
   grid-template-areas:
@@ -35,6 +35,7 @@
 .content {
   grid-area: content;
   margin-bottom: 42px;
+  position: relative;
 }
 
 .content p.content-title {
@@ -43,6 +44,7 @@
   font-size: 24px;
   align-items: center;
   margin-bottom: 32px;
+  padding-top: 50px;
 }
 
 .display-mini-tab {
@@ -50,4 +52,14 @@
   flex-wrap: wrap;
   width: 1080px;
   margin: auto;
+  justify-content: center;
+}
+div.red-arrow-spectacle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 40px;
+  height: 45px;
+  background-color: #e30613;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
 }
