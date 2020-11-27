@@ -15,6 +15,7 @@ module.exports = {
           `logo-principal`,
           `transmission`,
           `assopage`,
+          `partnerpage`,
         ],
       },
     },
