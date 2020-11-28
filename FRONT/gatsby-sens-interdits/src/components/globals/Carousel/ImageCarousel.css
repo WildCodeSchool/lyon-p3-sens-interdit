@@ -14,10 +14,6 @@ div.size-adjustment {
   max-height: calc(100vh - 280px); /*450px*/
 }
 
-div.size-adjustment img {
-  transform: translate(0, -25%);
-}
-
 div.carousel-wrapper {
   position: relative;
   display: flex;

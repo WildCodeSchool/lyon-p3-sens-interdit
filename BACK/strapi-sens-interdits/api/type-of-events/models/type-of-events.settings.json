@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "type_of_events",
+  "info": {
+    "name": "typeofevent",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "category": {
+      "type": "string"
+    },
+    "spectacles": {
+      "collection": "spectacle",
+      "via": "type_of_events"
+    }
+  }
+}

@@ -13,8 +13,6 @@ import photoTest from "./../../assets/img/img-sens-interdit.jpg";
 export default function SpectaclePage({ data }) {
   const spectacle = data.spectacle;
 
-  console.log(spectacle.tab_element.length === 0); // true or false
-
   const imageArray =
     spectacle.carousel !== null
       ? spectacle.carousel.image.map(image => image.image)
@@ -29,16 +27,24 @@ export default function SpectaclePage({ data }) {
       />
       <div className="content-spectacle-page">
         <div className="country-label">
-          <p>Kosovo</p>
+          <p>{spectacle.country}</p>
         </div>
         <CalendarLarge />
-        <SpectacleInfos />
+        <SpectacleInfos
+          tarif={spectacle.tarif}
+          country={spectacle.country}
+          duration={spectacle.duration}
+          partners={spectacle.partners}
+          accessibility={spectacle.accessibility}
+          info={spectacle.spectacle_info}
+        />
         {spectacle.tab_element.lenght === 0 ? (
           ""
         ) : (
           <TabSystemH tabContent={spectacle.tab_element} />
         )}
         <div className="content">
+          <div className="red-arrow-spectacle"></div>
           <p className="content-title to-uppercase">Autour du spectacle</p>
           <div className="display-mini-tab">
             <Thumbnail
@@ -58,12 +64,11 @@ export default function SpectaclePage({ data }) {
           </div>
         </div>
       </div>
-      <p>{spectacle.title} </p>
     </div>
   );
 }
 
-// This query needs to be dynamic based on the id of the spectacle 
+// This query needs to be dynamic based on the id of the spectacle
 // (example: id="test-spectacle" --> the route will be: http://localhost:8000/spectacle/test-spectacle/
 export const query = graphql`
   query($id: String!) {
@@ -72,6 +77,15 @@ export const query = graphql`
       id
       strapiId
       duration
+      country
+      place
+      info
+      tarif {
+        tarif
+        category {
+          category
+        }
+      }
       carousel {
         id
         image {
@@ -92,6 +106,22 @@ export const query = graphql`
           image {
             url
           }
+        }
+      }
+      spectacle_info {
+        id
+        info
+      }
+      accessibility {
+        url
+        name
+        id
+      }
+      partners {
+        url
+        id
+        image {
+          url
         }
       }
     }

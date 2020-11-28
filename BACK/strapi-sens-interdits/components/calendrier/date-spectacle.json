@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_calendrier_date_spectacles",
+  "info": {
+    "name": "Date_spectacle",
+    "icon": "calendar-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Day": {
+      "type": "datetime"
+    }
+  }
+}

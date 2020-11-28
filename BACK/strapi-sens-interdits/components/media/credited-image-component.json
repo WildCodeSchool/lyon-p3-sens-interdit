@@ -18,6 +18,9 @@
     },
     "credit": {
       "type": "string"
+    },
+    "url": {
+      "type": "string"
     }
   }
 }

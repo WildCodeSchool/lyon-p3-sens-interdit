@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_menu_horsscenetabs",
+  "info": {
+    "name": "horsscenetab",
+    "icon": "bars"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    }
+  }
+}

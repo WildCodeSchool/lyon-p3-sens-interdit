@@ -29,7 +29,6 @@ export default function TabSystemH({ tabContent }) {
     setActiveTabContent(e.target.id);
     setActiveClass(e.target.id);
   }
-
   return (
     <div className="tab-module">
       <div>

@@ -1,6 +1,7 @@
 .spectacle-info {
   grid-area: spectacle-info;
   background: #fff;
+  position: relative;
 }
 
 .spectacle-info-container {
@@ -16,7 +17,7 @@
 
 .info-container ul li:before {
   content: "";
-  border-color: transparent #E30613;
+  border-color: transparent #e30613;
   border-style: solid;
   border-width: 0.35em 0 0.35em 0.45em;
   display: block;
@@ -30,8 +31,17 @@
 .partners-logo img {
   display: flex;
   flex-direction: column;
+}
+.partners-logo {
   padding-left: 20px;
 }
-.accessibility-logo img {
-  margin-right: -55px;
+
+div.red-arrow {
+  position: absolute;
+  top: 0;
+  left: 100px;
+  width: 40px;
+  height: 45px;
+  background-color: #e30613;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
 }

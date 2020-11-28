@@ -32,6 +32,58 @@
       "type": "component",
       "repeatable": false,
       "component": "menu.medias-slider"
+    },
+    "country": {
+      "type": "string"
+    },
+    "horaires": {
+      "type": "component",
+      "repeatable": true,
+      "component": "calendrier.date-spectacle"
+    },
+    "place": {
+      "type": "string"
+    },
+    "archive": {
+      "type": "boolean"
+    },
+    "tarif": {
+      "type": "component",
+      "repeatable": false,
+      "component": "text.tarif"
+    },
+    "partners": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.logo"
+    },
+    "accessibility": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "author": {
+      "type": "string"
+    },
+    "thumbnail": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "type_of_events": {
+      "via": "spectacles",
+      "collection": "type-of-events",
+      "dominant": true
     }
   }
 }

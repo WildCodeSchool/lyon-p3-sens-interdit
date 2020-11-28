@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/newspage",
+      "handler": "newspage.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/newspage",
+      "handler": "newspage.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/newspage",
+      "handler": "newspage.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "hors_scene_tabs",
+  "info": {
+    "name": "horsSceneTab",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "horsscenetab": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.horsscenetab"
+    }
+  }
+}
