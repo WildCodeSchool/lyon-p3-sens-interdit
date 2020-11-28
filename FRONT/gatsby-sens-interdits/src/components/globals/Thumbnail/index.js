@@ -3,6 +3,7 @@ import "./Index.css";
 import pictoPlus from "../../../assets/img/picto+.svg";
 
 export default function Thumbnail(props) {
+  
   return (
     <div className="mini-tab">
       <a href={props.url ? props.url : ""}>

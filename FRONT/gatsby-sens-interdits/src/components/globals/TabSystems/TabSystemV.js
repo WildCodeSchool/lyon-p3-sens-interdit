@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { graphql, useStaticQuery } from "gatsby";
+
 import picto from "../../../assets/img/picto.svg";
 import "./tabSystemV.css";
 import Thumbnail from "../Thumbnail";
@@ -26,21 +28,26 @@ function DisplayPicture({ imageContent }) {
   );
 }
 
-export default function TabSystemV({ tabContent }) {
+export default function TabSystemV ({tabContent}) {
 
   const [activeTabContent, setActiveTabContent] = useState("");
   const [activeClass, setActiveClass] = useState("");
-  // const templinktoevent = [{categorie:"Débat", event:"event1"},{categorie:"Débat", event:"event2"},{categorie:"Partenaires", event:"event4"},{categorie:"Expositions", event:"event4"},{categorie:"Concerts", event:"event5"},{categorie:"Débat", event:"event6"}]
-  console.log ("tab content in tab syst", tabContent)
+
+  console.log ('rechercher props', tabContent);
+
+
+
 
   function handleOnClick(e) {
     setActiveTabContent(e.target.id);
     setActiveClass(e.target.id);
   }
 
+ 
   return (
     <div className="tab-moduleV">
-      {tabContent.map(tab => (
+      <p>test</p>
+     {tabContent.map(tab => (
         <div className="tab-moduleV" key={tab.id}>
           <div className="tab-titleV">
             <img
@@ -71,11 +78,11 @@ export default function TabSystemV({ tabContent }) {
               <DisplayPicture imageContent={tab.credited_image} />
             ) : ""}
             <div className="Thumbnail-list"> 
-                {/* {templinktoevent.map((item)=> (<Thumbnail/>))} */}
-              </div>
+              {/* {typeOfEvent === tab.title ? <Thumbnail eventThumbnail={eventThumbnail} /> :""} */}
+            </div>
           </div>
         </div>
-      ))}
+      ))} 
     </div>
   );
 }
