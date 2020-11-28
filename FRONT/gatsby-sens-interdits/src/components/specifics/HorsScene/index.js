@@ -52,8 +52,7 @@ export default function HorsScenePage () {
   const horsSceneTabQuery= strapiHorsSceneQuery.allStrapiHorsSceneTab.nodes[0].horsscenetab;
   const horsScenePageQuery = strapiHorsSceneQuery.strapiHorsScenePage;
   const spectacleQuery = strapiHorsSceneQuery.allStrapiSpectacle.nodes;
-  // console.log ('horsSceneTabQuery', [horsSceneTabQuery]);
-  // console.log ('spectacleQuery', spectacleQuery);
+  console.log ('spectacleQuery', spectacleQuery);
 
 
 
