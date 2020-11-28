@@ -26,10 +26,37 @@ export default function HorsScenePage () {
         id
         content
       }
+      allStrapiSpectacle {
+        nodes {
+          title
+          strapiId
+          horaires {
+            Day
+          }
+          country
+          place
+          author
+          thumbnail {
+            internal {
+              description
+            }
+          }
+          type_of_events {
+            category
+          }
+        }
+      }
     }
   `)
 
-  const tabContent = strapiHorsSceneQuery.allStrapiHorsSceneTab.nodes[0].horsscenetab;
+  const horsSceneTabQuery= strapiHorsSceneQuery.allStrapiHorsSceneTab.nodes[0].horsscenetab;
+  const horsScenePageQuery = strapiHorsSceneQuery.strapiHorsScenePage;
+  const spectacleQuery = strapiHorsSceneQuery.allStrapiSpectacle.nodes;
+  // console.log ('horsSceneTabQuery', [horsSceneTabQuery]);
+  // console.log ('spectacleQuery', spectacleQuery);
+
+
+
  
 
   return (
@@ -39,8 +66,8 @@ export default function HorsScenePage () {
         <div className="red-arrow"></div>
         <div id="hors-scene-pres">
           <div>
-            <h3 className="to-uppercase">{strapiHorsSceneQuery.strapiHorsScenePage.Title}</h3>
-            <p>{strapiHorsSceneQuery.strapiHorsScenePage.content}</p>
+            <h3 className="to-uppercase">{horsScenePageQuery.Title}</h3>
+            <p>{horsScenePageQuery.content}</p>
           </div>
           <div id="hors-scene-Cal">
             <p>A update une fois le composant finit</p>
@@ -48,7 +75,7 @@ export default function HorsScenePage () {
           </div>
         </div>
         <div id="hors-scene-tabsystem">
-            <TabSystemV tabContent={tabContent} />                     
+            <TabSystemV tabContent={horsSceneTabQuery} spectacleQuery={spectacleQuery} />                     
         </div> 
       </div>
     </div>

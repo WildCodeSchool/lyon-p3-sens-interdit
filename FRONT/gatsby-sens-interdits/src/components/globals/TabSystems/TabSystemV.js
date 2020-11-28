@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { graphql, useStaticQuery } from "gatsby";
+
 
 import picto from "../../../assets/img/picto.svg";
 import "./tabSystemV.css";
@@ -38,6 +40,7 @@ export default function TabSystemV ({tabContent, spectacleQuery}) {
     setActiveTabContent(e.target.id);
     setActiveClass(e.target.id);
   }
+
 
   return (
     <div className="tab-moduleV">
