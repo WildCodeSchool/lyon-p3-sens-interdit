@@ -3,6 +3,7 @@ import "./Index.css";
 import pictoPlus from "../../../assets/img/picto+.svg";
 
 export default function Thumbnail(props) {
+  // console.log ("props in thumbanail", props)
   
   return (
     <div className="mini-tab">

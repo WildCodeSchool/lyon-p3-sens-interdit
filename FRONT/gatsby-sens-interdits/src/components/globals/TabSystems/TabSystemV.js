@@ -28,21 +28,16 @@ function DisplayPicture({ imageContent }) {
   );
 }
 
-export default function TabSystemV ({tabContent}) {
+export default function TabSystemV ({tabContent, spectacleQuery}) {
 
   const [activeTabContent, setActiveTabContent] = useState("");
   const [activeClass, setActiveClass] = useState("");
-
-  console.log ('rechercher props', tabContent);
-
-
 
 
   function handleOnClick(e) {
     setActiveTabContent(e.target.id);
     setActiveClass(e.target.id);
   }
-
  
   return (
     <div className="tab-moduleV">
@@ -78,7 +73,15 @@ export default function TabSystemV ({tabContent}) {
               <DisplayPicture imageContent={tab.credited_image} />
             ) : ""}
             <div className="Thumbnail-list"> 
-              {/* {typeOfEvent === tab.title ? <Thumbnail eventThumbnail={eventThumbnail} /> :""} */}
+              {spectacleQuery.map (elem => <Thumbnail 
+                    name={elem.title} 
+                    team={elem.author === null ? "" : elem.author}
+                    country={elem.country === null ? "" : elem.country}
+                    // date={}
+                    // affiche={}
+                    // url={}
+
+                  /> )}
             </div>
           </div>
         </div>
