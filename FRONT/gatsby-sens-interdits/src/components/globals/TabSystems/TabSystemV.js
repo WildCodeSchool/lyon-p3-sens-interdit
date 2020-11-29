@@ -33,7 +33,6 @@ export default function TabSystemV ({tabContent, spectacleQuery}) {
   const [activeTabContent, setActiveTabContent] = useState("");
   const [activeClass, setActiveClass] = useState("");
 
-
   function handleOnClick(e) {
     setActiveTabContent(e.target.id);
     setActiveClass(e.target.id);
@@ -41,7 +40,6 @@ export default function TabSystemV ({tabContent, spectacleQuery}) {
  
   return (
     <div className="tab-moduleV">
-      <p>test</p>
      {tabContent.map(tab => (
         <div className="tab-moduleV" key={tab.id}>
           <div className="tab-titleV">
@@ -72,16 +70,22 @@ export default function TabSystemV ({tabContent, spectacleQuery}) {
             {tab.credited_image !== undefined ? (
               <DisplayPicture imageContent={tab.credited_image} />
             ) : ""}
-            <div className="Thumbnail-list"> 
-              {spectacleQuery.map (elem => <Thumbnail 
-                    name={elem.title} 
-                    team={elem.author === null ? "" : elem.author}
-                    country={elem.country === null ? "" : elem.country}
-                    // date={}
-                    // affiche={}
-                    // url={}
-
-                  /> )}
+            <div className="thumbnail-list"> 
+              {spectacleQuery.map (spect => 
+                        spect.type_of_events.map(cat => 
+                              cat.category === tab.title ? 
+                                  <Thumbnail 
+                                                  name={spect.title} 
+                                                  team={spect.author === null ? "" : spect.author}
+                                                  country={spect.country === null ? "" : spect.country}
+                                                  // date={}
+                                                  // affiche={}
+                                                  // url={}
+                                                />
+                              : ""
+                        )
+                      )
+               }
             </div>
           </div>
         </div>

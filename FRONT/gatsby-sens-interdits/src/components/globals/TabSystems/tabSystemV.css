@@ -9,6 +9,7 @@
   padding: 20px;
 }
 
+
 #tab-contentV {
   padding-top: 10px;
   text-align: justify;
@@ -62,13 +63,18 @@ div.disabled-tab {
   color : #E30613;
 }
 
+.thumbnail-list {
+  margin: auto;
+  justify-content: space-around;
+}
+
 /*________________spécifique à Hors Scene Page ______*/
 
 .tab-module-HS{
   margin: 50px;
 }
 
-.Thumbnail-list {
+.thumbnail-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
