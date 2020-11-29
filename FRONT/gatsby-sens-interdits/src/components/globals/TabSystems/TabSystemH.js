@@ -57,17 +57,31 @@ export default function TabSystemH({ tabContent }) {
       <div>
         {tabContent.map(tab => (
           <div key={tab.id}>
-            {/* <div
+            <div
               id="tab-content"
               className={
                 activeTabContent === tab.title ? "active-tab" : "disabled-tab"
               }
             >
-              <p>{tab.content}</p>
+              <div>
+                <p> contenu du tab</p>
+                {/* {tab.content === undefined ?
+                  tab.articlecontent.map(article =>
+                      <div>
+                        <p>{article.date}</p>
+                        <h3>{article.title}</h3>
+                        <img>{article.image !== null ? article.image:""}</img>
+                        <p>{article.article}</p>
+                        <img>{article.image !== null ? article.image:""}</img>
+                      </div>
+                  )
+                  : <p>{tab.content}</p>
+                  }  */}
+              </div>
               {tab.credited_image.lenght !== 0 ? (
                 <DisplayPicture imageContent={tab.credited_image} />
               ) : null}
-            </div> */}
+            </div>
           </div>
         ))}
       </div>
