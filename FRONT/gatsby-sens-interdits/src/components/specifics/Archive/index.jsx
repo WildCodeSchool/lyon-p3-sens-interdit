@@ -90,7 +90,7 @@ function Archive(props) {
         {allStrapiArchivesOld.edges.map(elem => (
           <Thumbnail
             key={elem.node.id}
-            url="http://localhost:8000/spectacle"
+            url={"http://localhost:8000/"+elem.node.id}
             date={elem.node.date_1}
             country={elem.node.pays}
             name={elem.node.titre}
