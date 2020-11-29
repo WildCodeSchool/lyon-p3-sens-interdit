@@ -34,10 +34,15 @@ export default function TabSystemV ({tabContent, spectacleQuery}) {
   const templinktoevent = [{categorie:"Débat", event:"event1"},{categorie:"Débat", event:"event2"},{categorie:"Partenaires", event:"event4"},{categorie:"Expositions", event:"event4"},{categorie:"Concerts", event:"event5"},{categorie:"Débat", event:"event6"}]
 
   function handleOnClick(e) {
-    setActiveTabContent(e.target.id);
-    setActiveClass(e.target.id);
+      let elem = e.target;
+      if(elem.classList.contains('active')) {
+          setActiveTabContent(null);
+          setActiveClass(null);
+      } else {
+          setActiveTabContent(elem.id);
+          setActiveClass(elem.id);
+      }
   }
-
 
   return (
     <div className="tab-moduleV">
@@ -62,10 +67,7 @@ export default function TabSystemV ({tabContent, spectacleQuery}) {
             </h3>
           </div>
           <div
-            id="tab-contentV"
-            className={
-              activeTabContent === tab.title ? "active-tab" : "disabled-tab"
-            }
+            className={'tab-contentV ' + (activeTabContent === tab.title ? "active-tab" : "disabled-tab")}
           >
             {tab.content}
             {tab.credited_image !== undefined ? (
