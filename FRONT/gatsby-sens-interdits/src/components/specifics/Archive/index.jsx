@@ -4,6 +4,8 @@ import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import FilterTab from "../Programme/FilterTab";
 import Thumbnail from "../../globals/Thumbnail";
 import photoTest from "../../../assets/img/img-sens-interdit.jpg";
+import { graphql, useStaticQuery } from "gatsby";
+
 import "./Archive.css";
 
 function Archive(props) {
@@ -42,10 +44,27 @@ function Archive(props) {
         "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
     },
   ];
+ 
+  const { allStrapiArchivesOld } = useStaticQuery(graphql`
+  query MyQueryArchive {
+    allStrapiArchivesOld {
+      edges {
+        node {
+        titre
+        id
+        credits_2
+        pays
+        photo_1
+        date_1
+      }
+    }
+  }
+  }`)
 
   return (
     <>
-      <ImageCarousel displayed={true} images={props.images} title={title} />
+    
+        <ImageCarousel displayed={true} images={props.images} title={title} />
       <div className="global-margin archive-global-styling">
         <p className="archive-description">{content}</p>
         <h1 className="to-uppercase">
@@ -68,54 +87,19 @@ function Archive(props) {
         </h1>
         <FilterTab />
         <div className="archive-transmission-grid-wrapper">
+        {allStrapiArchivesOld.edges.map(elem => (
           <Thumbnail
-            url="http://localhost:8000/spectacle"
-            affiche={photoTest}
-            date="26 Octobre"
-            country="Russie"
-            name="Titre du spectacle"
-            team="Metteur en scène"
+            key={elem.node.id}
+            url={"http://localhost:8000/"+elem.node.id}
+            date={elem.node.date_1}
+            country={elem.node.pays}
+            name={elem.node.titre}
+            team={elem.node.credits_2}
+            affiche={elem.node.photo_1}
           />
-          <Thumbnail
-            url="http://localhost:8000/spectacle"
-            affiche={photoTest}
-            date="26 Octobre"
-            country="Russie"
-            name="Titre du spectacle"
-            team="Metteur en scène"
-          />{" "}
-          <Thumbnail
-            url="http://localhost:8000/spectacle"
-            affiche={photoTest}
-            date="26 Octobre"
-            country="Russie"
-            name="Titre du spectacle"
-            team="Metteur en scène"
-          />{" "}
-          <Thumbnail
-            url="http://localhost:8000/spectacle"
-            affiche={photoTest}
-            date="26 Octobre"
-            country="Russie"
-            name="Titre du spectacle"
-            team="Metteur en scène"
-          />{" "}
-          <Thumbnail
-            url="http://localhost:8000/spectacle"
-            affiche={photoTest}
-            date="26 Octobre"
-            country="Russie"
-            name="Titre du spectacle"
-            team="Metteur en scène"
-          />{" "}
-          <Thumbnail
-            url="http://localhost:8000/spectacle"
-            affiche={photoTest}
-            date="26 Octobre"
-            country="Russie"
-            name="Titre du spectacle"
-            team="Metteur en scène"
-          />
+            
+        ))}
+        
         </div>
       </div>
     </>

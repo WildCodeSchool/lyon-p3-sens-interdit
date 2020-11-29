@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "axios": "^0.21.0",
+    "dayjs": "^1.9.6",
     "fs": "0.0.1-security",
     "gatsby": "^2.24.79",
     "gatsby-source-strapi": "0.0.12",

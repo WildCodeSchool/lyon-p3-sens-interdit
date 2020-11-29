@@ -7,14 +7,15 @@ module.exports = {
       options: {
         apiURL: process.env.GATSBY_API_URL,
         queryLimit: -1, // -1 = No limits // Default to 100
-        contentTypes: [`festival`, `spectacle`],
+        contentTypes: [`festival`, `spectacle`,`archives-old`],
         singleTypes: [
           `global-menu`,
           `hors-scene-page`,
           `logo-principal`,
           `transmission`,
           `assopage`,
-          `homepage`
+          `homepage`,
+          `partnerpage`
         ],
       },
     },
