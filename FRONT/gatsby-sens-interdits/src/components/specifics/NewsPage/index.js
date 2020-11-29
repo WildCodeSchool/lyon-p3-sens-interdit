@@ -36,7 +36,6 @@ export default function NewsPage() {
 
     const newsPageQuery = strapiNewsQuery.allStrapiNewspage.nodes[0];
     const newsTabQuery = strapiNewsQuery.allStrapiNewstab.nodes[0].newstab;
-    console.log ('query in news page',newsTabQuery)
 
     return (
         <div id ="news-page">
