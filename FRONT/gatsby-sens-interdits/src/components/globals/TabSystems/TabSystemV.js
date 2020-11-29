@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { graphql, useStaticQuery } from "gatsby";
 
 import picto from "../../../assets/img/picto.svg";
 import "./tabSystemV.css";
@@ -78,7 +77,7 @@ export default function TabSystemV ({tabContent, spectacleQuery}) {
                                                   name={spect.title} 
                                                   team={spect.author === null ? "" : spect.author}
                                                   country={spect.country === null ? "" : spect.country}
-                                                  // date={}
+                                                  date={spect.country === null ? "" : spect.country}
                                                   // affiche={}
                                                   // url={}
                                                 />

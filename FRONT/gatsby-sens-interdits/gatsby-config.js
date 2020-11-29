@@ -18,7 +18,8 @@ module.exports = {
           `partnerpage`,
           `home-display-tab`,
           `newspage`,
-          `hors-scene-tab`
+          `hors-scene-tab`,
+          `newspage`,
         ],
       },
     },
