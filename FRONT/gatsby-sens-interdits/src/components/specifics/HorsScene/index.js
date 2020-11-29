@@ -69,7 +69,7 @@ export default function HorsScenePage () {
             <p>{horsScenePageQuery.content}</p>
           </div>
           <div id="hors-scene-Cal">
-            <p>A update une fois le composant finit</p>
+            <p>A update une fois le composant finit avec condition (page sans calendrier)</p>
             <CalendarLarge />
           </div>
         </div>

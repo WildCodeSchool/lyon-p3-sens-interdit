@@ -34,7 +34,6 @@ export default function TabSystemV ({tabContent, spectacleQuery}) {
   const [activeClass, setActiveClass] = useState("");
   const templinktoevent = [{categorie:"Débat", event:"event1"},{categorie:"Débat", event:"event2"},{categorie:"Partenaires", event:"event4"},{categorie:"Expositions", event:"event4"},{categorie:"Concerts", event:"event5"},{categorie:"Débat", event:"event6"}]
 
-
   function handleOnClick(e) {
     setActiveTabContent(e.target.id);
     setActiveClass(e.target.id);
