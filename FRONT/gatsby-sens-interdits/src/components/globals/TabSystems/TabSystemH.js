@@ -57,7 +57,7 @@ export default function TabSystemH({ tabContent }) {
       <div>
         {tabContent.map(tab => (
           <div key={tab.id}>
-            <div
+            {/* <div
               id="tab-content"
               className={
                 activeTabContent === tab.title ? "active-tab" : "disabled-tab"
@@ -67,7 +67,7 @@ export default function TabSystemH({ tabContent }) {
               {tab.credited_image.lenght !== 0 ? (
                 <DisplayPicture imageContent={tab.credited_image} />
               ) : null}
-            </div>
+            </div> */}
           </div>
         ))}
       </div>
