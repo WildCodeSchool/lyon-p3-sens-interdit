@@ -52,12 +52,7 @@ export default function HorsScenePage () {
   const horsSceneTabQuery= strapiHorsSceneQuery.allStrapiHorsSceneTab.nodes[0].horsscenetab;
   const horsScenePageQuery = strapiHorsSceneQuery.strapiHorsScenePage;
   const spectacleQuery = strapiHorsSceneQuery.allStrapiSpectacle.nodes;
-  console.log ('spectacleQuery recherche', spectacleQuery);
-
-
-
  
-
   return (
     <div>
       <ImageCarousel/> {/* TODO : passer les props pour ce composant */}
