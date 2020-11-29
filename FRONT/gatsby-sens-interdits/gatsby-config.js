@@ -10,12 +10,12 @@ module.exports = {
         contentTypes: [`festival`, `spectacle`,`archives-old`],
         singleTypes: [
           `global-menu`,
-          `home-display-tab`,
           `hors-scene-page`,
           `logo-principal`,
           `transmission`,
           `assopage`,
-          `partnerpage`,
+          `homepage`,
+          `partnerpage`
         ],
       },
     },
