@@ -11,32 +11,32 @@ export default function NewsPage() {
     const strapiNewsQuery = useStaticQuery(graphql`
         query strapiNewsQuery {
             allStrapiNewspage {
-            nodes {
-                content
-                id
-                title
-            }
-            }
-            allStrapiNewstab {
-            nodes {
-                id
-                strapiId
-                newstab {
-                id
-                title
-                articlecontent {
-                    article
-                    date
+                nodes {
+                    content
                     id
                     title
                 }
-                }
             }
+            allStrapiNewstab {
+                nodes {
+                    newstab {
+                        id
+                        title
+                        articlecontent {
+                            article
+                            date
+                            id
+                            title
+                        }
+                    }
+                }
             }
         }
       `)
 
-      const newsPageQuery = strapiNewsQuery.allStrapiNewspage.nodes[0];
+    const newsPageQuery = strapiNewsQuery.allStrapiNewspage.nodes[0];
+    const newsTabQuery = strapiNewsQuery.allStrapiNewstab.nodes[0].newstab;
+    console.log ('query in news page',newsTabQuery)
 
     return (
         <div id ="news-page">
@@ -46,12 +46,8 @@ export default function NewsPage() {
                 <p>{newsPageQuery.content}</p>
             </div>
             <div>
-                {/* <TabSystemH/> */}
+                <TabSystemH tabContent={newsTabQuery}/>
             </div>   
         </div>
-
-        
-
     )
-
 }
