@@ -65,8 +65,8 @@ export default function TabSystemH({ tabContent }) {
             >
               <div>
                 <p> contenu du tab</p>
-                {/* {tab.content === undefined ?
-                  tab.articlecontent.map(article =>
+                {tab.content === undefined ?
+                  tab.articlecontent !== undefined ? tab.articlecontent.map(article =>
                       <div>
                         <p>{article.date}</p>
                         <h3>{article.title}</h3>
@@ -74,11 +74,11 @@ export default function TabSystemH({ tabContent }) {
                         <p>{article.article}</p>
                         <img>{article.image !== null ? article.image:""}</img>
                       </div>
-                  )
+                  ) : null
                   : <p>{tab.content}</p>
-                  }  */}
+                  }
               </div>
-              {tab.credited_image.lenght !== 0 ? (
+              {tab.credited_image !== undefined && tab.credited_image.lenght !== 0 ? (
                 <DisplayPicture imageContent={tab.credited_image} />
               ) : null}
             </div>
