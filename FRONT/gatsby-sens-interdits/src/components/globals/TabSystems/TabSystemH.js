@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import picto from "../../../assets/img/picto.svg";
 import "./tabSystemH.css";
+import tabSystemClick from '../../../utils/tab-system';
 
 function DisplayPicture({ imageContent }) {
   return (
@@ -9,7 +10,7 @@ function DisplayPicture({ imageContent }) {
         <div key={img.id}>
           <p>{img.credit}</p>
           {img.image.map(elem => (
-            <img
+            <img key={elem.url}
               src={process.env.GATSBY_API_URL + elem.url}
               alt="noalt"
               width="150"
@@ -24,30 +25,33 @@ function DisplayPicture({ imageContent }) {
 export default function TabSystemH({ tabContent }) {
   const [activeTabContent, setActiveTabContent] = useState("");
   const [activeClass, setActiveClass] = useState("");
-
+  const [firstLoad, setFirstLoad] = useState(true);
+    console.log(tabContent);
   function handleOnClick(e) {
-    setActiveTabContent(e.target.id);
-    setActiveClass(e.target.id);
+      if (firstLoad) {
+          setFirstLoad(false);
+      }
+      tabSystemClick(e, setActiveTabContent, setActiveClass);
   }
   return (
     <div className="tab-module">
       <div>
-        {tabContent.map(tab => (
-          <div className="tab-title" key={tab.id}>
+        {tabContent.map((tab,i) => (
+          <div className={"tab-title " + (activeClass === tab.id || (firstLoad && i === 0) ? "active" : "")}
+               key={tab.id}
+               id={'tab-link_'+tab.id}
+               data-id={tab.id}
+               onClick={handleOnClick}>
             <img
               src={picto}
-              alt="pictogramme cliquable"
-              weight="30"
+              alt=""
+              width="30"
               height="30"
+              data-id={tab.id}
             />
             <h3
-              title="action"
-              id={tab.title}
-              className={
-                "tab-link " + (activeClass === tab.title ? "active" : "")
-              }
-              onClick={handleOnClick}
-              onKeyDown={handleOnClick}
+              data-id={tab.id}
+              className="tab-link "
             >
               {tab.title}
             </h3>
@@ -55,24 +59,23 @@ export default function TabSystemH({ tabContent }) {
         ))}
       </div>
       <div>
-        {tabContent.map(tab => (
+        {tabContent.map((tab, i) => (
           <div key={tab.id}>
-            {/* <div
-              id="tab-content"
-              className={
-                activeTabContent === tab.title ? "active-tab" : "disabled-tab"
-              }
+            <div className={"tab-content toto " + (activeTabContent === tab.id || (firstLoad && i === 0) ? "active-tab" : "disabled-tab")}
             >
               <div>
-                <p> contenu du tab</p>
                 {tab.content === undefined ?
                   tab.articlecontent !== undefined ? tab.articlecontent.map(article =>
-                      <div>
+                      <div key={article.id}>
                         <p>{article.date}</p>
                         <h3>{article.title}</h3>
+{/*
                         <img>{article.image !== null ? article.image:""}</img>
+*/}
                         <p>{article.article}</p>
+{/*
                         <img>{article.image !== null ? article.image:""}</img>
+*/}
                       </div>
                   ) : null
                   : <p>{tab.content}</p>
@@ -81,7 +84,7 @@ export default function TabSystemH({ tabContent }) {
               {tab.credited_image !== undefined && tab.credited_image.lenght !== 0 ? (
                 <DisplayPicture imageContent={tab.credited_image} />
               ) : null}
-            </div> */}
+            </div>
           </div>
         ))}
       </div>

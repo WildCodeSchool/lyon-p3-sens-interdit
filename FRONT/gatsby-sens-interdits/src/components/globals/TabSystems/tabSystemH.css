@@ -2,14 +2,13 @@
 
 .tab-module {
   grid-area: tab-module;
-  display: flex;
   flex-direction: row;
   background: #fff;
   display: flex;
   padding: 20px;
 }
 
-#tab-content {
+.tab-content {
   padding-top: 10px;
   margin-left: 15px;
   margin-right: 10px;
@@ -21,19 +20,23 @@
   display: flex;
   flex-direction: row;
   min-width: 200px;
+  max-width: 200px;
   border-bottom: 1px solid black;
+  cursor: pointer;
+}
+.tab-title:hover h3 {
+  color: #E30613;
 }
 
 .tab-title:hover {
-  cursor: pointer;
 }
 
 .tab-title img {
-  margin-top: 5px;
+  align-self: center;
 }
 .tab-title h3 {
   margin-left: 20px;
-  margin-top: 10px;
+  align-self: center;
 }
 
 /* tab active*/
