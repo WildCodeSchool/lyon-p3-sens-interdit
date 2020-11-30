@@ -5,6 +5,8 @@ import FilterTab from "../Programme/FilterTab";
 import Thumbnail from "../../globals/Thumbnail";
 import photoTest from "../../../assets/img/img-sens-interdit.jpg";
 import "./Archive.css";
+import FilterTabArchive from "./FilterTab";
+  
 
 function Archive(props) {
   const title = "Bonjour";
@@ -102,6 +104,9 @@ function Archive(props) {
           />
         </div>
       </div>
+      
+      <FilterTabArchive /> 
+      
     </>
   );
 }
