@@ -31,12 +31,25 @@ export default function ProgrammePage(props) {
 
       treatment.push(data);
     });
+
     return treatment;
   }
 
   useEffect(() => {
     setList(fullList);
   }, []);
+
+  function dateFilter(date) {
+    const filteredList = fullList.filter(spectacle => {
+      if (spectacle.day) {
+        return dayjs(spectacle.day).isSame(dayjs(date), "day");
+      } else {
+        return false;
+      }
+    });
+
+    setList(filteredList);
+  }
 
   function countryFilter(e) {
     e.preventDefault();
@@ -66,10 +79,10 @@ export default function ProgrammePage(props) {
   const affichageList = () => {
     if (list.length === 0 || list === undefined) {
       return (
-        <img
-          src="https://media.giphy.com/media/WiIuC6fAOoXD2/giphy.gif"
-          alt="loading"
-        />
+        <h3>
+          Something happened ?! <br />
+          Please reload the page.
+        </h3>
       );
     } else {
       return list.map(spectacle => {
@@ -89,6 +102,10 @@ export default function ProgrammePage(props) {
             country={spectacle.country ? spectacle.country : "inconnu"}
             name={spectacle.title}
             team={spectacle.author ? spectacle.author : "inconnu"}
+            url={
+              "http://localhost:8000/spectacle/" +
+              spectacle.title.toLowerCase().replaceAll(" ", "-")
+            }
           />
         );
       });
@@ -98,7 +115,7 @@ export default function ProgrammePage(props) {
     <div className="global-programme-page">
       <ImageCarousel />
       <div className="content-programme-page">
-        <CalendarLarge />
+        <CalendarLarge dateSetter={dateFilter} />
         <div className="global-FilterTab">
           <h2> FILTREZ PAR: </h2>
           <a href="#" onClick={countryFilter}>
