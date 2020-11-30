@@ -197,6 +197,9 @@ p {
     justify-content: center;
     flex-direction: column-reverse;
   }
+  .wrapper-header-row1{
+    position: absolute;
+  }
   .newsletter-header{
     display:none;
   }
@@ -212,11 +215,14 @@ p {
     justify-content: center;
   }
   .main-logo {
-    margin:0;
+    width: 100vw;
+    display:flex;
+    justify-content:center;
+
   }
   .main-logo img {
-    width: auto;
     height: 60px;
+
   }
 
 
