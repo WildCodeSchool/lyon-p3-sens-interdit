@@ -21,11 +21,12 @@ const image = [data.strapiArchivesOld.photo_1,
   data.strapiArchivesOld.photo_13];
 const imageArray = [];
 
-for (let i=0 ; i < 14 ; i++){
-  if((image[i] !== null) && (image[i] !== undefined) && (image[i] !== "")){
-    imageArray.push(image[i]);
+
+for (const elem of image){
+  if((elem !== null) && (elem !== undefined) && (elem !== "")){
+    imageArray.push(elem);
   }
-}    
+}
 
   return (
     <div className="global-spectacle-page">

@@ -24,7 +24,7 @@ function ImageCarouselOldArchive({ title, images, displayed }) {
           showIndicators={false}
         >
           {images.map(image => (
-            <div className="size-adjustment">
+            <div className="size-adjustment" key={image}>
               <img
                 src={image}
                 alt={title}
