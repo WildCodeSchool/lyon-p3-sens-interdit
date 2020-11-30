@@ -98,7 +98,10 @@ export default function ProgrammePage(props) {
     <div className="global-programme-page">
       <ImageCarousel />
       <div className="content-programme-page">
-        <CalendarLarge />
+        <div className="calendar-programme-page">
+          <CalendarLarge />
+        </div>
+
         <div className="global-FilterTab">
           <h2> FILTREZ PAR: </h2>
           <a href="#" onClick={countryFilter}>
