@@ -31,12 +31,28 @@ export default function ProgrammePage(props) {
 
       treatment.push(data);
     });
+
     return treatment;
   }
 
   useEffect(() => {
     setList(fullList);
   }, []);
+
+  function dateFilter(date) {
+    console.log("date to filter", date)
+    console.log("full list", fullList);
+    const filteredList = fullList.filter(spectacle => {
+      //console.log(spectacle.day, date, dayjs(spectacle.day).isSame(dayjs(date),"day") )
+      if (spectacle.day) {
+        return dayjs(spectacle.day).isSame(dayjs(date),"day");
+      } else {
+        return false;
+      }
+    });
+    console.log("filtered", filteredList)
+    setList(filteredList);
+  }
 
   function countryFilter(e) {
     e.preventDefault();
@@ -98,7 +114,7 @@ export default function ProgrammePage(props) {
     <div className="global-programme-page">
       <ImageCarousel />
       <div className="content-programme-page">
-        <CalendarLarge />
+        <CalendarLarge dateSetter={dateFilter} />
         <div className="global-FilterTab">
           <h2> FILTREZ PAR: </h2>
           <a href="#" onClick={countryFilter}>

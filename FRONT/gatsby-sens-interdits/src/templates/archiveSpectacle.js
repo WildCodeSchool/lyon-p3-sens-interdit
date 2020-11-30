@@ -1,8 +1,6 @@
 import { graphql } from "gatsby";
 import React from "react";
-import SpectacleInfosOldArchive from "./../components/specifics/SpectacleOldArchive/SpectacleInfosOldArchive.js";
-import ImageCarouselOldArchive from "./../components/globals/CarouselOldArchive/ImageCarouselOldArchive";
-import "./Index.css";
+import "./index.css";
 
 export default function ArchiveSpectaclePage({ data }) {
 
