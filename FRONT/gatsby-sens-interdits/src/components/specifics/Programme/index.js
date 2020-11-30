@@ -40,17 +40,14 @@ export default function ProgrammePage(props) {
   }, []);
 
   function dateFilter(date) {
-    console.log("date to filter", date)
-    console.log("full list", fullList);
     const filteredList = fullList.filter(spectacle => {
-      //console.log(spectacle.day, date, dayjs(spectacle.day).isSame(dayjs(date),"day") )
       if (spectacle.day) {
-        return dayjs(spectacle.day).isSame(dayjs(date),"day");
+        return dayjs(spectacle.day).isSame(dayjs(date), "day");
       } else {
         return false;
       }
     });
-    console.log("filtered", filteredList)
+
     setList(filteredList);
   }
 
@@ -82,10 +79,10 @@ export default function ProgrammePage(props) {
   const affichageList = () => {
     if (list.length === 0 || list === undefined) {
       return (
-        <img
-          src="https://media.giphy.com/media/WiIuC6fAOoXD2/giphy.gif"
-          alt="loading"
-        />
+        <h3>
+          Something happened ?! <br />
+          Please reload the page.
+        </h3>
       );
     } else {
       return list.map(spectacle => {
@@ -105,6 +102,10 @@ export default function ProgrammePage(props) {
             country={spectacle.country ? spectacle.country : "inconnu"}
             name={spectacle.title}
             team={spectacle.author ? spectacle.author : "inconnu"}
+            url={
+              "http://localhost:8000/spectacle/" +
+              spectacle.title.toLowerCase().replaceAll(" ", "-")
+            }
           />
         );
       });

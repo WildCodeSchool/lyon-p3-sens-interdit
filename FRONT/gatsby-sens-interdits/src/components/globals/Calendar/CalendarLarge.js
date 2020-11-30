@@ -9,8 +9,7 @@ dayjs.extend(localizedFormat);
 
 export default function CalendarLarge(props) {
   const sendDateToParent = e => {
-    console.log("target", e);
-    props.dateSetter(e.target);
+    props.dateSetter(e.target.getAttribute("data-date"));
   };
 
   const dateArray = [
@@ -27,21 +26,24 @@ export default function CalendarLarge(props) {
 
   return (
     <div className="global-calendar-large">
-      {dateArray.map(date => (
-        <div
-          className="calendarWrapper"
-          key={dayjs(date).format()}
-          onClick={sendDateToParent}
-          
-        >
-          <CalendarOneDay
-            key={dayjs(date).format("ddd D MMM")}
-            day={dayjs(date).format("ddd")}
-            num={dayjs(date).format("D")}
-            month={dayjs(date).format("MMM")}
-          />
-        </div>
-      ))}
+      {dateArray.map(date => {
+        return (
+          <div
+            className="calendarWrapper"
+            key={dayjs(date).format()}
+            data-date={date}
+            onClick={sendDateToParent}
+          >
+            <CalendarOneDay
+              key={dayjs(date).format("ddd D MMM")}
+              day={dayjs(date).format("ddd")}
+              num={dayjs(date).format("D")}
+              month={dayjs(date).format("MMM")}
+              date={dayjs(date).format()}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }
