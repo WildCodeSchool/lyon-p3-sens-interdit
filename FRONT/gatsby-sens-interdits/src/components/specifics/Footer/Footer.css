@@ -110,6 +110,12 @@ footer {
     height: auto;
     padding-bottom: 10px;
   }
+  .footer-column1 {
+    margin:0;
+  }
+  .footer-column2{
+    margin:0;
+  }
   .wrapper-footer{
     flex-direction: column;
   }
@@ -124,7 +130,7 @@ footer {
     justify-content: center;
   }
   .newsletter-container {
-    width: 350px;
+    width: 280px;
     margin:auto;
     font-size: 10px;
   }
