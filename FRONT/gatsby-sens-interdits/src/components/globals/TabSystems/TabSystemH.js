@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import picto from "../../../assets/img/picto.svg";
-import "./tabSystemH.css";
 import tabSystemClick from '../../../utils/tab-system';
+import Article from "../Articles/Article";
+import "../../../assets/styles/global.css";
+import "./tabSystemH.css";
+
 
 function DisplayPicture({ imageContent }) {
   return (
@@ -61,22 +64,14 @@ export default function TabSystemH({ tabContent }) {
       <div>
         {tabContent.map((tab, i) => (
           <div key={tab.id}>
-            <div className={"tab-content toto " + (activeTabContent === tab.id || (firstLoad && i === 0) ? "active-tab" : "disabled-tab")}
+            <div className={"tab-content " + (activeTabContent === tab.id || (firstLoad && i === 0) ? "active-tab" : "disabled-tab")}
             >
               <div>
                 {tab.content === undefined ?
                   tab.articlecontent !== undefined ? tab.articlecontent.map(article =>
-                      <div key={article.id}>
-                        <p>{article.date}</p>
-                        <h3>{article.title}</h3>
-{/*
-                        <img>{article.image !== null ? article.image:""}</img>
-*/}
-                        <p>{article.article}</p>
-{/*
-                        <img>{article.image !== null ? article.image:""}</img>
-*/}
-                      </div>
+                    <Article 
+                      article={article} 
+                    />
                   ) : null
                   : <p>{tab.content}</p>
                   }

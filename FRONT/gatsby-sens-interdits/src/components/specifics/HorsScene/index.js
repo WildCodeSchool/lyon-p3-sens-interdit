@@ -59,7 +59,7 @@ export default function HorsScenePage () {
       <div id="hors-scene-page">
         <div className="red-arrow"></div>
         <div id="hors-scene-pres">
-          <div>
+          <div id="hors-scene-pres-content">
             <h3 className="to-uppercase">{horsScenePageQuery.Title}</h3>
             <p>{horsScenePageQuery.content}</p>
           </div>

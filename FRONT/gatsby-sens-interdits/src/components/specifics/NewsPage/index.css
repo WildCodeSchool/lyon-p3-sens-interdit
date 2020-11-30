@@ -11,3 +11,25 @@
     background-color: #e30613;
     clip-path: polygon(50% 100%, 0 0, 100% 0);
   }
+/*_______________articles ______________*/
+  .article-text {
+    display:flow-root;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .article-date{
+    color: #E30613;
+  }
+  .article-resume {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+  }
+  .article-resume h4 {
+    margin-top: 3px;
+    margin-bottom: 10px;
+  }
+  .article-wrapper {
+    margin-bottom: 15px;
+  }

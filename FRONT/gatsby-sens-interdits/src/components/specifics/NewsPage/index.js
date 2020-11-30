@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import TabSystemH from "../../globals/TabSystems/TabSystemH";
+import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import "../../../assets/styles/global.css";
 import "./index.css";
 
@@ -38,15 +39,18 @@ export default function NewsPage() {
     const newsTabQuery = strapiNewsQuery.allStrapiNewstab.nodes[0].newstab;
 
     return (
-        <div id ="news-page">
-            <div className="red-arrow"></div>
-            <div>
-                <h3 className="to-uppercase">{newsPageQuery.title}</h3>
-                <p>{newsPageQuery.content}</p>
+        <div>
+            <ImageCarousel/> {/* TODO : passer les props pour ce composant */}
+            <div id ="news-page">
+                <div className="red-arrow"></div>
+                <div>
+                    <h3 className="to-uppercase">{newsPageQuery.title}</h3>
+                    <p>{newsPageQuery.content}</p>
+                </div>
+                <div>
+                    <TabSystemH tabContent={newsTabQuery}/>
+                </div>  
             </div>
-            <div>
-                <TabSystemH tabContent={newsTabQuery}/>
-            </div>   
         </div>
     )
 }

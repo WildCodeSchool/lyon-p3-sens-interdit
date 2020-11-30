@@ -10,9 +10,8 @@
     text-align: justify;
 }
 
-#hors-scene-pres div {
-    width: 600px;
-
+#hors-scene-pres-content {
+    margin-right: 50px;
 }
 #hors-scene-Cal {
     margin-left: auto;
@@ -22,7 +21,6 @@
 #hors-scene-tabsystem {
     margin-right: auto;
     margin-left: auto;
-    width: 70%;
 }
 
 .red-arrow {

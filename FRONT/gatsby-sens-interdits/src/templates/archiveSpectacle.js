@@ -1,6 +1,6 @@
 import { graphql } from "gatsby";
 import React from "react";
-import "./Index.css";
+import "./index.css";
 
 export default function ArchiveSpectaclePage({ data }) {
 

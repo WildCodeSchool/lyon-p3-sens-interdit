@@ -15,6 +15,10 @@
   text-align: justify;
 }
 
+.article-resume {
+  margin-bottom: 20px;
+}
+
 /* signe + et title*/
 .tab-title {
   display: flex;
@@ -52,3 +56,4 @@ div.active-tab {
 div.disabled-tab {
   display: none;
 }
+
