@@ -103,3 +103,36 @@ footer {
   color: white;
 }
 
+@media screen and (max-width: 960px) {
+
+  /* FOOTER */
+  footer{
+    height: auto;
+    padding-bottom: 10px;
+  }
+  .wrapper-footer{
+    flex-direction: column;
+  }
+  .footer-column1 .main-logo a img {
+    display: none;
+  }
+  .footer-column1-socialnetwork{
+    text-align: center;
+    align-items: center;
+  }
+  .footer-column1-socialnetwork .social-network{
+    justify-content: center;
+  }
+  .newsletter-container {
+    width: 350px;
+    margin:auto;
+    font-size: 10px;
+  }
+  .footer-one{
+    display: none;
+  }
+  .footer-list-link ul{
+    margin: 0 30px;
+  }
+
+}
