@@ -1,8 +1,29 @@
-import React from "react"
-import "./CalendarLarge.css"
-import CalendarOneDay from "./CalendarOneDay"
+import React, { useEffect } from "react";
+import "./CalendarLarge.css";
+import CalendarOneDay from "./CalendarOneDay";
+import dayjs from "dayjs";
+import "dayjs/locale/fr";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+dayjs.locale("fr");
+dayjs.extend(localizedFormat);
 
-export default function CalendarLarge() {
+export default function CalendarLarge(props) {
+  useEffect(() => {
+    console.log("dateArray", dayjs().format());
+  });
+
+  const dateArray = [
+    dayjs().subtract(3, "d").format("ddd D MMM"),
+    dayjs().subtract(2, "d").format("ddd D MMM"),
+    dayjs().subtract(1, "d").format("ddd D MMM"),
+    dayjs().format("ddd D MMM"),
+    dayjs().add(1, "d").format("ddd D MMM"),
+    dayjs().add(2, "d").format("ddd D MMM"),
+    dayjs().add(3, "d").format("ddd D MMM"),
+  ];
+
+  
+
   return (
     <div className="global-calendar-large">
       <CalendarOneDay day="mer" num="16" month="Oct" />
@@ -15,5 +36,5 @@ export default function CalendarLarge() {
       <CalendarOneDay day="mer" num="23" month="Oct" />
       <CalendarOneDay day="jeu" num="24" month="Oct" />
     </div>
-  )
+  );
 }
