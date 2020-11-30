@@ -20,6 +20,7 @@ module.exports = {
           `webradio`,
           `scolaire`,
           `seminaire`,
+          `parole`,
         ],
       },
     },
