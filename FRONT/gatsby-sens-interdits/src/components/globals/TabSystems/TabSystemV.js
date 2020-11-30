@@ -63,7 +63,7 @@ export default function TabSystemV({ tabContent }) {
             }
           >
             {tab.content}
-            {tab.credited_image[0] !== undefined ? (
+            {tab.credited_image !== undefined ? (
               <DisplayPicture imageContent={tab.credited_image} />
             ) : ""}
           </div>
