@@ -16,8 +16,13 @@ module.exports = {
           `assopage`,
           `homepage`,
           `partnerpage`,
+<<<<<<< HEAD
           `ecole`,
           `webradio`
+=======
+          `scolaire`,
+          `seminaire`,
+>>>>>>> debugging
         ],
       },
     },
