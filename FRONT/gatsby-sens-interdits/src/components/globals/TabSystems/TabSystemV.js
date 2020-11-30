@@ -41,8 +41,6 @@ export default function TabSystemV ({tabContent, spectacleQuery}) {
       tabSystemClick(e, setActiveTabContent, setActiveClass)
   }
 
-  console.log(spectacleQuery);
-
   return (
     <div className="tab-moduleV">
      {tabContent.map((tab, i) => (
@@ -65,30 +63,27 @@ export default function TabSystemV ({tabContent, spectacleQuery}) {
           </div>
           <div className={'tab-contentV ' + (activeTabContent === tab.id || (firstLoad && i === 0) ? "active-tab" : "disabled-tab")}>
             {tab.content}
-            {tab.credited_image !== undefined && tab.credited_image[0] !== undefined ? (
+            {tab.credited_image !== undefined ? (
               <DisplayPicture imageContent={tab.credited_image} />
             ) : ""}
-            {spectacleQuery ?
-                <div className="thumbnail-list">
-                  {spectacleQuery.map (spect =>
-                            spect.type_of_events.map((cat, i) =>
-                                  cat.category === tab.title ?
-                                      <Thumbnail
-                                                      name={spect.title}
-                                                      team={spect.author === null ? "" : spect.author}
-                                                      country={spect.country === null ? "" : spect.country}
-                                                      date={spect.country === null ? "" : spect.country}
-                                                      key={i}
-                                                      // affiche={}
-                                                      // url={}
-                                                    />
-                                  : ""
-                            )
-                          )
-                   }
-                </div>
-                :
-                null}
+            <div className="thumbnail-list">
+              {spectacleQuery.map (spect =>
+                        spect.type_of_events.map((cat, i) =>
+                              cat.category === tab.title ?
+                                  <Thumbnail
+                                                  name={spect.title}
+                                                  team={spect.author === null ? "" : spect.author}
+                                                  country={spect.country === null ? "" : spect.country}
+                                                  date={spect.country === null ? "" : spect.country}
+                                                  key={i}
+                                                  // affiche={}
+                                                  // url={}
+                                                />
+                              : ""
+                        )
+                      )
+               }
+            </div>
           </div>
         </div>
       ))}
