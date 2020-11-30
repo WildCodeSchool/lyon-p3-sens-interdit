@@ -18,7 +18,7 @@ const makeRequest = (graphql, request) => new Promise((resolve, reject) => {
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
   
-  const getArticles = makeRequest(graphql, `
+  const getArchiveSpectacle = makeRequest(graphql, `
     {
         allStrapiArchivesOld {
         edges {
@@ -42,5 +42,5 @@ exports.createPages = ({ actions, graphql }) => {
   });
   
   // Query for articles nodes to use in creating pages.
-  return getArticles;
+  return getArchiveSpectacle;
 };
