@@ -14,15 +14,17 @@ div.tab-contentV {
   padding-top: 10px;
   text-align: justify;
   margin: 0;
-
+  display: block;
+  overflow: hidden;
+  transition: 0.4s ease-in-out;
 }
 
 div.tab-contentV.active-tab {
-  height: auto;
+  max-height: 1000px;
 }
 
 div.tab-contentV.disabled-tab {
-  height: 0;
+  max-height: 0;
 }
 
 /* signe + et title*/
@@ -31,10 +33,10 @@ div.tab-contentV.disabled-tab {
   flex-direction: row;
   min-width: 200px;
   border-bottom: 1px solid black;
-}
-
-.tab-titleV:hover {
   cursor: pointer;
+}
+.tab-titleV:hover h3 {
+  color: #E30613;
 }
 
 .tab-titleV img {
