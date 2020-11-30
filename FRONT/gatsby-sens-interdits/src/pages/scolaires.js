@@ -1,6 +1,10 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
+<<<<<<< HEAD
 import GeneriquePage from "../components/specifics/Generique";
+=======
+import ScolairePage from "../components/specifics/ScolairePage";
+>>>>>>> d60272eed85e108d5d554e57af7b929b75d5fd9f
 
 export default function Scolaire() {
   const data = useStaticQuery(graphql`
