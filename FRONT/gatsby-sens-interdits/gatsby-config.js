@@ -17,7 +17,9 @@ module.exports = {
           `homepage`,
           `partnerpage`,
           `ecole`,
-          `webradio`
+          `webradio`,
+          `scolaire`,
+          `seminaire`,
         ],
       },
     },
