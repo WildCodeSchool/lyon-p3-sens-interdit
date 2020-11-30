@@ -8,9 +8,10 @@ dayjs.locale("fr");
 dayjs.extend(localizedFormat);
 
 export default function CalendarLarge(props) {
-  useEffect(() => {
-    console.log("dateArray", dayjs().format());
-  });
+  const logg = () => {
+    console.log("datenow", dayjs().format());
+    console.log("date array", dateArray);
+  };
 
   const dateArray = [
     dayjs().subtract(3, "d").format("ddd D MMM"),
@@ -22,10 +23,8 @@ export default function CalendarLarge(props) {
     dayjs().add(3, "d").format("ddd D MMM"),
   ];
 
-  
-
   return (
-    <div className="global-calendar-large">
+    <div className="global-calendar-large" onClick={logg}>
       <CalendarOneDay day="mer" num="16" month="Oct" />
       <CalendarOneDay day="jeu" num="17" month="Oct" />
       <CalendarOneDay day="ven" num="18" month="Oct" />
