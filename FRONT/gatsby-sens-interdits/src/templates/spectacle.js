@@ -1,14 +1,14 @@
 import { graphql } from "gatsby";
 import React from "react";
-import "./Index.css";
+import "./spectacle.css";
 
-import SpectacleInfos from "../../components/specifics/Spectacle/SpectacleInfos.js";
-import TabSystemH from "../../components/globals/TabSystems/TabSystemH";
-import Thumbnail from "../../components/globals/Thumbnail";
-import CalendarLarge from "../../components/globals/Calendar/CalendarLarge";
-import ImageCarousel from "../../components/globals/Carousel/ImageCarousel";
+import SpectacleInfos from "../components/specifics/Spectacle/SpectacleInfos.js";
+import TabSystemH from "../components/globals/TabSystems/TabSystemH";
+import Thumbnail from "../components/globals/Thumbnail";
+import CalendarLarge from "../components/globals/Calendar/CalendarLarge";
+import ImageCarousel from "../components/globals/Carousel/ImageCarousel";
 
-import photoTest from "./../../assets/img/img-sens-interdit.jpg";
+import photoTest from "../assets/img/img-sens-interdit.jpg";
 
 export default function SpectaclePage({ data }) {
   const spectacle = data.spectacle;

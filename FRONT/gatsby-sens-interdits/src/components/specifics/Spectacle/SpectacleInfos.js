@@ -46,12 +46,7 @@ const SpectacleInfos = ({
         </div>
         <div className="partners-logo">
           {partners.map(picto => (
-            <a
-              key={picto.id}
-              href={picto.url}
-              title="title here"
-              target="_blank"
-            >
+            <a key={picto.id} href={picto.url} target="blank">
               <img
                 src={process.env.GATSBY_API_URL + picto.image[0].url}
                 alt="logo"
