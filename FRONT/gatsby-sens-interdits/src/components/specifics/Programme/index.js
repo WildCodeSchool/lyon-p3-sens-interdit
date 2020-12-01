@@ -101,6 +101,7 @@ export default function ProgrammePage(props) {
             }
             country={spectacle.country ? spectacle.country : "inconnu"}
             name={spectacle.title}
+            id={spectacle.strapiId}
             team={spectacle.author ? spectacle.author : "inconnu"}
             url={
               "http://localhost:8000/spectacle/" +
