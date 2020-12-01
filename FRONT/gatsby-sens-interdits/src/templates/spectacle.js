@@ -1,5 +1,5 @@
 import { graphql } from "gatsby";
-import React from "react";
+import React, { useContext } from "react";
 import "./spectacle.css";
 
 import SpectacleInfos from "../components/specifics/Spectacle/SpectacleInfos.js";
@@ -10,8 +10,11 @@ import ImageCarousel from "../components/globals/Carousel/ImageCarousel";
 import SharingBox from "../components/globals/SocialSharing/SharingBox";
 
 import photoTest from "../assets/img/img-sens-interdit.jpg";
+import LanguageContext from "../components/context/LanguageContext";
 
 export default function SpectaclePage({ data }) {
+  const { english } = useContext(LanguageContext);
+
   const spectacle = data.spectacle;
 
   const imageArray =
@@ -23,27 +26,51 @@ export default function SpectaclePage({ data }) {
     <div className="global-spectacle-page">
       <SharingBox />
       <ImageCarousel
-        title={spectacle.title}
+        title={
+          english && spectacle.title_en ? spectacle.title_en : spectacle.title
+        }
         images={imageArray}
         displayed={true}
       />
       <div className="content-spectacle-page">
         <div className="country-label">
-          <p>{spectacle.country}</p>
+          <p>
+            {english && spectacle.country_en
+              ? spectacle.country_en
+              : spectacle.country}
+          </p>
         </div>
         <CalendarLarge />
         <SpectacleInfos
           tarif={spectacle.tarif}
-          country={spectacle.country}
-          duration={spectacle.duration}
+          country={
+            english && spectacle.country_en
+              ? spectacle.country_en
+              : spectacle.country
+          }
+          duration={
+            english && spectacle.duration_en
+              ? spectacle.duration_en
+              : spectacle.duration
+          }
           partners={spectacle.partners}
           accessibility={spectacle.accessibility}
-          info={spectacle.spectacle_info}
+          info={
+            english && spectacle.spectacle_info_en
+              ? spectacle.spectacle_info_en
+              : spectacle.spectacle_info
+          }
         />
         {spectacle.tab_element.lenght === 0 ? (
           ""
         ) : (
-          <TabSystemH tabContent={spectacle.tab_element} />
+          <TabSystemH
+            tabContent={
+              english && spectacle.tab_element_en
+                ? spectacle.tab_element_en
+                : spectacle.tab_element
+            }
+          />
         )}
         <div className="content">
           <div className="red-arrow-spectacle"></div>
@@ -76,12 +103,17 @@ export const query = graphql`
   query($id: String!) {
     spectacle: strapiSpectacle(id: { eq: $id }) {
       title
+      title_en
       id
       strapiId
       duration
+      duration_en
       country
+      country_en
       place
+      place_en
       info
+      info_en
       tarif {
         tarif
         category {
@@ -110,7 +142,23 @@ export const query = graphql`
           }
         }
       }
+      tab_element_en {
+        content
+        id
+        title
+        credited_image {
+          credit
+          id
+          image {
+            url
+          }
+        }
+      }
       spectacle_info {
+        id
+        info
+      }
+      spectacle_info_en {
         id
         info
       }

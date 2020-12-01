@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./Header.css";
 import Navbar from "./Navbar";
 import SocialNetwork from "./SocialNetwork";
