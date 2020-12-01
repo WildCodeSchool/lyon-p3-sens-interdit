@@ -12,7 +12,6 @@ import photoTest from "../assets/img/img-sens-interdit.jpg";
 
 export default function SpectaclePage({ data }) {
   const spectacle = data.spectacle;
-  console.log({ data });
 
   const imageArray =
     spectacle.carousel !== null
