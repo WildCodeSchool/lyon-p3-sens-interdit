@@ -1,6 +1,6 @@
 import { graphql } from "gatsby";
 import React from "react";
-//import "./index.css";
+import "./archiveSpectacle.css";
 import ImageCarouselOldArchive from "../components/globals/CarouselOldArchive/ImageCarouselOldArchive";
 import SpectacleInfosOldArchive from "../components/specifics/SpectacleOldArchive/SpectacleInfosOldArchive";
 
