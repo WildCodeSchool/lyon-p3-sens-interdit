@@ -23,3 +23,22 @@
   width: 1080px;
   margin: auto;
 }
+
+@media screen and (max-width: 960px) {
+  /*PROGRAMME*/
+  .global-programme-page .content-programme-page{
+    flex-direction: column;
+  }
+  .global-programme-page .display-mini-tab{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100vw;
+  }
+  .calendar-programme-page{
+    display:none;
+  }
+  .global-programme-page .global-FilterTab{
+    width: 100vw;
+  }
+}

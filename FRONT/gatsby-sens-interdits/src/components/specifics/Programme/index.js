@@ -115,7 +115,9 @@ export default function ProgrammePage(props) {
     <div className="global-programme-page">
       <ImageCarousel />
       <div className="content-programme-page">
-        <CalendarLarge dateSetter={dateFilter} />
+        <div className="calendar-programme-page">
+          <CalendarLarge dateSetter={dateFilter} />
+        </div>
         <div className="global-FilterTab">
           <h2> FILTREZ PAR: </h2>
           <a href="#" onClick={countryFilter}>
