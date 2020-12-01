@@ -18,26 +18,40 @@ export default function NewsPage() {
                     title
                 }
             }
+            allStrapiArticlecontent {
+                nodes {
+                    article
+                    date
+                    id
+                    picturebottom {
+                      formats {
+                        medium {
+                          url
+                        }
+                      }
+                    }
+                    typeofarticles {
+                      category
+                      id
+                    }
+                    title
+                  }
+            }
             allStrapiNewstab {
                 nodes {
-                    newstab {
-                        id
-                        title
-                        articlecontent {
-                            article
-                            date
-                            id
-                            title
-                        }
-                    }
+                  newstab {
+                    id
+                    title
+                  }
                 }
-            }
+              }
+            
         }
       `)
 
     const newsPageQuery = strapiNewsQuery.allStrapiNewspage.nodes[0];
-    const newsTabQuery = strapiNewsQuery.allStrapiNewstab.nodes[0].newstab;
-
+    const newsTabQuery = strapiNewsQuery.allStrapiNewstab.nodes[0]
+    const newsArticlesQuery = strapiNewsQuery.allStrapiArticlecontent.nodes;
     return (
         <div>
             <ImageCarousel/> {/* TODO : passer les props pour ce composant */}
@@ -48,7 +62,7 @@ export default function NewsPage() {
                     <p>{newsPageQuery.content}</p>
                 </div>
                 <div>
-                    <TabSystemH tabContent={newsTabQuery}/>
+                    <TabSystemH tabContent={newsTabQuery.newstab} articles={newsArticlesQuery}/>
                 </div>  
             </div>
         </div>

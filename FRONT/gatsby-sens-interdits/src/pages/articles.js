@@ -1,10 +1,10 @@
 import React from "react";
-import Article from "../components/globals/Articles/Article";
+import ArticlePage from "../components/specifics/NewsPage/ArticlePage";
 
 export default function Articles ()  {
     return (
     <>
-        <Article/>
+        <ArticlePage/>
     </>
     )
 }

@@ -4,6 +4,7 @@ import tabSystemClick from '../../../utils/tab-system';
 import Article from "../Articles/Article";
 import "../../../assets/styles/global.css";
 import "./tabSystemH.css";
+import TabSystemContent from "./TabSystemContent"
 
 
 function DisplayPicture({ imageContent }) {
@@ -25,17 +26,18 @@ function DisplayPicture({ imageContent }) {
   );
 }
 
-export default function TabSystemH({ tabContent }) {
+export default function TabSystemH({ tabContent , articles}) {
   const [activeTabContent, setActiveTabContent] = useState("");
   const [activeClass, setActiveClass] = useState("");
   const [firstLoad, setFirstLoad] = useState(true);
-    console.log(tabContent);
+
   function handleOnClick(e) {
       if (firstLoad) {
           setFirstLoad(false);
       }
       tabSystemClick(e, setActiveTabContent, setActiveClass);
   }
+
   return (
     <div className="tab-module">
       <div>
@@ -63,26 +65,27 @@ export default function TabSystemH({ tabContent }) {
       </div>
       <div>
         {tabContent.map((tab, i) => (
-          <div key={tab.id}>
-            <div className={"tab-content " + (activeTabContent === tab.id || (firstLoad && i === 0) ? "active-tab" : "disabled-tab")}
-            >
-              <div>
-                {tab.content === undefined ?
-                  tab.articlecontent !== undefined ? tab.articlecontent.map(article =>
-                    <Article 
-                      article={article} 
-                    />
-                  ) : null
-                  : <p>{tab.content}</p>
-                  }
+            <div key={tab.id}>
+              <div
+                className={"tab-content " + (activeTabContent === tab.id || (firstLoad && i === 0) ? "active-tab" : "disabled-tab")}
+              >
+                { articles !== undefined ? 
+                    articles.map(article =>
+                        article.typeofarticles.map(cat => 
+                          cat.category === tab.title ?
+                            <Article article={article}/>
+                            : null)
+                        )
+                    : 
+                    <TabSystemContent tab={tab} DisplayPicture={DisplayPicture}/>
+                }
               </div>
-              {tab.credited_image !== undefined && tab.credited_image.lenght !== 0 ? (
-                <DisplayPicture imageContent={tab.credited_image} />
-              ) : null}
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   );
 }
+
+
