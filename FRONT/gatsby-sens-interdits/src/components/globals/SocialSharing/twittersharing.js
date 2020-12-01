@@ -1,5 +1,5 @@
 import React from 'react';
-import twitterIco from './ico/PICTO SI TWITTER.svg';
+import twitterIco from '../../../assets/img/twitter.svg'
 
 function Twitter() {
 	return (

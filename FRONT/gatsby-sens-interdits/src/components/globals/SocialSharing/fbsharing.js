@@ -1,5 +1,5 @@
 import React from "react";
-import fbIco from "./ico/PICTO SI FB.svg";
+import fbIco from '../../../assets/img/facebook.svg';
 
 function Facebook() {
   const url = window.location.href; // alors ca fait une erreur par ce que href c'est nul pour faire du local mais ca marche une fois déployé. vous pouvez tester en changeant la valeur par une url existante
