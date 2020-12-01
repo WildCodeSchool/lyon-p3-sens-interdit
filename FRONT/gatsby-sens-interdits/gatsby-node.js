@@ -1,7 +1,7 @@
 const path = require(`path`);
 const { sluggify } = require("./src/utils/Sluggify");
 
-function removeStr(text) {
+function removeSpectacleForUrl(text) {
   return text.replace("Spectacle", "");
 }
 
@@ -40,7 +40,7 @@ async function turnSpectaclesIntoPages({ graphql, actions }) {
     // Create pages for each spectacle
     result.data.spectacles.edges.forEach(({ node }) => {
       let spectacleSlug = sluggify(node.title);
-      let spectacleId = removeStr(node.id);
+      let spectacleId = removeSpectacleForUrl(node.id);
       createPage({
         path: `/spectacle/${spectacleSlug}${spectacleId}`, //strapiId
         component: path.resolve(`src/templates/spectacle.js`),
