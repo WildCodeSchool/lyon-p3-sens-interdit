@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "newstabs",
+  "info": {
+    "name": "newstab",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "newstab": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.newstab"
+    }
+  }
+}

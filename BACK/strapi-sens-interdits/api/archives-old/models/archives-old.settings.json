@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "archives_olds",
   "info": {
-    "name": "archives_old"
+    "name": "archives_old",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -240,6 +241,29 @@
     },
     "acceuil_residence": {
       "type": "text"
+    },
+    "tableElementArchiveOld": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.tab-element"
+    },
+    "horaire": {
+      "type": "component",
+      "repeatable": true,
+      "component": "calendrier.horaire"
+    },
+    "dateArchiveOld": {
+      "type": "component",
+      "repeatable": true,
+      "component": "calendrier.date-spectacle"
+    },
+    "tarifArchiveOld": {
+      "type": "component",
+      "repeatable": true,
+      "component": "text.tarif"
+    },
+    "bookinglink": {
+      "type": "string"
     }
   }
 }

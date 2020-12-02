@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/newstab",
+      "handler": "newstab.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/newstab",
+      "handler": "newstab.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/newstab",
+      "handler": "newstab.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

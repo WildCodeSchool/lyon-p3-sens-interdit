@@ -21,12 +21,14 @@ export default function TransmissionsPage() {
               url
             }
             credit
+            url
           }
           publiccardcontent {
             image {
               url
             }
             credit
+            url
           }
           description
         }
@@ -58,7 +60,7 @@ export default function TransmissionsPage() {
               Avec <span>les publics</span>
             </h1>
             {transmission.publiccardcontent.map(data => (
-              <DisplayTabMenu image={data.image[0].url} title={data.credit} />
+              <DisplayTabMenu key={data.id} image={data.image[0].url} title={data.credit} url={data.url} />
             ))}
           </div>
 
@@ -67,7 +69,7 @@ export default function TransmissionsPage() {
               Avec <span>les professionnels</span>
             </h1>
             {transmission.procardcontent.map(data => (
-              <DisplayTabMenu image={data.image[0].url} title={data.credit} />
+              <DisplayTabMenu key={data.id} image={data.image[0].url} title={data.credit} url={data.url} />
             ))}
           </div>
         </div>

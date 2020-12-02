@@ -14,7 +14,8 @@
     "global_menu_link": {
       "type": "component",
       "repeatable": true,
-      "component": "menu.global-menu-link"
+      "component": "menu.global-menu-link",
+      "max": 8
     }
   }
 }

@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/webradio",
+      "handler": "webradio.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/webradio",
+      "handler": "webradio.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/webradio",
+      "handler": "webradio.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

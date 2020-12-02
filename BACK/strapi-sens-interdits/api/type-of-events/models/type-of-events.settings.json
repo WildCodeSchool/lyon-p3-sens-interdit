@@ -15,8 +15,8 @@
       "type": "string"
     },
     "spectacles": {
-      "collection": "spectacle",
-      "via": "type_of_events"
+      "via": "type_of_events",
+      "collection": "spectacle"
     }
   }
 }
