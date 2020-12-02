@@ -57,7 +57,7 @@ module.exports = strapi => {
                     }
 
                   });
-                } else {
+                } else if(method === 'PUT') {
                   db.query(`SELECT ${fieldsStr} FROM ${table} WHERE id=?`, id, (err, results) => {
                     if (err) {
                       console.log(err);
