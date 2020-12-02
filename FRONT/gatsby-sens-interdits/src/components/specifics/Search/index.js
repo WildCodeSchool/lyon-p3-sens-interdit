@@ -1,5 +1,5 @@
 import React from "react";
-import Result from "./Result";
+import Result from "./Result.js";
 import fakeData from "./fakeData.json";
 import { graphql, useStaticQuery } from "gatsby";
 export default function ResultPage() {
@@ -12,8 +12,11 @@ export default function ResultPage() {
         <Result
           key={item.id}
           title={item.title}
-          image={item.url}
+          image={item.img}
           description={item.description}
+          created_at={item.date}
+          type={item.type}
+          url={item.url}
         />
       ))}
         

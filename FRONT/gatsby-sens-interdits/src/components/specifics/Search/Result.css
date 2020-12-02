@@ -1,19 +1,15 @@
-.flex-wrapper  {
-  display: flex;
-  flex-direction: row;
-  background-color: #e30613;
-}
-.flex-wrapper img  {
+
+.result-flex-wrapper img  {
   width: 250px;
   height: auto;
   margin: 1vw;
 }
-.flex-wrapper button  {
+.result-flex-wrapper button  {
   height: 30px;
   margin: 1vw;
   justify-self: flex-end;
 }
-.text-wrapper  {
+.result-text-wrapper  {
   width: 50vw;
   height: auto;
   white-space: nowrap;
@@ -21,6 +17,6 @@
   text-overflow: ellipsis;
   background-color: blueviolet;
 }
-.text-wrapper h2  {
+.result-text-wrapper h2  {
   color: #e30613;
 }
