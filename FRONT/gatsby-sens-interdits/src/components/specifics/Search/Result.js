@@ -1,10 +1,11 @@
 import React from "react";
 import "./Result.css";
+
 export default function Result(props) {
   return (
-    <div class="flex-wrapper">
+    <div className="flex-wrapper">
       <img src={props.image} alt={props.id} />
-      <div class="text-wrapper">
+      <div className="text-wrapper">
         <h2>{props.title}</h2>
         <p>{props.description}</p>
       </div>

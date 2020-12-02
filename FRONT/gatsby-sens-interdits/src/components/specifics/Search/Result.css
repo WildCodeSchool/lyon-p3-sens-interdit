@@ -1,6 +1,7 @@
 .flex-wrapper  {
   display: flex;
   flex-direction: row;
+  background-color: #e30613;
 }
 .flex-wrapper img  {
   width: 250px;
@@ -18,6 +19,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  background-color: blueviolet;
 }
 .text-wrapper h2  {
   color: #e30613;
