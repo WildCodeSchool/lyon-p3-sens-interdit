@@ -55,7 +55,6 @@ function Archive(props) {
         credits_2
         pays
         photo_1
-        date_1
       }
     }
   }
