@@ -1,8 +1,8 @@
 import React from "react";
 import Article from "../../globals/Articles/Article";
 import { graphql, useStaticQuery } from "gatsby";
-import { Link } from "gatsby";
-
+// import { Link } from "gatsby";
+import "./index.css";
 
 export default function ArticlePage() {
 
@@ -13,13 +13,6 @@ export default function ArticlePage() {
                     article
                     date
                     id
-                    picturebottom {
-                      formats {
-                        medium {
-                          url
-                        }
-                      }
-                    }
                     typeofarticles {
                       category
                       id
@@ -31,17 +24,19 @@ export default function ArticlePage() {
     `)    
 
     const articlePageQuery = strapiArticlePageQuery.allStrapiArticlecontent.nodes;
+    const titleForLink = strapiArticlePageQuery.allStrapiArticlecontent.nodes[0].title;
+    const textOverFlow = false;
+    console.log ('titre', titleForLink)
 
     return (
-        <div>
+      // <Link to={"/articles/" + titleForLink.toLowerCase().replaceAll(" ", "-")}>
+        <div id="article-page">
             {articlePageQuery.map((article) =>
                     <div>
-                        <Article article={article}/>
+                        <Article article={article} textOverFlow={textOverFlow}/>
                     </div>
             )}
-
         </div>
-
-
+      // </Link>
     )
 }

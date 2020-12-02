@@ -26,7 +26,7 @@ function DisplayPicture({ imageContent }) {
   );
 }
 
-export default function TabSystemH({ tabContent , articles}) {
+export default function TabSystemH({ tabContent , articles, textOverFlow}) {
   const [activeTabContent, setActiveTabContent] = useState("");
   const [activeClass, setActiveClass] = useState("");
   const [firstLoad, setFirstLoad] = useState(true);
@@ -73,7 +73,7 @@ export default function TabSystemH({ tabContent , articles}) {
                     articles.map(article =>
                         article.typeofarticles.map(cat => 
                           cat.category === tab.title ?
-                            <Article article={article}/>
+                            <Article article={article} textOverFlow={textOverFlow}/>
                             : null)
                         )
                     : 

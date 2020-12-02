@@ -52,6 +52,7 @@ export default function NewsPage() {
     const newsPageQuery = strapiNewsQuery.allStrapiNewspage.nodes[0];
     const newsTabQuery = strapiNewsQuery.allStrapiNewstab.nodes[0]
     const newsArticlesQuery = strapiNewsQuery.allStrapiArticlecontent.nodes;
+    const textOverFlow = true;
     return (
         <div>
             <ImageCarousel/> {/* TODO : passer les props pour ce composant */}
@@ -62,7 +63,7 @@ export default function NewsPage() {
                     <p>{newsPageQuery.content}</p>
                 </div>
                 <div>
-                    <TabSystemH tabContent={newsTabQuery.newstab} articles={newsArticlesQuery}/>
+                    <TabSystemH tabContent={newsTabQuery.newstab} articles={newsArticlesQuery} textOverFlow={textOverFlow}/>
                 </div>  
             </div>
         </div>

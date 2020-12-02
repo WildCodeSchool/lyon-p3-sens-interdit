@@ -11,8 +11,16 @@
     background-color: #e30613;
     clip-path: polygon(50% 100%, 0 0, 100% 0);
   }
-/*_______________articles ______________*/
-  .article-text {
+/*_______________article______________*/
+
+  #article-page{
+    margin: 50px;
+
+  }
+  .article-text{
+    text-justify: auto;
+  }
+  .article-text-overflow {
     display:flow-root;
     white-space: nowrap;
     text-overflow: ellipsis;
