@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/festivalpage",
+      "handler": "festivalpage.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/festivalpage",
+      "handler": "festivalpage.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/festivalpage",
+      "handler": "festivalpage.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

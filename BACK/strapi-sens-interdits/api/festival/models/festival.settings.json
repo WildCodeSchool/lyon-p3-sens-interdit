@@ -28,6 +28,20 @@
     },
     "category": {
       "type": "string"
+    },
+    "infopratique": {
+      "via": "festival",
+      "model": "infopratique"
+    },
+    "carousel": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.medias-slider"
+    },
+    "squaremenu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.display-tab-menu"
     }
   }
 }

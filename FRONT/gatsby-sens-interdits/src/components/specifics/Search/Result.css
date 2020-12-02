@@ -1,0 +1,22 @@
+
+.result-flex-wrapper img  {
+  width: 250px;
+  height: auto;
+  margin: 1vw;
+}
+.result-flex-wrapper button  {
+  height: 30px;
+  margin: 1vw;
+  justify-self: flex-end;
+}
+.result-text-wrapper  {
+  width: 50vw;
+  height: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: blueviolet;
+}
+.result-text-wrapper h2  {
+  color: #e30613;
+}

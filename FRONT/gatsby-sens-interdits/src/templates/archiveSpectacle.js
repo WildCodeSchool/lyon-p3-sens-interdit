@@ -4,8 +4,8 @@ import SpectacleInfosOldArchive from "./../components/specifics/SpectacleOldArch
 import ImageCarouselOldArchive from "./../components/globals/CarouselOldArchive/ImageCarouselOldArchive";
 import Thumbnail from "./../components/globals/Thumbnail";
 import TabSystemH from "./../components/globals/TabSystems/TabSystemHOldArchive";
-
 import "./Index.css";
+
 
 export default function ArchiveSpectaclePage({ data }) {
   const image = [
@@ -47,6 +47,7 @@ export default function ArchiveSpectaclePage({ data }) {
           duration={data.strapiArchivesOld.duree}
           info={data.strapiArchivesOld.a_noter}
         />
+ tabSsystemforOldArchives
         {data.strapiArchivesOld.tableElementArchiveOld === 0 ? (
           ""
         ) : (

@@ -1,11 +1,17 @@
 import React from "react";
+import { Link } from "gatsby";
+
 import "./Index.css";
 import pictoPlus from "../../../assets/img/picto+.svg";
 
+const { sluggify } = require("../../../utils/Sluggify");
+
 export default function Thumbnail(props) {
+  const spectacleSlug = sluggify(props.name);
+
   return (
     <div className="mini-tab">
-      <a href={props.url ? props.url : ""}>
+      <Link to={`/spectacle/${spectacleSlug}_${props.id}`}>
         <div className="global-mini-tab">
           <img
             className="img-mini-tab"
@@ -28,7 +34,7 @@ export default function Thumbnail(props) {
           <p className="name-mini-tab">{props.name}</p>
           <p className="team-mini-tab">{props.team}</p>
         </div>
-      </a>
+      </Link>
     </div>
   );
 }

@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "partnerpages",
+  "info": {
+    "name": "Partnerpage",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "partners_logo": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.partners-logo"
+    },
+    "content": {
+      "type": "richtext"
+    }
+  }
+}

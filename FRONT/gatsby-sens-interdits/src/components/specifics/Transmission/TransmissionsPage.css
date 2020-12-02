@@ -42,3 +42,11 @@ div.red-arrow {
   font-weight: 1000;
   text-transform: uppercase;
 }
+
+@media screen and (max-width: 960px) {
+  /* TRANSMISSION */
+  .transmission-grid-layout{
+    display: flex;
+    flex-direction: column;
+  }
+}

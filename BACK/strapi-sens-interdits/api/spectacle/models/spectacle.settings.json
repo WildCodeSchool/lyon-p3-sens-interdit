@@ -81,9 +81,45 @@
       "required": false
     },
     "type_of_events": {
-      "via": "spectacles",
       "collection": "type-of-events",
+      "via": "spectacles",
       "dominant": true
+    },
+    "spectacle_info": {
+      "type": "component",
+      "repeatable": true,
+      "component": "text.category"
+    },
+    "duration_en": {
+      "type": "string"
+    },
+    "title_en": {
+      "type": "string"
+    },
+    "subtitle_en": {
+      "type": "string"
+    },
+    "tab_element_en": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.tab-element"
+    },
+    "country_en": {
+      "type": "string"
+    },
+    "place_en": {
+      "type": "string"
+    },
+    "author_en": {
+      "type": "string"
+    },
+    "spectacle_info_en": {
+      "type": "component",
+      "repeatable": true,
+      "component": "text.category"
+    },
+    "info_en": {
+      "type": "text"
     }
   }
 }

@@ -7,6 +7,7 @@ import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import localizedFormat from "dayjs/plugin/localizedFormat";
+import { sluggify } from '../../../utils/Sluggify';
 dayjs.locale("fr");
 dayjs.extend(localizedFormat);
 
@@ -31,12 +32,25 @@ export default function ProgrammePage(props) {
 
       treatment.push(data);
     });
+
     return treatment;
   }
 
   useEffect(() => {
     setList(fullList);
   }, []);
+
+  function dateFilter(date) {
+    const filteredList = fullList.filter(spectacle => {
+      if (spectacle.day) {
+        return dayjs(spectacle.day).isSame(dayjs(date), "day");
+      } else {
+        return false;
+      }
+    });
+
+    setList(filteredList);
+  }
 
   function countryFilter(e) {
     e.preventDefault();
@@ -66,10 +80,10 @@ export default function ProgrammePage(props) {
   const affichageList = () => {
     if (list.length === 0 || list === undefined) {
       return (
-        <img
-          src="https://media.giphy.com/media/WiIuC6fAOoXD2/giphy.gif"
-          alt="loading"
-        />
+        <h3>
+          Something happened ?! <br />
+          Please reload the page.
+        </h3>
       );
     } else {
       return list.map(spectacle => {
@@ -88,7 +102,12 @@ export default function ProgrammePage(props) {
             }
             country={spectacle.country ? spectacle.country : "inconnu"}
             name={spectacle.title}
+            id={spectacle.strapiId}
             team={spectacle.author ? spectacle.author : "inconnu"}
+            url={
+              "/spectacle/" +
+              sluggify(spectacle.title)
+            }
           />
         );
       });
@@ -98,7 +117,9 @@ export default function ProgrammePage(props) {
     <div className="global-programme-page">
       <ImageCarousel />
       <div className="content-programme-page">
-        <CalendarLarge />
+        <div className="calendar-programme-page">
+          <CalendarLarge dateSetter={dateFilter} />
+        </div>
         <div className="global-FilterTab">
           <h2> FILTREZ PAR: </h2>
           <a href="#" onClick={countryFilter}>
