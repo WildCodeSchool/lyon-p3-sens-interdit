@@ -13,21 +13,38 @@
   }
 /*_______________article______________*/
 
-  #article-page{
+  #articles-page{
     margin: 50px;
-
   }
   .article-text{
     text-justify: auto;
+  }
+
+  .article-date{
+    color: #E30613;
+  }
+
+  .article-wrapper {
+    margin-bottom: 15px;
+  }
+  .article-img {
+    max-width: 80%;
+    max-height: 50%;
+  }
+
+
+  /*__________articles resume___________*/
+  .article-img-bottom-overflow {
+    max-width: 20%;
+  }
+  .article-img-top-overflow {
+    display: none;
   }
   .article-text-overflow {
     display:flow-root;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-  }
-  .article-date{
-    color: #E30613;
   }
   .article-resume {
     display: table;
@@ -37,7 +54,4 @@
   .article-resume h4 {
     margin-top: 3px;
     margin-bottom: 10px;
-  }
-  .article-wrapper {
-    margin-bottom: 15px;
   }

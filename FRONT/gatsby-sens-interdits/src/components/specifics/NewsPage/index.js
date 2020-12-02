@@ -24,11 +24,10 @@ export default function NewsPage() {
                     date
                     id
                     picturebottom {
-                      formats {
-                        medium {
                           url
-                        }
-                      }
+                    }
+                    picturetop {
+                          url
                     }
                     typeofarticles {
                       category

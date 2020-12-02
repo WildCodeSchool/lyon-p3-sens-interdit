@@ -9,30 +9,18 @@ export default function ArticlePage() {
     const strapiArticlePageQuery = useStaticQuery(graphql`
         query strapiArticlePageQuery {
             allStrapiArticlecontent {
-                nodes {
-                    article
-                    date
-                    id
-                    typeofarticles {
-                      category
-                      id
-                    }
-                    title
-                    picturebottom {
-                      formats {
-                        medium {
-                          url
-                        }
-                      }
-                    }
-                    picturetop {
-                      formats {
-                        medium {
-                          url
-                        }
-                      }
-                    }
-                  }
+              nodes {
+                article
+                date
+                id
+                title
+                picturebottom {
+                      url
+                }
+                picturetop {
+                      url
+                }
+              }
             }
         }
     `)    
@@ -44,7 +32,7 @@ export default function ArticlePage() {
 
     return (
       // <Link to={"/articles/" + titleForLink.toLowerCase().replaceAll(" ", "-")}>
-        <div id="article-page">
+        <div id="articles-page">
             {articlePageQuery.map((article) =>
                     <div>
                         <Article article={article} textOverFlow={textOverFlow}/>
