@@ -5,7 +5,6 @@ import "./tabSystemH.css";
 
 export default function TabSystemHOldArchive({ tabContent }) {
   const [activeTabContent, setActiveTabContent] = useState("");
-  const [activeClass, setActiveClass] = useState("");
 
   function handleOnClick(e) {
     setActiveTabContent(e.target.id);
@@ -26,7 +25,7 @@ export default function TabSystemHOldArchive({ tabContent }) {
               title="action"
               id={tab.title}
               className={
-                "tab-link " + (activeClass === tab.title ? "active" : "")
+                "tab-link " + (activeTabContent === tab.title ? "active" : "")
               }
               onClick={handleOnClick}
               onKeyDown={handleOnClick}
