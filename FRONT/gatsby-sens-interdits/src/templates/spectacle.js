@@ -1,5 +1,5 @@
+import React, { useState, useContext, useEffect } from "react";
 import { graphql } from "gatsby";
-import React, { useContext } from "react";
 import "./spectacle.css";
 
 import SpectacleInfos from "../components/specifics/Spectacle/SpectacleInfos.js";
@@ -14,6 +14,11 @@ import LanguageContext from "../components/context/LanguageContext";
 
 export default function SpectaclePage({ data }) {
   const { english } = useContext(LanguageContext);
+  const [LANG, setLANG] = useState("");
+
+  useEffect(() => {
+    english ? setLANG("_en") : setLANG("");
+  }, [english]);
 
   const spectacle = data.spectacle;
 
@@ -26,55 +31,34 @@ export default function SpectaclePage({ data }) {
     <div className="global-spectacle-page">
       
       <ImageCarousel
-        title={
-          english && spectacle.title_en ? spectacle.title_en : spectacle.title
-        }
+        title={spectacle["title" + LANG]}
         images={imageArray}
         displayed={true}
       />
       <div className="content-spectacle-page">
         <div className="country-label">
-          <p>
-            {english && spectacle.country_en
-              ? spectacle.country_en
-              : spectacle.country}
-          </p>
+          <p>{spectacle["country" + LANG]}</p>
         </div>
         <CalendarLarge />
         <SpectacleInfos
+          english={english}
           tarif={spectacle.tarif}
-          country={
-            english && spectacle.country_en
-              ? spectacle.country_en
-              : spectacle.country
-          }
-          duration={
-            english && spectacle.duration_en
-              ? spectacle.duration_en
-              : spectacle.duration
-          }
+          country={spectacle["country" + LANG]}
+          duration={spectacle["duration" + LANG]}
           partners={spectacle.partners}
           accessibility={spectacle.accessibility}
-          info={
-            english && spectacle.spectacle_info_en
-              ? spectacle.spectacle_info_en
-              : spectacle.spectacle_info
-          }
+          info={spectacle["spectacle_info" + LANG]}
         />
-        {spectacle.tab_element.lenght === 0 ? (
+        {spectacle["tab_element" + LANG] === 0 ? (
           ""
         ) : (
-          <TabSystemH
-            tabContent={
-              english && spectacle.tab_element_en
-                ? spectacle.tab_element_en
-                : spectacle.tab_element
-            }
-          />
+          <TabSystemH tabContent={spectacle["tab_element" + LANG]} />
         )}
         <div className="content">
           <div className="red-arrow-spectacle"></div>
-          <p className="content-title to-uppercase">Autour du spectacle</p>
+          <p className="content-title to-uppercase">
+            {!english ? "Autour du spectacle" : "Suggestions"}
+          </p>
           <div className="display-mini-tab">
             <Thumbnail
               affiche={photoTest}
