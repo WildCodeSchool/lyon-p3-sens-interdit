@@ -4,8 +4,7 @@ import SpectacleInfosOldArchive from "./../components/specifics/SpectacleOldArch
 import ImageCarouselOldArchive from "./../components/globals/CarouselOldArchive/ImageCarouselOldArchive";
 import Thumbnail from "./../components/globals/Thumbnail";
 import TabSystemH from "./../components/globals/TabSystems/TabSystemHOldArchive";
-import "./Index.css";
-
+import "./archiveSpectacle.css";
 
 export default function ArchiveSpectaclePage({ data }) {
   const image = [
@@ -47,11 +46,13 @@ export default function ArchiveSpectaclePage({ data }) {
           duration={data.strapiArchivesOld.duree}
           info={data.strapiArchivesOld.a_noter}
         />
- tabSsystemforOldArchives
+        tabSsystemforOldArchives
         {data.strapiArchivesOld.tableElementArchiveOld === 0 ? (
           ""
         ) : (
-          <TabSystemH tabContent={data.strapiArchivesOld.tableElementArchiveOld} />
+          <TabSystemH
+            tabContent={data.strapiArchivesOld.tableElementArchiveOld}
+          />
         )}
         <div className="content">
           <div className="red-arrow-spectacle"></div>
@@ -72,7 +73,7 @@ export default function ArchiveSpectaclePage({ data }) {
               team="Metteur en scène"
             />
           </div>
-          </div>
+        </div>
       </div>
     </div>
   );
