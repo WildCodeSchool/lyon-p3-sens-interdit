@@ -10,7 +10,6 @@ export default function Index({ children }) {
     <>
       <LanguageProvider>
         <Header />
-        <Header />
         <SharingBox />
         <main>{children}</main>
         <Footer />
