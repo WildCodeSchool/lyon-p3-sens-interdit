@@ -18,6 +18,20 @@ export default function ArticlePage() {
                       id
                     }
                     title
+                    picturebottom {
+                      formats {
+                        medium {
+                          url
+                        }
+                      }
+                    }
+                    picturetop {
+                      formats {
+                        medium {
+                          url
+                        }
+                      }
+                    }
                   }
             }
         }
