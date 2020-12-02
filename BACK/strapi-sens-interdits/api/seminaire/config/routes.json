@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/seminaire",
+      "handler": "seminaire.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/seminaire",
+      "handler": "seminaire.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/seminaire",
+      "handler": "seminaire.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

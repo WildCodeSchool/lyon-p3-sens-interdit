@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_menu_newstabs",
+  "info": {
+    "name": "newstab",
+    "icon": "align-justify",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  }
+}

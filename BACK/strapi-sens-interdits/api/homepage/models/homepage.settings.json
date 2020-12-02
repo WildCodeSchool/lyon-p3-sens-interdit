@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "name": "homepage",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "carousel": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.medias-slider"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "squaremenu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.display-tab-menu"
+    }
+  }
+}
