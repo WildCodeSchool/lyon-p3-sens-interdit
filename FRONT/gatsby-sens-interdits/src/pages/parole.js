@@ -1,10 +1,16 @@
 import { graphql, useStaticQuery } from "gatsby";
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import LanguageContext from "../components/context/LanguageContext";
 import GeneriquePage from "../components/specifics/Generique";
 
 export default function Parole() {
   const { language } = useContext(LanguageContext);
+  const [LANG, setLANG] = useState("");
+
+  useEffect(() => {
+    language === "en" ? setLANG("_en") : setLANG("");
+  }, [language]);
+
   const data = useStaticQuery(graphql`
     query paroleQuery {
       strapiParole {
@@ -32,19 +38,9 @@ export default function Parole() {
   return (
     <GeneriquePage
       image={data.strapiParole.image[0].url}
-      title={
-        language === "fr" ? data.strapiParole.title : data.strapiParole.title_en
-      }
-      description={
-        language === "fr"
-          ? data.strapiParole.description
-          : data.strapiParole.description_en
-      }
-      tab_element={
-        language === "fr"
-          ? data.strapiParole.tab_element
-          : data.strapiParole.tab_element_en
-      }
+      title={data.strapiParole["title" + LANG]}
+      description={data.strapiParole["description" + LANG]}
+      tab_element={data.strapiParole["tab_element" + LANG]}
     />
   );
 }
