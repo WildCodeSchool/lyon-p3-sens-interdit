@@ -2,35 +2,38 @@ import { graphql } from "gatsby";
 import React from "react";
 import SpectacleInfosOldArchive from "./../components/specifics/SpectacleOldArchive/SpectacleInfosOldArchive.js";
 import ImageCarouselOldArchive from "./../components/globals/CarouselOldArchive/ImageCarouselOldArchive";
+import Thumbnail from "./../components/globals/Thumbnail";
+import TabSystemH from "./../components/globals/TabSystems/TabSystemHOldArchive";
+
 import "./Index.css";
 
 export default function ArchiveSpectaclePage({ data }) {
+  const image = [
+    data.strapiArchivesOld.photo_1,
+    data.strapiArchivesOld.photo_2,
+    data.strapiArchivesOld.photo_3,
+    data.strapiArchivesOld.photo_4,
+    data.strapiArchivesOld.photo_5,
+    data.strapiArchivesOld.photo_6,
+    data.strapiArchivesOld.photo_7,
+    data.strapiArchivesOld.photo_8,
+    data.strapiArchivesOld.photo_9,
+    data.strapiArchivesOld.photo_10,
+    data.strapiArchivesOld.photo_11,
+    data.strapiArchivesOld.photo_12,
+    data.strapiArchivesOld.photo_13,
+  ];
+  const imageArray = [];
 
-const image = [data.strapiArchivesOld.photo_1,
-  data.strapiArchivesOld.photo_2,
-  data.strapiArchivesOld.photo_3,
-  data.strapiArchivesOld.photo_4,
-  data.strapiArchivesOld.photo_5,
-  data.strapiArchivesOld.photo_6,
-  data.strapiArchivesOld.photo_7,
-  data.strapiArchivesOld.photo_8,
-  data.strapiArchivesOld.photo_9,
-  data.strapiArchivesOld.photo_10,
-  data.strapiArchivesOld.photo_11,
-  data.strapiArchivesOld.photo_12,
-  data.strapiArchivesOld.photo_13];
-const imageArray = [];
-
-
-for (const elem of image){
-  if((elem !== null) && (elem !== undefined) && (elem !== "")){
-    imageArray.push(elem);
+  for (const elem of image) {
+    if (elem !== null && elem !== undefined && elem !== "") {
+      imageArray.push(elem);
+    }
   }
-}
 
   return (
     <div className="global-spectacle-page">
-     <ImageCarouselOldArchive
+      <ImageCarouselOldArchive
         title={data.strapiArchivesOld.titre}
         images={imageArray}
         displayed={true}
@@ -39,47 +42,69 @@ for (const elem of image){
         <div className="country-label">
           <p>{data.strapiArchivesOld.pays}</p>
         </div>
-      <SpectacleInfosOldArchive
+        <SpectacleInfosOldArchive
           country={data.strapiArchivesOld.pays}
           duration={data.strapiArchivesOld.duree}
           info={data.strapiArchivesOld.a_noter}
         />
-
-        </div>
+        {data.strapiArchivesOld.tableElementArchiveOld === 0 ? (
+          ""
+        ) : (
+          <TabSystemH tabContent={data.strapiArchivesOld.tableElementArchiveOld} />
+        )}
+        <div className="content">
+          <div className="red-arrow-spectacle"></div>
+          <p className="content-title to-uppercase">Autour du spectacle</p>
+          <div className="display-mini-tab">
+            <Thumbnail
+              affiche={data.strapiArchivesOld.photo_1}
+              date="26 Octobre"
+              country="Russie"
+              name="Titre du spectacle"
+              team="Metteur en scène"
+            />
+            <Thumbnail
+              affiche={data.strapiArchivesOld.photo_1}
+              date="26 Octobre"
+              country="Russie"
+              name="Titre du spectacle"
+              team="Metteur en scène"
+            />
+          </div>
+          </div>
+      </div>
     </div>
   );
 }
 
-// This query needs to be dynamic based on the id of the spectacle
-// (example: id="test-spectacle" --> the route will be: http://localhost:8000/spectacle/test-spectacle/
 export const query = graphql`
-query MyQueryArchiveDeux($id: String!) {
-  strapiArchivesOld(id: {eq: $id}) {
-    id
-    titre
-    duree
-    pays
-    lieu
-    presentation
-    tableElementArchiveOld {
-          content
-          title
-          id
-        }
-    a_noter
-    photo_1
-    photo_2
-    photo_3
-    photo_4
-    photo_5
-    photo_6
-    photo_7
-    photo_8
-    photo_9
-    photo_10
-    photo_11
-    photo_12
-    photo_13
+  query MyQueryArchiveDeux($id: String!) {
+    strapiArchivesOld(id: { eq: $id }) {
+      id
+      titre
+      duree
+      pays
+      lieu
+      presentation
+      tableElementArchiveOld {
+        content
+        title
+        id
+      }
+      a_noter
+      photo_1
+      photo_2
+      photo_3
+      photo_4
+      photo_5
+      photo_6
+      photo_7
+      photo_8
+      photo_9
+      photo_10
+      photo_11
+      photo_12
+      photo_13
+    }
   }
-}
-`
+`;
