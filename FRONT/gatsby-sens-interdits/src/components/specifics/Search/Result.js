@@ -14,10 +14,11 @@ export default function Result(props) {
     margin: "2px",
   };
   const flexwrapperIMG = {
-    top:"0",
     width: "100px",
     height: "auto",
-    margin: "1vw",
+    marginRight: "1vw",
+    alignSelf: "top"
+
   };
   const flexwrapperBTN = {
     height: "30px",
@@ -41,7 +42,7 @@ export default function Result(props) {
     height: "auto",
     whiteSpace: "nowrap",
   };
-  
+
 
   return (
     <a href={props.url} alt={props.title}>
@@ -49,7 +50,7 @@ export default function Result(props) {
         <img src={props.image} alt={props.id} style={flexwrapperIMG} />
         <div className="result-text-wrapper" style={textwrapper}>
           <h6 style={{ color: "#e30613", margin: "0" }}>
-            {props.type ? props.type : "type inconnu"}
+            {props.type ? props.type : ""}
           </h6>
           <h2 style={{ color: "#e30613", margin: "0" }}>{props.title}</h2>
           <p style={flexwrapperDAT}>
