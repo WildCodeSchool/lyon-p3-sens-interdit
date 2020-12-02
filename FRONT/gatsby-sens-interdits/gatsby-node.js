@@ -103,16 +103,20 @@ async function turnFestivalsIntoPages({ graphql, actions }) {
             infopratique {
               id
             }
+            festivalplace {
+              id
+            }
           }
         }
       }
     }
     `
   ).then(result => {
-    // Create pages for each festival
+    // Loop over each festival
     result.data.festivals.edges.forEach(({ node }) => {
       let festivalSlug = sluggify(node.title);
       let festivalId = removePageNameForUrl(node.id, "Festival");
+      // Create pages for each festival
       createPage({
         path: `/festival/${festivalSlug}${festivalId}`,
         component: path.resolve(`src/templates/festival.js`),
@@ -120,11 +124,20 @@ async function turnFestivalsIntoPages({ graphql, actions }) {
           id: node.id,
         },
       });
+      // Create pages for each festival's practical information
       createPage({
         path: `/festival/${festivalSlug}${festivalId}/infos`,
         component: path.resolve(`src/templates/festivalInfos.js`),
         context: {
           id: node.infopratique.id,
+        },
+      });
+      // Create pages for each festival's places
+      createPage({
+        path: `/festival/${festivalSlug}${festivalId}/lieux`,
+        component: path.resolve(`src/templates/festivalPlaces.js`),
+        context: {
+          id: node.festivalplace.id,
         },
       });
     });
