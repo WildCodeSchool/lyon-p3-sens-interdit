@@ -9,42 +9,11 @@ export default function Programme() {
         nodes {
           title
           strapiId
-          duration
           horaires {
             Day
           }
-          tab_element {
-            content
-            credited_image {
-              credit
-              image {
-                url
-              }
-            }
-            title
-          }
           country
-          carousel {
-            id
-            image {
-              image {
-                url
-              }
-            }
-          }
-          accessibility {
-            url
-          }
-          partners {
-            url
-          }
           place
-          tarif {
-            tarif
-            category {
-              category
-            }
-          }
           author
           thumbnail {
             internal {

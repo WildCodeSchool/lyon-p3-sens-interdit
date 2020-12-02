@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/infopratiques",
+      "handler": "infopratique.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/infopratiques/count",
+      "handler": "infopratique.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/infopratiques/:id",
+      "handler": "infopratique.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/infopratiques",
+      "handler": "infopratique.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/infopratiques/:id",
+      "handler": "infopratique.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/infopratiques/:id",
+      "handler": "infopratique.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

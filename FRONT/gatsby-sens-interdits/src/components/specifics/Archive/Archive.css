@@ -50,3 +50,17 @@ img.picto-plus {
   width: 38px;
   height: 38px;
 }
+
+@media screen and (max-width: 960px) {
+  /* ARCHIVES */
+  .archive-transmission-grid-wrapper{
+    display: flex;
+    flex-direction: column;
+  }
+  .festival-poster-wrapper{
+    font-size: 12px;
+  }
+  .festival-poster-wrapper .festival-title-flex img {
+    width: 15px;
+  }
+}
