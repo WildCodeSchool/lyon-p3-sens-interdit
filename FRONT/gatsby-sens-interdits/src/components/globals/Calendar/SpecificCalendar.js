@@ -7,6 +7,8 @@ import localizedFormat from "dayjs/plugin/localizedFormat";
 dayjs.locale("fr");
 dayjs.extend(localizedFormat);
 
+// On lui passe le spectacle et il nous sort les dates ?
+
 export default function SpecificCalendar(props) {
   const sendDateToParent = e => {
     props.dateSetter(e.target.getAttribute("data-date"));
