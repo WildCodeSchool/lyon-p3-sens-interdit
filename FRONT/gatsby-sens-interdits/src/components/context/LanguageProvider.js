@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import LanguageContext from "./LanguageContext";
 
 export default props => {
-  const [english, setEnglish] = useState(false);
-  const toggleEnglish = () => {
-    setEnglish(english => !english);
+  const [language, setLanguage] = useState("fr");
+  const toggleLanguage = () => {
+    language === "fr" ? setLanguage("en") : setLanguage("fr");
   };
 
   return (
-    <LanguageContext.Provider value={{ english, toggleEnglish }}>
+    <LanguageContext.Provider value={{ language, toggleLanguage }}>
       {props.children}
     </LanguageContext.Provider>
   );

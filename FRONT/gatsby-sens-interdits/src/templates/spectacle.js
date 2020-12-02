@@ -13,12 +13,12 @@ import photoTest from "../assets/img/img-sens-interdit.jpg";
 import LanguageContext from "../components/context/LanguageContext";
 
 export default function SpectaclePage({ data }) {
-  const { english } = useContext(LanguageContext);
+  const { language } = useContext(LanguageContext);
   const [LANG, setLANG] = useState("");
 
   useEffect(() => {
-    english ? setLANG("_en") : setLANG("");
-  }, [english]);
+    language === "en" ? setLANG("_en") : setLANG("");
+  }, [language]);
 
   const spectacle = data.spectacle;
 
@@ -41,7 +41,7 @@ export default function SpectaclePage({ data }) {
         </div>
         <CalendarLarge />
         <SpectacleInfos
-          english={english}
+          language={language}
           tarif={spectacle.tarif}
           country={spectacle["country" + LANG]}
           duration={spectacle["duration" + LANG]}
@@ -57,7 +57,7 @@ export default function SpectaclePage({ data }) {
         <div className="content">
           <div className="red-arrow-spectacle"></div>
           <p className="content-title to-uppercase">
-            {!english ? "Autour du spectacle" : "Suggestions"}
+            {!language ? "Autour du spectacle" : "Suggestions"}
           </p>
           <div className="display-mini-tab">
             <Thumbnail

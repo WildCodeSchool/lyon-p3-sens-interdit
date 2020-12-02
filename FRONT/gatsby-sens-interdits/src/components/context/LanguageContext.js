@@ -1,8 +1,8 @@
 import React, { createContext } from "react";
 
 const LanguageContext = createContext({
-  english: false,
-  toggleEnglish: () => {},
+  language: "fr",
+  toggleLanguage: () => {},
 });
 
 export default LanguageContext;

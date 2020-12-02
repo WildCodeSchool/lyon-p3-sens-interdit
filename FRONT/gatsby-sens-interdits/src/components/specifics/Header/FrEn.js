@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import LanguageContext from "../../context/LanguageContext";
 
 export default function FrEn() {
-  const { english, toggleEnglish } = useContext(LanguageContext);
+  const { language, toggleLanguage } = useContext(LanguageContext);
   return (
-    <a className="fr-en" onClick={toggleEnglish}>
-      <p className={!english ? "active-language" : ""}>FR</p>
+    <a className="fr-en" onClick={toggleLanguage}>
+      <p className={language === "fr" ? "active-language" : ""}>FR</p>
       <span> | </span>
-      <p className={english ? "active-language" : ""}>EN</p>
+      <p className={language === "en" ? "active-language" : ""}>EN</p>
     </a>
   );
 }

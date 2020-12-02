@@ -3,7 +3,7 @@ import "./SpectacleInfos.css";
 
 const SpectacleInfos = ({
   tarif,
-  english,
+  language,
   country,
   duration,
   partners,
@@ -15,14 +15,16 @@ const SpectacleInfos = ({
       <div className="red-arrow"></div>
       <div className="spectacle-info-container">
         <div className="info-container">
-          <p>{!english ? "Infos Pratiques" : "Practical Information"}</p>
+          <p>
+            {language === "fr" ? "Infos Pratiques" : "Practical Information"}
+          </p>
           <ul>
             <li>
-              {!english ? "Pays :" : "Country :"}
+              {language === "fr" ? "Pays :" : "Country :"}
               {country !== null ? country.toUpperCase() : ""}
             </li>
             <li>
-              {!english ? "Durée :" : "Duration :"}{" "}
+              {language === "fr" ? "Durée :" : "Duration :"}
               {duration !== null ? duration : ""}
             </li>
             {info.map(el => (
