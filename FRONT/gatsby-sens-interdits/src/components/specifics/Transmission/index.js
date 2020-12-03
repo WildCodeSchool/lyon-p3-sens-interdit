@@ -54,9 +54,15 @@ export default function TransmissionsPage() {
       <div className="global-margin">
         <div className="red-arrow"></div>
         <div className="transmission-content">
-          <h1>
-            <span>Ateliers-</span>Transmission
-          </h1>
+          {LANG !== "_en" ? (
+            <h1>
+              Ateliers-<span>Transmission</span>
+            </h1>
+          ) : (
+            <h1>
+              Workshops-<span>Transmission</span>
+            </h1>
+          )}
           <p>{transmission["description" + LANG]}</p>
         </div>
         <div className="transmission-grid-layout">
