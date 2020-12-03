@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+
 import picto from "../../../assets/img/picto.svg";
 import "./tabSystemV.css";
+import Thumbnail from "../Thumbnail";
+import tabSystemClick from '../../../utils/tab-system';
 
 function DisplayPicture({ imageContent }) {
   return (
@@ -25,47 +28,66 @@ function DisplayPicture({ imageContent }) {
   );
 }
 
-export default function TabSystemV({ tabContent }) {
-  const [activeTabContent, setActiveTabContent] = useState("");
-  const [activeClass, setActiveClass] = useState("");
+export default function TabSystemV ({tabContent, spectacleQuery}) {
+
+  const [activeTabContent, setActiveTabContent] = useState(null);
+  const [activeClass, setActiveClass] = useState(null);
+  const [firstLoad, setFirstLoad] = useState(true);
 
   function handleOnClick(e) {
-    setActiveTabContent(e.target.id);
-    setActiveClass(e.target.id);
+      if (firstLoad) {
+          setFirstLoad(false);
+      }
+      tabSystemClick(e, setActiveTabContent, setActiveClass)
   }
 
   return (
     <div className="tab-moduleV">
-      {tabContent.map(tab => (
+     {tabContent.map((tab, i) => (
         <div className="tab-moduleV" key={tab.id}>
-          <div className="tab-titleV">
+          <div className={"tab-titleV " + (activeClass === tab.id || (firstLoad && i === 0) ? "active" : "")}
+               id={'tab-link_'+tab.id}
+               data-id={tab.id}
+               onClick={handleOnClick}
+          >
             <img
               src={picto}
-              alt="pictogramme cliquable"
-              weight="30"
+              alt=""
+              width="30"
               height="30"
+              data-id={tab.id}
             />
-            <h3
-              id={tab.title}
-              className={
-                "tab-link " + (activeClass === tab.title ? "active" : "")
-              }
-              onClick={handleOnClick}
-              onKeyDown={handleOnClick}
-            >
+            <h3 className="tab-link"  data-id={tab.id}>
               {tab.title}
             </h3>
           </div>
-          <div
-            id="tab-contentV"
-            className={
-              activeTabContent === tab.title ? "active-tab" : "disabled-tab"
-            }
-          >
+          <div className={'tab-contentV ' + (activeTabContent === tab.id || (firstLoad && i === 0) ? "active-tab" : "disabled-tab")}>
             {tab.content}
             {tab.credited_image !== undefined ? (
               <DisplayPicture imageContent={tab.credited_image} />
             ) : ""}
+            
+              {spectacleQuery !== undefined ?
+                <div className="thumbnail-list">
+                  {spectacleQuery.map (spect =>
+                    spect.type_of_events.map((cat, i) =>
+                          cat.category === tab.title ?
+                              <Thumbnail
+                                name={spect.title}
+                                team={spect.author === null ? "" : spect.author}
+                                country={spect.country === null ? "" : spect.country}
+                                date={spect.country === null ? "" : spect.country}
+                                key={i}
+                                // affiche={}
+                                // url={}
+                              />
+                          : ""
+                    )
+                    )
+                  }
+                </div>
+                : null
+               }
           </div>
         </div>
       ))}
