@@ -4,15 +4,26 @@
   justify-content: center;
   align-items: center;
   width: 70px;
-  height: 40px;
+  height: auto;
   border-right: solid black 1px;
   border-left: solid black 1px;
   cursor: pointer;
+}
+.one-day:active{
+  background-color: red;
+  color: white;
+}
+.one-day:active p {
+  color: white;
+}
+.one-day:active p strong{
+  color: white;
 }
 
 .one-day p {
   color: rgb(94, 94, 94);
 }
+
 
 .one-day p strong {
   font-size: 20px;
