@@ -23,6 +23,7 @@ module.exports = {
           `parole`,
           `archive-description`,
           `diffusion-production`,
+          `archive-description`,
         ],
       },
     },
