@@ -24,7 +24,7 @@ export const FestivalContextProvider = ({ children }) => {
   useEffect(() => {
     setCurrentFestivalId(currentFestival.id);
     setCurrentFestivalStrapiId(currentFestival.strapiId);
-  }, []);
+  }, [currentFestival.id, currentFestival.strapiId]);
 
   return (
     <FestivalContext.Provider
