@@ -70,16 +70,6 @@ export default function TabSystemH({ tabContent , articles, textOverFlow}) {
               <div
                 className={"tab-content " + (activeTabContent === tab.id || (firstLoad && i === 0) ? "active-tab" : "disabled-tab")}
               >
-                {/* { articles !== undefined ? 
-                    articles.map(article =>
-                        article.typeofarticles.map(cat => 
-                          cat.category === tab.title ?
-                            <Article article={article} textOverFlow={textOverFlow}/>
-                            : null)
-                        )
-                    : 
-                    <TabSystemContent tab={tab} DisplayPicture={DisplayPicture}/>
-                } */}
                     { articles !== undefined ? 
                       articles.map(article =>
                         tab.title === "Toutes les actualités" ?
