@@ -5,7 +5,6 @@ import "./tabSystemV.css";
 function DisplayPicture({ imageContent }) {
   return (
     <>
-      <p className="institut-partners">Partenaires Institutionnels</p>
       <div className="display-img-tab-element">
         {imageContent.map(img => (
           <div key={img.id}>
@@ -63,13 +62,14 @@ export default function TabSystemV({ tabContent }) {
             }
           >
             {tab.content}
-            {tab.credited_image !== undefined ? (
+            {tab.credited_image.length !== 0 ? (
               <DisplayPicture imageContent={tab.credited_image} />
-            ) : ""}
+            ) : (
+              ""
+            )}
           </div>
         </div>
       ))}
     </div>
   );
 }
-
