@@ -90,7 +90,7 @@ export default function TransmissionsPage() {
           <div className="transmission-pro">
             {LANG !== "_en" ? (
               <h1>
-                Avec <span>les publics</span>
+                Avec <span>les professionnels</span>
               </h1>
             ) : (
               <h1>
