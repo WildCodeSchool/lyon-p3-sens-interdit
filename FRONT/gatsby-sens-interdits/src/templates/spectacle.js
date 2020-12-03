@@ -8,17 +8,11 @@ import Thumbnail from "../components/globals/Thumbnail";
 import CalendarLarge from "../components/globals/Calendar/CalendarLarge";
 import ImageCarousel from "../components/globals/Carousel/ImageCarousel";
 
-
 import photoTest from "../assets/img/img-sens-interdit.jpg";
 import LanguageContext from "../components/context/LanguageContext";
 
 export default function SpectaclePage({ data }) {
-  const { language } = useContext(LanguageContext);
-  const [LANG, setLANG] = useState("");
-
-  useEffect(() => {
-    language === "en" ? setLANG("_en") : setLANG("");
-  }, [language]);
+  const { language, LANG } = useContext(LanguageContext);
 
   const spectacle = data.spectacle;
 
@@ -29,7 +23,6 @@ export default function SpectaclePage({ data }) {
 
   return (
     <div className="global-spectacle-page">
-      
       <ImageCarousel
         title={spectacle["title" + LANG]}
         images={imageArray}

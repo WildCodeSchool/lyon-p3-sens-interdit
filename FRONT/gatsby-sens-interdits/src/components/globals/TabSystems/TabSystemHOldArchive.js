@@ -8,7 +8,7 @@ export default function TabSystemHOldArchive({ tabContent }) {
 
   function handleOnClick(e) {
     setActiveTabContent(e.target.id);
-    setActiveClass(e.target.id);
+    // setActiveClass(e.target.id);
   }
   return (
     <div className="tab-module">
@@ -44,7 +44,7 @@ export default function TabSystemHOldArchive({ tabContent }) {
                 activeTabContent === tab.title ? "active-tab" : "disabled-tab"
               }
             >
-            <ReactMarkdown source={tab.content} />  
+              <ReactMarkdown source={tab.content} />
             </div>
           </div>
         ))}
