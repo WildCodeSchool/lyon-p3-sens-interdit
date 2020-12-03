@@ -21,6 +21,7 @@ module.exports = {
           `scolaire`,
           `seminaire`,
           `parole`,
+          `diffusion-production`,
         ],
       },
     },
