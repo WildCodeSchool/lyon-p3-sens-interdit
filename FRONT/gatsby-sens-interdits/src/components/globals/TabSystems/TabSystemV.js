@@ -66,24 +66,28 @@ export default function TabSystemV ({tabContent, spectacleQuery}) {
             {tab.credited_image !== undefined ? (
               <DisplayPicture imageContent={tab.credited_image} />
             ) : ""}
-            <div className="thumbnail-list">
-              {spectacleQuery.map (spect =>
-                        spect.type_of_events.map((cat, i) =>
-                              cat.category === tab.title ?
-                                  <Thumbnail
-                                                  name={spect.title}
-                                                  team={spect.author === null ? "" : spect.author}
-                                                  country={spect.country === null ? "" : spect.country}
-                                                  date={spect.country === null ? "" : spect.country}
-                                                  key={i}
-                                                  // affiche={}
-                                                  // url={}
-                                                />
-                              : ""
-                        )
-                      )
+            
+              {spectacleQuery !== undefined ?
+                <div className="thumbnail-list">
+                  {spectacleQuery.map (spect =>
+                    spect.type_of_events.map((cat, i) =>
+                          cat.category === tab.title ?
+                              <Thumbnail
+                                name={spect.title}
+                                team={spect.author === null ? "" : spect.author}
+                                country={spect.country === null ? "" : spect.country}
+                                date={spect.country === null ? "" : spect.country}
+                                key={i}
+                                // affiche={}
+                                // url={}
+                              />
+                          : ""
+                    )
+                    )
+                  }
+                </div>
+                : null
                }
-            </div>
           </div>
         </div>
       ))}

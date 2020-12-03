@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import TabSystemH from "../../globals/TabSystems/TabSystemH";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import "../../../assets/styles/global.css";
-import "./index.css";
+import "../../../templates/article.css";
 
 
 

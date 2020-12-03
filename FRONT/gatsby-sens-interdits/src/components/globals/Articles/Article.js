@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import "../../../assets/styles/global.css";
-import "../../specifics/NewsPage/index.css";
+import "../../../templates/article.css";
 import dayJs from "dayjs";
 import "dayjs/locale/fr";
 dayJs.locale("fr");
