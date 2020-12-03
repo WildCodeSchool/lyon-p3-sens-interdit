@@ -1,9 +1,8 @@
 const path = require(`path`);
 const { sluggify } = require("./src/utils/Sluggify");
-
-function removePageNameForUrl(text, pageName) {
-  return text.replace(pageName, "");
-}
+const {
+  removeNameForUrl: removePageNameForUrl,
+} = require("./src/utils/removeNameForUrl");
 
 const makeRequest = (graphql, request) =>
   new Promise((resolve, reject) => {
@@ -88,6 +87,42 @@ async function turnArchiveSpectaclesIntoPages({ graphql, actions }) {
   return getArchiveSpectacle;
 }
 
+async function turnArticlesIntoPages({ graphql, actions }) {
+  const { createPage } = actions;
+
+  const getArticles = makeRequest(
+    graphql,
+    `
+    {
+      allStrapiArticlecontent {
+        edges {
+          node {
+            title
+            id
+          }
+        }
+      }
+    }
+    `
+  ).then(result => {
+    // Create pages for each article.
+    result.data.allStrapiArticlecontent.edges.forEach(({ node }) => {
+      let articleSlug = sluggify(node.title);
+      let articleId = removePageNameForUrl(node.id, "Articlecontent");
+      createPage({
+        path: `/articles/${articleSlug}${articleId}`,
+        component: path.resolve(`src/templates/article.js`),
+        context: {
+          id: node.id,
+        },
+      });
+    });
+  });
+
+  // Query for articles nodes to use in creating pages.
+  return getArticles;
+}
+
 async function turnFestivalsIntoPages({ graphql, actions }) {
   const { createPage } = actions;
 
@@ -153,6 +188,7 @@ exports.createPages = async params => {
   await Promise.all([
     turnArchiveSpectaclesIntoPages(params),
     turnSpectaclesIntoPages(params),
+    turnArticlesIntoPages(params),
     turnFestivalsIntoPages(params),
   ]);
 };

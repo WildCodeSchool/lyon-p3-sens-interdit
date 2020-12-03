@@ -1,10 +1,10 @@
 import { graphql } from "gatsby";
 import React from "react";
-import SpectacleInfosOldArchive from "./../components/specifics/SpectacleOldArchive/SpectacleInfosOldArchive.js";
-import ImageCarouselOldArchive from "./../components/globals/CarouselOldArchive/ImageCarouselOldArchive";
+import "./archiveSpectacle.css";
+import ImageCarouselOldArchive from "../components/globals/CarouselOldArchive/ImageCarouselOldArchive";
+import SpectacleInfosOldArchive from "../components/specifics/SpectacleOldArchive/SpectacleInfosOldArchive";
 import Thumbnail from "./../components/globals/Thumbnail";
 import TabSystemH from "./../components/globals/TabSystems/TabSystemHOldArchive";
-import "./archiveSpectacle.css";
 
 export default function ArchiveSpectaclePage({ data }) {
   const image = [
