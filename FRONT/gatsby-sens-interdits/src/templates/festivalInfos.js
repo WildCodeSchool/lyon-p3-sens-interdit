@@ -19,8 +19,8 @@ export default function FestivalInfosPage({ data }) {
 }
 
 export const query = graphql`
-  query($id: Int) {
-    festivalInfo: strapiInfopratique(strapiId: { eq: $id }) {
+  query($infoId: Int) {
+    festivalInfo: strapiInfopratique(strapiId: { eq: $infoId }) {
       id
       strapiId
       description
