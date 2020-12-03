@@ -2,11 +2,13 @@ import { graphql } from "gatsby";
 import React from "react";
 import SpectacleInfosOldArchive from "./../components/specifics/SpectacleOldArchive/SpectacleInfosOldArchive.js";
 import ImageCarouselOldArchive from "./../components/globals/CarouselOldArchive/ImageCarouselOldArchive";
-import Thumbnail from "./../components/globals/Thumbnail";
-import TabSystemH from "./../components/globals/TabSystems/TabSystemHOldArchive";
+import ThumbnailOldArchive from "../components/globals/ThumbnailOldArchive";
+import TabSystemHOldArchive from "../components/globals/TabSystems/TabSystemHOldArchive";
+
 import "./archiveSpectacle.css";
 
 export default function ArchiveSpectaclePage({ data }) {
+
   const image = [
     data.strapiArchivesOld.photo_1,
     data.strapiArchivesOld.photo_2,
@@ -23,15 +25,16 @@ export default function ArchiveSpectaclePage({ data }) {
     data.strapiArchivesOld.photo_13,
   ];
   const imageArray = [];
-
   for (const elem of image) {
-    if (elem !== null && elem !== undefined && elem !== "") {
+    if ((elem !== null) && (elem !== undefined) && (elem !== "")) {
       imageArray.push(elem);
     }
   }
 
   return (
+
     <div className="global-spectacle-page">
+    {console.log(data)}
       <ImageCarouselOldArchive
         title={data.strapiArchivesOld.titre}
         images={imageArray}
@@ -46,39 +49,37 @@ export default function ArchiveSpectaclePage({ data }) {
           duration={data.strapiArchivesOld.duree}
           info={data.strapiArchivesOld.a_noter}
         />
-        tabSsystemforOldArchives
-        {data.strapiArchivesOld.tableElementArchiveOld === 0 ? (
-          ""
-        ) : (
-          <TabSystemH
-            tabContent={data.strapiArchivesOld.tableElementArchiveOld}
-          />
-        )}
+        <TabSystemHOldArchive tabContent={data.strapiArchivesOld.tableElementArchiveOld}/>
         <div className="content">
           <div className="red-arrow-spectacle"></div>
-          <p className="content-title to-uppercase">Autour du spectacle</p>
-          <div className="display-mini-tab">
-            <Thumbnail
-              affiche={data.strapiArchivesOld.photo_1}
-              date="26 Octobre"
-              country="Russie"
-              name="Titre du spectacle"
-              team="Metteur en scène"
-            />
-            <Thumbnail
-              affiche={data.strapiArchivesOld.photo_1}
-              date="26 Octobre"
-              country="Russie"
-              name="Titre du spectacle"
-              team="Metteur en scène"
-            />
-          </div>
+          <p className="content-title to-uppercase"></p>
+        <div className="display-mini-tab">
+        <ThumbnailOldArchive
+            key={data.strapiArchivesOld.id}
+            url="http://localhost:8000/"
+            country={data.strapiArchivesOld.pays}
+            name={data.strapiArchivesOld.titre}
+            team={data.strapiArchivesOld.credits_2}
+            affiche={data.strapiArchivesOld.photo_1}
+          />
+          <ThumbnailOldArchive
+            key={data.strapiArchivesOld.id}
+            url="http://localhost:8000/"
+            country={data.strapiArchivesOld.pays}
+            name={data.strapiArchivesOld.titre}
+            team={data.strapiArchivesOld.credits_2}
+            affiche={data.strapiArchivesOld.photo_1}
+          />
+          {console.log(data.strapiArchivesOld.photo_1)}
         </div>
       </div>
+    </div>
     </div>
   );
 }
 
+// This query needs to be dynamic based on the id of the spectacle
+// (example: id="test-spectacle" --> the route will be: http://localhost:8000/spectacle/test-spectacle/
 export const query = graphql`
   query MyQueryArchiveDeux($id: String!) {
     strapiArchivesOld(id: { eq: $id }) {

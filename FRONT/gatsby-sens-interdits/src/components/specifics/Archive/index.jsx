@@ -2,7 +2,7 @@ import React from "react";
 import FestivalPoster from "./FestivalPoster";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import FilterTab from "../Programme/FilterTab";
-import Thumbnail from "../../globals/Thumbnail";
+import ThumbnailOldArchive from "../../globals/ThumbnailOldarchive";
 import photoTest from "../../../assets/img/img-sens-interdit.jpg";
 import { graphql, useStaticQuery } from "gatsby";
 
@@ -87,10 +87,9 @@ function Archive(props) {
         <FilterTab />
         <div className="archive-transmission-grid-wrapper">
         {allStrapiArchivesOld.edges.map(elem => (
-          <Thumbnail
+          <ThumbnailOldArchive
             key={elem.node.id}
-            url={"http://localhost:8000/"+elem.node.id}
-            date={elem.node.date_1}
+            url="http://localhost:8000/"
             country={elem.node.pays}
             name={elem.node.titre}
             team={elem.node.credits_2}

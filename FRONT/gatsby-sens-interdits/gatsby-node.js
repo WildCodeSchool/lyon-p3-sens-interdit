@@ -1,8 +1,8 @@
 const path = require(`path`);
 const { sluggify } = require("./src/utils/Sluggify");
 
-function removeSpectacleForUrl(text) {
-  return text.replace("Spectacle", "");
+function removePageNameForUrl(text, pageName) {
+  return text.replace(pageName, "");
 }
 
 const makeRequest = (graphql, request) =>
@@ -40,7 +40,7 @@ async function turnSpectaclesIntoPages({ graphql, actions }) {
     // Create pages for each spectacle
     result.data.spectacles.edges.forEach(({ node }) => {
       let spectacleSlug = sluggify(node.title);
-      let spectacleId = removeSpectacleForUrl(node.id);
+      let spectacleId = removePageNameForUrl(node.id,"Spectacle");
       createPage({
         path: `/spectacle/${spectacleSlug}${spectacleId}`, //strapiId
         component: path.resolve(`src/templates/spectacle.js`),
@@ -66,6 +66,7 @@ async function turnArchiveSpectaclesIntoPages({ graphql, actions }) {
         edges {
           node {
             id
+            titre
           }
         }
       }
@@ -74,8 +75,9 @@ async function turnArchiveSpectaclesIntoPages({ graphql, actions }) {
   ).then(result => {
     // Create pages for each article.
     result.data.allStrapiArchivesOld.edges.forEach(({ node }) => {
+      let archiveSpectacleSlug = sluggify(node.titre);
       createPage({
-        path: `/${node.id}`,
+        path: `/spectacle/${archiveSpectacleSlug}`,
         component: path.resolve(`src/templates/archiveSpectacle.js`),
         context: {
           id: node.id,
