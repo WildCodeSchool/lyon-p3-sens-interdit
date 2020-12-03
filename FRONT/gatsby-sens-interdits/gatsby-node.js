@@ -164,7 +164,7 @@ async function turnFestivalsIntoPages({ graphql, actions }) {
         path: `/festival/${festivalSlug}${festivalId}/infos`,
         component: path.resolve(`src/templates/festivalInfos.js`),
         context: {
-          id: node.infopratique.id,
+          infoId: node.infopratique.id,
         },
       });
       // Create pages for each festival's places
@@ -172,7 +172,7 @@ async function turnFestivalsIntoPages({ graphql, actions }) {
         path: `/festival/${festivalSlug}${festivalId}/lieux`,
         component: path.resolve(`src/templates/festivalPlaces.js`),
         context: {
-          id: node.festivalplace.id,
+          placeId: node.festivalplace.id,
         },
       });
     });
