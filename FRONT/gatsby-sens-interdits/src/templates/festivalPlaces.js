@@ -20,8 +20,8 @@ export default function FestivalInfosPage({ data }) {
 }
 
 export const query = graphql`
-  query($id: Int) {
-    festivalPlace: strapiFestivalplace(strapiId: { eq: $id }) {
+  query($placeId: Int) {
+    festivalPlace: strapiFestivalplace(strapiId: { eq: $placeId }) {
       id
       strapiId
       description
