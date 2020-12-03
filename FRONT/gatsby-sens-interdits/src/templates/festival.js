@@ -7,10 +7,9 @@ import ImageCarousel from "../components/globals/Carousel/ImageCarousel";
 import DisplayTabMenu from "../components/globals/DisplayTabMenu/DisplayTabMenu";
 
 const { sluggify } = require("./../utils/Sluggify");
-
-function removePageNameForUrl(text, pageName) {
-  return text.replace(pageName, "");
-}
+const {
+  removeNameForUrl: removePageNameForUrl,
+} = require("./../utils/removeNameForUrl");
 
 export default function FestivalPage({ data }) {
   const festival = data.festival;
