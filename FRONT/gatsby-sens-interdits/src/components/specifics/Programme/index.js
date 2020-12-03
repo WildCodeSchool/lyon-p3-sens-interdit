@@ -7,6 +7,7 @@ import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import localizedFormat from "dayjs/plugin/localizedFormat";
+import { sluggify } from '../../../utils/Sluggify';
 dayjs.locale("fr");
 dayjs.extend(localizedFormat);
 
@@ -104,8 +105,8 @@ export default function ProgrammePage(props) {
             id={spectacle.strapiId}
             team={spectacle.author ? spectacle.author : "inconnu"}
             url={
-              "http://localhost:8000/spectacle/" +
-              spectacle.title.toLowerCase().replaceAll(" ", "-")
+              "/spectacle/" +
+              sluggify(spectacle.title)
             }
           />
         );

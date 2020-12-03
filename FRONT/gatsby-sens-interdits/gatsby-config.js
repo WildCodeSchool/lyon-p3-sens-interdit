@@ -26,6 +26,8 @@ module.exports = {
           `newstab`,
           `hors-scene-page`,
           `hors-scene-tab`,
+          `archive-description`,
+          `diffusion-production`
         ],
       },
     },

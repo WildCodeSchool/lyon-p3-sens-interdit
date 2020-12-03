@@ -1,5 +1,5 @@
+import React, { useContext } from "react";
 import { graphql } from "gatsby";
-import React from "react";
 import "./spectacle.css";
 
 import SpectacleInfos from "../components/specifics/Spectacle/SpectacleInfos.js";
@@ -7,11 +7,13 @@ import TabSystemH from "../components/globals/TabSystems/TabSystemH";
 import Thumbnail from "../components/globals/Thumbnail";
 import CalendarLarge from "../components/globals/Calendar/CalendarLarge";
 import ImageCarousel from "../components/globals/Carousel/ImageCarousel";
-import SharingBox from "../components/globals/SocialSharing/SharingBox";
 
 import photoTest from "../assets/img/img-sens-interdit.jpg";
+import LanguageContext from "../components/context/LanguageContext";
 
 export default function SpectaclePage({ data }) {
+  const { language, LANG } = useContext(LanguageContext);
+
   const spectacle = data.spectacle;
 
   const imageArray =
@@ -21,33 +23,35 @@ export default function SpectaclePage({ data }) {
 
   return (
     <div className="global-spectacle-page">
-      <SharingBox />
       <ImageCarousel
-        title={spectacle.title}
+        title={spectacle["title" + LANG]}
         images={imageArray}
         displayed={true}
       />
       <div className="content-spectacle-page">
         <div className="country-label">
-          <p>{spectacle.country}</p>
+          <p>{spectacle["country" + LANG]}</p>
         </div>
         <CalendarLarge />
         <SpectacleInfos
+          language={language}
           tarif={spectacle.tarif}
-          country={spectacle.country}
-          duration={spectacle.duration}
+          country={spectacle["country" + LANG]}
+          duration={spectacle["duration" + LANG]}
           partners={spectacle.partners}
           accessibility={spectacle.accessibility}
-          info={spectacle.spectacle_info}
+          info={spectacle["spectacle_info" + LANG]}
         />
-        {spectacle.tab_element.lenght === 0 ? (
+        {spectacle["tab_element" + LANG] === 0 ? (
           ""
         ) : (
-          <TabSystemH tabContent={spectacle.tab_element} />
+          <TabSystemH tabContent={spectacle["tab_element" + LANG]} />
         )}
         <div className="content">
           <div className="red-arrow-spectacle"></div>
-          <p className="content-title to-uppercase">Autour du spectacle</p>
+          <p className="content-title to-uppercase">
+            {!language ? "Autour du spectacle" : "Suggestions"}
+          </p>
           <div className="display-mini-tab">
             <Thumbnail
               affiche={photoTest}
@@ -76,12 +80,17 @@ export const query = graphql`
   query($id: String!) {
     spectacle: strapiSpectacle(id: { eq: $id }) {
       title
+      title_en
       id
       strapiId
       duration
+      duration_en
       country
+      country_en
       place
+      place_en
       info
+      info_en
       tarif {
         tarif
         category {
@@ -110,7 +119,23 @@ export const query = graphql`
           }
         }
       }
+      tab_element_en {
+        content
+        id
+        title
+        credited_image {
+          credit
+          id
+          image {
+            url
+          }
+        }
+      }
       spectacle_info {
+        id
+        info
+      }
+      spectacle_info_en {
         id
         info
       }

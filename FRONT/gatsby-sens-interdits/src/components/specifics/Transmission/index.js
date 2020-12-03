@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import LanguageContext from "../../context/LanguageContext";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import DisplayTabMenu from "../../globals/DisplayTabMenu/DisplayTabMenu";
 import { graphql, useStaticQuery } from "gatsby";
 import "./TransmissionsPage.css";
 
 export default function TransmissionsPage() {
+  const { LANG } = useContext(LanguageContext);
   const data = useStaticQuery(graphql`
     query transmissionQuery {
       allStrapiTransmission {
@@ -21,6 +23,7 @@ export default function TransmissionsPage() {
               url
             }
             credit
+            credit_en
             url
           }
           publiccardcontent {
@@ -28,9 +31,11 @@ export default function TransmissionsPage() {
               url
             }
             credit
+            credit_en
             url
           }
           description
+          description_en
         }
       }
     }
@@ -49,27 +54,56 @@ export default function TransmissionsPage() {
       <div className="global-margin">
         <div className="red-arrow"></div>
         <div className="transmission-content">
-          <h1>
-            <span>Ateliers-</span>Transmission
-          </h1>
-          <p>{transmission.description}</p>
+          {LANG !== "_en" ? (
+            <h1>
+              Ateliers-<span>Transmission</span>
+            </h1>
+          ) : (
+            <h1>
+              Workshops-<span>Transmission</span>
+            </h1>
+          )}
+          <p>{transmission["description" + LANG]}</p>
         </div>
         <div className="transmission-grid-layout">
           <div className="transmission-public">
-            <h1>
-              Avec <span>les publics</span>
-            </h1>
+            {LANG !== "_en" ? (
+              <h1>
+                Avec <span>les publics</span>
+              </h1>
+            ) : (
+              <h1>
+                With <span>the audiences</span>
+              </h1>
+            )}
+
             {transmission.publiccardcontent.map(data => (
-              <DisplayTabMenu key={data.id} image={data.image[0].url} title={data.credit} url={data.url} />
+              <DisplayTabMenu
+                key={data.id}
+                image={data.image[0].url}
+                title={data["credit" + LANG]}
+                url={data.url}
+              />
             ))}
           </div>
 
           <div className="transmission-pro">
-            <h1>
-              Avec <span>les professionnels</span>
-            </h1>
+            {LANG !== "_en" ? (
+              <h1>
+                Avec <span>les professionnels</span>
+              </h1>
+            ) : (
+              <h1>
+                With <span>the professionals</span>
+              </h1>
+            )}
             {transmission.procardcontent.map(data => (
-              <DisplayTabMenu key={data.id} image={data.image[0].url} title={data.credit} url={data.url} />
+              <DisplayTabMenu
+                key={data.id}
+                image={data.image[0].url}
+                title={data["credit" + LANG]}
+                url={data.url}
+              />
             ))}
           </div>
         </div>
