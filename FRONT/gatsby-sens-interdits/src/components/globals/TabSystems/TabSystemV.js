@@ -8,7 +8,6 @@ import tabSystemClick from '../../../utils/tab-system';
 function DisplayPicture({ imageContent }) {
   return (
     <>
-      <p className="institut-partners">Partenaires Institutionnels</p>
       <div className="display-img-tab-element">
         {imageContent.map(img => (
           <div key={img.id}>
@@ -63,7 +62,7 @@ export default function TabSystemV ({tabContent, spectacleQuery}) {
           </div>
           <div className={'tab-contentV ' + (activeTabContent === tab.id || (firstLoad && i === 0) ? "active-tab" : "disabled-tab")}>
             {tab.content}
-            {tab.credited_image !== undefined ? (
+            {tab.credited_image.length !== 0 ? (
               <DisplayPicture imageContent={tab.credited_image} />
             ) : ""}
             
@@ -94,4 +93,3 @@ export default function TabSystemV ({tabContent, spectacleQuery}) {
     </div>
   );
 }
-
