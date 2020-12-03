@@ -22,6 +22,7 @@ module.exports = {
           `seminaire`,
           `parole`,
           `archive-description`,
+          `diffusion-production`,
         ],
       },
     },
