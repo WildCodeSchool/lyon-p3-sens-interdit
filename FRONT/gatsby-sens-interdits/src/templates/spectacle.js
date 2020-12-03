@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import "./spectacle.css";
 
