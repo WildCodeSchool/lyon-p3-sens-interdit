@@ -33,24 +33,53 @@ export default function FestivalPage({ data }) {
           <p>{festival.content}</p>
         </div>
         <nav id="festival-menu">
-          {festival.squaremenu.map(elem => (
+          {festival.programme.visible ? (
             <DisplayTabMenu
-              key={elem.id}
-              title={elem.title}
-              url={elem.url}
-              image={elem.image[0].url}
+              title={festival.programme.title}
+              // url={`/festival/${festivalSlug}${festivalId}/programme`}
+              url={`/programme`}
+              image={festival.programme.image[0].url}
             />
-          ))}
-          <DisplayTabMenu
-            title="TEST INFOS"
-            url={`/festival/${festivalSlug}${festivalId}/infos`}
-            image={festival.squaremenu[0].image[0].url}
-          />
-          <DisplayTabMenu
-            title="TEST LIEUX"
-            url={`/festival/${festivalSlug}${festivalId}/lieux`}
-            image={festival.squaremenu[0].image[0].url}
-          />
+          ) : null}
+          {festival.hors_scene.visible ? (
+            <DisplayTabMenu
+              title={festival.hors_scene.title}
+              // url={`/festival/${festivalSlug}${festivalId}/hors-scene`}
+              url={`/hors-scene`}
+              image={festival.hors_scene.image[0].url}
+            />
+          ) : null}
+          {festival.ecole.visible ? (
+            <DisplayTabMenu
+              title={festival.ecole.title}
+              // url={`/festival/${festivalSlug}${festivalId}/ecole`}
+              url={`/ecole`}
+              image={festival.ecole.image[0].url}
+            />
+          ) : null}
+          {festival.squaremenu.length !== 0 &&
+            festival.squaremenu.map(elem => (
+              <DisplayTabMenu
+                key={elem.id}
+                title={elem.title}
+                url={elem.url}
+                image={elem.image[0].url}
+              />
+            ))}
+          {festival.info_pratique.visible ? (
+            <DisplayTabMenu
+              title={festival.info_pratique.title}
+              url={`/festival/${festivalSlug}${festivalId}/infos`}
+              image={festival.info_pratique.image[0].url}
+            />
+          ) : null}
+          {festival.lieux.visible ? (
+            <DisplayTabMenu
+              title={festival.lieux.title}
+              url={`/festival/${festivalSlug}${festivalId}/lieux`}
+              image={festival.lieux.image[0].url}
+            />
+          ) : null}
         </nav>
       </div>
     </div>
@@ -73,6 +102,45 @@ export const query = graphql`
             url
           }
         }
+      }
+      programme {
+        title
+        image {
+          url
+        }
+        visible
+      }
+      hors_scene {
+        id
+        title
+        visible
+        image {
+          url
+        }
+      }
+      ecole {
+        id
+        title
+        visible
+        image {
+          url
+        }
+      }
+      info_pratique {
+        id
+        title
+        visible
+        image {
+          url
+        }
+      }
+      lieux {
+        id
+        image {
+          url
+        }
+        title
+        visible
       }
       squaremenu {
         id

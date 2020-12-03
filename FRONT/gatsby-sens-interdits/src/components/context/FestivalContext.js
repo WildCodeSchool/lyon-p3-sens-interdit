@@ -1,9 +1,8 @@
 import { createContext } from "react";
 
-const LanguageContext = createContext({
+const FestivalContext = createContext({
   language: "fr",
-  LANG: "",
   toggleLanguage: () => {},
 });
 
-export default LanguageContext;
+export default FestivalContext;
