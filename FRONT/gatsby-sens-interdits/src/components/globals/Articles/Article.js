@@ -6,13 +6,20 @@ import dayJs from "dayjs";
 import "dayjs/locale/fr";
 dayJs.locale("fr");
 
+const { sluggify } = require("../../../utils/Sluggify");
+const { removeNameForUrl } = require("../../../utils/removeNameForUrl");
+
+
 export default function Article (props) {   
     const article = props.article;
     const textOverFlow = props.textOverFlow;
 
+    let articleSlug = sluggify(props.article.title);
+    let articleId = removeNameForUrl(props.article.id, "Articlecontent");
+
    
     return (
-        <Link to={"/articles/" + article.title.toLowerCase().replaceAll(" ", "-")} title={article.title} className="article-wrapper">
+        <Link to={"/articles/" + articleSlug + articleId} title={article.title} className="article-wrapper">
             <div className="article-resume" key={article.id}>
                 <p className="article-date">Publié le {dayJs(article.date).format("DD MMMM YYYY")}</p>
                 <h4 className="to-uppercase">{article.title}</h4>
