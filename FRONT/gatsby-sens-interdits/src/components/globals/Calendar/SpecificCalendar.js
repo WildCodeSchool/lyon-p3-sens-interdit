@@ -10,31 +10,34 @@ dayjs.extend(localizedFormat);
 // On lui passe le spectacle et il nous sort les dates ?
 
 export default function SpecificCalendar(props) {
+  const thisSpectacle = props.spectacle.spectacle
+
   const sendDateToParent = e => {
     props.dateSetter(e.target.getAttribute("data-date"));
   };
 
-  const dateArray = [
-    dayjs().subtract(4, "d"),
-    dayjs().subtract(3, "d"),
-    dayjs().subtract(2, "d"),
-    dayjs().subtract(1, "d"),
-    dayjs(),
-    dayjs().add(1, "d"),
-    dayjs().add(2, "d"),
-    dayjs().add(3, "d"),
-    dayjs().add(4, "d"),
-  ];
+  function splitHoraires(spectacle) {
+    let listHoraires = [];
+    spectacle.horaires.forEach(date => {
+
+      listHoraires.push(date.Day);
+    });
+
+    return listHoraires;
+  }
+
+  const dateArray = splitHoraires(thisSpectacle)
 
   return (
     <div className="global-calendar-large">
-      {dateArray.map(date => {
+      {
+      dateArray.map(date => {
         return (
           <div
             className="calendarWrapper"
             key={dayjs(date).format()}
             data-date={date}
-            onClick={sendDateToParent}
+            onClick={console.log(thisSpectacle)}
           >
             <CalendarOneDay
               key={dayjs(date).format("ddd D MMM")}
