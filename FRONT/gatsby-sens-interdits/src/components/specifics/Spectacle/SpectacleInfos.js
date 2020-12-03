@@ -55,9 +55,19 @@ const SpectacleInfos = ({
         </div>
         <div className="partners-logo">
           {partners.map(picto => (
-            <a key={picto.id} href={picto.url} target="blank">
+            <a
+              key={picto.id}
+              href={picto.url}
+              title="title here"
+              target="_blank"
+            >
+              {/* TODO set default image **/}
               <img
-                src={process.env.GATSBY_API_URL + picto.image[0].url}
+                src={picto.image[0] !== undefined ?
+                    process.env.GATSBY_API_URL + picto.image[0].url
+                    :
+                    null
+                }
                 alt="logo"
                 width="70"
                 height="70"
