@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./CalendarLarge.css";
-import CalendarOneDay from "./CalendarOneDay";
+import SpectacleDate from "./SpectacleDate";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import localizedFormat from "dayjs/plugin/localizedFormat";
@@ -39,7 +39,7 @@ export default function SpecificCalendar(props) {
             data-date={date}
             
           >
-            <CalendarOneDay
+            <SpectacleDate
               key={dayjs(date).format("ddd D MMM")}
               day={dayjs(date).format("ddd")}
               num={dayjs(date).format("D")}

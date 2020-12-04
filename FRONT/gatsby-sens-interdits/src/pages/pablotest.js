@@ -1,5 +1,5 @@
 import React from "react";
-import SpecificCalendar from "../components/globals/Calendar/SpecificCalendar";
+import SpecificCalendar from "../components/globals/Calendar/SpectacleCalendar";
 import { useStaticQuery, graphql } from "gatsby";
 
 export default function PabloTest() {
