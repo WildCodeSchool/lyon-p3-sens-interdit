@@ -5,9 +5,16 @@ import "./Index.css";
 import DisplayTabMenu from "../../globals/DisplayTabMenu/DisplayTabMenu.js";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import LanguageContext from "../../context/LanguageContext";
+import { FestivalContext } from "../../context/FestivalContext";
 
 export default function Homepage() {
   const { LANG } = useContext(LanguageContext);
+  const { currentFestivalId, currentFestivalStrapiId } = useContext(
+    FestivalContext
+  );
+
+  console.log(currentFestivalId, "fsfsfz", currentFestivalStrapiId);
+
   const { strapiHomepage } = useStaticQuery(graphql`
     query MyQueryHome {
       strapiHomepage {

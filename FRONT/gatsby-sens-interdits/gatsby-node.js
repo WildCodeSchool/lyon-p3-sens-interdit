@@ -1,9 +1,8 @@
 const path = require(`path`);
 const { sluggify } = require("./src/utils/Sluggify");
-
-function removePageNameForUrl(text, pageName) {
-  return text.replace(pageName, "");
-}
+const {
+  removeNameForUrl: removePageNameForUrl,
+} = require("./src/utils/removeNameForUrl");
 
 const makeRequest = (graphql, request) =>
   new Promise((resolve, reject) => {
@@ -42,7 +41,7 @@ async function turnSpectaclesIntoPages({ graphql, actions }) {
       let spectacleSlug = sluggify(node.title);
       let spectacleId = removePageNameForUrl(node.id, "Spectacle");
       createPage({
-        path: `/spectacle/${spectacleSlug}${spectacleId}`, //strapiId
+        path: `/spectacle/${spectacleSlug}${spectacleId}`,
         component: path.resolve(`src/templates/spectacle.js`),
         context: {
           id: node.id,
@@ -75,7 +74,7 @@ async function turnArchiveSpectaclesIntoPages({ graphql, actions }) {
     // Create pages for each article.
     result.data.allStrapiArchivesOld.edges.forEach(({ node }) => {
       createPage({
-        path: `/${node.id}`,
+        path: `/${node.id.toLowerCase()}`,
         component: path.resolve(`src/templates/archiveSpectacle.js`),
         context: {
           id: node.id,
@@ -124,6 +123,65 @@ async function turnArticlesIntoPages({ graphql, actions }) {
   return getArticles;
 }
 
+async function turnFestivalsIntoPages({ graphql, actions }) {
+  const { createPage } = actions;
+
+  const getFestivals = makeRequest(
+    graphql,
+    `
+    {
+      festivals: allStrapiFestival {
+        edges{
+          node {
+            title
+            id
+            infopratique {
+              id
+            }
+            festivalplace {
+              id
+            }
+          }
+        }
+      }
+    }
+    `
+  ).then(result => {
+    // Loop over each festival
+    result.data.festivals.edges.forEach(({ node }) => {
+      let festivalSlug = sluggify(node.title);
+      let festivalId = removePageNameForUrl(node.id, "Festival");
+      // Create pages for each festival
+      createPage({
+        path: `/festival/${festivalSlug}${festivalId}`,
+        component: path.resolve(`src/templates/festival.js`),
+        context: {
+          id: node.id,
+        },
+      });
+      // Create pages for each festival's practical information
+      createPage({
+        path: `/festival/${festivalSlug}${festivalId}/infos`,
+        component: path.resolve(`src/templates/festivalInfos.js`),
+        context: {
+          infoId: node.infopratique.id,
+        },
+      });
+      // Create pages for each festival's places
+      createPage({
+        path: `/festival/${festivalSlug}${festivalId}/lieux`,
+        component: path.resolve(`src/templates/festivalPlaces.js`),
+        context: {
+          placeId: node.festivalplace.id,
+        },
+      });
+    });
+  });
+
+  // Query for spectacles nodes to use in creating pages.
+  return getFestivals;
+}
+
 // Implement the Gatsby API “createPages”. This is called once the
 // data layer is bootstrapped to let plugins create pages from data.
 exports.createPages = async params => {
@@ -131,5 +189,6 @@ exports.createPages = async params => {
     turnArchiveSpectaclesIntoPages(params),
     turnSpectaclesIntoPages(params),
     turnArticlesIntoPages(params),
+    turnFestivalsIntoPages(params),
   ]);
 };
