@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { graphql, useStaticQuery } from "gatsby";
+const { sluggify } = require("./../../utils/Sluggify");
 
 export const FestivalContext = React.createContext({});
 
 export const FestivalContextProvider = ({ children }) => {
   const [currentFestivalId, setCurrentFestivalId] = useState("");
   const [currentFestivalStrapiId, setCurrentFestivalStrapiId] = useState(null);
+  const [currentFestivalTitle, setCurrentFestivalTitle] = useState("");
 
   const { festivals } = useStaticQuery(graphql`
     query {
@@ -14,6 +16,7 @@ export const FestivalContextProvider = ({ children }) => {
           id
           strapiId
           visible
+          title
         }
       }
     }
@@ -24,11 +27,16 @@ export const FestivalContextProvider = ({ children }) => {
   useEffect(() => {
     setCurrentFestivalId(currentFestival.id);
     setCurrentFestivalStrapiId(currentFestival.strapiId);
-  }, [currentFestival.id, currentFestival.strapiId]);
+    setCurrentFestivalTitle(sluggify(currentFestival.title));
+  }, [currentFestival.id, currentFestival.strapiId, currentFestival.title]);
 
   return (
     <FestivalContext.Provider
-      value={{ currentFestivalId, currentFestivalStrapiId }}
+      value={{
+        currentFestivalId,
+        currentFestivalStrapiId,
+        currentFestivalTitle,
+      }}
     >
       {children}
     </FestivalContext.Provider>
