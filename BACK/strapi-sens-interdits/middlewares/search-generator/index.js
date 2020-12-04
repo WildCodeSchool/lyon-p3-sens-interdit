@@ -1,20 +1,6 @@
-const mysql = require('mysql');
-const db = mysql.createConnection({
-  user: process.env.DATABASE_USERNAME,
-  password: process.env.DATABASE_PASSWORD,
-  host: process.env.DATABASE_HOST,
-  database: process.env.DATABASE_NAME
-});
-function toSearch(data) {
-  let str = '';
-  for (let i in data) {
-    str += data[i].toLowerCase().normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, " ")
-      .replace(/-+/g, " ")
-      .replace(/[^a-z0-9-]/g, "");
-  }
-  return str;
-}
+'use strict';
+const {dataToSearch} = require('../../library/helpers/string');
+const {db, query} = require('../../library/Mysql');
 // TODO : to be changed, cuz of the multilingual modifications
 module.exports = strapi => {
   return {
@@ -46,7 +32,7 @@ module.exports = strapi => {
                       let result = results[0]
                       let id = parseInt(result.id) + 1;
                       delete result.id;
-                      let search = toSearch(result);
+                      let search = dataToSearch(result);
                       const data = {search, api_id: table, content_id: id};
                       db.query(`INSERT INTO search SET ?`, data)
                     }
@@ -57,7 +43,7 @@ module.exports = strapi => {
                     if (err) {
                       throw new Error(err);
                     } else {
-                      let search = toSearch(results[0]);
+                      let search = dataToSearch(results[0]);
                       db.query(`UPDATE search SET search=? WHERE api_id=? AND content_id=?`, [search, table, id]);
                     }
                   });
