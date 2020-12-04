@@ -59,14 +59,14 @@ const SpectacleInfos = ({
               key={picto.id}
               href={picto.url}
               title="title here"
-              target="_blank"
+              target="blank"
             >
               {/* TODO set default image **/}
               <img
-                src={picto.image[0] !== undefined ?
-                    process.env.GATSBY_API_URL + picto.image[0].url
-                    :
-                    null
+                src={
+                  picto.image[0] !== undefined
+                    ? process.env.GATSBY_API_URL + picto.image[0].url
+                    : null
                 }
                 alt="logo"
                 width="70"
