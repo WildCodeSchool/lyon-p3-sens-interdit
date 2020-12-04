@@ -1,6 +1,13 @@
 require("dotenv").config();
 
 module.exports = {
+  siteMetadata:{
+    title :"Festival Sens Interdit",
+    description : "Biénnale Internationale de théâtre  ",
+    url:"https://festival-sens-interdit",
+    image:"",
+    twitterUsername: "@sens-interdits",
+  },
   plugins: [
     {
       resolve: `gatsby-source-strapi`,
