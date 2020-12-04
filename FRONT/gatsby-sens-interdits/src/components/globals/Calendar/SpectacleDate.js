@@ -2,43 +2,48 @@ import React, { useState } from "react";
 import "./CalendarOneDay.css";
 
 export default function SpectacleDate(props) {
-  const [active, isActive] = useState(false);
 
   const activator = e => {
     e.preventDefault();
-    isActive(!active);
+    console.log(e.target.getAttribute('data-id'));
+    props.setActiveModalId(e.target.getAttribute('data-id'))
   };
+  let id = parseInt(props.id);
 
   return (
     <div
-      className={active ? "one-day active" : "one-day"}
+      className={parseInt(props.activeModalId) === id ? "one-day active" : "one-day"}
       data-date={props.date}
     >
       <p
-        className={active ? "active" : ""}
+        className={parseInt(props.activeModalId) === id  ? "active" : ""}
         data-date={props.date}
         onClick={activator}
+        data-id={id}
       >
         {props.day}
       </p>
       <p
-        className={active ? "active" : ""}
+        className={parseInt(props.activeModalId) === id  ? "active" : ""}
         data-date={props.date}
         onClick={activator}
+        data-id={id}
       >
-        <strong className={active ? "active" : ""} data-date={props.date}>
+        <strong className={parseInt(props.activeModalId) === id  ? "active" : ""} data-date={props.date} onClick={activator}
+                data-id={id}>
           {props.num}
         </strong>
       </p>
       <p
-        className={active ? "active" : ""}
+        className={parseInt(props.activeModalId) === id  ? "active" : ""}
         data-date={props.date}
         onClick={activator}
+        data-id={id}
       >
         {props.month}
       </p>
       <Modal
-        show={active}
+        show={parseInt(props.activeModalId) === id }
         place={props.place}
         horaire={props.horaire}
         reservationLink={props.reservationLink}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import "./CalendarLarge.css";
 import SpectacleDate from "./SpectacleDate";
 import dayjs from "dayjs";
@@ -15,6 +15,7 @@ export default function SpecificCalendar(props) {
   const sendDateToParent = e => {
     props.dateSetter(e.target.getAttribute("data-date"));
   };
+  const [activeModalId, setActiveModalId] = useState(null);
 
   function splitHoraires(spectacle) {
     let listHoraires = [];
@@ -29,11 +30,11 @@ export default function SpecificCalendar(props) {
 
   return (
     <div className="global-calendar-large">
-      {dateArray.map(date => {
+      {dateArray.map((date, i) => {
         return (
           <div
             className="calendarWrapper"
-            key={dayjs(date).format()}
+            key={i}
             data-date={date}
           >
             <SpectacleDate
@@ -45,6 +46,9 @@ export default function SpecificCalendar(props) {
               place={thisSpectacle.place}
               horaire={dayjs(date).format("H:mm")}
               reservationLink="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              activeModalId={activeModalId}
+              setActiveModalId={setActiveModalId}
+              id={i}
             ></SpectacleDate>
           </div>
         );
