@@ -4,6 +4,7 @@ import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import FilterTab from "../Programme/FilterTab";
 import Thumbnail from "../../globals/Thumbnail";
 import { graphql, useStaticQuery } from "gatsby";
+import FilterBySelect from "./FilterBySelect"; 
 
 import "./Archive.css";
 import LanguageContext from "../../context/LanguageContext";
@@ -108,6 +109,7 @@ function Archive(props) {
           </h1>
         )}
         <FilterTab />
+        <FilterBySelect />
         <div className="archive-transmission-grid-wrapper">
           {data.allStrapiArchivesOld.edges.map(elem => (
             <Thumbnail
