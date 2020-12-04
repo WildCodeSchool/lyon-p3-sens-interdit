@@ -37,7 +37,7 @@ export default function SpecificCalendar(props) {
             className="calendarWrapper"
             key={dayjs(date).format()}
             data-date={date}
-            onClick={console.log(thisSpectacle)}
+            
           >
             <CalendarOneDay
               key={dayjs(date).format("ddd D MMM")}

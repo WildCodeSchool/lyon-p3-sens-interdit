@@ -2,7 +2,7 @@ import React from "react";
 import SpecificCalendar from "../components/globals/Calendar/SpecificCalendar";
 import { useStaticQuery, graphql } from "gatsby";
 
-export default function Sitemap() {
+export default function PabloTest() {
   const data = useStaticQuery(graphql`
     query {
       spectacle: strapiSpectacle(id: { eq: "Spectacle_8" }) {

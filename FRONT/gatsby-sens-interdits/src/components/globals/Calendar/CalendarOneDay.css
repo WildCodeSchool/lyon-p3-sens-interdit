@@ -8,24 +8,20 @@
   border-right: solid black 1px;
   border-left: solid black 1px;
   cursor: pointer;
+  transition: 0.3s;
 }
-.one-day:active{
+.active {
   background-color: red;
-  color: white;
-}
-.one-day:active p {
-  color: white;
-}
-.one-day:active p strong{
   color: white;
 }
 
 .one-day p {
   color: rgb(94, 94, 94);
+  transition: 0.3s;
 }
-
 
 .one-day p strong {
   font-size: 20px;
   color: black;
+  transition: 0.3s;
 }
