@@ -84,7 +84,7 @@ function Archive(props) {
           </h1>
         ) : (
           <h1 className="to-uppercase">
-            Explore <span>the festival's archives</span>
+            Discover <span>the festival's archives</span>
           </h1>
         )}
         <FilterTab />
@@ -105,7 +105,7 @@ function Archive(props) {
           </h1>
         ) : (
           <h1 className="to-uppercase">
-            Explore <span>the production's archives</span>
+            Discover <span>the production's archives</span>
           </h1>
         )}
         <FilterTab />
