@@ -13,9 +13,9 @@ export default function SpectacleDate(props) {
     <div
       className={active ? "one-day active" : "one-day"}
       data-date={props.date}
-      onClick={activator}
+      
     >
-      <p className={active ? "active" : ""} data-date={props.date}>
+      <p className={active ? "active" : ""} data-date={props.date} onClick={activator}>
         {props.day}
       </p>
       <p className={active ? "active" : ""} data-date={props.date}>

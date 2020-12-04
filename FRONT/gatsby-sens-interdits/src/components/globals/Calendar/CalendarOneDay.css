@@ -6,7 +6,7 @@
   width: 70px;
   height: auto;
   border-left: solid black 1px;
-  cursor: pointer;
+  
   transition: 0.3s;
 }
 
@@ -24,6 +24,7 @@
   font-size: 20px;
   color: black;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .display-block {
