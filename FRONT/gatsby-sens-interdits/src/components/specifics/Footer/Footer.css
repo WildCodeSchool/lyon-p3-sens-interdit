@@ -81,9 +81,13 @@ footer {
 .newsletter-title :nth-child(1n){
   margin:0;
 }
+.newsletter-container form {
+  width: 75%;
+  align-self: center;
+}
 
 .newsletter-container .input-newsletter {
-  align-self: center;
+  
   background: #3b3b3b;
   border: none;
   height: 35px;

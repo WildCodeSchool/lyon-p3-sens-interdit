@@ -41,4 +41,13 @@ module.exports = {
       },
     },
   ],
-};
+  [
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: 'https://wix.us10.list-manage.com/subscribe/post?u=bb60c0f0d68fe87e07e39b3ce&amp;id=8874bc7e3e', // string; add your MC list endpoint here; see instructions below
+        timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
+      },
+    },
+]
+}
