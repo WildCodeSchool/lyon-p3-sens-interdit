@@ -8,7 +8,7 @@ module.exports = {
       const searchString = ctx.req._parsedUrl.query.replace('s=','').trim();
       const results = [];
       if (searchString.length > 4) {
-
+        results = await query('SELECT ');
         results.push(stringSearch(searchString));
       }
       ctx.send({error: null, results});

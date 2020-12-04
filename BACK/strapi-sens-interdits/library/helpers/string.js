@@ -2,6 +2,7 @@ const utf8 = require('utf8')
 const stringSearch = (str) => {
   str = decodeURI(utf8.encode(str));
   return str
+    .trim()
     .toLowerCase()
     .normalize("NFD") // to unicode standards
     .replace(/[\u0300-\u036f]/g, "") // replace special char
