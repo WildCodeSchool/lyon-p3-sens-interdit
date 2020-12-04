@@ -7,7 +7,7 @@ import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import localizedFormat from "dayjs/plugin/localizedFormat";
-import { sluggify } from '../../../utils/Sluggify';
+import { sluggify } from "../../../utils/Sluggify";
 dayjs.locale("fr");
 dayjs.extend(localizedFormat);
 
@@ -16,14 +16,13 @@ export default function ProgrammePage(props) {
 
   const fullList = [];
 
-  props.list
-    .map(spectacle => {
-      if (spectacle.horaires[0]) {
-        return fullList.push(...listTreatment(spectacle));
-      } else {
-        return fullList.push(spectacle);
-      }
-    });
+  props.list.map(spectacle => {
+    if (spectacle.horaires[0]) {
+      return fullList.push(...listTreatment(spectacle));
+    } else {
+      return fullList.push(spectacle);
+    }
+  });
 
   function listTreatment(spectacle) {
     let treatment = [];
@@ -39,7 +38,7 @@ export default function ProgrammePage(props) {
 
   useEffect(() => {
     setList(fullList);
-  }, []);
+  }, [fullList]);
 
   function dateFilter(date) {
     const filteredList = fullList.filter(spectacle => {
@@ -87,32 +86,28 @@ export default function ProgrammePage(props) {
         </h3>
       );
     } else {
-      return list
-        .map(spectacle => {
-          return (
-            <Thumbnail
-              key={spectacle.title + spectacle.day}
-              affiche={
-                spectacle.thumbnail
-                  ? spectacle.thumbnail.internal.description.split('"')[1]
-                  : photoTest
-              }
-              date={
-                spectacle.day
-                  ? dayjs(spectacle.day).format("ddd D MMM à HH:mm")
-                  : "inconnue"
-              }
-              country={spectacle.country ? spectacle.country : "inconnu"}
-              name={spectacle.title}
-              id={spectacle.strapiId}
-              team={spectacle.author ? spectacle.author : "inconnu"}
-              url={
-                "/spectacle/" +
-                sluggify(spectacle.title)
-              }
-            />
-          );
-        });
+      return list.map(spectacle => {
+        return (
+          <Thumbnail
+            key={spectacle.title + spectacle.day}
+            affiche={
+              spectacle.thumbnail
+                ? spectacle.thumbnail.internal.description.split('"')[1]
+                : photoTest
+            }
+            date={
+              spectacle.day
+                ? dayjs(spectacle.day).format("ddd D MMM à HH:mm")
+                : "inconnue"
+            }
+            country={spectacle.country ? spectacle.country : "inconnu"}
+            name={spectacle.title}
+            id={spectacle.strapiId}
+            team={spectacle.author ? spectacle.author : "inconnu"}
+            url={"/spectacle/" + sluggify(spectacle.title)}
+          />
+        );
+      });
     }
   };
   return (
