@@ -6,8 +6,6 @@
   width: 70px;
   height: auto;
   border-left: solid black 1px;
-  
-  transition: 0.3s;
 }
 
 .active {
@@ -17,13 +15,14 @@
 
 .one-day p {
   color: rgb(94, 94, 94);
-  transition: 0.3s;
+
+  cursor: pointer;
 }
 
 .one-day p strong {
   font-size: 20px;
   color: black;
-  transition: 0.3s;
+
   cursor: pointer;
 }
 
@@ -44,6 +43,7 @@
   background-color: white;
   color: black;
   padding: 10px;
+  transition: 0.5s;
 }
 .modal h3 {
   margin: 0;
@@ -53,7 +53,7 @@
   padding: 0;
   margin-bottom: 5px;
 }
-.modal a  {
+.modal a {
   border: 0;
   background: red;
   color: white;

@@ -13,17 +13,28 @@ export default function SpectacleDate(props) {
     <div
       className={active ? "one-day active" : "one-day"}
       data-date={props.date}
-      
     >
-      <p className={active ? "active" : ""} data-date={props.date} onClick={activator}>
+      <p
+        className={active ? "active" : ""}
+        data-date={props.date}
+        onClick={activator}
+      >
         {props.day}
       </p>
-      <p className={active ? "active" : ""} data-date={props.date}>
+      <p
+        className={active ? "active" : ""}
+        data-date={props.date}
+        onClick={activator}
+      >
         <strong className={active ? "active" : ""} data-date={props.date}>
           {props.num}
         </strong>
       </p>
-      <p className={active ? "active" : ""} data-date={props.date}>
+      <p
+        className={active ? "active" : ""}
+        data-date={props.date}
+        onClick={activator}
+      >
         {props.month}
       </p>
       <Modal
@@ -48,7 +59,7 @@ const Modal = props => {
       </h3>
       <p>{props.horaire}</p>
       <a href={props.reservationLink} target="_blank">
-         Réserver 
+        Réserver
       </a>
     </div>
   );
