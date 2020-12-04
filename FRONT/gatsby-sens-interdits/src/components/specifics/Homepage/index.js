@@ -26,15 +26,6 @@ export default function Homepage() {
           }
         }
         id
-        squaremenu {
-          id
-          title
-          title_en
-          url
-          image {
-            url
-          }
-        }
         description
         festival {
           title
