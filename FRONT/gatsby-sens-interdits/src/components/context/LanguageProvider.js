@@ -6,7 +6,7 @@ export default props => {
   const [hasMounted, setHasMounted] = useState(false);
   const [language, setLanguage] = useState("fr");
   const [LANG, setLANG] = useState("");
-  const [cookies, setCookie, removeCookie] = useCookies(["language"]);
+  const [cookies, setCookie] = useCookies(["language"]);
 
   useEffect(() => {
     setHasMounted(true);
