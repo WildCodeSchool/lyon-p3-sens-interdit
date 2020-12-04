@@ -5,11 +5,11 @@
   align-items: center;
   width: 70px;
   height: auto;
-  border-right: solid black 1px;
   border-left: solid black 1px;
   cursor: pointer;
   transition: 0.3s;
 }
+
 .active {
   background-color: red;
   color: white;
@@ -24,4 +24,41 @@
   font-size: 20px;
   color: black;
   transition: 0.3s;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+.modal {
+  position: relative;
+  border-left: solid black 1px;
+  top: 100%;
+  left: 10px;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  color: black;
+  padding: 10px;
+}
+.modal h3 {
+  margin: 0;
+}
+
+.modal p {
+  padding: 0;
+  margin-bottom: 5px;
+}
+.modal a  {
+  border: 0;
+  background: red;
+  color: white;
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
 }

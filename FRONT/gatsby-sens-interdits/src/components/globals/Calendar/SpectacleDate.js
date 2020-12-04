@@ -26,6 +26,30 @@ export default function SpectacleDate(props) {
       <p className={active ? "active" : ""} data-date={props.date}>
         {props.month}
       </p>
+      <Modal
+        show={active}
+        place={props.place}
+        horaire={props.horaire}
+        reservationLink={props.reservationLink}
+      />
     </div>
   );
 }
+
+const Modal = props => {
+  const showHideClassName = props.show
+    ? "modal display-block"
+    : "modal display-none";
+
+  return (
+    <div className={showHideClassName}>
+      <h3>
+        <strong>{props.place}</strong>
+      </h3>
+      <p>{props.horaire}</p>
+      <a href={props.reservationLink} target="_blank">
+         Réserver 
+      </a>
+    </div>
+  );
+};
