@@ -10,7 +10,7 @@ dayjs.extend(localizedFormat);
 // On lui passe le spectacle et il nous sort les dates
 
 export default function SpecificCalendar(props) {
-  const thisSpectacle = props.spectacle.spectacle;
+  const thisSpectacle = props.spectacle;
 
   const sendDateToParent = e => {
     props.dateSetter(e.target.getAttribute("data-date"));
