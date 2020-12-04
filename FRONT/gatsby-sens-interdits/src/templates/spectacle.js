@@ -5,7 +5,7 @@ import "./spectacle.css";
 import SpectacleInfos from "../components/specifics/Spectacle/SpectacleInfos.js";
 import TabSystemH from "../components/globals/TabSystems/TabSystemH";
 import Thumbnail from "../components/globals/Thumbnail";
-import CalendarLarge from "../components/globals/Calendar/CalendarLarge";
+import SpectacleCalendar from "../components/globals/Calendar/SpectacleCalendar";
 import ImageCarousel from "../components/globals/Carousel/ImageCarousel";
 
 import photoTest from "../assets/img/img-sens-interdit.jpg";
@@ -32,7 +32,7 @@ export default function SpectaclePage({ data }) {
         <div className="country-label">
           <p>{spectacle["country" + LANG]}</p>
         </div>
-        <CalendarLarge />
+        <SpectacleCalendar spectacle={spectacle} />
         <SpectacleInfos
           language={language}
           tarif={spectacle.tarif}
@@ -82,6 +82,9 @@ export const query = graphql`
       title
       title_en
       id
+      horaires {
+        Day
+      }
       strapiId
       duration
       duration_en

@@ -36,9 +36,13 @@ export default function ProgrammePage(props) {
     return treatment;
   }
 
-  useEffect(() => {
+  const majState = () =>{
     setList(fullList);
-  }, [fullList]);
+  }
+
+  useEffect(() => {
+    majState()
+  }, [props.list]);
 
   function dateFilter(date) {
     const filteredList = fullList.filter(spectacle => {
@@ -81,8 +85,7 @@ export default function ProgrammePage(props) {
     if (list.length === 0 || list === undefined) {
       return (
         <h3>
-          Something happened ?! <br />
-          Please reload the page.
+          Loading ...
         </h3>
       );
     } else {
