@@ -37,6 +37,8 @@ module.exports = {
           `hors-scene-tab`,
           `archive-description`,
           `diffusion-production`,
+          `mentions`,
+          `conditions`,
         ],
       },
     },
