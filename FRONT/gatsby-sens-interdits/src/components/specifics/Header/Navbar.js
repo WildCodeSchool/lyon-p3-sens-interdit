@@ -99,7 +99,7 @@ export default function Navbar() {
         ) : null}
         {strapiGlobalMenu.news.visible ? (
           <li>
-            <Link to="/actualités">
+            <Link to="/actualites">
               {strapiGlobalMenu.news["title" + LANG]}
             </Link>
           </li>
