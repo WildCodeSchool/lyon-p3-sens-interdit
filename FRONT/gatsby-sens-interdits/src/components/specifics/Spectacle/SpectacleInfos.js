@@ -45,7 +45,7 @@ const SpectacleInfos = ({
         </div>
         <div className="info-container">
           <span style={{ margin: "0", paddingLeft: "20px" }}>
-            {tarif.tarif}
+            {tarif !== null ? tarif.tarif : ""}
           </span>
           <ul>
             {tarif.category.map((el, i) => (
