@@ -24,14 +24,6 @@ export default function FestivalPage() {
                   }
                 }
               }
-              squaremenu {
-                id
-                title
-                url
-                image {
-                  url
-                }
-              }
             }
           }
       }`)

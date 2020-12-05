@@ -15,6 +15,7 @@ export default function SpectaclePage({ data }) {
   const { language, LANG } = useContext(LanguageContext);
 
   const spectacle = data.spectacle;
+  
 
   const imageArray =
     spectacle.carousel !== null
@@ -27,6 +28,7 @@ export default function SpectaclePage({ data }) {
         title={spectacle["title" + LANG]}
         images={imageArray}
         displayed={true}
+        booking={data.spectacle.reserver}
       />
       <div className="content-spectacle-page">
         <div className="country-label">
@@ -82,6 +84,7 @@ export const query = graphql`
       title
       title_en
       id
+      reserver
       horaires {
         Day
       }

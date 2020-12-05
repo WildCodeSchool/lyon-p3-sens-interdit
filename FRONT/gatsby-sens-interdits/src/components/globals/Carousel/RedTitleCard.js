@@ -1,13 +1,15 @@
 import React from "react";
 import "./RedTitleCard.css";
 
-function RedTitleCard({ title, displayed }) {
+function RedTitleCard({ title, displayed,booking }) {
+console.log ({booking})
+  
   return displayed ? (
     <>
       <div className="red"></div>
       <div className="image-text">
         <p>{title}</p>
-        <button>Réserver</button>
+        <a href={booking} title="booking" className="highlight to-uppercase" target="_blank" rel="noreferrer">Réserver</a>
       </div>
     </>
   ) : (
