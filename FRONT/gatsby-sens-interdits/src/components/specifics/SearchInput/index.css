@@ -37,7 +37,7 @@
     color: #fff;
     border-top: 8px solid #ed1c24;
 }
-input:focus {
+input:focus, button {
     outline: none;
 }
 #overlay-search form button {

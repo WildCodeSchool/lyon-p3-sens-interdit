@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { navigate } from "gatsby"
 import "./index.css";
 import magnifier from '../../../assets/img/loupe.png';
 
@@ -9,10 +10,12 @@ export default function SearchInput({showSearchInput, setShowSearchInput}) {
         e.stopPropagation();
         setShowSearchInput(false);
     }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        document.location.href = '/search/?s='+search;
+        navigate('/search/?s='+search);
     }
+
     useEffect(() => {
         if (showSearchInput) {
             searchInput.focus();

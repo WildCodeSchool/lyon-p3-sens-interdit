@@ -58,6 +58,7 @@ class Search {
    * @param next
    */
   getResults(next) {
+    // TODO : graphql
     async.forEachOf(
       this.tables,
       (ids, table, callback) => {
@@ -140,8 +141,14 @@ class Search {
       // TODO order result by created_at
       results.forEach(result => {
         let config = tablesConfig[result.table];
+        let url = '';
+        if (result.table === 'archives_olds') {
+          url = 'archives-old-' + result.id;
+        } else {
+          url = `${config.slug}${sluggify(result.title)}_${result.id}`;
+        }
         let searchResult = {
-          url: `${config.slug}${sluggify(result.title)}_${result.id}`,
+          url,
           title: result.title,
           description: result[config.description]
         }
