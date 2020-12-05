@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import "../Thumbnail/Index.css";
+import "./../Thumbnail/Index.css";
 import pictoPlus from "../../../assets/img/picto+.svg";
 
 const { sluggify } = require("../../../utils/Sluggify");
@@ -11,7 +11,8 @@ export default function ThumbnailOldArchive(props) {
 
   return (
     <div className="mini-tab">
-      <Link to={`/spectacle/${archiveSpectacleSlug}`}>
+      <Link 
+      to={`/spectacle/${archiveSpectacleSlug}_${props.id}`}>
         <div className="global-mini-tab">
           <img
             className="img-mini-tab"

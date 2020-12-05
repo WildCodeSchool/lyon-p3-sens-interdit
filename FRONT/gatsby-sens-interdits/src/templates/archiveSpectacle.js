@@ -8,7 +8,7 @@ import TabSystemHOldArchive from "../components/globals/TabSystems/TabSystemHOld
 import "./archiveSpectacle.css";
 
 export default function ArchiveSpectaclePage({ data }) {
-
+  const URLIMAGE = "http://146.59.231.196:1337/images/archives";
   const image = [
     data.strapiArchivesOld.photo_1,
     data.strapiArchivesOld.photo_2,
@@ -27,14 +27,14 @@ export default function ArchiveSpectaclePage({ data }) {
   const imageArray = [];
   for (const elem of image) {
     if ((elem !== null) && (elem !== undefined) && (elem !== "")) {
-      imageArray.push(elem);
+      imageArray.push(URLIMAGE+elem);
     }
   }
 
   return (
 
     <div className="global-spectacle-page">
-    {console.log(data)}
+    {console.log("Fucking url " + imageArray[0])}
       <ImageCarouselOldArchive
         title={data.strapiArchivesOld.titre}
         images={imageArray}
@@ -49,28 +49,30 @@ export default function ArchiveSpectaclePage({ data }) {
           duration={data.strapiArchivesOld.duree}
           info={data.strapiArchivesOld.a_noter}
         />
-        <TabSystemHOldArchive tabContent={data.strapiArchivesOld.tableElementArchiveOld}/>
+        <TabSystemHOldArchive 
+        tabContent={data.strapiArchivesOld.tableElementArchiveOld}
+        />
         <div className="content">
           <div className="red-arrow-spectacle"></div>
           <p className="content-title to-uppercase"></p>
         <div className="display-mini-tab">
         <ThumbnailOldArchive
+            id={data.strapiArchivesOld.strapiId}
             key={data.strapiArchivesOld.id}
-            url="http://localhost:8000/"
             country={data.strapiArchivesOld.pays}
             name={data.strapiArchivesOld.titre}
             team={data.strapiArchivesOld.credits_2}
-            affiche={data.strapiArchivesOld.photo_1}
+            affiche={URLIMAGE+data.strapiArchivesOld.photo_1}
           />
           <ThumbnailOldArchive
-            key={data.strapiArchivesOld.id}
-            url="http://localhost:8000/"
+            id={data.strapiArchivesOld.strapiId}
+            key={data.strapiArchivesOld.titre}
             country={data.strapiArchivesOld.pays}
             name={data.strapiArchivesOld.titre}
             team={data.strapiArchivesOld.credits_2}
-            affiche={data.strapiArchivesOld.photo_1}
+            affiche={URLIMAGE+data.strapiArchivesOld.photo_1}
           />
-          {console.log(data.strapiArchivesOld.photo_1)}
+          
         </div>
       </div>
     </div>
@@ -84,16 +86,12 @@ export const query = graphql`
   query MyQueryArchiveDeux($id: String!) {
     strapiArchivesOld(id: { eq: $id }) {
       id
+      strapiId
       titre
       duree
       pays
       lieu
       presentation
-      tableElementArchiveOld {
-        content
-        title
-        id
-      }
       a_noter
       photo_1
       photo_2
@@ -108,6 +106,12 @@ export const query = graphql`
       photo_11
       photo_12
       photo_13
+      url1
+      tableElementArchiveOld {
+        content
+        title
+        id
+      }
     }
   }
 `;

@@ -14,43 +14,50 @@ function Archive(props) {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
   const festivals = [
     {
-      title: "Édition 2013",
+      title: "Édition 2019",
       posterUrl:
         "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
+      url:"http://localhost:8000/programme_2019/",
+    },
+    {
+      title: "Édition 2017",
+      posterUrl:
+        "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
+      url:"http://localhost:8000/programme_2017/",
+    },
+    {
+      title: "Édition 2015",
+      posterUrl:
+        "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
+      url:"http://localhost:8000/programme_2015/",
     },
     {
       title: "Édition 2013",
       posterUrl:
         "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
+      url:"http://localhost:8000/programme_2013/",
     },
     {
-      title: "Édition 2013",
+      title: "Édition 2011",
       posterUrl:
         "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
+      url:"http://localhost:8000/programme_2011/",
     },
     {
-      title: "Édition 2013",
+      title: "Édition 2009",
       posterUrl:
         "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
-    },
-    {
-      title: "Édition 2013",
-      posterUrl:
-        "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
-    },
-    {
-      title: "Édition 2013",
-      posterUrl:
-        "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
+      url:"http://localhost:8000/programme_2009/",
     },
   ];
  
   const { allStrapiArchivesOld } = useStaticQuery(graphql`
   query MyQueryArchive {
-    allStrapiArchivesOld {
+    allStrapiArchivesOld(filter: {categorie: {eq: "hors_scene"}}) {
       edges {
         node {
         titre
+        strapiId
         id
         credits_2
         pays
@@ -59,7 +66,7 @@ function Archive(props) {
     }
   }
   }`)
-
+  const URL_IMAGE = "http://146.59.231.196:1337/images/archives";
   return (
     <>
     
@@ -76,7 +83,7 @@ function Archive(props) {
               <FestivalPoster
                 title={festival.title}
                 poster={festival.posterUrl}
-                url=""
+                url={festival.url}
               />
             );
           })}
@@ -88,12 +95,12 @@ function Archive(props) {
         <div className="archive-transmission-grid-wrapper">
         {allStrapiArchivesOld.edges.map(elem => (
           <ThumbnailOldArchive
+            id={elem.node.strapiId}
             key={elem.node.id}
-            url="http://localhost:8000/"
             country={elem.node.pays}
             name={elem.node.titre}
             team={elem.node.credits_2}
-            affiche={elem.node.photo_1}
+            affiche={URL_IMAGE+elem.node.photo_1}
           />
             
         ))}

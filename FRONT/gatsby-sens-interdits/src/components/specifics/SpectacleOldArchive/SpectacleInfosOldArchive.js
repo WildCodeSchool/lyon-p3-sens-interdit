@@ -2,7 +2,6 @@ import React from "react";
 import "./../Spectacle/SpectacleInfos.css";
 
 const SpectacleInfosOldArchive = ({
-  
   country,
   duration,
   info,

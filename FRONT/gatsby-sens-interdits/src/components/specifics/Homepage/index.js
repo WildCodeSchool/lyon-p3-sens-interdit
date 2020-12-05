@@ -19,14 +19,7 @@ export default function Homepage() {
         }
       }
       id
-      squaremenu {
-        id
-        title
-        url
-        image {
-          url
-        }
-      }
+      
       description
     }
   }`)

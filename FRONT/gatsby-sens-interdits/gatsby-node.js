@@ -76,8 +76,9 @@ async function turnArchiveSpectaclesIntoPages({ graphql, actions }) {
     // Create pages for each article.
     result.data.allStrapiArchivesOld.edges.forEach(({ node }) => {
       let archiveSpectacleSlug = sluggify(node.titre);
+      let archiveSpectacleId = removePageNameForUrl(node.id,"Archives-old");
       createPage({
-        path: `/spectacle/${archiveSpectacleSlug}`,
+        path: `/spectacle/${archiveSpectacleSlug}${archiveSpectacleId}`,
         component: path.resolve(`src/templates/archiveSpectacle.js`),
         context: {
           id: node.id,
