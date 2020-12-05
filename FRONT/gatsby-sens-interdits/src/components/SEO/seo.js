@@ -5,7 +5,9 @@ import { useLocation } from "@reach/router";
 import { useStaticQuery, graphql } from "gatsby";
 import { siteMetadata } from "../../../gatsby-config";
 
-
+// a ajouter  ? 
+//lang
+//viewport si repsonsive
 export default function SEO  ({ title, description, image, article }) {
     const { pathname } = useLocation();
     const { site } = useStaticQuery(seoQuery)
@@ -16,7 +18,7 @@ export default function SEO  ({ title, description, image, article }) {
         siteUrl,
         defaultImage,
         twitterUsername,
-    } = siteMetadata
+    } = site.siteMetadata
 
     const seo = {
         title: title || defaultTitle,
@@ -47,12 +49,14 @@ export default function SEO  ({ title, description, image, article }) {
 
 const seoQuery = graphql`
     query seoQuery{
-        siteMetadata:{
-            defaultTitle: title
-            defaultDescription : description
-            siteUrl: url
-            defaultImage: image
-            twitterUsername
+        site{
+            siteMetadata {
+                defaultTitle: title
+                defaultDescription : description
+                siteUrl: url
+                defaultImage: image
+                twitterUsername
+            }
         }
     }
     `
