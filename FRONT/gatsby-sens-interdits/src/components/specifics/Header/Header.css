@@ -91,7 +91,7 @@ header {
   color: white;
 }
 
-.nav-bar :nth-last-child(1) {
+.nav-bar :nth-last-child(2) {
   border-right: none;
 }
 

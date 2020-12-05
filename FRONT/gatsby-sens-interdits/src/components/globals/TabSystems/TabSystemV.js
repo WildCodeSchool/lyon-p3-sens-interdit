@@ -4,6 +4,13 @@ import picto from "../../../assets/img/picto.svg";
 import "./tabSystemV.css";
 import Thumbnail from "../Thumbnail";
 import tabSystemClick from "../../../utils/tab-system";
+import photoTest from "../../../assets/img/img-sens-interdit.jpg";
+import dayjs from "dayjs";
+import "dayjs/locale/fr";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+import { sluggify } from "../../../utils/Sluggify";
+dayjs.locale("fr");
+dayjs.extend(localizedFormat);
 
 function DisplayPicture({ imageContent }) {
   return (
@@ -78,18 +85,27 @@ export default function TabSystemV({ tabContent, spectacleQuery }) {
 
             {spectacleQuery !== undefined ? (
               <div className="thumbnail-list">
-                {spectacleQuery.map(spect =>
-                  spect.type_of_events.map((cat, i) =>
+                {spectacleQuery.map(spectacle =>
+                  spectacle.type_of_events.map((cat, i) =>
                     cat.category === tab.title ? (
                       <Thumbnail
-                        name={spect.title}
-                        team={spect.author === null ? "" : spect.author}
-                        country={spect.country === null ? "" : spect.country}
-                        date={spect.country === null ? "" : spect.country}
-                        key={i}
-                        // affiche={}
-                        // url={}
-                      />
+                      key={spectacle.title + spectacle.day}
+                      affiche={
+                        spectacle.thumbnail
+                          ? spectacle.thumbnail.internal.description.split('"')[1]
+                          : photoTest
+                      }
+                      date={
+                        spectacle.day
+                          ? dayjs(spectacle.day).format("ddd D MMM à HH:mm")
+                          : "inconnue"
+                      }
+                      country={spectacle.country ? spectacle.country : "inconnu"}
+                      name={spectacle.title}
+                      id={spectacle.strapiId}
+                      team={spectacle.author ? spectacle.author : "inconnu"}
+                      url={"/spectacle/" + sluggify(spectacle.title)}
+                    />
                     ) : (
                       ""
                     )

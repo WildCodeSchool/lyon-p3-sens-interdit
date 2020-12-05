@@ -20,7 +20,7 @@ export default function Navbar() {
     <nav>
       <ul className="nav-bar">
         {strapiGlobalMenu.global_menu_link.map(elem => (
-          <li key={elem.id}>
+          <li key={elem.id} className={elem.id === 14 ? "hidden":""}>
             <a href={elem.url}>{elem["title" + LANG]}</a>
           </li>
         ))}
