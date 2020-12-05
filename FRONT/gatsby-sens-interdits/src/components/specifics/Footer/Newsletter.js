@@ -44,7 +44,7 @@ export default function Newsletter() {
         </div>
         <form onSubmit={handleSubmit} >
           <input onKeyUp={handleChangeEmail} type="email" className="input-newsletter" id="newsletter" required />
-          <input type="submit" value='ok' className="submit-newsletter" />
+          <input type="submit" value='OK' className="submit-newsletter" />
         </form>
 
 
