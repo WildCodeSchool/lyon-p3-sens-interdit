@@ -9,7 +9,6 @@ module.exports = strapi => {
   return {
     initialize() {
       strapi.app.use(async (ctx, next) => {
-        log(1);
         const method = ctx.request.method;
         if ((method === 'POST' || method === 'PUT') && ctx.request.url !== undefined) {
           let url = ctx.request.url.split('::');
