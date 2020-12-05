@@ -77,3 +77,15 @@ div.overlay {
   z-index: 9999;
   background: rgba(0,0,0,0.7);
 }
+
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}

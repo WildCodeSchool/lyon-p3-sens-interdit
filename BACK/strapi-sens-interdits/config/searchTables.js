@@ -8,7 +8,7 @@ let pages = {
   "homepages": { title: null, description: "description", image: false, slug: "" },
   "hors_scene_pages": { title: "title", description: "content", image: false, slug: "/hors-scene" },
   "infopratiques": { title: null, description: "description", image: true, slug: "" },
-  "newspages": { title: "title", description: "content", image: true, slug: "/actualite" },
+  "newspages": { title: "title", description: "content", image: true, slug: "/actualite/" },
   "newstabs": { title: "title", description: null, image: false, slug: "/actualite" },
   "paroles": { title: "title", description: "description", image: true, slug: "/parole" },
   "partnerpages": { title: "title", description: "content", image: false, slug: "/partners" },

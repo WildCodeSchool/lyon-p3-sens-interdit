@@ -1,22 +1,31 @@
+.result {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
 
-.result-flex-wrapper img  {
-  width: 250px;
-  height: auto;
-  margin: 1vw;
+.result-category {
+    width: 100%;
+    font-size: 14px;
 }
-.result-flex-wrapper button  {
-  height: 30px;
-  margin: 1vw;
-  justify-self: flex-end;
+
+.result-title {
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 3px;
+    font-weight: bold;
+    color: #ed1c24;
 }
-.result-text-wrapper  {
-  width: 50vw;
-  height: auto;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  background-color: blueviolet;
+
+.result-description {
+    width: 100%;
+    font-size: 16px;
+    color: #1b1b1b;
 }
-.result-text-wrapper h2  {
-  color: #e30613;
+
+.result-description span {
+    color: #3b3b3b;
+    font-size: 15px;
 }
