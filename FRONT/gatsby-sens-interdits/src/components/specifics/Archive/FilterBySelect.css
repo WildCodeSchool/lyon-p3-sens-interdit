@@ -1,0 +1,28 @@
+.my-filters select {
+    height: 20px;
+    cursor: pointer;
+    margin-bottom: 2px;
+  }
+  .my-filters label{
+    font-weight: bold;
+    margin-right: 7px;
+  }
+.countrieSelect, .locationSelect, .yearSelect{
+    width: 15%;
+
+}
+.directorSelect{
+    width: 28%;
+}
+.my-filters{
+    width: 80%;
+    margin-left: 20%;
+    padding: 0;
+    font-size: large;
+}
+.red-line {
+    border-left: 1px solid red;
+    display: inline-block;
+    height: 24px;
+    margin: -5px 7px;
+  }

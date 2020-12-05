@@ -7,7 +7,7 @@ import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import localizedFormat from "dayjs/plugin/localizedFormat";
-import { sluggify } from '../../../utils/Sluggify';
+import { sluggify } from "../../../utils/Sluggify";
 dayjs.locale("fr");
 dayjs.extend(localizedFormat);
 
@@ -38,7 +38,7 @@ export default function ProgrammePage(props) {
 
   useEffect(() => {
     setList(fullList);
-  }, []);
+  }, [fullList]);
 
   function dateFilter(date) {
     const filteredList = fullList.filter(spectacle => {
@@ -104,10 +104,7 @@ export default function ProgrammePage(props) {
             name={spectacle.title}
             id={spectacle.strapiId}
             team={spectacle.author ? spectacle.author : "inconnu"}
-            url={
-              "/spectacle/" +
-              sluggify(spectacle.title)
-            }
+            url={"/spectacle/" + sluggify(spectacle.title)}
           />
         );
       });

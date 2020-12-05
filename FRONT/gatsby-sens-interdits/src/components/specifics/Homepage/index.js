@@ -5,9 +5,14 @@ import "./Index.css";
 import DisplayTabMenu from "../../globals/DisplayTabMenu/DisplayTabMenu.js";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import LanguageContext from "../../context/LanguageContext";
+import { FestivalContext } from "../../context/FestivalContext";
 
 export default function Homepage() {
   const { LANG } = useContext(LanguageContext);
+  const { currentFestivalStrapiId, currentFestivalTitle } = useContext(
+    FestivalContext
+  );
+
   const { strapiHomepage } = useStaticQuery(graphql`
     query MyQueryHome {
       strapiHomepage {
@@ -31,6 +36,38 @@ export default function Homepage() {
           }
         }
         description
+        festival {
+          title
+          title_en
+          visible
+          image {
+            url
+          }
+        }
+        publics {
+          title
+          title_en
+          visible
+          image {
+            url
+          }
+        }
+        tour {
+          title
+          title_en
+          visible
+          image {
+            url
+          }
+        }
+        association {
+          title
+          title_en
+          visible
+          image {
+            url
+          }
+        }
       }
     }
   `);
@@ -53,14 +90,44 @@ export default function Homepage() {
         ) : null}
 
         <div className="content-homepage">
-          {strapiHomepage.squaremenu.map(elem => (
+          {/* {strapiHomepage.squaremenu.map(elem => (
             <DisplayTabMenu
               key={elem.id}
               title={elem["title" + LANG]}
               image={elem.image[0].url}
               url={elem.url}
             />
-          ))}
+          ))} */}
+
+          {strapiHomepage.festival.visible ? (
+            <DisplayTabMenu
+              title={strapiHomepage.festival["title" + LANG]}
+              url={`/festival/${currentFestivalTitle}_${currentFestivalStrapiId}`}
+              // url={`/festival`}
+              image={strapiHomepage.festival.image[0].url}
+            />
+          ) : null}
+          {strapiHomepage.publics.visible ? (
+            <DisplayTabMenu
+              title={strapiHomepage.publics["title" + LANG]}
+              url={`/transmissions`}
+              image={strapiHomepage.publics.image[0].url}
+            />
+          ) : null}
+          {strapiHomepage.tour.visible ? (
+            <DisplayTabMenu
+              title={strapiHomepage.tour["title" + LANG]}
+              url={`/programme-tour`}
+              image={strapiHomepage.tour.image[0].url}
+            />
+          ) : null}
+          {strapiHomepage.association.visible ? (
+            <DisplayTabMenu
+              title={strapiHomepage.association["title" + LANG]}
+              url={`/association`}
+              image={strapiHomepage.association.image[0].url}
+            />
+          ) : null}
         </div>
       </div>
     </>
