@@ -17,7 +17,7 @@ export default function Newsletter() {
       setPopSuccess(true);
       setTimeout(function () {
         setPopSuccess(false);
-      }, 3000);
+      }, 5000);
     }
 
     // I recommend setting `result` to React state
