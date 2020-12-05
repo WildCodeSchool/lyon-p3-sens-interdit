@@ -15,7 +15,7 @@ export default function SpectaclePage({ data }) {
   const { language, LANG } = useContext(LanguageContext);
 
   const spectacle = data.spectacle;
-  
+
 
   const imageArray =
     spectacle.carousel !== null

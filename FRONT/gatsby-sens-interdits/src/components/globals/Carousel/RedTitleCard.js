@@ -1,9 +1,8 @@
 import React from "react";
 import "./RedTitleCard.css";
 
-function RedTitleCard({ title, displayed,booking }) {
-console.log ({booking})
-  
+function RedTitleCard({ title, displayed, booking}) {
+
   return displayed ? (
     <>
       <div className="red"></div>
