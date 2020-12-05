@@ -1,5 +1,6 @@
 'use strict';
 const Search = require('../../../library/Search');
+// TODO add limit params
 module.exports = {
   // GET /search
   async index(ctx) {
