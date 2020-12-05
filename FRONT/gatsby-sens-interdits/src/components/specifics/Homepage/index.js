@@ -81,20 +81,11 @@ export default function Homepage() {
         ) : null}
 
         <div className="content-homepage">
-          {/* {strapiHomepage.squaremenu.map(elem => (
-            <DisplayTabMenu
-              key={elem.id}
-              title={elem["title" + LANG]}
-              image={elem.image[0].url}
-              url={elem.url}
-            />
-          ))} */}
-
           {strapiHomepage.festival.visible ? (
             <DisplayTabMenu
               title={strapiHomepage.festival["title" + LANG]}
               url={`/festival/${currentFestivalTitle}_${currentFestivalStrapiId}`}
-              // url={`/festival`}
+              // TODO: gestion context pas de festival en cours (boolean false sur chaque festival)
               image={strapiHomepage.festival.image[0].url}
             />
           ) : null}
