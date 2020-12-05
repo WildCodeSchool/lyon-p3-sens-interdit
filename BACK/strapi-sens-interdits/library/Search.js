@@ -1,23 +1,28 @@
 'use strict';
+require('dotenv').config();
 const async = require('async');
 const {query} = require('./Mysql');
 const {stringSearch} = require('./helpers/string');
 const {sluggify} = require('./helpers/string');
 const tablesConfig = require('../api/search/config/tables');
+// TODO : Lang, order by score
 
 class Search {
   searchString = '';
   tables = {};
-  MIN_CHARS = 1;
+  MIN_CHARS = process.env.SEARCH_MIN_CHARS || 4;
   dbResults = [];
   searchResults = [];
 
-  constructor() {
-  }
+  constructor() {}
 
+  /**
+   *
+   * @param searchString
+   * @returns {Promise<*[]>}
+   */
   async search(searchString) {
     this.searchString = searchString
-    let resultsFinal = [];
     if (this.searchString.length > this.MIN_CHARS) {
       this.searchString = stringSearch(this.searchString);
       let hasSpace = this.searchString.search(' ') > -1;
@@ -32,57 +37,65 @@ class Search {
         if (results.length < 9 && hasSpace) {
           results2 = await query(sql, attr2);
         }
-        let allResults = [...results, ...results2];
+        let allResults = [...results2, ...results];
         this.buildApiContentResult(allResults);
-        await this.getResults();
-        this.buildResults();
+        this.getResults(results => {
+          this.buildResults(results);
+          return this.searchResults;
+        });
       } catch (err) {
         let error = new Error(err)
         console.log(error);
         throw error;
       }
+    } else {
+      return [];
     }
-    return this.searchResults;
   }
 
-  async getResults() {
-    let request = 'SELECT #fields# FROM #table# WHERE id IN ? ORDER BY id DESC;';
-    await async.forEachOf(
+  /**
+   *
+   * @param next
+   */
+  getResults(next) {
+    async.forEachOf(
       this.tables,
       (ids, table, callback) => {
+        let request = 'SELECT #fields# FROM #table# WHERE id IN (?) ORDER BY id DESC;';
         let config = tablesConfig[table];
         let fields = ['id', 'created_at'];
-        if (config[table].title !== '') {
-          fields.push(config[table].title)
+        if (config.title !== '') {
+          fields.push(config.title)
         }
-        if (config[table].description !== '') {
-          fields.push(config[table].description)
+        if (config.description !== '') {
+          fields.push(config.description)
         }
         fields = fields.join(',');
-        request = request.replace('#fields#', fields).replace('#table', table);
-        query(request, ids).then(results => {
+        request = request.replace('#fields#', fields).replace('#table#', table);
+        query(request, [ids]).then(results => {
           results.forEach(result => {
             result['table'] = table;
             this.dbResults.push(result);
           });
-          callback();
+          callback(null);
         }).catch(err => {
-          let error = new Error(err)
-          console.log(error);
           callback(err)
         });
       },
       (err) => {
         if (err) {
           let error = new Error(err)
-          console.log(error);
           throw error;
         } else {
-          return true;
+          next(this.dbResults);
         }
       })
   }
 
+  /**
+   *
+   * @returns {{attr: [string, string], attr2: [string, string]}}
+   */
   buildQueryAttributes() {
     let searchMatch2 = this.searchString.replace(' ', '') + '*';
     let search = this.searchString.split(' ');
@@ -100,8 +113,12 @@ class Search {
     return {attr, attr2};
   }
 
+  /**
+   *
+   * @param allResults
+   */
   buildApiContentResult(allResults) {
-    if (allResults > 0) {
+    if (allResults.length > 0) {
       allResults.forEach(elem => {
         if (elem.api_id.slice(-1) !== 's') {
           elem.api_id += 's';
@@ -115,15 +132,19 @@ class Search {
     }
   }
 
-  buildResults() {
-    if (this.dbResults.length > 0) {
+  /**
+   *
+   * @param results
+   */
+  buildResults(results) {
+    if (results.length > 0) {
       // TODO order result by created_at
-      this.dbResults.forEach(result => {
+      results.forEach(result => {
         let config = tablesConfig[result.table];
         let searchResult = {
-          url: `${config.slug}${sluggify(result.title)}_${id}`,
+          url: `${config.slug}${sluggify(result.title)}_${result.id}`,
           title: result.title,
-          description: result.description
+          description: result[config.description]
         }
         this.searchResults.push(searchResult);
       })

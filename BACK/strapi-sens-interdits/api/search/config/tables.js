@@ -1,6 +1,6 @@
 let pages = {
   "archives_olds": {title: "", description:"", image: "", slug:""},
-  "articlecontents": {title: "title", description:"articles", image: true, slug:"/articles/"},
+  "articlecontents": {title: "title", description:"article", image: true, slug:"/articles/"},
   "assopages": {title: "", description:"", image: "", slug:""},
   "core_store": {title: "", description:"", image: "", slug:""},
   "credited_images": {title: "", description:"", image: "", slug:""},
