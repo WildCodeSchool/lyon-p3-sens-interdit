@@ -15,7 +15,6 @@ let pages = {
   "hors_scene_pages": {title: "", description:"", image: "", slug:""},
   "hors_scene_tabs": {title: "", description:"", image: "", slug:""},
   "infopratiques": {title: "", description:"", image: "", slug:""},
-  "logo_principals": {title: "", description:"", image: "", slug:""},
   "menu_headers": {title: "", description:"", image: "", slug:""},
   "news_pages": {title: "", description:"", image: "", slug:""},
   "newspages": {title: "", description:"", image: "", slug:""},
@@ -23,17 +22,10 @@ let pages = {
   "paroles": {title: "", description:"", image: "", slug:""},
   "partnerpages": {title: "", description:"", image: "", slug:""},
   "scolaires": {title: "", description:"", image: "", slug:""},
-  "search": {title: "", description:"", image: "", slug:""},
   "seminaires": {title: "", description:"", image: "", slug:""},
   "spectacles": {title: "title", description:"info", image: true, slug:"spectacle"},
-  "strapi_administrator": {title: "", description:"", image: "", slug:""},
-  "strapi_permission": {title: "", description:"", image: "", slug:""},
-  "strapi_role": {title: "", description:"", image: "", slug:""},
-  "strapi_users_roles": {title: "", description:"", image: "", slug:""},
-  "strapi_webhooks": {title: "", description:"", image: "", slug:""},
   "transmissions": {title: "", description:"", image: "", slug:""},
   "type_of_events": {title: "", description:"", image: "", slug:""},
-  "typeofarticles": {title: "", description:"", image: "", slug:""},
   "webradios": {title: "", description:"", image: "", slug:""}
 };
 module.exports = pages;

@@ -4,7 +4,7 @@ const async = require('async');
 const {query} = require('./Mysql');
 const {stringSearch} = require('./helpers/string');
 const {sluggify} = require('./helpers/string');
-const tablesConfig = require('../api/search/config/tables');
+const tablesConfig = require('../config/searchTables');
 // TODO : Lang, order by score, add limit params
 
 class Search {
