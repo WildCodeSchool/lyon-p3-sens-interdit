@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import "./index.css";
 import magnifier from '../../../assets/img/loupe.png';
 
 export default function SearchInput({showSearchInput, setShowSearchInput}) {
     const [search, setSearch] = useState('');
+    let searchInput = null;
     const handleClose = (e) => {
         e.stopPropagation();
         setShowSearchInput(false);
@@ -12,10 +13,16 @@ export default function SearchInput({showSearchInput, setShowSearchInput}) {
         e.preventDefault();
         document.location.href = '/search/?s='+search;
     }
+    useEffect(() => {
+        if (showSearchInput) {
+            searchInput.focus();
+        }
+    }, [showSearchInput]);
+
     return (
         <div className={'overlay '+(!showSearchInput ? 'hidden':'')} id="overlay-search" onClick={handleClose}>
             <form onSubmit={handleSubmit}>
-                <input placeholder="Rechercher" onClick={(e) => {e.stopPropagation()}} type="text" value={search} onChange={(e) => setSearch(e.target.value)} required />
+                <input ref={(input) => { searchInput = input; }} placeholder="Rechercher" onClick={(e) => {e.stopPropagation()}} type="text" value={search} onChange={(e) => setSearch(e.target.value)} required />
                 <button  onClick={(e) => {e.stopPropagation()}}>
                     <img  onClick={(e) => {e.stopPropagation()}}
                         src={magnifier}

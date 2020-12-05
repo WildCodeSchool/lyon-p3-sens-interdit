@@ -33,8 +33,9 @@
     background: #1b1b1b;
     border: 0;
     box-shadow: 0 0 11px 0 rgba(0,0,0,0.7);
-    border-radius: 5px;
+    border-radius: 7px;
     color: #fff;
+    border-top: 8px solid #ed1c24;
 }
 input:focus {
     outline: none;
@@ -42,12 +43,13 @@ input:focus {
 #overlay-search form button {
     position: absolute;
     height: 70px;
-    width: 45px;
+    width: 55px;
     right: 0;
     top: 0;
     background: none;
     display: block;
     padding: 0;
+    padding-top: 8px;
     border: 0;
     cursor: pointer;
 }

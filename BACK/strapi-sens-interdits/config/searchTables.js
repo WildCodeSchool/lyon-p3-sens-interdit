@@ -2,7 +2,6 @@ let pages = {
   "archives_olds": {title: "", description:"", image: "", slug:""},
   "articlecontents": {title: "title", description:"article", image: true, slug:"/articles/"},
   "assopages": {title: "", description:"", image: "", slug:""},
-  "core_store": {title: "", description:"", image: "", slug:""},
   "credited_images": {title: "", description:"", image: "", slug:""},
   "ecoles": {title: "", description:"", image: "", slug:""},
   "festivalpages": {title: "", description:"", image: "", slug:""},
@@ -23,9 +22,8 @@ let pages = {
   "partnerpages": {title: "", description:"", image: "", slug:""},
   "scolaires": {title: "", description:"", image: "", slug:""},
   "seminaires": {title: "", description:"", image: "", slug:""},
-  "spectacles": {title: "title", description:"info", image: true, slug:"spectacle"},
+  "spectacles": {title: "title", description:"info", image: true, slug:"/spectacle/"},
   "transmissions": {title: "", description:"", image: "", slug:""},
-  "type_of_events": {title: "", description:"", image: "", slug:""},
   "webradios": {title: "", description:"", image: "", slug:""}
 };
 module.exports = pages;
