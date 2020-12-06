@@ -2,7 +2,6 @@ import React from "react";
 import "./SpectacleInfos.css";
 import "../../../assets/styles/global.css";
 
-
 const SpectacleInfos = ({
   tarif,
   language,
@@ -50,9 +49,9 @@ const SpectacleInfos = ({
             {tarif !== null ? tarif.tarif : ""}
           </span>
           <ul>
-            {tarif.category.map((el, i) => (
-              <li key={i}>{el.category}</li>
-            ))}
+            {tarif!== null
+              ? tarif.category.map((el, i) => <li key={i}>{el.category}</li>)
+              : ""}
           </ul>
         </div>
         <div className="partners-logo">
