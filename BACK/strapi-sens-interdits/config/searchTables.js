@@ -6,16 +6,16 @@ let pages = {
   "festivalpages": { title: "title", description: "description", image: false, slug: "/festival" },
   "festivals": { title: "title", description: "content", image: false, slug: "/festival/" },
   "homepages": { title: null, description: "description", image: false, slug: "" },
-  "hors_scene_pages": { title: "title", description: "content", image: false, slug: "/hors-scene" },
+  "hors_scene_pages": { title: "Title", description: "content", image: false, slug: "/hors-scene" },
   "infopratiques": { title: null, description: "description", image: true, slug: "" },
   "newspages": { title: "title", description: "content", image: true, slug: "/actualite/" },
-  "newstabs": { title: "title", description: null, image: false, slug: "/actualite" },
+  "newstabs": { title: "title", description: 'content', image: false, slug: "/actualite" },
   "paroles": { title: "title", description: "description", image: true, slug: "/parole" },
   "partnerpages": { title: "title", description: "content", image: false, slug: "/partners" },
   "scolaires": { title: "title", description: "description", image: true, slug: "/scolaires" },
   "seminaires": { title: "title", description: "description", image: true, slug: "/seminaires" },
   "spectacles": { title: "title", description: "info", image: true, slug: "/spectacle/" },
-  "transmissions": { title: null, description: "description", image: false, slug: "/transmissions" },
-  "webradios": { title: "title", description: "description", image: true, slug: "webradio" }
+  "transmissions": { title: null, description: "description", image: false, slug: "/transmissions/" },
+  "webradios": { title: "title", description: "description", image: true, slug: "/webradio" }
 };
 module.exports = pages;

@@ -1,5 +1,8 @@
 const utf8 = require('utf8')
 const stringSearch = (str) => {
+  if (str === null) {
+    console.log('ta meeme');
+  }
   str = decodeURI(utf8.encode(str));
   return str
     .trim()
@@ -16,7 +19,9 @@ exports.stringSearch = stringSearch;
 exports.dataToSearch = (data) => {
   let str = '';
   for (let i in data) {
-    str += stringSearch(data[i]);
+    if( data[i] !== null) {
+      str += stringSearch(data[i]) +' ';
+    }
   }
   return str;
 }
