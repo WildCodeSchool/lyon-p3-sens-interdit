@@ -2,7 +2,7 @@
 require('dotenv').config();
 const async = require('async');
 const {query} = require('./Mysql');
-const {stringSearch} = require('./helpers/string');
+const {stringSearch, dataToSearch} = require('./helpers/string');
 const {sluggify} = require('./helpers/string');
 const tablesConfig = require('../config/searchTables');
 // TODO : Lang, order by score, add limit params
@@ -156,6 +156,38 @@ class Search {
       })
     }
   }
+
+  /*************************************************/
+  /**************** Indexer part *******************/
+  async static getFields(table) {
+    let results = await query('DESCRIBE '+table);
+    let fields = results
+      .filter(elem => elem.Type.search(/ext/) > -1 || elem.Type.search(/char/) > -1)
+      .filter(elem => elem.Field.slice(-3) !== '_en') // TODO remove when full translations are done
+      .map(elem => elem.Field);
+    return fields.join(',');
+  }
+
+  async static createIndex(table, fieldsStr) {
+    let results = await query(`SELECT id,${fieldsStr} FROM ${table} ORDER BY id DESC LIMIT 1`, id);
+    let result = results[0]
+    let id = parseInt(result.id) + 1;
+    delete result.id;
+    let search = dataToSearch(result);
+    const data = {search, api_id: table, content_id: id};
+    await query(`INSERT INTO search SET ?`, data)
+  }
+
+  async static updateIndex(table, id, fieldsStr) {
+    await Search.updateIndex(table, id, fieldsStr);
+    let results = await query(`SELECT ${fieldsStr} FROM ${table} WHERE id=?`, id);
+    let search = dataToSearch(results[0]);
+    await query(`UPDATE search SET search=? WHERE api_id=? AND content_id=?`, [search, table, id]);
+  }
+
+  static isIndexable(table) {
+    return tablesConfig[table] !== undefined
+  }
 }
 
-module.exports = new Search();
+module.exports = Search;
