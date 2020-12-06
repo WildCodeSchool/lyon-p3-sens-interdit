@@ -19,6 +19,7 @@ function Facebook({ location }) {
         href="#"
         className="share-button"
         onClick={share_fb}
+        onKeyDown={()=>{}}
         rel="nofollow"
         share_url={url}
       >

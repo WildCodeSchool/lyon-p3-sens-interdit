@@ -19,6 +19,7 @@ export default function SpectacleDate(props) {
         className={parseInt(props.activeModalId) === id  ? "active" : ""}
         data-date={props.date}
         onClick={activator}
+        onKeyDown={()=>{}}
         data-id={id}
       >
         {props.day}
@@ -27,6 +28,7 @@ export default function SpectacleDate(props) {
         className={parseInt(props.activeModalId) === id  ? "active" : ""}
         data-date={props.date}
         onClick={activator}
+        onKeyDown={()=>{}}
         data-id={id}
       >
         <strong className={parseInt(props.activeModalId) === id  ? "active" : ""} data-date={props.date} onClick={activator}
@@ -38,6 +40,7 @@ export default function SpectacleDate(props) {
         className={parseInt(props.activeModalId) === id  ? "active" : ""}
         data-date={props.date}
         onClick={activator}
+        onKeyDown={()=>{}}
         data-id={id}
       >
         {props.month}

@@ -28,7 +28,7 @@ export default function TabSystemHOldArchive({ tabContent }) {
                 "tab-link " + (activeTabContent === tab.title ? "active" : "")
               }
               onClick={handleOnClick}
-              onKeyDown={handleOnClick}
+              onKeyDown={()=>{}}
             >
               {tab.title}
             </h3>

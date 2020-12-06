@@ -123,16 +123,16 @@ export default function ProgrammePage(props) {
         </div>
         <div className="global-FilterTab">
           <h2> FILTREZ PAR: </h2>
-          <a href="#" onClick={countryFilter}>
+          <a href="#" onClick={countryFilter} onKeyDown={()=>{}}>
             <p> PAYS </p>
           </a>
-          <a href="#" onClick={authorFilter}>
+          <a href="#" onClick={authorFilter} onKeyDown={()=>{}}>
             <p> METTEUR EN SCÈNE </p>
           </a>
-          <a href="#" onClick={placeFilter}>
+          <a href="#" onClick={placeFilter} onKeyDown={()=>{}}>
             <p> LIEUX </p>
           </a>
-          <a href="#" onClick={resetFilter}>
+          <a href="#" onClick={resetFilter} onKeyDown={()=>{}}>
             <h3> supprimer filtres </h3>
           </a>
         </div>
