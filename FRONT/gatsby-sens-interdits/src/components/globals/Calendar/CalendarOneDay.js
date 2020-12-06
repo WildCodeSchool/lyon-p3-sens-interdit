@@ -11,7 +11,7 @@ export default function CalendarOneDay(props) {
 
   return (
     <div
-      className={active ? "one-day active" : "one-day"}
+      className={"calendar-container one-day " + active ? "active" : ""}
       data-date={props.date}
       onClick={activator}
     >
