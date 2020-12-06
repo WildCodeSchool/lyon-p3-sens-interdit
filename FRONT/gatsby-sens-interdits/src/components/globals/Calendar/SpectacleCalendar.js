@@ -11,10 +11,7 @@ dayjs.extend(localizedFormat);
 
 export default function SpecificCalendar(props) {
   const thisSpectacle = props.spectacle;
-
-  const sendDateToParent = e => {
-    props.dateSetter(e.target.getAttribute("data-date"));
-  };
+  
   const [activeModalId, setActiveModalId] = useState(null);
 
   function splitHoraires(spectacle) {
