@@ -63,5 +63,16 @@ li {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
+}
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex !important
 }
