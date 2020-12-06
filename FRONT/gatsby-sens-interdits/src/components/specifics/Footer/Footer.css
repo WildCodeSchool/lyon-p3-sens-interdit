@@ -70,6 +70,7 @@ footer {
 }
 
 .newsletter-container {
+  position: relative;
   display: flex;
   justify-content: space-between;
   background: #1b1b1b;
@@ -81,9 +82,13 @@ footer {
 .newsletter-title :nth-child(1n){
   margin:0;
 }
+.newsletter-container form {
+  width: 75%;
+  align-self: center;
+}
 
 .newsletter-container .input-newsletter {
-  align-self: center;
+  
   background: #3b3b3b;
   border: none;
   height: 35px;
@@ -101,6 +106,22 @@ footer {
   height: 37px;
   width: 15%;
   color: white;
+}
+
+/* message newsletter subscribe */
+.pop {
+  width : auto;
+  height : 40px;
+  padding: 5px;
+  background-color: rgb(22, 22, 22);
+  border-radius: 5px;
+  border-top: solid 8px #E30613;
+  text-align: center;
+  position : absolute;
+  top : -50px;
+  right : 0;
+  z-index:3;
+
 }
 
 @media screen and (max-width: 960px) {
