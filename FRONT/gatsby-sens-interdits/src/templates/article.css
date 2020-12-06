@@ -1,6 +1,6 @@
-#news-page {
-    margin-right: 50px;
-    margin-left: 50px;
+
+#article-page {
+  margin-top : 50px;
 }
 .red-arrow {
     position: relative;
@@ -13,9 +13,7 @@
   }
 /*_______________article______________*/
 
-  #articles-page{
-    margin: 50px;
-  }
+
   .article-text{
     text-justify: auto;
   }

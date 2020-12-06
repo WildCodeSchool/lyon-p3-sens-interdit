@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import { graphql, useStaticQuery } from "gatsby";
 import "./index.css";
+import "../../../assets/styles/global.css";
+
 
 import PartnerBlock from "./PartnerBlock";
 import LanguageContext from "../../context/LanguageContext";
@@ -40,7 +42,7 @@ export default function PartnersPage() {
   return (
     <>
       <ImageCarousel />
-      <div className="global-margin">
+      <div className="container">
         <div className="red-arrow"></div>
         <div className="partner-content">
           <h1>{data.partners.edges[0].node["title" + LANG]}</h1>

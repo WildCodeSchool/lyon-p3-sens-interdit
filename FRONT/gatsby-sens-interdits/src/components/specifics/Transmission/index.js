@@ -51,7 +51,7 @@ export default function TransmissionsPage() {
   return (
     <>
       <ImageCarousel images={imageArray} displayed={false} />
-      <div className="global-margin">
+      <div className="container">
         <div className="red-arrow"></div>
         <div className="transmission-content">
           {LANG !== "_en" ? (

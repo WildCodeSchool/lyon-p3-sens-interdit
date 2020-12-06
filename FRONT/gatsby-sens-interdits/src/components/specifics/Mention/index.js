@@ -1,5 +1,6 @@
 import React from 'react';
 import './Mention.css';
+import "../../../assets/styles/global.css";
 import { graphql, useStaticQuery } from "gatsby";
 
 
@@ -13,7 +14,7 @@ export default function MentionsPage() {
       }`)
     return (
         <div>
-            <div className='global-mentions'>
+            <div className='global-mentions container'>
                 <h1 className='to-uppercase'>Mentions Légales</h1>
                 <div className='content-mentions'>
                     {strapiMentions.content}

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import "./spectacle.css";
+import "../assets/styles/global.css";
 
 import SpectacleInfos from "../components/specifics/Spectacle/SpectacleInfos.js";
 import TabSystemH from "../components/globals/TabSystems/TabSystemH";
@@ -30,7 +31,7 @@ export default function SpectaclePage({ data }) {
         displayed={true}
         booking={data.spectacle.reserver}
       />
-      <div className="content-spectacle-page">
+      <div className="content-spectacle-page container">
         <div className="country-label">
           <p>{spectacle["country" + LANG]}</p>
         </div>

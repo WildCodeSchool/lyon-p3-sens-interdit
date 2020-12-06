@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import "./festival.css";
+import "../assets/styles/global.css";
 import GeneriquePage from "../components/specifics/Generique";
 
 export default function FestivalInfosPage({ data }) {

@@ -3,6 +3,7 @@ import Article from "../components/globals/Articles/Article.js";
 import { graphql } from "gatsby";
 // import { Link } from "gatsby";
 import "./article.css";
+import "../assets/styles/global.css";
 
 export default function ArticlePage({data}) {
 
@@ -12,7 +13,7 @@ export default function ArticlePage({data}) {
 
     return (
       // <Link to={"/articles/" + titleForLink.toLowerCase().replaceAll(" ", "-")}>
-        <div id="articles-page">
+        <div id="article-page" className="container">
             <Article article={article} textOverFlow={textOverFlow}/>
         </div>
       // </Link>

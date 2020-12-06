@@ -7,6 +7,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import FilterBySelect from "./FilterBySelect"; 
 
 import "./Archive.css";
+import "../../../assets/styles/global.css";
 import LanguageContext from "../../context/LanguageContext";
 
 function Archive(props) {
@@ -74,7 +75,7 @@ function Archive(props) {
         images={props.images}
         title={props.title ? props.title : ""}
       />
-      <div className="global-margin archive-global-styling">
+      <div className="container archive-global-styling">
         <p className="archive-description">
           {data.strapiArchiveDescription["description" + LANG]}
         </p>
