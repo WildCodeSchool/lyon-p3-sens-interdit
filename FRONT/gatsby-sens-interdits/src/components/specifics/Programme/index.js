@@ -43,7 +43,7 @@ export default function ProgrammePage(props) {
 
   useEffect(() => {
     majState()
-  }, [props.list, majState]);
+  }, [props.list]);
 
   function dateFilter(date) {
     const filteredList = fullList.filter(spectacle => {
@@ -123,16 +123,16 @@ export default function ProgrammePage(props) {
         </div>
         <div className="global-FilterTab">
           <h2> FILTREZ PAR: </h2>
-          <a href="#" onClick={countryFilter} onKeyDown={()=>{}}>
+          <a role="button" onClick={countryFilter} >
             <p> PAYS </p>
           </a>
-          <a href="#" onClick={authorFilter} onKeyDown={()=>{}}>
+          <a role="button" onClick={authorFilter} >
             <p> METTEUR EN SCÈNE </p>
           </a>
-          <a href="#" onClick={placeFilter} onKeyDown={()=>{}}>
+          <a role="button" onClick={placeFilter} >
             <p> LIEUX </p>
           </a>
-          <a href="#" onClick={resetFilter} onKeyDown={()=>{}}>
+          <a role="button" onClick={resetFilter} >
             <h3> supprimer filtres </h3>
           </a>
         </div>

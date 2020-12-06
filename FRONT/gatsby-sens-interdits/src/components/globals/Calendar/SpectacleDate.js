@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./CalendarOneDay.css";
 
 export default function SpectacleDate(props) {
@@ -66,7 +66,7 @@ const Modal = props => {
         <strong>{props.place}</strong>
       </h3>
       <p>{props.horaire}</p>
-      <a href={props.reservationLink} target="_blank">
+      <a href={props.reservationLink} target="_blank" rel="noreferrer">
         Réserver
       </a>
     </div>

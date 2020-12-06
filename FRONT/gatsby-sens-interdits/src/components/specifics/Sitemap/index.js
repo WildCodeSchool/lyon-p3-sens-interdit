@@ -10,7 +10,7 @@ export default function SitemapPage() {
                 <div className='sitemap-list'>
                     <ul>
                         <li><a href='/' title="lien vers la page d'accueil"><h1>Accueil</h1></a></li>
-                        <li><a></a></li>
+                        
                     </ul>
                     <ul>
                         <li><a href='/festival' title='lien vers la page festival'><h1>Festival</h1></a></li>

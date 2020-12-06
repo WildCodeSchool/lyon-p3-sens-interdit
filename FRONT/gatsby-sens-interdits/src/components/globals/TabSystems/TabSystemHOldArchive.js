@@ -29,6 +29,7 @@ export default function TabSystemHOldArchive({ tabContent }) {
               }
               onClick={handleOnClick}
               onKeyDown={()=>{}}
+              role="button"
             >
               {tab.title}
             </h3>

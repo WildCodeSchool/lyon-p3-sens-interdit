@@ -16,10 +16,10 @@ function Facebook({ location }) {
   return (
     <div className="fbwrapper">
       <a
-        href="#"
+        role="button"
         className="share-button"
         onClick={share_fb}
-        onKeyDown={()=>{}}
+        
         rel="nofollow"
         share_url={url}
       >

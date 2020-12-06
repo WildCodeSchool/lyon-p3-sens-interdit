@@ -48,7 +48,8 @@ export default function TabSystemH({ tabContent , articles, textOverFlow, linkSt
                id={'tab-link_'+tab.id}
                data-id={tab.id}
                onClick={handleOnClick}
-               onKeyDown={()=>{}}>
+               onKeyDown={()=>{}}
+               role="button">
                  
             <img
               src={picto}

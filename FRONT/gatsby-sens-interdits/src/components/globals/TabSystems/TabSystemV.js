@@ -59,6 +59,7 @@ export default function TabSystemV({ tabContent, spectacleQuery }) {
             data-id={tab.id}
             onClick={handleOnClick}
             onKeyDown={()=>{}}
+            role="button"
           >
             <img src={picto} alt="" width="30" height="30" data-id={tab.id} />
             <h3 className="tab-link" data-id={tab.id}>
