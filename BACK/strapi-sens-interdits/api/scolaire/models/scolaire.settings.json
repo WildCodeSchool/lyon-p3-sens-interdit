@@ -30,6 +30,17 @@
     },
     "title": {
       "type": "string"
+    },
+    "description_en": {
+      "type": "richtext"
+    },
+    "title_en": {
+      "type": "string"
+    },
+    "tab_element_en": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.tab-element"
     }
   }
 }

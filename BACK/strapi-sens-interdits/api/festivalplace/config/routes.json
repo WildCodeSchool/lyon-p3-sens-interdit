@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/festivalplaces",
+      "handler": "festivalplace.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/festivalplaces/count",
+      "handler": "festivalplace.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/festivalplaces/:id",
+      "handler": "festivalplace.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/festivalplaces",
+      "handler": "festivalplace.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/festivalplaces/:id",
+      "handler": "festivalplace.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/festivalplaces/:id",
+      "handler": "festivalplace.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

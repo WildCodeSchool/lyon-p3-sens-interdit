@@ -21,6 +21,9 @@
     },
     "url": {
       "type": "string"
+    },
+    "title_en": {
+      "type": "string"
     }
   }
 }

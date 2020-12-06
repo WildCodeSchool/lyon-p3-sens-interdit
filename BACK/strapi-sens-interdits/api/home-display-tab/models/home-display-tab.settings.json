@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "home_display_tabs",
   "info": {
-    "name": "Home_display_tab"
+    "name": "Home_display_tab",
+    "description": ""
   },
   "options": {
     "increments": true,

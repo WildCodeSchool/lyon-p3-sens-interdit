@@ -58,7 +58,7 @@ class Search {
    * @param next
    */
   getResults(next) {
-    // TODO : graphql
+    // TODO : graphql to get images !
     async.forEachOf(
       this.tables,
       (ids, table, callback) => {

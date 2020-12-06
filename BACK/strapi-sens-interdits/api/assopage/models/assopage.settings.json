@@ -14,9 +14,6 @@
     "title": {
       "type": "string"
     },
-    "content": {
-      "type": "text"
-    },
     "carousel": {
       "type": "component",
       "repeatable": false,
@@ -26,6 +23,20 @@
       "type": "component",
       "repeatable": true,
       "component": "menu.tab-element"
+    },
+    "content_en": {
+      "type": "richtext"
+    },
+    "title_en": {
+      "type": "string"
+    },
+    "tab_element_en": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.tab-element"
+    },
+    "content": {
+      "type": "richtext"
     }
   }
 }
