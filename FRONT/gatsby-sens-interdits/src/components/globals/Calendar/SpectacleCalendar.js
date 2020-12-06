@@ -29,7 +29,7 @@ export default function SpecificCalendar(props) {
   const dateArray = splitHoraires(thisSpectacle);
 
   return (
-    <div className="global-calendar-large">
+    <div className="global-calendar-large calendar-container">
       {dateArray.map((date, i) => {
         return (
           <div

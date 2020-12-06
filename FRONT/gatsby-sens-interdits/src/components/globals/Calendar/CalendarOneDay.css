@@ -6,16 +6,27 @@
   width: 70px;
   height: auto;
   border-left: solid black 1px;
+  cursor: pointer;
 }
 
-.active {
+.calendar-container .one-day:hover,
+.calendar-container.one-day:hover,
+.calendar-container.active,
+.calendar-container .active {
   background-color: red;
+  color: white;
+}
+
+
+.calendar-container .one-day:hover p,
+.calendar-container.one-day:hover p,
+.calendar-container .one-day:hover p strong,
+.calendar-container.one-day:hover p strong {
   color: white;
 }
 
 .one-day p {
   color: rgb(94, 94, 94);
-
   cursor: pointer;
 }
 
@@ -26,13 +37,6 @@
   cursor: pointer;
 }
 
-.display-block {
-  display: block;
-}
-
-.display-none {
-  display: none;
-}
 .modal {
   position: relative;
   border-left: solid black 1px;
@@ -44,6 +48,7 @@
   color: black;
   padding: 10px;
   transition: 0.5s;
+  display: block;
 }
 .modal h3 {
   margin: 0;

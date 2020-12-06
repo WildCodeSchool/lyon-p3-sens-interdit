@@ -25,7 +25,7 @@ export default function CalendarLarge(props) {
   ];
 
   return (
-    <div className="global-calendar-large">
+    <div className="calendar-container global-calendar-large">
       {dateArray.map(date => {
         return (
           <div
