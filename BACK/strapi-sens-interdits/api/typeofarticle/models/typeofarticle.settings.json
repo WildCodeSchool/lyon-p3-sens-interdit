@@ -15,8 +15,11 @@
       "type": "string"
     },
     "articlecontents": {
-      "via": "typeofarticles",
-      "collection": "articlecontent"
+      "collection": "articlecontent",
+      "via": "typeofarticles"
+    },
+    "category_en": {
+      "type": "string"
     }
   }
 }

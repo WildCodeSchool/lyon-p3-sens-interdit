@@ -29,8 +29,8 @@
       "component": "menu.tab-element"
     },
     "festival": {
-      "model": "festival",
-      "via": "infopratique"
+      "via": "infopratique",
+      "model": "festival"
     }
   }
 }

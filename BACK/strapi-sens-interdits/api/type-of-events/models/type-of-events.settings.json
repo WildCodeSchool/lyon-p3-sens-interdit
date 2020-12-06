@@ -15,8 +15,11 @@
       "type": "string"
     },
     "spectacles": {
-      "via": "type_of_events",
-      "collection": "spectacle"
+      "collection": "spectacle",
+      "via": "type_of_events"
+    },
+    "category_en": {
+      "type": "string"
     }
   }
 }

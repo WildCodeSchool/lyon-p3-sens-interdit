@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "paroles",
   "info": {
-    "name": "parole"
+    "name": "parole",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -26,6 +27,17 @@
       "type": "richtext"
     },
     "tab_element": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.tab-element"
+    },
+    "title_en": {
+      "type": "string"
+    },
+    "description_en": {
+      "type": "richtext"
+    },
+    "tab_element_en": {
       "type": "component",
       "repeatable": true,
       "component": "menu.tab-element"

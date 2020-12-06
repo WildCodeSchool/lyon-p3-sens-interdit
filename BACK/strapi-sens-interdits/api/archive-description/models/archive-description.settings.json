@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "archive_descriptions",
+  "info": {
+    "name": "archive_description"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "title_en": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "description_en": {
+      "type": "richtext"
+    }
+  }
+}

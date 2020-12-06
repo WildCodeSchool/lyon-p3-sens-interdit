@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "conditions",
+  "info": {
+    "name": "conditions",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    }
+  }
+}
