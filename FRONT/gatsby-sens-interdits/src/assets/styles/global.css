@@ -9,10 +9,7 @@
   src: url(fonts/GothamLightRegular.otf) format("otf"),
 }
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
-.global-margin {
-  margin-left: 15%;
-  margin-right: 15%;
-}
+
 
 body {
   margin: 0;
@@ -90,4 +87,10 @@ div.overlay {
 .flex {
   display: flex;
 
+}
+.container {
+  width: 100%;
+  max-width: 1080px;
+  height: auto;
+  margin: 0 auto;
 }

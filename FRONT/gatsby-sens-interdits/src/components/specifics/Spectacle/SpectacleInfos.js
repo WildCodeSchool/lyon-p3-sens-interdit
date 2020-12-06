@@ -1,5 +1,7 @@
 import React from "react";
 import "./SpectacleInfos.css";
+import "../../../assets/styles/global.css";
+
 
 const SpectacleInfos = ({
   tarif,

@@ -3,17 +3,18 @@ import Article from "../components/globals/Articles/Article.js";
 import { graphql } from "gatsby";
 // import { Link } from "gatsby";
 import "./article.css";
+import "../assets/styles/global.css";
 
 export default function ArticlePage({data}) {
 
     const article = data.article;
     const textOverFlow = false;
-    // console.log ('titre', titleForLink)
+    const linkStatus = false;
 
     return (
       // <Link to={"/articles/" + titleForLink.toLowerCase().replaceAll(" ", "-")}>
-        <div id="articles-page">
-            <Article article={article} textOverFlow={textOverFlow}/>
+        <div id="article-page" className="container">
+            <Article article={article} textOverFlow={textOverFlow} linkStatus={linkStatus}/>
         </div>
       // </Link>
     )

@@ -26,7 +26,7 @@ function DisplayPicture({ imageContent }) {
   );
 }
 
-export default function TabSystemH({ tabContent , articles, textOverFlow}) {
+export default function TabSystemH({ tabContent , articles, textOverFlow, linkStatus}) {
   const [activeTabContent, setActiveTabContent] = useState("");
   const [activeClass, setActiveClass] = useState("");
   const [firstLoad, setFirstLoad] = useState(true);
@@ -73,11 +73,11 @@ export default function TabSystemH({ tabContent , articles, textOverFlow}) {
                     { articles !== undefined ? 
                       articles.map(article =>
                         tab.title === "Toutes les actualités" ?
-                          <Article article={article} textOverFlow={textOverFlow}/> 
+                          <Article article={article} textOverFlow={textOverFlow} linkStatus={linkStatus}/> 
                           :
                           article.typeofarticles.map(cat => 
                             cat.category === tab.title ?
-                              <Article article={article} textOverFlow={textOverFlow}/>
+                              <Article article={article} textOverFlow={textOverFlow} linkStatus={linkStatus}/>
                               : null)
                       )
                     : 

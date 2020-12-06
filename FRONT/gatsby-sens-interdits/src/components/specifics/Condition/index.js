@@ -1,5 +1,6 @@
 import React from 'react';
-import './Condition.css';
+import './index.css';
+import "../../../assets/styles/global.css";
 import { graphql, useStaticQuery } from "gatsby";
 
 
@@ -13,7 +14,7 @@ export default function ConditionsPage() {
       }`)
     return (
         <div>
-            <div className='global-conditions'>
+            <div className='container'>
                 <h1 className='to-uppercase'>Conditions Générales d'utilisation</h1>
                 <div className='content-conditions'>
                     {strapiConditions.content}

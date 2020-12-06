@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import "./index.css";
 import "../../../assets/styles/global.css";
-
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import CalendarLarge from "../../globals/Calendar/CalendarLarge";
 import TabSystemV from "../../globals/TabSystems/TabSystemV"
@@ -56,7 +55,7 @@ export default function HorsScenePage () {
   return (
     <div>
       <ImageCarousel/> {/* TODO : passer les props pour ce composant */}
-      <div id="hors-scene-page">
+      <div className="container">
         <div className="red-arrow"></div>
         <div id="hors-scene-pres">
           <div id="hors-scene-pres-content">
@@ -64,7 +63,6 @@ export default function HorsScenePage () {
             <p>{horsScenePageQuery.content}</p>
           </div>
           <div id="hors-scene-Cal">
-            <p>A update une fois le composant finit avec condition (page sans calendrier)</p>
             <CalendarLarge />
           </div>
         </div>

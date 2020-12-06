@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { graphql, useStaticQuery } from "gatsby";
-
 import "./Index.css";
+import "../../../assets/styles/global.css";
 import DisplayTabMenu from "../../globals/DisplayTabMenu/DisplayTabMenu.js";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import LanguageContext from "../../context/LanguageContext";
@@ -70,7 +70,7 @@ export default function Homepage() {
     <>
       <ImageCarousel images={imageArray} />
 
-      <div className="global-homepage">
+      <div className="global-homepage container">
         {strapiHomepage.description ? (
           <div>
             <div className="red-arrow"></div>

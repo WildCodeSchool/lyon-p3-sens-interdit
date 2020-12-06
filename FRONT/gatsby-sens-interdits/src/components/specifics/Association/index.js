@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import LanguageContext from "../../context/LanguageContext";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import "./Association.css";
+import "../../../assets/styles/global.css";
 import { graphql, useStaticQuery } from "gatsby";
 import TabSystemV from "../../globals/TabSystems/TabSystemV";
 
@@ -57,7 +58,7 @@ export default function AssociationPage() {
   return (
     <>
       <ImageCarousel images={imageArray} />
-      <div className="global-margin">
+      <div className="container">
         <div className="red-arrow"></div>
         <div className="association-content">
           <h1 className="to-uppercase">{strapiAssopage["title" + LANG]}</h1>

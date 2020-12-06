@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Index.css";
+import "../../../assets/styles/global.css";
 import photoTest from "../../../assets/img/img-sens-interdit.jpg";
 import Thumbnail from "../../globals/Thumbnail";
 import CalendarLarge from "../../globals/Calendar/CalendarLarge";
@@ -116,7 +117,7 @@ export default function ProgrammePage(props) {
   return (
     <div className="global-programme-page">
       <ImageCarousel />
-      <div className="content-programme-page">
+      <div className="content-programme-page container">
         <div className="calendar-programme-page">
           <CalendarLarge dateSetter={dateFilter} />
         </div>
