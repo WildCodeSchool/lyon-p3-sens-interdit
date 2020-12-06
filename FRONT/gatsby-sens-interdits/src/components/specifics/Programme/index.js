@@ -43,7 +43,7 @@ export default function ProgrammePage(props) {
 
   useEffect(() => {
     majState()
-  }, [props.list]);
+  }, [props.list, majState]);
 
   function dateFilter(date) {
     const filteredList = fullList.filter(spectacle => {
