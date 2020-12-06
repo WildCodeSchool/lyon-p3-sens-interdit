@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import picto from "../../../assets/img/picto.svg";
 import "./tabSystemV.css";
@@ -9,6 +9,7 @@ import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 import { sluggify } from "../../../utils/Sluggify";
+import LanguageContext from "../../context/LanguageContext";
 dayjs.locale("fr");
 dayjs.extend(localizedFormat);
 
@@ -35,6 +36,7 @@ function DisplayPicture({ imageContent }) {
 }
 
 export default function TabSystemV({ tabContent, spectacleQuery }) {
+  const { LANG } = useContext(LanguageContext);
   const [activeTabContent, setActiveTabContent] = useState(null);
   const [activeClass, setActiveClass] = useState(null);
   const [firstLoad, setFirstLoad] = useState(true);
@@ -61,7 +63,7 @@ export default function TabSystemV({ tabContent, spectacleQuery }) {
           >
             <img src={picto} alt="" width="30" height="30" data-id={tab.id} />
             <h3 className="tab-link" data-id={tab.id}>
-              {tab.title}
+              {tab["title" + LANG]}
             </h3>
           </div>
           <div
@@ -72,7 +74,7 @@ export default function TabSystemV({ tabContent, spectacleQuery }) {
                 : "disabled-tab")
             }
           >
-            {tab.content}
+            {tab["content" + LANG]}
             {tab.credited_image !== undefined ? (
               <DisplayPicture
                 imageContent={
@@ -87,25 +89,31 @@ export default function TabSystemV({ tabContent, spectacleQuery }) {
               <div className="thumbnail-list">
                 {spectacleQuery.map(spectacle =>
                   spectacle.type_of_events.map((cat, i) =>
-                    cat.category === tab.title ? (
+                    cat["category" + LANG] === tab["title" + LANG] ? (
                       <Thumbnail
-                      key={spectacle.title + spectacle.day}
-                      affiche={
-                        spectacle.thumbnail
-                          ? spectacle.thumbnail.internal.description.split('"')[1]
-                          : photoTest
-                      }
-                      date={
-                        spectacle.day
-                          ? dayjs(spectacle.day).format("ddd D MMM à HH:mm")
-                          : "inconnue"
-                      }
-                      country={spectacle.country ? spectacle.country : "inconnu"}
-                      name={spectacle.title}
-                      id={spectacle.strapiId}
-                      team={spectacle.author ? spectacle.author : "inconnu"}
-                      url={"/spectacle/" + sluggify(spectacle.title)}
-                    />
+                        key={spectacle["title" + LANG] + spectacle.day}
+                        affiche={
+                          spectacle.thumbnail
+                            ? spectacle.thumbnail.internal.description.split(
+                                '"'
+                              )[1]
+                            : photoTest
+                        }
+                        date={
+                          spectacle.day
+                            ? dayjs(spectacle.day).format("ddd D MMM à HH:mm")
+                            : "inconnue"
+                        }
+                        country={
+                          spectacle["country" + LANG]
+                            ? spectacle["country" + LANG]
+                            : "inconnu"
+                        }
+                        name={spectacle["title" + LANG]}
+                        id={spectacle.strapiId}
+                        team={spectacle.author ? spectacle.author : "inconnu"}
+                        url={"/spectacle/" + sluggify(spectacle.title)}
+                      />
                     ) : (
                       ""
                     )
