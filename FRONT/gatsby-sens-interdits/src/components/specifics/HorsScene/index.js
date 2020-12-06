@@ -6,6 +6,7 @@ import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import CalendarLarge from "../../globals/Calendar/CalendarLarge";
 import Thumbnail from "../../globals/Thumbnail";
 import TabSystemV from "../../globals/TabSystems/TabSystemV";
+import photoTest from "../../../assets/img/img-sens-interdit.jpg";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import localizedFormat from "dayjs/plugin/localizedFormat";
@@ -84,7 +85,14 @@ export default function HorsScenePage() {
   }
 
   const majState = () => {
-    setList(fullList);
+    const filteredList = fullList.filter(spectacle => {
+      if (spectacle.day) {
+        return dayjs(spectacle.day).isSame(dayjs(), "day");
+      } else {
+        return false;
+      }
+    });
+    setList(filteredList);
   };
 
   useEffect(() => {
@@ -144,8 +152,8 @@ export default function HorsScenePage() {
             <p>{horsScenePageQuery.content}</p>
           </div>
           <div id="hors-scene-Cal">
-            <CalendarLarge />
-            <div className="display-mini-tab"> {affichageList(list)} </div>
+            <CalendarLarge dateSetter={dateFilter} />
+            <div className="hors-scene-thumbnail"> {affichageList(list)} </div>
           </div>
         </div>
         <div id="hors-scene-tabsystem">

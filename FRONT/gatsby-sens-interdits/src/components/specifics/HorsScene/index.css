@@ -28,6 +28,11 @@
     background-color: #e30613;
     clip-path: polygon(50% 100%, 0 0, 100% 0);
   }
+.hors-scene-thumbnail {
+    display: flex;
+    flex-wrap: wrap;
+    width: 630px;
+}
 
 /*________________responsive__________*/
 @media screen and (max-width: 1024px) {
