@@ -2,19 +2,23 @@
 require('dotenv').config();
 const async = require('async');
 const {query} = require('./Mysql');
-const {stringSearch, dataToSearch} = require('./helpers/string');
-const {sluggify} = require('./helpers/string');
+const {stringSearch, dataToSearch, sluggify} = require('./utils/string');
 const tablesConfig = require('../config/searchTables');
+
 // TODO : Lang, order by score, add limit params
+const searchTable = 'search';
 
 class Search {
   searchString = '';
+  searchTable = '';
   tables = {};
   MIN_CHARS = process.env.SEARCH_MIN_CHARS || 4;
   dbResults = [];
   searchResults = [];
 
-  constructor() {}
+  constructor() {
+    this.searchTable = searchTable;
+  }
 
   /**
    *
@@ -29,7 +33,7 @@ class Search {
       const {attr, attr2} = this.buildQueryAttributes();
 
       let sql = 'SELECT api_id, content_id, MATCH(search) AGAINST (? IN BOOLEAN MODE) as score ' +
-        'FROM search WHERE (MATCH (search) AGAINST (? IN BOOLEAN MODE)) ' +
+        'FROM ' + this.searchTable + ' WHERE (MATCH (search) AGAINST (? IN BOOLEAN MODE)) ' +
         'ORDER BY score DESC';
       try {
         let results = await query(sql, attr);
@@ -160,7 +164,7 @@ class Search {
   /*************************************************/
   /**************** Indexer part *******************/
   async static getFields(table) {
-    let results = await query('DESCRIBE '+table);
+    let results = await query('DESCRIBE ' + table);
     let fields = results
       .filter(elem => elem.Type.search(/ext/) > -1 || elem.Type.search(/char/) > -1)
       .filter(elem => elem.Field.slice(-3) !== '_en') // TODO remove when full translations are done
@@ -175,18 +179,22 @@ class Search {
     delete result.id;
     let search = dataToSearch(result);
     const data = {search, api_id: table, content_id: id};
-    await query(`INSERT INTO search SET ?`, data)
+    await query('INSERT INTO ' + searchTable + ' SET ?', data)
   }
 
   async static updateIndex(table, id, fieldsStr) {
     await Search.updateIndex(table, id, fieldsStr);
     let results = await query(`SELECT ${fieldsStr} FROM ${table} WHERE id=?`, id);
     let search = dataToSearch(results[0]);
-    await query(`UPDATE search SET search=? WHERE api_id=? AND content_id=?`, [search, table, id]);
+    await query('UPDATE ' + searchTable + ' SET search=? WHERE api_id=? AND content_id=?', [search, table, id]);
   }
 
   static isIndexable(table) {
     return tablesConfig[table] !== undefined
+  }
+
+  async static clearIndexes() {
+    await query('TRUNCATE ' + searchTable)
   }
 }
 
