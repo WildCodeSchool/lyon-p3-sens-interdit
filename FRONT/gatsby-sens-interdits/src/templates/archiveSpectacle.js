@@ -1,8 +1,10 @@
 import { graphql } from "gatsby";
 import React from "react";
-import "./index.css";
+import "./archiveSpectacle.css";
 import ImageCarouselOldArchive from "../components/globals/CarouselOldArchive/ImageCarouselOldArchive";
 import SpectacleInfosOldArchive from "../components/specifics/SpectacleOldArchive/SpectacleInfosOldArchive";
+import Thumbnail from "./../components/globals/Thumbnail";
+import TabSystemH from "./../components/globals/TabSystems/TabSystemHOldArchive";
 
 export default function ArchiveSpectaclePage({ data }) {
   const image = [
@@ -44,13 +46,39 @@ export default function ArchiveSpectaclePage({ data }) {
           duration={data.strapiArchivesOld.duree}
           info={data.strapiArchivesOld.a_noter}
         />
+        tabSsystemforOldArchives
+        {data.strapiArchivesOld.tableElementArchiveOld === 0 ? (
+          ""
+        ) : (
+          <TabSystemH
+            tabContent={data.strapiArchivesOld.tableElementArchiveOld}
+          />
+        )}
+        <div className="content">
+          <div className="red-arrow-spectacle"></div>
+          <p className="content-title to-uppercase">Autour du spectacle</p>
+          <div className="display-mini-tab">
+            <Thumbnail
+              affiche={data.strapiArchivesOld.photo_1}
+              date="26 Octobre"
+              country="Russie"
+              name="Titre du spectacle"
+              team="Metteur en scène"
+            />
+            <Thumbnail
+              affiche={data.strapiArchivesOld.photo_1}
+              date="26 Octobre"
+              country="Russie"
+              name="Titre du spectacle"
+              team="Metteur en scène"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-// This query needs to be dynamic based on the id of the spectacle
-// (example: id="test-spectacle" --> the route will be: http://localhost:8000/spectacle/test-spectacle/
 export const query = graphql`
   query MyQueryArchiveDeux($id: String!) {
     strapiArchivesOld(id: { eq: $id }) {

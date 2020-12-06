@@ -1,0 +1,13 @@
+{
+  "timeout": 100,
+  "load": {
+    "before": ["responseTime", "logger", "cors", "responses", "gzip"],
+    "order": [],
+    "after": ["search-generator","parser", "router"]
+  },
+  "settings": {
+    "search-generator": {
+      "enabled": true
+    }
+  }
+}

@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "gatsby";
 import picto from "../../../assets/img/picto+.svg";
 import "./DisplayTabMenu.css";
 
 export default function DisplayTabMenu(props) {
   return (
     <div className="display-tab-sticker">
-      <a href={props.url} title={props.title} className="to-uppercase">
+      <Link to={props.url} className="to-uppercase">
         <div className="red-wrapper"></div>
         <img
           src={process.env.GATSBY_API_URL + props.image}
@@ -14,18 +15,16 @@ export default function DisplayTabMenu(props) {
           height="100%"
           className="grayscale img-homepage"
         />
-      </a>
-      <div className="display-tab-title">
-        <img
-          className="display-tab-logo"
-          src={picto}
-          alt="pictogramme"
-          width="20"
-        />
-        <a href={props.url} title={props.title} className="to-uppercase">
-          {props.title}
-        </a>
-      </div>
+        <div className="display-tab-title">
+          <img
+            className="display-tab-logo"
+            src={picto}
+            alt="pictogramme"
+            width="20"
+          />
+          <span>{props.title}</span>
+        </div>
+      </Link>
     </div>
   );
 }

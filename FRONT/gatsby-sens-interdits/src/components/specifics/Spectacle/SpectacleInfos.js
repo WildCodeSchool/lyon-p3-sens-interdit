@@ -3,6 +3,7 @@ import "./SpectacleInfos.css";
 
 const SpectacleInfos = ({
   tarif,
+  language,
   country,
   duration,
   partners,
@@ -14,10 +15,18 @@ const SpectacleInfos = ({
       <div className="red-arrow"></div>
       <div className="spectacle-info-container">
         <div className="info-container">
-          <p>Infos Pratiques</p>
+          <p>
+            {language === "fr" ? "Infos Pratiques" : "Practical Information"}
+          </p>
           <ul>
-            <li>Pays : {country.toUpperCase()}</li>
-            <li>Durée : {duration}</li>
+            <li>
+              {language === "fr" ? "Pays :" : "Country :"}
+              {country !== null ? country.toUpperCase() : ""}
+            </li>
+            <li>
+              {language === "fr" ? "Durée :" : "Duration :"}
+              {duration !== null ? duration : ""}
+            </li>
             {info.map(el => (
               <li key={el.id}>{el.info}</li>
             ))}
@@ -36,7 +45,7 @@ const SpectacleInfos = ({
         </div>
         <div className="info-container">
           <span style={{ margin: "0", paddingLeft: "20px" }}>
-            {tarif.tarif}
+            {tarif !== null ? tarif.tarif : ""}
           </span>
           <ul>
             {tarif.category.map((el, i) => (
@@ -46,9 +55,19 @@ const SpectacleInfos = ({
         </div>
         <div className="partners-logo">
           {partners.map(picto => (
-            <a key={picto.id} href={picto.url} target="blank">
+            <a
+              key={picto.id}
+              href={picto.url}
+              title="title here"
+              target="blank"
+            >
+              {/* TODO set default image **/}
               <img
-                src={process.env.GATSBY_API_URL + picto.image[0].url}
+                src={
+                  picto.image[0] !== undefined
+                    ? process.env.GATSBY_API_URL + picto.image[0].url
+                    : null
+                }
                 alt="logo"
                 width="70"
                 height="70"

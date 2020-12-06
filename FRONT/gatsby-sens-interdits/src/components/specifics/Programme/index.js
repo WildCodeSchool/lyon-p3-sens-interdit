@@ -7,6 +7,7 @@ import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import localizedFormat from "dayjs/plugin/localizedFormat";
+import { sluggify } from "../../../utils/Sluggify";
 dayjs.locale("fr");
 dayjs.extend(localizedFormat);
 
@@ -35,9 +36,13 @@ export default function ProgrammePage(props) {
     return treatment;
   }
 
-  useEffect(() => {
+  const majState = () =>{
     setList(fullList);
-  }, []);
+  }
+
+  useEffect(() => {
+    majState()
+  }, [props.list]);
 
   function dateFilter(date) {
     const filteredList = fullList.filter(spectacle => {
@@ -80,8 +85,7 @@ export default function ProgrammePage(props) {
     if (list.length === 0 || list === undefined) {
       return (
         <h3>
-          Something happened ?! <br />
-          Please reload the page.
+          Loading ...
         </h3>
       );
     } else {
@@ -103,10 +107,7 @@ export default function ProgrammePage(props) {
             name={spectacle.title}
             id={spectacle.strapiId}
             team={spectacle.author ? spectacle.author : "inconnu"}
-            url={
-              "http://localhost:8000/spectacle/" +
-              spectacle.title.toLowerCase().replaceAll(" ", "-")
-            }
+            url={"/spectacle/" + sluggify(spectacle.title)}
           />
         );
       });
