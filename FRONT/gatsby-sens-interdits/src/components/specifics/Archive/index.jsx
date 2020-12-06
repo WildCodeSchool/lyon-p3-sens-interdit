@@ -5,6 +5,12 @@ import FilterTab from "../Programme/FilterTab";
 import ThumbnailOldArchive from "../../globals/ThumbnailOldarchive";
 import photoTest from "../../../assets/img/img-sens-interdit.jpg";
 import { graphql, useStaticQuery } from "gatsby";
+import sensinterdits2009 from "../../../assets/img/affiches/sensinterdits2009.jpeg";
+import sensinterdits2011 from "../../../assets/img/affiches/sensinterdits2011.jpeg";
+import sensinterdits2013 from "../../../assets/img/affiches/sensinterdits2013.jpeg";
+import sensinterdits2015 from "../../../assets/img/affiches/sensinterdits2015.jpeg";
+import sensinterdits2017 from "../../../assets/img/affiches/sensinterdits2017.jpeg";
+import sensinterdits2019 from "../../../assets/img/affiches/sensinterdits2019.png";
 
 import "./Archive.css";
 
@@ -15,38 +21,32 @@ function Archive(props) {
   const festivals = [
     {
       title: "Édition 2019",
-      posterUrl:
-        "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
+      posterUrl:sensinterdits2019,
       url:"http://localhost:8000/programme_2019/",
     },
     {
       title: "Édition 2017",
-      posterUrl:
-        "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
+      posterUrl:sensinterdits2017,
       url:"http://localhost:8000/programme_2017/",
     },
     {
       title: "Édition 2015",
-      posterUrl:
-        "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
+      posterUrl:sensinterdits2015,
       url:"http://localhost:8000/programme_2015/",
     },
     {
       title: "Édition 2013",
-      posterUrl:
-        "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
+      posterUrl:sensinterdits2013,
       url:"http://localhost:8000/programme_2013/",
     },
     {
       title: "Édition 2011",
-      posterUrl:
-        "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
+      posterUrl:sensinterdits2011,
       url:"http://localhost:8000/programme_2011/",
     },
     {
       title: "Édition 2009",
-      posterUrl:
-        "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
+      posterUrl:sensinterdits2009,
       url:"http://localhost:8000/programme_2009/",
     },
   ];
@@ -66,7 +66,6 @@ function Archive(props) {
     }
   }
   }`)
-  const URL_IMAGE = "http://146.59.231.196:1337/images/archives";
   return (
     <>
     
@@ -100,7 +99,7 @@ function Archive(props) {
             country={elem.node.pays}
             name={elem.node.titre}
             team={elem.node.credits_2}
-            affiche={URL_IMAGE+elem.node.photo_1}
+            affiche={`${process.env.GATSBY_IMAGE_URL}`+elem.node.photo_1}
           />
             
         ))}

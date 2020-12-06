@@ -41,6 +41,7 @@ async function turnSpectaclesIntoPages({ graphql, actions }) {
     result.data.spectacles.edges.forEach(({ node }) => {
       let spectacleSlug = sluggify(node.title);
       let spectacleId = removePageNameForUrl(node.id,"Spectacle");
+      let annee = node.annee
       createPage({
         path: `/spectacle/${spectacleSlug}${spectacleId}`, //strapiId
         component: path.resolve(`src/templates/spectacle.js`),

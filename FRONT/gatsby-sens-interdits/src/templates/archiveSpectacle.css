@@ -63,4 +63,70 @@
     background-color: #e30613;
     clip-path: polygon(50% 100%, 0 0, 100% 0);
   }
+  .archive-global-styling p.archive-description {
+  letter-spacing: 1px;
+  text-align: justify;
+  margin-bottom: 4vh;
+}
+
+.archive-global-styling h1 {
+  font-weight: 1000;
+  font-size: 1.8em;
+}
+
+.archive-global-styling h1 span {
+  color: #e30613;
+}
+
+.archive-festivals-grid-wrapper {
+  display: grid;
+  grid-template-columns: 32% 32% 32%;
+  column-gap: 6%;
+}
+
+.archive-transmission-grid-wrapper {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  column-gap: 1%;
+}
+
+.archive-transmission-grid-wrapper .mini-tab {
+  width: auto;
+}
+
+img.festival-poster {
+  margin-top: 2vh;
+  width: 75%;
+  height: auto;
+}
+
+.festival-title-flex {
+  display: flex;
+  justify-content: baseline;
+}
+
+.festival-title-flex p {
+  font-weight: 1000;
+  /* font-family: inherit; */
+  font-size: 1.2em;
+}
+
+img.picto-plus {
+  width: 38px;
+  height: 38px;
+}
+
+@media screen and (max-width: 960px) {
+  /* ARCHIVES */
+  .archive-transmission-grid-wrapper{
+    display: flex;
+    flex-direction: column;
+  }
+  .festival-poster-wrapper{
+    font-size: 12px;
+  }
+  .festival-poster-wrapper .festival-title-flex img {
+    width: 15px;
+  }
+}
   

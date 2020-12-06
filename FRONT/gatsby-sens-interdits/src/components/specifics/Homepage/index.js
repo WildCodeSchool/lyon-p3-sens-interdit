@@ -44,11 +44,11 @@ export default function Homepage() {
           : null}
 
 
-        <div className="content-homepage">
+        {/* <div className="content-homepage">
           {strapiHomepage.squaremenu.map(elem => (
             <DisplayTabMenu key={elem.id} title={elem.title} image={elem.image[0].url} url={elem.url} />
           ))}
-        </div>
+        </div> */}
       </div>
     </>
   );

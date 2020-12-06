@@ -8,7 +8,6 @@ import TabSystemHOldArchive from "../components/globals/TabSystems/TabSystemHOld
 import "./archiveSpectacle.css";
 
 export default function ArchiveSpectaclePage({ data }) {
-  const URLIMAGE = "http://146.59.231.196:1337/images/archives";
   const image = [
     data.strapiArchivesOld.photo_1,
     data.strapiArchivesOld.photo_2,
@@ -27,14 +26,13 @@ export default function ArchiveSpectaclePage({ data }) {
   const imageArray = [];
   for (const elem of image) {
     if ((elem !== null) && (elem !== undefined) && (elem !== "")) {
-      imageArray.push(URLIMAGE+elem);
+      imageArray.push(`${process.env.GATSBY_IMAGE_URL}`+elem);
     }
   }
 
   return (
 
     <div className="global-spectacle-page">
-    {console.log("Fucking url " + imageArray[0])}
       <ImageCarouselOldArchive
         title={data.strapiArchivesOld.titre}
         images={imageArray}
@@ -57,12 +55,12 @@ export default function ArchiveSpectaclePage({ data }) {
           <p className="content-title to-uppercase"></p>
         <div className="display-mini-tab">
         <ThumbnailOldArchive
-            id={data.strapiArchivesOld.strapiId}
+            id={data.strapiArchivesOld.id}
             key={data.strapiArchivesOld.id}
             country={data.strapiArchivesOld.pays}
             name={data.strapiArchivesOld.titre}
             team={data.strapiArchivesOld.credits_2}
-            affiche={URLIMAGE+data.strapiArchivesOld.photo_1}
+            affiche={`${process.env.GATSBY_IMAGE_URL}`+data.strapiArchivesOld.photo_1}
           />
           <ThumbnailOldArchive
             id={data.strapiArchivesOld.strapiId}
@@ -70,7 +68,7 @@ export default function ArchiveSpectaclePage({ data }) {
             country={data.strapiArchivesOld.pays}
             name={data.strapiArchivesOld.titre}
             team={data.strapiArchivesOld.credits_2}
-            affiche={URLIMAGE+data.strapiArchivesOld.photo_1}
+            affiche={`${process.env.GATSBY_IMAGE_URL}`+data.strapiArchivesOld.photo_1}
           />
           
         </div>
@@ -113,5 +111,17 @@ export const query = graphql`
         id
       }
     }
+    allStrapiArchivesOld {
+    edges {
+      next {
+        id
+        strapiId
+        photo_1
+      }
+      previous {
+        id
+      }
+    }
+  }
   }
 `;
