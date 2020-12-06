@@ -1,6 +1,7 @@
 import { graphql } from "gatsby";
 import React from "react";
 import "./archiveSpectacle.css";
+import "../assets/styles/global.css";
 import ImageCarouselOldArchive from "../components/globals/CarouselOldArchive/ImageCarouselOldArchive";
 import SpectacleInfosOldArchive from "../components/specifics/SpectacleOldArchive/SpectacleInfosOldArchive";
 import Thumbnail from "./../components/globals/Thumbnail";
@@ -37,7 +38,7 @@ export default function ArchiveSpectaclePage({ data }) {
         images={imageArray}
         displayed={true}
       />
-      <div className="content-spectacle-page">
+      <div className="content-spectacle-page container">
         <div className="country-label">
           <p>{data.strapiArchivesOld.pays}</p>
         </div>

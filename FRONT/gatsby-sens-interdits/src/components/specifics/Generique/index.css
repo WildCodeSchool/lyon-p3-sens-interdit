@@ -1,11 +1,7 @@
-.global-generique-page {
-  width: 1080px;
-  margin: auto;
-}
 
 .global-generique-page .image-generique-page {
   height: 400px;
-  width: 1080px;
+  max-width:1080px;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import DisplayTabMenu from "../../globals/DisplayTabMenu/DisplayTabMenu";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import "./diffusion.css"
+import "../../../assets/styles/global.css";
 import LanguageContext from "../../context/LanguageContext";
 
 export default function DiffusionPage() {
@@ -46,7 +47,7 @@ export default function DiffusionPage() {
   return (
     <div className="global-diffusion">
       <ImageCarousel images={imageArray} />
-      <div id="diffusion-content">
+      <div id="container">
         <div id="diffusion-description">
           <div className="red-arrow"></div>
           <h3 className="to-uppercase">{strapiDiffusionProduction["title" + LANG]}</h3>

@@ -20,7 +20,7 @@ export default function Article (props) {
    
     return (
         <Link to={"/articles/" + articleSlug + articleId} title={article.title} className="article-wrapper">
-            <div className="article-resume" key={article.id}>
+            <div className="article-resume container" key={article.id}>
                 <p className="article-date">Publié le {dayJs(article.date).format("DD MMMM YYYY")}</p>
                 <h4 className="to-uppercase">{article.title}</h4>
                 <div>

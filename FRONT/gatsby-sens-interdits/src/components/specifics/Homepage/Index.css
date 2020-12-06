@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   max-width: 1080px;
-  margin: auto;
 }
 
 .global-homepage .slider img {
@@ -15,7 +14,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 auto;
   max-width: 1080px;
 }
 
