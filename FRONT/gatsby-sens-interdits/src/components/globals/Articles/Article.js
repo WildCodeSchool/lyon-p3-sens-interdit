@@ -14,7 +14,7 @@ export default function Article (props) {
     const article = props.article;
     const textOverFlow = props.textOverFlow;
     const linkStatus = props.linkStatus;
-    console.log ({linkStatus});
+
 
     let articleSlug = sluggify(props.article.title);
     let articleId = removeNameForUrl(props.article.id, "Articlecontent");
