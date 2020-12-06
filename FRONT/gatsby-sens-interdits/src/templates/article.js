@@ -9,12 +9,12 @@ export default function ArticlePage({data}) {
 
     const article = data.article;
     const textOverFlow = false;
-    // console.log ('titre', titleForLink)
+    const linkStatus = false;
 
     return (
       // <Link to={"/articles/" + titleForLink.toLowerCase().replaceAll(" ", "-")}>
         <div id="article-page" className="container">
-            <Article article={article} textOverFlow={textOverFlow}/>
+            <Article article={article} textOverFlow={textOverFlow} linkStatus={linkStatus}/>
         </div>
       // </Link>
     )
