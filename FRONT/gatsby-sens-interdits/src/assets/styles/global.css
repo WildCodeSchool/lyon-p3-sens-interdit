@@ -79,6 +79,7 @@ div.overlay {
 }
 
 
+
 .container {
   width: 100%;
   max-width: 1080px;
@@ -88,4 +89,5 @@ div.overlay {
 
 .flex {
   display: flex;
+
 }

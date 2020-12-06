@@ -12,7 +12,7 @@ export default function SpectacleDate(props) {
 
   return (
     <div
-      className={parseInt(props.activeModalId) === id ? "one-day active" : "one-day"}
+      className={"calendar-container one-day " + (parseInt(props.activeModalId) === id ? "active" : "")}
       data-date={props.date}
     >
       <p
@@ -54,8 +54,8 @@ export default function SpectacleDate(props) {
 
 const Modal = props => {
   const showHideClassName = props.show
-    ? "modal display-block"
-    : "modal display-none";
+    ? "modal"
+    : "modal hidden";
 
   return (
     <div className={showHideClassName}>
