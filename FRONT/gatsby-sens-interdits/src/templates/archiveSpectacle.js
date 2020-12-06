@@ -1,11 +1,11 @@
 import { graphql } from "gatsby";
 import React from "react";
-import SpectacleInfosOldArchive from "./../components/specifics/SpectacleOldArchive/SpectacleInfosOldArchive.js";
-import ImageCarouselOldArchive from "./../components/globals/CarouselOldArchive/ImageCarouselOldArchive";
 import ThumbnailOldArchive from "../components/globals/ThumbnailOldArchive";
 import TabSystemHOldArchive from "../components/globals/TabSystems/TabSystemHOldArchive";
-
 import "./archiveSpectacle.css";
+import "../assets/styles/global.css";
+import ImageCarouselOldArchive from "../components/globals/CarouselOldArchive/ImageCarouselOldArchive";
+import SpectacleInfosOldArchive from "../components/specifics/SpectacleOldArchive/SpectacleInfosOldArchive";
 
 export default function ArchiveSpectaclePage({ data }) {
   const image = [
@@ -38,7 +38,7 @@ export default function ArchiveSpectaclePage({ data }) {
         images={imageArray}
         displayed={true}
       />
-      <div className="content-spectacle-page">
+      <div className="content-spectacle-page container">
         <div className="country-label">
           <p>{data.strapiArchivesOld.pays}</p>
         </div>
@@ -111,17 +111,5 @@ export const query = graphql`
         id
       }
     }
-    allStrapiArchivesOld {
-    edges {
-      next {
-        id
-        strapiId
-        photo_1
-      }
-      previous {
-        id
-      }
-    }
-  }
   }
 `;

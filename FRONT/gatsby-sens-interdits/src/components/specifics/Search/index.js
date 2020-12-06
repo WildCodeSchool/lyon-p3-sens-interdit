@@ -1,7 +1,6 @@
 import React from "react";
 import Result from "./Result.js";
 import fakeData from "./fakeData.json";
-import { graphql, useStaticQuery } from "gatsby";
 export default function ResultPage() {
   const data = fakeData;
   return (

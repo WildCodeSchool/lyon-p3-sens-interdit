@@ -19,10 +19,28 @@
     "description": {
       "type": "richtext"
     },
-    "squaremenu": {
+    "festival": {
       "type": "component",
-      "repeatable": true,
-      "component": "menu.display-tab-menu"
+      "repeatable": false,
+      "component": "menu.menulink"
+    },
+    "publics": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menulink"
+    },
+    "tour": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menulink"
+    },
+    "association": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menulink"
+    },
+    "description_en": {
+      "type": "richtext"
     }
   }
 }

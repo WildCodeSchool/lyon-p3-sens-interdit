@@ -1,48 +1,74 @@
 import React from "react";
-// import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
+
 import "./index.css";
+import "../../../assets/styles/global.css";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import CalendarLarge from "../../globals/Calendar/CalendarLarge";
-import TabSystemHorsScene from "../../globals/TabSystems/TabSystemHorsScene";
+import TabSystemV from "../../globals/TabSystems/TabSystemV"
 
-export default function HorsScenePage() {
+export default function HorsScenePage () {
 
-  // const {strapiHorsscenepage} = useStaticQuery(graphql`
-  //   query {
-  
+  const strapiHorsSceneQuery = useStaticQuery(graphql`
+    query strapiHorsSceneQuery {
+      allStrapiHorsSceneTab {
+        nodes {
+          horsscenetab {
+            content
+            title
+            id
+          }
+        }
+      }
+      strapiHorsScenePage {
+        Title
+        id
+        content
+      }
+      allStrapiSpectacle {
+        nodes {
+          title
+          strapiId
+          horaires {
+            Day
+          }
+          country
+          place
+          author
+          thumbnail {
+            internal {
+              description
+            }
+          }
+          type_of_events {
+            category
+          }
+        }
+      }
+    }
+  `)
 
-      //   }
-
-  //   }`)
-
-
-    
+  const horsSceneTabQuery= strapiHorsSceneQuery.allStrapiHorsSceneTab.nodes[0].horsscenetab;
+  const horsScenePageQuery = strapiHorsSceneQuery.strapiHorsScenePage;
+  const spectacleQuery = strapiHorsSceneQuery.allStrapiSpectacle.nodes;
+ 
   return (
     <div>
       <ImageCarousel/> {/* TODO : passer les props pour ce composant */}
-      <div id="hors-scene-page">
-        <div>
-          <CalendarLarge />
+      <div className="container">
+        <div className="red-arrow"></div>
+        <div id="hors-scene-pres">
+          <div id="hors-scene-pres-content">
+            <h3 className="to-uppercase">{horsScenePageQuery.Title}</h3>
+            <p>{horsScenePageQuery.content}</p>
+          </div>
+          <div id="hors-scene-Cal">
+            <CalendarLarge />
+          </div>
         </div>
-        <div >
-            <h3>HORS-SCENE</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-              risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec,
-              ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula
-              massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci
-              nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl
-              sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae,
-              consequat in, pretium a, enim. Pellentesque congue. Ut in risus
-              volutpat libero pharetra tempor. Cras vestibulum bibendum augue.
-              Praesent egestas leo in pede. Praesent blandit odio eu enim.
-              Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum
-              primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-              Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum.
-              Maecenas adipiscing ante non diam sodales hendrerit.
-            </p>
-            <TabSystemHorsScene/>
-        </div>
+        <div id="hors-scene-tabsystem">
+            <TabSystemV tabContent={horsSceneTabQuery} spectacleQuery={spectacleQuery} />                     
+        </div> 
       </div>
     </div>
   );

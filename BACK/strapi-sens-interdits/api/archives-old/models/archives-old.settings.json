@@ -29,34 +29,10 @@
     "credits_2": {
       "type": "richtext"
     },
-    "credits_3": {
-      "type": "richtext"
-    },
-    "credits_4": {
-      "type": "richtext"
-    },
-    "credits_5": {
-      "type": "richtext"
-    },
-    "credits_6": {
-      "type": "richtext"
-    },
-    "presentation": {
-      "type": "richtext"
-    },
     "duree": {
       "type": "string"
     },
     "lieu": {
-      "type": "text"
-    },
-    "date_1": {
-      "type": "text"
-    },
-    "date_2": {
-      "type": "text"
-    },
-    "date_3": {
       "type": "text"
     },
     "a_noter": {
@@ -83,69 +59,6 @@
     "photo_6": {
       "type": "string"
     },
-    "soutien": {
-      "type": "richtext"
-    },
-    "date_4": {
-      "type": "string"
-    },
-    "tournee_date_1": {
-      "type": "text"
-    },
-    "tournee_date_2": {
-      "type": "text"
-    },
-    "tournee_date_3": {
-      "type": "text"
-    },
-    "credits_7": {
-      "type": "richtext"
-    },
-    "credits_8": {
-      "type": "richtext"
-    },
-    "tarif_plein_tarif": {
-      "type": "string"
-    },
-    "tarif_reduit": {
-      "type": "string"
-    },
-    "tarif_moins_26_ans": {
-      "type": "string"
-    },
-    "tarif_rsa": {
-      "type": "string"
-    },
-    "tarif_pass_festival": {
-      "type": "string"
-    },
-    "tarif_pass_festival_moins_26": {
-      "type": "string"
-    },
-    "credits_9": {
-      "type": "richtext"
-    },
-    "recompenses_prix_1": {
-      "type": "text"
-    },
-    "recompenses_prix_2": {
-      "type": "text"
-    },
-    "recompenses_prix_3": {
-      "type": "text"
-    },
-    "recompenses_prix_4": {
-      "type": "text"
-    },
-    "tarif_moins_28_ans": {
-      "type": "string"
-    },
-    "tarif_pass_festival_moins_28_ans": {
-      "type": "string"
-    },
-    "hors_scene": {
-      "type": "richtext"
-    },
     "photo_7": {
       "type": "string"
     },
@@ -161,108 +74,18 @@
     "photo_11": {
       "type": "string"
     },
-    "tournee_date_4": {
-      "type": "text"
-    },
-    "tournee_date_5": {
-      "type": "text"
-    },
-    "tournee_date_6": {
-      "type": "text"
-    },
     "photo_12": {
       "type": "string"
-    },
-    "credits_10": {
-      "type": "richtext"
-    },
-    "credits_11": {
-      "type": "richtext"
-    },
-    "date_5": {
-      "type": "string"
-    },
-    "date_6": {
-      "type": "string"
-    },
-    "presse": {
-      "type": "richtext"
-    },
-    "credits_12": {
-      "type": "richtext"
-    },
-    "credits_13": {
-      "type": "richtext"
-    },
-    "credits_14": {
-      "type": "richtext"
-    },
-    "credits_15": {
-      "type": "richtext"
-    },
-    "credits_16": {
-      "type": "richtext"
-    },
-    "photo_13": {
-      "type": "string"
-    },
-    "tarif_demandeurs_emploi": {
-      "type": "string"
-    },
-    "image_header": {
-      "type": "string"
-    },
-    "titre_level_3": {
-      "type": "text"
-    },
-    "titre_level_2": {
-      "type": "text"
-    },
-    "focus": {
-      "type": "text"
-    },
-    "horsscene": {
-      "type": "richtext"
-    },
-    "tournee_date_7": {
-      "type": "text"
-    },
-    "tarif_pass_festival_moins_30_ans": {
-      "type": "string"
-    },
-    "credits_17": {
-      "type": "richtext"
-    },
-    "date": {
-      "type": "text"
-    },
-    "tarif_moins_16_ans": {
-      "type": "string"
-    },
-    "acceuil_residence": {
-      "type": "text"
     },
     "tableElementArchiveOld": {
       "type": "component",
       "repeatable": true,
       "component": "menu.tab-element"
     },
-    "horaire": {
-      "type": "component",
-      "repeatable": true,
-      "component": "calendrier.horaire"
-    },
-    "dateArchiveOld": {
-      "type": "component",
-      "repeatable": true,
-      "component": "calendrier.date-spectacle"
-    },
-    "tarifArchiveOld": {
-      "type": "component",
-      "repeatable": true,
-      "component": "text.tarif"
-    },
     "bookinglink": {
+      "type": "string"
+    },
+    "url1": {
       "type": "string"
     }
   }

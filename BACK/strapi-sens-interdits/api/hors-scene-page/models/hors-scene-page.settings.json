@@ -16,6 +16,12 @@
     },
     "content": {
       "type": "text"
+    },
+    "Title_en": {
+      "type": "string"
+    },
+    "content_en": {
+      "type": "text"
     }
   }
 }

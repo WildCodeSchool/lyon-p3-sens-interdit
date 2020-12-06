@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_menu_menulinks",
+  "info": {
+    "name": "menulink",
+    "icon": "external-link-alt",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "visible": {
+      "type": "boolean"
+    },
+    "title_en": {
+      "type": "string"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 .archive-global-styling p.archive-description {
   letter-spacing: 1px;
   text-align: justify;
-  margin-bottom: 4vh;
+  margin: 4vh 0 4vh 0;
 }
 
 .archive-global-styling h1 {
@@ -53,11 +53,11 @@ img.picto-plus {
 
 @media screen and (max-width: 960px) {
   /* ARCHIVES */
-  .archive-transmission-grid-wrapper{
+  .archive-transmission-grid-wrapper {
     display: flex;
     flex-direction: column;
   }
-  .festival-poster-wrapper{
+  .festival-poster-wrapper {
     font-size: 12px;
   }
   .festival-poster-wrapper .festival-title-flex img {

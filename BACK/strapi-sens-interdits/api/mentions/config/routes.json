@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/mentions",
+      "handler": "mentions.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/mentions",
+      "handler": "mentions.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/mentions",
+      "handler": "mentions.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

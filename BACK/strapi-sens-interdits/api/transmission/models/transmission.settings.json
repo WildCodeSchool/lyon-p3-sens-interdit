@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "transmissions",
   "info": {
-    "name": "transmission"
+    "name": "transmission",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -27,6 +28,9 @@
       "type": "component",
       "repeatable": true,
       "component": "media.credited-image-component"
+    },
+    "description_en": {
+      "type": "richtext"
     }
   }
 }
