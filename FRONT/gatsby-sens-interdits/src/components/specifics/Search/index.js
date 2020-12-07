@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import queryString from 'query-string';
-import fakeData from './fakeData.json';
 import Result from "./Result.js";
 
 let searchUrl = process.env.GATSBY_API_URL + '/search?s=';
@@ -23,7 +22,7 @@ export default function ResultPage() {
                     return null;
                 }
             })
-            .then(results => {
+            .then(({results}) => {
                 console.log('**************')
                 console.log(results)
                 if (results !== null) {
@@ -40,7 +39,7 @@ export default function ResultPage() {
 
     const handleNewSearch = (e) => {
         e.preventDefault();
-        //TODO
+        document.querySelector('.search-magnifier').click();
     }
     return (
         <>

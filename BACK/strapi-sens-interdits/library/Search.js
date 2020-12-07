@@ -27,6 +27,7 @@ class Search {
    */
   async search(searchString) {
     this.searchString = searchString
+    console.log(1);
     if (this.searchString.length > this.MIN_CHARS) {
       this.searchString = stringSearch(this.searchString);
       let hasSpace = this.searchString.search(' ') > -1;
@@ -36,18 +37,30 @@ class Search {
         'FROM ' + this.searchTable + ' WHERE (MATCH (search) AGAINST (? IN BOOLEAN MODE)) ' +
         'ORDER BY score DESC';
       try {
+        console.log(2);
         let results = await query(sql, attr);
+        console.log(3);
         let results2 = [];
         if (results.length < 9 && hasSpace) {
           results2 = await query(sql, attr2);
         }
+        console.log(4);
         let allResults = [...results2, ...results];
         this.buildApiContentResult(allResults);
-        this.getResults(results => {
-          this.buildResults(results);
-          return this.searchResults;
-        });
+        console.log(5);
+        results = await this.getResults();
+        console.log(6);
+        console.log('results', results);
+        console.log('this.dbResults', this.dbResults);
+        return this.buildResults(this.dbResults);
+
+        /*        return await this.getResults(async (results) => {
+                  await this.buildResults(results);
+                  console.log(6);
+                  return this.searchResults;
+                });*/
       } catch (err) {
+        console.log(7);
         let error = new Error(err)
         console.log(error);
         throw error;
@@ -61,41 +74,53 @@ class Search {
    *
    * @param next
    */
-  getResults(next) {
-    // TODO : graphql to get images !
-    async.forEachOf(
-      this.tables,
-      (ids, table, callback) => {
-        let request = 'SELECT #fields# FROM #table# WHERE id IN (?) ORDER BY id DESC;';
-        let config = tablesConfig[table];
-        let fields = ['id', 'created_at'];
-        if (config.title !== '' && config.title !== null) {
-          fields.push(config.title)
-        }
-        if (config.description !== '' && config.description !== null) {
-          fields.push(config.description)
-        }
+  getResults(/*next*/) {
+    return new Promise((resolve, reject) => {
+      // TODO : graphql to get images !
+      // console.log('this.tables', this.tables);
+      async.eachOfLimit(
+        this.tables,
+        4,
+        (ids, table, callback) => {
+          let request = 'SELECT #fields# FROM #table# WHERE id IN (?) ORDER BY id DESC;';
+          let config = tablesConfig[table];
+          // console.log(table);
+          // console.log(config);
+          if (config === undefined) {
+            callback(table + ' is not in config/searchTables config');
+          }
+          let fields = ['id', 'created_at'];
+          if (config.title !== '' && config.title !== null) {
+            fields.push(config.title)
+          }
+          if (config.description !== '' && config.description !== null) {
+            fields.push(config.description)
+          }
 
-        fields = fields.join(',');
-        request = request.replace('#fields#', fields).replace('#table#', table);
-        console.log(request);
-        query(request, [ids]).then(results => {
-          results.forEach(result => {
-            result['table'] = table;
-            this.dbResults.push(result);
+          fields = fields.join(',');
+          request = request.replace('#fields#', fields).replace('#table#', table);
+          query(request, [ids]).then(results => {
+            // console.log('a');
+            results.forEach(result => {
+              // console.log('b');
+              result['table'] = table;
+              this.dbResults.push(result);
+            });
+            callback(null);
+          }).catch(err => {
+            console.log(err);
           });
-          callback(null);
-        }).catch(err => {
-          console.log(err);
-        });
-      },
-      (err) => {
-        if (err) {
-          throw new Error(err);
-        } else {
-          next(this.dbResults);
-        }
-      })
+        },
+        (err) => {
+          if (err) {
+            reject(new Error(err));
+          } else {
+            // console.log('return results', this.dbResults);
+            resolve(this.dbResults);
+            //next(this.dbResults);
+          }
+        })
+    })
   }
 
   /**
@@ -145,31 +170,30 @@ class Search {
   buildResults(results) {
     if (results.length > 0) {
       // TODO order result by created_at
+      // console.log('buildResults', results);
       results.forEach(result => {
         let config = tablesConfig[result.table];
         let url = '';
         if (result.table === 'archives_olds') {
-          url = 'archives-old-' + result.id;
+          url = '/archives-old-' + result.id;
         } else {
           if (result.title === undefined) {
             result.title = result.table;
           }
-          url = `${config.slug}${sluggify(result.title)}_${result.id}`;
-        }
-        if( result.table === 'archives-olds') {
-          console.log(result);
+          url = `${config.slug}`;
+          if (config.slug.slice(-1) === '/') {
+            url += `${config.slug}${sluggify(result.title)}_${result.id}`;
+          }
         }
         let searchResult = {
           url,
-          title: result.title,
+          title: result.title || result.titre,
           description: result[config.description]
         }
-        if( result.table === 'archives-olds') {
-          console.log(searchResult);
-        }
-        console.log(searchResult);
         this.searchResults.push(searchResult);
       })
+
+      return this.searchResults;
     }
   }
 
