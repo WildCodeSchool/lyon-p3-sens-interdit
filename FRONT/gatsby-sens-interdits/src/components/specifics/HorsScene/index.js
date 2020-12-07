@@ -33,8 +33,8 @@ export default function HorsScenePage() {
         }
       }
       strapiHorsScenePage {
-        Title
-        Title_en
+        title
+        title_en
         id
         content
         content_en
