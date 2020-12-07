@@ -1,7 +1,6 @@
 import React from "react";
 import dayjs from "dayjs";
 import { Link } from "gatsby"
-import './Result.css';
 import "dayjs/locale/fr";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 dayjs.locale("fr");
@@ -10,7 +9,7 @@ dayjs.extend(localizedFormat);
 export default function Result(result) {
     result = result.item;
   const truncateDescription = (str) => {
-    return str.substring(0, 300);
+    return str !== null ? str.substring(0, 300): null;
   }
 
   const prettify = (date) => {
