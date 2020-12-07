@@ -4,7 +4,7 @@ import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import FilterTab from "../Programme/FilterTab";
 import Thumbnail from "../../globals/Thumbnail";
 import { graphql, useStaticQuery } from "gatsby";
-import FilterBySelect from "./FilterBySelect"; 
+import FilterBySelect from "./FilterBySelect";
 
 import "./Archive.css";
 import "../../../assets/styles/global.css";
@@ -85,10 +85,9 @@ function Archive(props) {
           </h1>
         ) : (
           <h1 className="to-uppercase">
-            Explore <span>the festival's archives</span>
+            Discover <span>the festival's archives</span>
           </h1>
         )}
-        <FilterTab />
         <div className="archive-festivals-grid-wrapper">
           {festivals.map(festival => {
             return (
@@ -106,10 +105,9 @@ function Archive(props) {
           </h1>
         ) : (
           <h1 className="to-uppercase">
-            Explore <span>the production's archives</span>
+            Discover <span>the production's archives</span>
           </h1>
         )}
-        <FilterTab />
         <FilterBySelect />
         <div className="archive-transmission-grid-wrapper">
           {data.allStrapiArchivesOld.edges.map(elem => (

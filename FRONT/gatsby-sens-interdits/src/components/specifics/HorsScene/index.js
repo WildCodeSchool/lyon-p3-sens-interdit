@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import "./index.css";
 import "../../../assets/styles/global.css";
@@ -11,35 +11,46 @@ import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 import { sluggify } from "../../../utils/Sluggify";
+import LanguageContext from "../../context/LanguageContext";
+
 dayjs.locale("fr");
 dayjs.extend(localizedFormat);
 
 export default function HorsScenePage() {
+  const { LANG } = useContext(LanguageContext);
+
   const strapiHorsSceneQuery = useStaticQuery(graphql`
     query strapiHorsSceneQuery {
       allStrapiHorsSceneTab {
         nodes {
           horsscenetab {
             content
+            content_en
             title
+            title_en
             id
           }
         }
       }
       strapiHorsScenePage {
         Title
+        Title_en
         id
         content
+        content_en
       }
       allStrapiSpectacle {
         nodes {
           title
+          title_en
           strapiId
           horaires {
             Day
           }
           country
+          country_en
           place
+          place_en
           author
           thumbnail {
             internal {
@@ -48,6 +59,7 @@ export default function HorsScenePage() {
           }
           type_of_events {
             category
+            category_en
           }
         }
       }
@@ -148,8 +160,10 @@ export default function HorsScenePage() {
         <div className="red-arrow"></div>
         <div id="hors-scene-pres">
           <div id="hors-scene-pres-content">
-            <h3 className="to-uppercase">{horsScenePageQuery.Title}</h3>
-            <p>{horsScenePageQuery.content}</p>
+            <h3 className="to-uppercase">
+              {horsScenePageQuery["Title" + LANG]}
+            </h3>
+            <p>{horsScenePageQuery["content" + LANG]}</p>
           </div>
           <div id="hors-scene-Cal">
             <CalendarLarge dateSetter={dateFilter} />
