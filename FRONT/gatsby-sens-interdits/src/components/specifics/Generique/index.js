@@ -12,7 +12,6 @@ export default function GeneriquePage(props) {
       <div>
         <h1>{props.title}</h1>
         <p>{props.description}</p>
-        <TabSystemV tabContent={props.tab_element} />
       </div>
     </div>
   );
