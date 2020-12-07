@@ -19,15 +19,7 @@
     margin-left: auto;
 }
 
-.red-arrow {
-    position: relative;
-    top: 0;
-    left: 100px;
-    width: 40px;
-    height: 45px;
-    background-color: #e30613;
-    clip-path: polygon(50% 100%, 0 0, 100% 0);
-  }
+
 .hors-scene-thumbnail {
     display: flex;
     flex-wrap: wrap;
