@@ -15,6 +15,7 @@ export default function Ecole() {
         description
         description_en
         tab_element {
+          id
           content
           title
           image {
@@ -22,6 +23,7 @@ export default function Ecole() {
           }
         }
         tab_element_en {
+          id
           content
           title
           image {

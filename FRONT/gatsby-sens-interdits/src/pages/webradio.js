@@ -14,6 +14,7 @@ export default function Webradio() {
         description
         description_en
         tab_element {
+          id
           content
           title
           image {
@@ -21,6 +22,7 @@ export default function Webradio() {
           }
         }
         tab_element_en {
+          id
           content
           title
           image {
