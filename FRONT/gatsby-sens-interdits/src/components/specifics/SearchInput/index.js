@@ -13,7 +13,8 @@ export default function SearchInput({showSearchInput, setShowSearchInput}) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate('/search/?s='+search);
+        document.location.href  = '/search/?s='+search;
+        //navigate('/search/?s='+search); // Change the search when uri change
     }
 
     useEffect(() => {

@@ -5,7 +5,6 @@ import './Result.css';
 
 let searchUrl = process.env.GATSBY_API_URL + '/search?s=';
 export default function ResultPage(props) {
-    console.log(props)
     const [data, setData] = useState([]);
     const [hasRequested, setHasRequested] = useState(false);
     useEffect(() => {

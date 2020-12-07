@@ -170,7 +170,7 @@ class Search {
           }
           url = `${config.slug}`;
           if (config.slug.slice(-1) === '/') {
-            url += `${config.slug}${sluggify(result.title)}_${result.id}`;
+            url += `${sluggify(result.title)}_${result.id}`;
           }
         }
         let searchResult = {

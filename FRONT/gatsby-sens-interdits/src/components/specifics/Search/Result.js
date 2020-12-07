@@ -29,7 +29,7 @@ export default function Result(result) {
             <div className="result-category">{result.table}</div>
             <div className="result-title">{result.title}</div>
             <div className="result-description">
-                <span>{prettify(result.created_at)}</span> -- {truncateDescription(result.description)}...
+                <span>{prettify(result.created_at)}</span> {result.description !== undefined && result.description !== null ? <>-- {truncateDescription(result.description)}...</>:null}
             </div>
           </div>
       </Link>
