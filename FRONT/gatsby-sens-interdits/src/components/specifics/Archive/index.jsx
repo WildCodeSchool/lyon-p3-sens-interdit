@@ -113,12 +113,13 @@ function Archive(props) {
           {data.allStrapiArchivesOld.edges.map(elem => (
             <Thumbnail
               key={elem.node.id}
-              url={"http://localhost:8000/" + elem.node.id}
+              id={elem.node.id}
+              url={"/" + elem.node.id}
               date={elem.node.date_1}
               country={elem.node.pays}
               name={elem.node.titre}
               team={elem.node.credits_2}
-              affiche={elem.node.photo_1}
+              affiche={process.env.GATSBY_API_URL + "/images/archives/" + elem.node.photo_1}
             />
           ))}
         </div>
