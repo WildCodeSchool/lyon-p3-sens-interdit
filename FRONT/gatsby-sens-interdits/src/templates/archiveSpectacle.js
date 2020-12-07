@@ -111,17 +111,5 @@ export const query = graphql`
         id
       }
     }
-    allStrapiArchivesOld {
-    edges {
-      next {
-        id
-        strapiId
-        photo_1
-      }
-      previous {
-        id
-      }
-    }
-  }
   }
 `;

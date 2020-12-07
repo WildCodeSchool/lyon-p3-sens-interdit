@@ -3,7 +3,6 @@ import FestivalPoster from "./FestivalPoster";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import FilterTab from "../Programme/FilterTab";
 import ThumbnailOldArchive from "../../globals/ThumbnailOldarchive";
-import photoTest from "../../../assets/img/img-sens-interdit.jpg";
 import { graphql, useStaticQuery } from "gatsby";
 import sensinterdits2009 from "../../../assets/img/affiches/sensinterdits2009.jpeg";
 import sensinterdits2011 from "../../../assets/img/affiches/sensinterdits2011.jpeg";
@@ -22,32 +21,33 @@ function Archive(props) {
     {
       title: "Édition 2019",
       posterUrl:sensinterdits2019,
-      url:"http://localhost:8000/programme_2019/",
+      url:"http://localhost:8000/programme/2019",
+      annee:2019
     },
     {
       title: "Édition 2017",
       posterUrl:sensinterdits2017,
-      url:"http://localhost:8000/programme_2017/",
+      url:"#",
     },
     {
       title: "Édition 2015",
       posterUrl:sensinterdits2015,
-      url:"http://localhost:8000/programme_2015/",
+      url:"#",
     },
     {
       title: "Édition 2013",
       posterUrl:sensinterdits2013,
-      url:"http://localhost:8000/programme_2013/",
+      url:"#",
     },
     {
       title: "Édition 2011",
       posterUrl:sensinterdits2011,
-      url:"http://localhost:8000/programme_2011/",
+      url:"#",
     },
     {
       title: "Édition 2009",
       posterUrl:sensinterdits2009,
-      url:"http://localhost:8000/programme_2009/",
+      url:"#",
     },
   ];
  

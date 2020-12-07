@@ -41,7 +41,6 @@ async function turnSpectaclesIntoPages({ graphql, actions }) {
     result.data.spectacles.edges.forEach(({ node }) => {
       let spectacleSlug = sluggify(node.title);
       let spectacleId = removePageNameForUrl(node.id,"Spectacle");
-      let annee = node.annee
       createPage({
         path: `/spectacle/${spectacleSlug}${spectacleId}`, //strapiId
         component: path.resolve(`src/templates/spectacle.js`),
@@ -92,11 +91,47 @@ async function turnArchiveSpectaclesIntoPages({ graphql, actions }) {
   return getArchiveSpectacle;
 }
 
+//programmeOld Generate////////////////////////////////////////////////////////////////
+async function archiveProgramme({ graphql, actions }) {
+  const { createPage } = actions;
+
+  const getArchiveProgramme = makeRequest(
+    graphql,
+    `
+    {
+        allStrapiArchivesOld {
+        edges {
+          node {
+            id
+            titre
+            annee
+          }
+        }
+      }
+    }
+    `
+  ).then(result => {
+    // Create pages for each article.
+    result.data.allStrapiArchivesOld.edges.forEach(({ node }) => {
+      createPage({
+        path: `/programme/${node.annee}`,
+        component: path.resolve(`src/templates/programmeOld.js`),
+        context: {
+          id: node.annee,
+        },
+      });
+    });
+  });
+
+  // Query for articles nodes to use in creating pages.
+  return getArchiveProgramme;
+}
 // Implement the Gatsby API “createPages”. This is called once the
 // data layer is bootstrapped to let plugins create pages from data.
 exports.createPages = async params => {
   await Promise.all([
     turnArchiveSpectaclesIntoPages(params),
     turnSpectaclesIntoPages(params),
+    archiveProgramme(params),
   ]);
 };
