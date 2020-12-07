@@ -31,8 +31,6 @@ class SearchIndexer {
     let result = results[0]
     let id = parseInt(result.id) + 1;
     delete result.id;
-  console.log('table', table);
-  console.log('id', id);
 
     let search = dataToSearch(result);
     const data = {search, api_id: table, content_id: id};
@@ -49,8 +47,7 @@ class SearchIndexer {
     let results = await query(`SELECT id,${fieldsStr} FROM ${table} ORDER BY id ASC`);
     results.forEach(result => {
       let id = parseInt(result.id);
-      delete result.id;
-      //console.log(result);
+      delete result.id
       let search = dataToSearch(result);
       const data = {search, api_id: table, content_id: id};
       query('INSERT INTO ' + searchTable + ' SET ?', data)

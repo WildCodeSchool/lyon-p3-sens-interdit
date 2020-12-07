@@ -15,7 +15,6 @@ export default function ResultPage() {
 
         fetch(searchUrl)
             .then(headers => {
-                console.log(headers.status);
                 if (headers.status === 200) {
                     return headers.json()
                 } else {
@@ -23,14 +22,11 @@ export default function ResultPage() {
                 }
             })
             .then(({results}) => {
-                console.log('**************')
-                console.log(results)
                 if (results !== null) {
                     setData(results);
                 } else {
                     //setData(fakeData);
                 }
-            console.log(data);
             })
             .catch(err => {
                 console.log(err);
