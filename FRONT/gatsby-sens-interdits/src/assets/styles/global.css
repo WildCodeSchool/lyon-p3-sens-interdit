@@ -63,6 +63,20 @@ li {
   display: none !important;
 }
 
+div.overlay {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.7);
+}
+
+
+
 .container {
   width: 100%;
   max-width: 1080px;
@@ -71,7 +85,8 @@ li {
 }
 
 .flex {
-  display: flex !important
+  display: flex;
+
 }
 .container {
   width: 100%;

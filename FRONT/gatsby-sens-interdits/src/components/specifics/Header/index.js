@@ -9,7 +9,7 @@ import SearchBar from "./SearchBar";
 import NewsletterBtn from "./NewsletterBtn";
 import FrEn from "./FrEn";
 
-export default function Header() {
+export default function Header({setShowSearchInput}) {
   return (
     <header>
       <div className="wrapper-header-row1">
@@ -18,7 +18,7 @@ export default function Header() {
           <NewsletterBtn />
           <Navbar />
           <Ticketing />
-          <SearchBar />
+          <SearchBar setShowSearchInput={setShowSearchInput}/>
         </div>
       </div>
 

@@ -7,7 +7,7 @@
   },
   "settings": {
     "search-generator": {
-      "enabled": true
+      "enabled": false
     }
   }
 }
