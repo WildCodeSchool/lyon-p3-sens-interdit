@@ -4,7 +4,8 @@ import Result from "./Result.js";
 import './Result.css';
 
 let searchUrl = process.env.GATSBY_API_URL + '/search?s=';
-export default function ResultPage() {
+export default function ResultPage(props) {
+    console.log(props)
     const [data, setData] = useState([]);
     const [hasRequested, setHasRequested] = useState(false);
     useEffect(() => {
@@ -42,7 +43,7 @@ export default function ResultPage() {
     }
     return (
         <>
-            {(data.length > 0) ?
+            {(data !== undefined && data.length > 0) ?
                 <div className="container">
                     <h2><span>{data.length}</span> résulat{data.length > 1 ? 's' : ''} trouvé{data.length > 1 ? 's' : ''}</h2>
                     {data.map((item, i) => (
