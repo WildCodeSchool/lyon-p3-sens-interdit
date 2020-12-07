@@ -26,7 +26,9 @@ class Search {
    * @returns {Promise<*[]>}
    */
   async search(searchString) {
-    this.searchString = searchString
+    this.dbResults = [];
+    this.searchResults = [];
+    this.searchString = searchString;
     if (this.searchString.length > this.MIN_CHARS) {
       this.searchString = stringSearch(this.searchString);
       let hasSpace = this.searchString.search(' ') > -1;
