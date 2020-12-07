@@ -123,7 +123,7 @@ async function archiveProgramme({ graphql, actions }) {
 });
 });
 
-
+}
 
 async function turnArticlesIntoPages({ graphql, actions }) {
   const { createPage } = actions;
