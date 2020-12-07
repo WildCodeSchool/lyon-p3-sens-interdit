@@ -4,14 +4,10 @@ import { Link } from "gatsby";
 import "./Index.css";
 import pictoPlus from "../../../assets/img/picto+.svg";
 
-const { sluggify } = require("../../../utils/Sluggify");
-
 export default function Thumbnail(props) {
-  const spectacleSlug = sluggify(props.name);
-
   return (
     <div className="mini-tab">
-      <Link to={`/spectacle/${spectacleSlug}_${props.id}`}>
+      <Link to={`/spectacle/${props.name}_${props.id}`}>
         <div className="global-mini-tab">
           <img
             className="img-mini-tab"

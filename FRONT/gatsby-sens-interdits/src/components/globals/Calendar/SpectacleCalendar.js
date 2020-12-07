@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import LanguageContext from "../../context/LanguageContext";
 import "./CalendarLarge.css";
 import SpectacleDate from "./SpectacleDate";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import localizedFormat from "dayjs/plugin/localizedFormat";
-dayjs.locale("fr");
-dayjs.extend(localizedFormat);
 
 // On lui passe le spectacle et il nous sort les dates
 
 export default function SpecificCalendar(props) {
+  const { language } = useContext(LanguageContext);
+  dayjs.locale(language);
+  dayjs.extend(localizedFormat);
   const thisSpectacle = props.spectacle;
 
-  
   const [activeModalId, setActiveModalId] = useState(null);
 
   function splitHoraires(spectacle) {
@@ -30,11 +31,7 @@ export default function SpecificCalendar(props) {
     <div className="global-calendar-large calendar-container">
       {dateArray.map((date, i) => {
         return (
-          <div
-            className="calendarWrapper"
-            key={i}
-            data-date={date}
-          >
+          <div className="calendarWrapper" key={i} data-date={date}>
             <SpectacleDate
               key={dayjs(date).format("ddd D MMM")}
               day={dayjs(date).format("ddd")}

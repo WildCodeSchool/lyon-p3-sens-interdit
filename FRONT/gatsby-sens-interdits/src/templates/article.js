@@ -14,7 +14,7 @@ export default function ArticlePage({ data }) {
     // <Link to={"/articles/" + titleForLink.toLowerCase().replaceAll(" ", "-")}>
     <div id="articles-page" className="container">
       <Article
-        article={data["article" + LANG]}
+        article={data.article}
         textOverFlow={textOverFlow}
         linkStatus={linkStatus}
       />

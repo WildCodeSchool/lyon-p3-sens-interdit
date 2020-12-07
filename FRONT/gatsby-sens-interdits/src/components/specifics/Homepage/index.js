@@ -8,7 +8,7 @@ import LanguageContext from "../../context/LanguageContext";
 import { FestivalContext } from "../../context/FestivalContext";
 
 export default function Homepage() {
-  const [random, setRandom] = useState(0)
+  const [random, setRandom] = useState(0);
   const { LANG } = useContext(LanguageContext);
   const { currentFestivalStrapiId, currentFestivalTitle } = useContext(
     FestivalContext
@@ -29,6 +29,7 @@ export default function Homepage() {
 
         id
         description
+        description_en
         festival {
           title
           title_en
@@ -91,20 +92,23 @@ export default function Homepage() {
 
   const redSquareArray =
     data.strapiHomepage.carousel !== null
-      ?
-      data.allStrapiSpectacle.nodes.filter(spec => spec.archive === false
-      )
+      ? data.allStrapiSpectacle.nodes.filter(spec => spec.archive === false)
       : false;
 
   useEffect(() => {
     setRandom(Math.floor(Math.random() * Math.floor(redSquareArray.length)));
-  }, [])
+  }, []);
   return (
     <>
-      <ImageCarousel images={imageArray} title={redSquareArray[random].title} booking={redSquareArray[random].reserver} displayed={true} />
+      <ImageCarousel
+        images={imageArray}
+        title={redSquareArray[random].title}
+        booking={redSquareArray[random].reserver}
+        displayed={true}
+      />
 
       <div className="global-homepage container">
-        {data.strapiHomepage.description ? (
+        {data.strapiHomepage["description" + LANG] ? (
           <div>
             <div className="red-arrow"></div>
             <div className="description-content">
@@ -144,7 +148,6 @@ export default function Homepage() {
             />
           ) : null}
         </div>
-
       </div>
     </>
   );
