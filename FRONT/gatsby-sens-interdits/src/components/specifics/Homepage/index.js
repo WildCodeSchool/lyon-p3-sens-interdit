@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import "./Index.css";
 import "../../../assets/styles/global.css";
@@ -8,6 +8,7 @@ import LanguageContext from "../../context/LanguageContext";
 import { FestivalContext } from "../../context/FestivalContext";
 
 export default function Homepage() {
+  const [random, setRandom] = useState(0)
   const { LANG } = useContext(LanguageContext);
   const { currentFestivalStrapiId, currentFestivalTitle } = useContext(
     FestivalContext
@@ -90,17 +91,16 @@ export default function Homepage() {
   const redSquareArray =
     data.strapiHomepage.carousel !== null
       ?
-      data.allStrapiSpectacle.nodes.map(spec => {
-        if (spec.archive === false) {
-          return spec
-        }
-      }
+      data.allStrapiSpectacle.nodes.filter(spec => spec.archive === false
       )
       : false;
-  let randomSpectacle = redSquareArray[Math.floor(Math.random() * Math.floor(redSquareArray.length))];
+
+  useEffect(() => {
+    setRandom(Math.floor(Math.random() * Math.floor(redSquareArray.length)));
+  }, [])
   return (
     <>
-      <ImageCarousel images={imageArray} title={randomSpectacle.title} booking={randomSpectacle.reserver} displayed={true} />
+      <ImageCarousel images={imageArray} title={redSquareArray[random].title} booking={redSquareArray[random].reserver} displayed={true} />
 
       <div className="global-homepage container">
         {data.strapiHomepage.description ? (
