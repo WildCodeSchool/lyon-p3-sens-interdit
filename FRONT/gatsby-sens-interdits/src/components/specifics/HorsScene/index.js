@@ -125,7 +125,7 @@ export default function HorsScenePage() {
 
   const affichageList = () => {
     if (list.length === 0 || list === undefined) {
-      return <h3>Loading ...</h3>;
+      return <h3>Il n'y a pas d'évenement programmé ce jour</h3>;
     } else {
       return list.map(spectacle => {
         return (

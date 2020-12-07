@@ -47,7 +47,7 @@ export default function DiffusionPage() {
   return (
     <div className="global-diffusion">
       <ImageCarousel images={imageArray} />
-      <div id="container">
+      <div className="container">
         <div id="diffusion-description">
           <div className="red-arrow"></div>
           <h3 className="to-uppercase">{strapiDiffusionProduction["title" + LANG]}</h3>
