@@ -26,15 +26,15 @@ const FilterBySelect = () => {
   const allArchives = allStrapiArchivesOld.edges;
 
     const listCountries = allArchives.map((countrie) => countrie.node.pays).sort();
-    const allCountries =  new Set(listCountries);
+    const allCountries =  [...new Set(listCountries)];
     const listDirectors = allArchives.map((director) => director.node.credits_2).sort();
-    const allDirectors =  new Set(listDirectors);
+    const allDirectors =  [...new Set(listDirectors)];
 
     const listLocations = allArchives.map((location) => location.node.lieu).sort();
-    const allLocations =  new Set(listLocations);
+    const allLocations =  [...new Set(listLocations)];
 
     const listYears = allArchives.map((year) => year.node.annee).sort();
-    const allYears =  new Set(listYears);
+    const allYears =  [...new Set(listYears)];
 
   return (
     <div className="my-filters to-uppercase">
