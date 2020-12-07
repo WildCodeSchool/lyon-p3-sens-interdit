@@ -43,6 +43,7 @@ export default function HorsScenePage() {
         nodes {
           title
           title_en
+          reserver
           strapiId
           horaires {
             Day
