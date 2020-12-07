@@ -97,7 +97,7 @@ export default function Homepage() {
       }
       )
       : false;
-  const randomSpectacle = redSquareArray[Math.floor(Math.random() * (redSquareArray.length - 1))];
+  let randomSpectacle = redSquareArray[Math.floor(Math.random() * Math.floor(redSquareArray.length))];
   return (
     <>
       <ImageCarousel images={imageArray} title={randomSpectacle.title} booking={randomSpectacle.reserver} displayed={true} />
