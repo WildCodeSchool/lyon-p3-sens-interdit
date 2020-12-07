@@ -108,7 +108,6 @@ function Archive(props) {
             Discover <span>the production's archives</span>
           </h1>
         )}
-        <FilterBySelect />
         <div className="archive-transmission-grid-wrapper">
           {data.allStrapiArchivesOld.edges.map(elem => (
             <Thumbnail
@@ -122,6 +121,7 @@ function Archive(props) {
             />
           ))}
         </div>
+        <FilterBySelect />
       </div>
     </>
   );
