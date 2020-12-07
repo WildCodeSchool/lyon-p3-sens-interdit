@@ -18,7 +18,6 @@ function Programme({ data }) {
           {/* <span>les archives du festival {data.allStrapiArchivesOld.edges.node.annee}</span> */}
         </h1>
         <div className="archive-transmission-grid-wrapper">
-        {console.log(data)}
           {data.allStrapiArchivesOld.edges.node.map(elem => (
             <ThumbnailOldArchive
               id={elem.node.strapiId}
