@@ -25,6 +25,7 @@ export default function Homepage() {
             }
           }
         }
+
         id
         description
         festival {
@@ -111,6 +112,7 @@ export default function Homepage() {
             />
           ) : null}
         </div>
+
       </div>
     </>
   );
