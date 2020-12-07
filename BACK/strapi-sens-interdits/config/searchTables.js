@@ -5,7 +5,7 @@ let pages = {
   "ecoles": { title: "title", description: "description", image: true, slug: "/ecole" },
   // "festivalpages": { title: "title", description: "description", image: false, slug: "/festival" },
   "festivals": { title: "title", description: "content", image: false, slug: "/festival/" },
-  "hors_scene_pages": { title: "Title", description: "content", image: false, slug: "/hors-scene" },
+  "hors_scene_pages": { title: "title", description: "content", image: false, slug: "/hors-scene" },
   //"infopratiques": { title: null, description: "description", image: true, slug: "" },
   "newspages": { title: "title", description: "content", image: true, slug: "/actualite/" },
   "newstabs": { title: "title", description: 'content', image: false, slug: "/actualite" },
