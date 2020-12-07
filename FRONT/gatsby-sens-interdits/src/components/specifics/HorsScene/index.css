@@ -1,3 +1,48 @@
-#hors-scene-page {
-    margin: 50px;
+
+#hors-scene-pres {
+    display: flex;
+    flex-direction: row;
+    padding : 20px;
+    text-align: justify;
+}
+
+#hors-scene-pres-content {
+    margin-right: 50px;
+}
+#hors-scene-Cal {
+    margin-left: auto;
+
+}
+
+#hors-scene-tabsystem {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.hors-scene-thumbnail {
+    display: flex;
+    flex-wrap: wrap;
+    width: 630px;
+}
+
+/*________________responsive__________*/
+@media screen and (max-width: 1024px) {
+
+    #hors-scene-pres {
+        display: flex;
+        flex-direction: column;
+        padding : 20px;
+        text-align: justify;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #hors-scene-pres div {
+        width: 400px;
+    }
+    #hors-scene-pres div:first-child {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
 }

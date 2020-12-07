@@ -1,0 +1,23 @@
+
+/*content*/
+#diffusion-description {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#diffusion-description p {
+  text-align: justify;
+  margin-bottom: 50px;
+}
+#diffusion-description h3 {
+  color: #e30613;
+  font-size: 26px;
+}
+/*Menu*/
+#diffusion-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto 0 auto;
+  max-width: 1080px;
+}

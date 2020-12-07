@@ -9,10 +9,7 @@
   src: url(fonts/GothamLightRegular.otf) format("otf"),
 }
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
-.global-margin {
-  margin-left: 15%;
-  margin-right: 15%;
-}
+
 
 body {
   margin: 0;
@@ -60,4 +57,49 @@ li {
 
 .grayscale {
   filter: grayscale(1);
+}
+
+.hidden {
+  display: none !important;
+}
+
+div.overlay {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.7);
+}
+
+
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+
+}
+.container {
+  width: 100%;
+  max-width: 1080px;
+  height: auto;
+  margin: 0 auto;
+}
+.red-arrow {
+  position: relative;
+  top: 0;
+  left: 100px;
+  width: 40px;
+  height: 45px;
+  background-color: #e30613;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
 }

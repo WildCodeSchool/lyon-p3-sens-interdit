@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "festivalplaces",
+  "info": {
+    "name": "festivalplace"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "tab_element": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.tab-element"
+    },
+    "festival": {
+      "via": "festivalplace",
+      "model": "festival"
+    }
+  }
+}

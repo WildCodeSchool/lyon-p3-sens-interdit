@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./CalendarLarge.css";
 import CalendarOneDay from "./CalendarOneDay";
 import dayjs from "dayjs";
@@ -25,7 +25,7 @@ export default function CalendarLarge(props) {
   ];
 
   return (
-    <div className="global-calendar-large">
+    <div className="calendar-container global-calendar-large">
       {dateArray.map(date => {
         return (
           <div
@@ -33,6 +33,7 @@ export default function CalendarLarge(props) {
             key={dayjs(date).format()}
             data-date={date}
             onClick={sendDateToParent}
+            onKeyDown={()=>{}}
           >
             <CalendarOneDay
               key={dayjs(date).format("ddd D MMM")}

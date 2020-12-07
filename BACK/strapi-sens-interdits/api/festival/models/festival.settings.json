@@ -24,14 +24,15 @@
       "type": "richtext"
     },
     "spectacles": {
+      "via": "festival",
       "collection": "spectacle"
     },
     "category": {
       "type": "string"
     },
     "infopratique": {
-      "via": "festival",
-      "model": "infopratique"
+      "model": "infopratique",
+      "via": "festival"
     },
     "carousel": {
       "type": "component",
@@ -42,6 +43,46 @@
       "type": "component",
       "repeatable": true,
       "component": "menu.display-tab-menu"
+    },
+    "festivalplace": {
+      "model": "festivalplace",
+      "via": "festival"
+    },
+    "start_date": {
+      "type": "datetime"
+    },
+    "end_date": {
+      "type": "datetime"
+    },
+    "visible": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "program": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menulink"
+    },
+    "off_stage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menulink"
+    },
+    "school": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menulink"
+    },
+    "info": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menulink"
+    },
+    "place": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menulink"
     }
   }
 }

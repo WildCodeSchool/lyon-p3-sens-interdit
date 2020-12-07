@@ -24,9 +24,7 @@
       "collection": "file",
       "via": "related",
       "allowedTypes": [
-        "images",
-        "files",
-        "videos"
+        "images"
       ],
       "plugin": "upload",
       "required": false
@@ -35,17 +33,21 @@
       "collection": "file",
       "via": "related",
       "allowedTypes": [
-        "images",
-        "files",
-        "videos"
+        "images"
       ],
       "plugin": "upload",
       "required": false
     },
     "typeofarticles": {
-      "collection": "typeofarticle",
       "via": "articlecontents",
+      "collection": "typeofarticle",
       "dominant": true
+    },
+    "title_en": {
+      "type": "string"
+    },
+    "article_en": {
+      "type": "richtext"
     }
   }
 }

@@ -11,10 +11,16 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
     "content": {
+      "type": "text"
+    },
+    "title_en": {
+      "type": "string"
+    },
+    "content_en": {
       "type": "text"
     }
   }

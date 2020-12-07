@@ -1,29 +1,50 @@
-import React from 'react';
-import GeneriquePage from '../components/specifics/Generique';
+import React, { useContext } from "react";
+import LanguageContext from "../components/context/LanguageContext";
+import GeneriquePage from "../components/specifics/Generique";
 import { graphql, useStaticQuery } from "gatsby";
 
 export default function Webradio() {
-    const { strapiWebradio } = useStaticQuery(graphql`
+  const { LANG } = useContext(LanguageContext);
+  const { strapiWebradio } = useStaticQuery(graphql`
     query MyQueryWebradio {
-        strapiWebradio {
-            id
-            title
-            description
-            tab_element {
-              id
-              title
-              content
-            }
-            image {
-              id
-              url
-              name
-            }
+      strapiWebradio {
+        id
+        title
+        title_en
+        description
+        description_en
+        tab_element {
+          id
+          content
+          title
+          image {
+            url
           }
-      }`)
-    return (
-        <div>
-            <GeneriquePage image={strapiWebradio.image[0].url} title={strapiWebradio.title} description={strapiWebradio.description} tab_element={strapiWebradio.tab_element} />
-        </div>
-    )
-};
+        }
+        tab_element_en {
+          id
+          content
+          title
+          image {
+            url
+          }
+        }
+        image {
+          id
+          url
+          name
+        }
+      }
+    }
+  `);
+  return (
+    <div>
+      <GeneriquePage
+        image={strapiWebradio.image[0].url}
+        title={strapiWebradio["title" + LANG]}
+        description={strapiWebradio["description" + LANG]}
+        tab_element={strapiWebradio["tab_element" + LANG]}
+      />
+    </div>
+  );
+}

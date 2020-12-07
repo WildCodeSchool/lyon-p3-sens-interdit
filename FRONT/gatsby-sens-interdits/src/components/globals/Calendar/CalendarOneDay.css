@@ -4,17 +4,67 @@
   justify-content: center;
   align-items: center;
   width: 70px;
-  height: 40px;
-  border-right: solid black 1px;
+  height: auto;
   border-left: solid black 1px;
   cursor: pointer;
 }
 
+.calendar-container .one-day:hover,
+.calendar-container.one-day:hover,
+.calendar-container.active,
+.calendar-container .active {
+  background-color: red;
+  color: white;
+}
+
+
+.calendar-container .one-day:hover p,
+.calendar-container.one-day:hover p,
+.calendar-container .one-day:hover p strong,
+.calendar-container.one-day:hover p strong {
+  color: white;
+}
+
 .one-day p {
   color: rgb(94, 94, 94);
+  cursor: pointer;
 }
 
 .one-day p strong {
   font-size: 20px;
   color: black;
+
+  cursor: pointer;
+}
+
+.modal {
+  position: relative;
+  border-left: solid black 1px;
+  top: 100%;
+  left: 10px;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  transition: 0.5s;
+  display: block;
+}
+.modal h3 {
+  margin: 0;
+}
+
+.modal p {
+  padding: 0;
+  margin-bottom: 5px;
+}
+.modal a {
+  border: 0;
+  background: red;
+  color: white;
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
 }

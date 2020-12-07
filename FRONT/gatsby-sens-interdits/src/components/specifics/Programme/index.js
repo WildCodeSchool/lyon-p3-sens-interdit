@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Index.css";
+import "../../../assets/styles/global.css";
 import photoTest from "../../../assets/img/img-sens-interdit.jpg";
 import Thumbnail from "../../globals/Thumbnail";
 import CalendarLarge from "../../globals/Calendar/CalendarLarge";
@@ -7,7 +8,7 @@ import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import localizedFormat from "dayjs/plugin/localizedFormat";
-import { sluggify } from '../../../utils/Sluggify';
+import { sluggify } from "../../../utils/Sluggify";
 dayjs.locale("fr");
 dayjs.extend(localizedFormat);
 
@@ -36,9 +37,13 @@ export default function ProgrammePage(props) {
     return treatment;
   }
 
-  useEffect(() => {
+  const majState = () =>{
     setList(fullList);
-  }, []);
+  }
+
+  useEffect(() => {
+    majState()
+  }, [props.list]);
 
   function dateFilter(date) {
     const filteredList = fullList.filter(spectacle => {
@@ -81,8 +86,7 @@ export default function ProgrammePage(props) {
     if (list.length === 0 || list === undefined) {
       return (
         <h3>
-          Something happened ?! <br />
-          Please reload the page.
+          Loading ...
         </h3>
       );
     } else {
@@ -104,10 +108,7 @@ export default function ProgrammePage(props) {
             name={spectacle.title}
             id={spectacle.strapiId}
             team={spectacle.author ? spectacle.author : "inconnu"}
-            url={
-              "/spectacle/" +
-              sluggify(spectacle.title)
-            }
+            url={"/spectacle/" + sluggify(spectacle.title)}
           />
         );
       });
@@ -116,22 +117,22 @@ export default function ProgrammePage(props) {
   return (
     <div className="global-programme-page">
       <ImageCarousel />
-      <div className="content-programme-page">
+      <div className="content-programme-page container">
         <div className="calendar-programme-page">
           <CalendarLarge dateSetter={dateFilter} />
         </div>
         <div className="global-FilterTab">
           <h2> FILTREZ PAR: </h2>
-          <a href="#" onClick={countryFilter}>
+          <a role="button" onClick={countryFilter} >
             <p> PAYS </p>
           </a>
-          <a href="#" onClick={authorFilter}>
+          <a role="button" onClick={authorFilter} >
             <p> METTEUR EN SCÈNE </p>
           </a>
-          <a href="#" onClick={placeFilter}>
+          <a role="button" onClick={placeFilter} >
             <p> LIEUX </p>
           </a>
-          <a href="#" onClick={resetFilter}>
+          <a role="button" onClick={resetFilter} >
             <h3> supprimer filtres </h3>
           </a>
         </div>

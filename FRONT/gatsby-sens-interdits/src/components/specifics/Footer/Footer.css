@@ -45,12 +45,11 @@ footer {
 
 .footer-list-link ul a {
   color: rgb(190, 190, 190);
-
 }
 
 .footer-list-link ul li:before {
   content: "";
-  border-color: transparent #E30613;
+  border-color: transparent #e30613;
   border-style: solid;
   border-width: 0.35em 0 0.35em 0.45em;
   display: block;
@@ -70,6 +69,7 @@ footer {
 }
 
 .newsletter-container {
+  position: relative;
   display: flex;
   justify-content: space-between;
   background: #1b1b1b;
@@ -78,21 +78,24 @@ footer {
   width: 650px;
 }
 
-.newsletter-title :nth-child(1n){
-  margin:0;
+.newsletter-title :nth-child(1n) {
+  margin: 0 5px 0 0;
+}
+.newsletter-container form {
+  width: 75%;
+  align-self: center;
 }
 
 .newsletter-container .input-newsletter {
-  align-self: center;
+  
   background: #3b3b3b;
   border: none;
   height: 35px;
   width: 75%;
   color: white;
   outline: none;
-  padding-left:10px;
+  padding-left: 10px;
 }
-
 
 .newsletter-container .submit-newsletter {
   align-self: center;
@@ -103,30 +106,45 @@ footer {
   color: white;
 }
 
-@media screen and (max-width: 960px) {
+/* message newsletter subscribe */
+.pop {
+  width : auto;
+  height : 40px;
+  padding: 5px;
+  background-color: rgb(22, 22, 22);
+  border-radius: 5px;
+  border-top: solid 8px #E30613;
+  text-align: center;
+  position : absolute;
+  top : -50px;
+  right : 0;
+  z-index:3;
 
+}
+
+@media screen and (max-width: 960px) {
   /* FOOTER */
-  footer{
+  footer {
     height: auto;
     padding-bottom: 10px;
   }
   .footer-column1 {
-    margin:0;
+    margin: 0;
   }
-  .footer-column2{
-    margin:0;
+  .footer-column2 {
+    margin: 0;
   }
-  .wrapper-footer{
+  .wrapper-footer {
     flex-direction: column;
   }
   .footer-column1 .main-logo a img {
     display: none;
   }
-  .footer-column1-socialnetwork{
+  .footer-column1-socialnetwork {
     text-align: center;
     align-items: center;
   }
-  .footer-column1-socialnetwork .social-network{
+  .footer-column1-socialnetwork .social-network {
     justify-content: center;
   }
   .newsletter-container {
@@ -134,11 +152,10 @@ footer {
     margin: 10px 10px;
     font-size: 10px;
   }
-  .footer-one{
+  .footer-one {
     display: none;
   }
-  .footer-list-link ul{
+  .footer-list-link ul {
     margin: 0 30px;
   }
-
 }

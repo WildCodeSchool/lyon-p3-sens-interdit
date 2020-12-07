@@ -1,5 +1,7 @@
 import React from "react";
 import "./../Spectacle/SpectacleInfos.css";
+import "../../../assets/styles/global.css";
+
 
 const SpectacleInfosOldArchive = ({
   country,
@@ -7,7 +9,7 @@ const SpectacleInfosOldArchive = ({
   info,
 }) => {
   return (
-    <div className="spectacle-info">
+    <div className="spectacle-info container">
       <div className="red-arrow"></div>
       <div className="spectacle-info-container">
         <div className="info-container">

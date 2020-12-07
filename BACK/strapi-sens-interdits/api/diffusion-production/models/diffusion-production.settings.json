@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "diffusion_productions",
+  "info": {
+    "name": "DiffusionProduction",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "carousel": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.medias-slider"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "squaremenu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.display-tab-menu"
+    },
+    "title_en": {
+      "type": "string"
+    },
+    "description_en": {
+      "type": "richtext"
+    }
+  }
+}

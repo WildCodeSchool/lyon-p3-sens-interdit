@@ -1,9 +1,12 @@
+import React, { useContext } from "react";
+import LanguageContext from "../components/context/LanguageContext";
 import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
 import GeneriquePage from "../components/specifics/Generique";
 
 export default function Scolaire() {
-  const data = useStaticQuery(graphql`
+  const { LANG } = useContext(LanguageContext);
+
+  const { strapiScolaire } = useStaticQuery(graphql`
     query scolaireQuery {
       strapiScolaire {
         id
@@ -12,21 +15,35 @@ export default function Scolaire() {
           id
         }
         tab_element {
-          title
+          id
           content
+          title
+          image {
+            url
+          }
+        }
+        tab_element_en {
+          id
+          content
+          title
+          image {
+            url
+          }
         }
         title
+        title_en
         description
+        description_en
       }
     }
   `);
 
   return (
     <GeneriquePage
-      image={data.strapiScolaire.image[0].url}
-      title={data.strapiScolaire.title}
-      description={data.strapiScolaire.description}
-      tab_element={data.strapiScolaire.tab_element}
+      image={strapiScolaire.image[0].url}
+      title={strapiScolaire["title" + LANG]}
+      description={strapiScolaire["description" + LANG]}
+      tab_element={strapiScolaire["tab_element" + LANG]}
     />
   );
 }
