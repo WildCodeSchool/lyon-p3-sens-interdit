@@ -14,6 +14,7 @@ export default function CalendarOneDay(props) {
       className={"one-day " + (active ? "active" : "")}
       data-date={props.date}
       onClick={activator}
+      onKeyDown={()=>{}}
     >
       <p className={active ? "active" : ""} data-date={props.date}>
         {props.day}

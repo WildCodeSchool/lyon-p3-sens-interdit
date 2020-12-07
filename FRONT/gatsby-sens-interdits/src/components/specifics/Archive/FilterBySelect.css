@@ -1,28 +1,33 @@
-.my-filters select {
-    height: 20px;
-    cursor: pointer;
-    margin-bottom: 2px;
-  }
-  .my-filters label{
-    font-weight: bold;
-    margin-right: 7px;
-  }
-.countrieSelect, .locationSelect, .yearSelect{
-    width: 15%;
+.my-filters {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+  margin-bottom: 50px;
+}
 
+.my-filters label {
+  width: 25%;
+  margin-right: 15px;
+  font-size: 1.4em;
+  font-weight: bolder;
 }
-.directorSelect{
-    width: 28%;
+
+.select-flex-wrapper {
+  display: flex;
+  flex-direction: row;
 }
-.my-filters{
-    width: 80%;
-    margin-left: 20%;
-    padding: 0;
-    font-size: large;
+
+.select-flex-wrapper select {
+  width: 22%;
+  height: 25px;
+  cursor: pointer;
+  padding: 0;
+  font-size: 1.1em;
+  border: none;
+  border-right: 2px solid #e30613;
+  appearance: none;
 }
-.red-line {
-    border-left: 1px solid red;
-    display: inline-block;
-    height: 24px;
-    margin: -5px 7px;
-  }
+
+.select-flex-wrapper select option {
+  overflow-wrap: break-word;
+}

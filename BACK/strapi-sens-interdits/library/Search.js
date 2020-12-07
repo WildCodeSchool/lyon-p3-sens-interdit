@@ -2,7 +2,7 @@
 require('dotenv').config();
 const async = require('async');
 const {query} = require('./Mysql');
-const {stringSearch, dataToSearch, sluggify} = require('./utils/string');
+const {stringSearch, sluggify} = require('./utils/string');
 const tablesConfig = require('../config/searchTables');
 
 // TODO : Lang, order by score, add limit params
@@ -27,7 +27,6 @@ class Search {
    */
   async search(searchString) {
     this.searchString = searchString
-    console.log(1);
     if (this.searchString.length > this.MIN_CHARS) {
       this.searchString = stringSearch(this.searchString);
       let hasSpace = this.searchString.search(' ') > -1;
@@ -37,30 +36,16 @@ class Search {
         'FROM ' + this.searchTable + ' WHERE (MATCH (search) AGAINST (? IN BOOLEAN MODE)) ' +
         'ORDER BY score DESC';
       try {
-        console.log(2);
         let results = await query(sql, attr);
-        console.log(3);
         let results2 = [];
         if (results.length < 9 && hasSpace) {
           results2 = await query(sql, attr2);
         }
-        console.log(4);
         let allResults = [...results2, ...results];
         this.buildApiContentResult(allResults);
-        console.log(5);
         results = await this.getResults();
-        console.log(6);
-        console.log('results', results);
-        console.log('this.dbResults', this.dbResults);
         return this.buildResults(this.dbResults);
-
-        /*        return await this.getResults(async (results) => {
-                  await this.buildResults(results);
-                  console.log(6);
-                  return this.searchResults;
-                });*/
       } catch (err) {
-        console.log(7);
         let error = new Error(err)
         console.log(error);
         throw error;
@@ -72,7 +57,7 @@ class Search {
 
   /**
    *
-   * @param next
+   * @returns {Promise<unknown>}
    */
   getResults(/*next*/) {
     return new Promise((resolve, reject) => {
@@ -171,9 +156,10 @@ class Search {
     if (results.length > 0) {
       // TODO order result by created_at
       // console.log('buildResults', results);
+      let url = '';
       results.forEach(result => {
         let config = tablesConfig[result.table];
-        let url = '';
+        url = '';
         if (result.table === 'archives_olds') {
           url = '/archives-old-' + result.id;
         } else {

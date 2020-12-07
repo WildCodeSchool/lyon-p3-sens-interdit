@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./CalendarOneDay.css";
 
 export default function SpectacleDate(props) {
@@ -19,6 +19,7 @@ export default function SpectacleDate(props) {
         className={parseInt(props.activeModalId) === id  ? "active" : ""}
         data-date={props.date}
         onClick={activator}
+        onKeyDown={()=>{}}
         data-id={id}
       >
         {props.day}
@@ -27,6 +28,7 @@ export default function SpectacleDate(props) {
         className={parseInt(props.activeModalId) === id  ? "active" : ""}
         data-date={props.date}
         onClick={activator}
+        onKeyDown={()=>{}}
         data-id={id}
       >
         <strong className={parseInt(props.activeModalId) === id  ? "active" : ""} data-date={props.date} onClick={activator}
@@ -38,6 +40,7 @@ export default function SpectacleDate(props) {
         className={parseInt(props.activeModalId) === id  ? "active" : ""}
         data-date={props.date}
         onClick={activator}
+        onKeyDown={()=>{}}
         data-id={id}
       >
         {props.month}
@@ -63,7 +66,7 @@ const Modal = props => {
         <strong>{props.place}</strong>
       </h3>
       <p>{props.horaire}</p>
-      <a href={props.reservationLink} target="_blank">
+      <a href={props.reservationLink} target="_blank" rel="noreferrer">
         Réserver
       </a>
     </div>
