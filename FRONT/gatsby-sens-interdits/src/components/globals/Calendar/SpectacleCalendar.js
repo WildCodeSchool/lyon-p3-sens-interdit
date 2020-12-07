@@ -11,6 +11,7 @@ dayjs.extend(localizedFormat);
 
 export default function SpecificCalendar(props) {
   const thisSpectacle = props.spectacle;
+
   
   const [activeModalId, setActiveModalId] = useState(null);
 
