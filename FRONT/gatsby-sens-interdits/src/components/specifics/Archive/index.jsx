@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import FestivalPoster from "./FestivalPoster";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import FilterTab from "../Programme/FilterTab";
-
 import ThumbnailOldArchive from "../../globals/ThumbnailOldarchive";
 import { graphql, useStaticQuery } from "gatsby";
 import sensinterdits2009 from "../../../assets/img/affiches/sensinterdits2009.jpeg";
@@ -11,8 +10,8 @@ import sensinterdits2013 from "../../../assets/img/affiches/sensinterdits2013.jp
 import sensinterdits2015 from "../../../assets/img/affiches/sensinterdits2015.jpeg";
 import sensinterdits2017 from "../../../assets/img/affiches/sensinterdits2017.jpeg";
 import sensinterdits2019 from "../../../assets/img/affiches/sensinterdits2019.png";
-import Thumbnail from "../../globals/Thumbnail";
-import FilterBySelect from "./FilterBySelect";
+
+import FilterBySelect from "./FilterBySelect"; 
 
 
 import "./Archive.css";
@@ -56,30 +55,21 @@ function Archive(props) {
     },
   ];
 
-
-  const data = useStaticQuery(graphql`
-    query MyQueryArchive {
-      strapiArchiveDescription {
-        title
-        title_en
-        description
-        description_en
-      }
-      allStrapiArchivesOld {
-        edges {
-          node {
-            titre
-            id
-            credits_2
-            pays
-            photo_1
-          }
-        }
+ const { allStrapiArchivesOld } = useStaticQuery(graphql`
+  query MyQueryArchive {
+    allStrapiArchivesOld(filter: {categorie: {eq: "hors_scene"}}) {
+      edges {
+        node {
+        titre
+        strapiId
+        id
+        credits_2
+        pays
+        photo_1
       }
     }
-  `);
-
-
+  }
+  }`)
   return (
     <>
       <ImageCarousel
@@ -88,18 +78,17 @@ function Archive(props) {
         title={props.title ? props.title : ""}
       />
       <div className="container archive-global-styling">
-        <p className="archive-description">
-          {data.strapiArchiveDescription["description" + LANG]}
-        </p>
+        
         {LANG !== "_en" ? (
           <h1 className="to-uppercase">
             Découvrez <span>les archives du festival</span>
           </h1>
         ) : (
           <h1 className="to-uppercase">
-            Discover <span>the festival's archives</span>
+            Explore <span>the festival's archives</span>
           </h1>
         )}
+        <FilterTab />
         <div className="archive-festivals-grid-wrapper">
           {festivals.map(festival => {
             return (
@@ -117,12 +106,12 @@ function Archive(props) {
           </h1>
         ) : (
           <h1 className="to-uppercase">
-            Discover <span>the production's archives</span>
+            Explore <span>the production's archives</span>
           </h1>
         )}
+        <FilterTab />
         <FilterBySelect />
         <div className="archive-transmission-grid-wrapper">
-
         {allStrapiArchivesOld.edges.map(elem => (
           <ThumbnailOldArchive
             id={elem.node.strapiId}
@@ -135,18 +124,7 @@ function Archive(props) {
             
         ))}
         
-          {data.allStrapiArchivesOld.edges.map(elem => (
-            <Thumbnail
-              key={elem.node.id}
-              id={elem.node.id}
-              url={"/" + elem.node.id}
-              date={elem.node.date_1}
-              country={elem.node.pays}
-              name={elem.node.titre}
-              team={elem.node.credits_2}
-              affiche={process.env.GATSBY_API_URL + "/images/archives/" + elem.node.photo_1}
-            />
-          ))}
+        
         </div>
       </div>
     </>
