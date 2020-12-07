@@ -33,6 +33,7 @@ export default function CalendarLarge(props) {
             key={dayjs(date).format()}
             data-date={date}
             onClick={sendDateToParent}
+            onKeyDown={()=>{}}
           >
             <CalendarOneDay
               key={dayjs(date).format("ddd D MMM")}

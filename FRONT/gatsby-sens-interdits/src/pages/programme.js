@@ -12,6 +12,7 @@ export default function Programme() {
       allStrapiSpectacle {
         nodes {
           title
+          reserver
           festival {
             id
           }

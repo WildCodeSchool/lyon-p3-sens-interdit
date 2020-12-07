@@ -1,14 +1,8 @@
 
-.global-generique-page .image-generique-page {
-  height: 400px;
-  max-width:1080px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.global-generique-page .image-generique-page img {
-  object-fit: cover;
+.container .image-generique-page img {
+  object-fit: scale-down;
   height: 400px;
-  min-width: 100vw;
+  width: 1080px;
+  margin-top: 50px;
 }
