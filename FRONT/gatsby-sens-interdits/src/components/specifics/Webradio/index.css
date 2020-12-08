@@ -1,18 +1,49 @@
 .image-webradio {
     object-fit: scale-down;
     height: 400px;
-    width: 1080px;
+    width: 100%;
     margin-top: 50px;
     margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
   }
 .webRadioLink {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
 }
 .youtube {
     margin-right: auto;
     margin-left: auto;
     width: fit-content;
     margin-bottom: 50px;
+}
+.container-pictures {
+    display: grid;
+    grid-template-columns: repeat(5,200px);
+    column-gap: 10px;
+    row-gap: 10px;
+    align-items:center;
+    justify-items: center;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+.pictures {
+    width: 200px;
+}
+/* ______responsive grid____*/
+@media (max-width: 1024px){
+    .container-pictures {
+        display: grid;
+        grid-template-columns: repeat(3,200px);
+    }
+}
+@media (max-width: 600px){
+    .container-pictures {
+        display: flex;
+        flex-direction: column;
+    }
 }

@@ -35,10 +35,14 @@ export default function webRadio() {
             url
           }
         }
+        galery {
+          url
+        }
       }
     }
   `);
 const podcastlink = strapiWebradio.podcastlink;
+console.log(strapiWebradio.galery);
 
 
   const opts = {
@@ -85,6 +89,12 @@ const podcastlink = strapiWebradio.podcastlink;
       <div className="youtube">
         <h3>Et découvrez leur formidable aventure dans le webdoc qui leur est consacré : </h3>
         <YouTube videoId="LbQQrlFXs8s" opts={opts}/>
+      </div>
+      <div className="container-pictures">
+        {strapiWebradio.galery.map(picture =>
+        <img src={process.env.GATSBY_API_URL + picture.url} alt={picture.name} className="pictures" />
+          )}
+
       </div>
     </div>
 
