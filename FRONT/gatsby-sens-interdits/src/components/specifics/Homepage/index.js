@@ -95,15 +95,18 @@ export default function Homepage() {
       ? data.allStrapiSpectacle.nodes.filter(spec => spec.archive === false)
       : false;
 
+
   useEffect(() => {
     setRandom(Math.floor(Math.random() * Math.floor(redSquareArray.length)));
   }, []);
+
   return (
     <>
       <ImageCarousel
         images={imageArray}
         title={redSquareArray[random].title}
         booking={redSquareArray[random].reserver}
+        country={redSquareArray[random].country}
         displayed={true}
       />
 

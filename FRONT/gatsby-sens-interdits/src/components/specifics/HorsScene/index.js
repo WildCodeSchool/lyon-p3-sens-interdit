@@ -17,6 +17,8 @@ dayjs.locale("fr");
 dayjs.extend(localizedFormat);
 
 export default function HorsScenePage() {
+  const [random, setRandom] = useState(0);
+
   const { LANG, language } = useContext(LanguageContext);
 
   const strapiHorsSceneQuery = useStaticQuery(graphql`
@@ -38,6 +40,15 @@ export default function HorsScenePage() {
         id
         content
         content_en
+        carousel {
+          id
+          image {
+            id
+            image {
+              url
+            }
+          }
+        }
       }
       allStrapiSpectacle {
         nodes {
@@ -45,6 +56,7 @@ export default function HorsScenePage() {
           title_en
           reserver
           strapiId
+          archive
           horaires {
             Day
           }
@@ -71,6 +83,21 @@ export default function HorsScenePage() {
     strapiHorsSceneQuery.allStrapiHorsSceneTab.nodes[0].horsscenetab;
   const horsScenePageQuery = strapiHorsSceneQuery.strapiHorsScenePage;
   const spectacleQuery = strapiHorsSceneQuery.allStrapiSpectacle.nodes;
+
+  /*CAROUSEL*/
+  const imageArray =
+    strapiHorsSceneQuery.strapiHorsScenePage.carousel !== null
+      ? strapiHorsSceneQuery.strapiHorsScenePage.carousel.image.map(image => image.image)
+      : false;
+
+  const redSquareArray =
+    strapiHorsSceneQuery.strapiHorsScenePage.carousel !== null
+      ? strapiHorsSceneQuery.allStrapiSpectacle.nodes.filter(spec => spec.type_of_events.length !== 0 && spec.type_of_events.category !== "Spectacles")
+      : false;
+
+  useEffect(() => {
+    setRandom(Math.floor(Math.random() * Math.floor(redSquareArray.length)));
+  }, []);
 
   const [list, setList] = useState("");
 
@@ -159,13 +186,15 @@ export default function HorsScenePage() {
 
   return (
     <div>
-      <ImageCarousel /> {/* TODO : passer les props pour ce composant */}
+      <ImageCarousel images={imageArray} title={redSquareArray[random].title}
+        booking={redSquareArray[random].reserver} country={redSquareArray[random].country}
+        displayed={true} />
       <div className="container">
         <div className="red-arrow"></div>
         <div id="hors-scene-pres">
           <div id="hors-scene-pres-content">
             <h3 className="to-uppercase">
-              {horsScenePageQuery["Title" + LANG]}
+              {horsScenePageQuery["title" + LANG]}
             </h3>
             <p>{horsScenePageQuery["content" + LANG]}</p>
           </div>
