@@ -1,20 +1,37 @@
 import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
+import tabSystemClick from "../../../utils/tab-system";
 import picto from "../../../assets/img/picto.svg";
 import "./tabSystemH.css";
 
-export default function TabSystemHOldArchive({ tabContent }) {
+export default function TabSystemHOldArchive({ 
+  tabContent
+   }) {
   const [activeTabContent, setActiveTabContent] = useState("");
+  const [activeClass, setActiveClass] = useState("");
+  const [firstLoad, setFirstLoad] = useState(true);
 
   function handleOnClick(e) {
-    setActiveTabContent(e.target.id);
-    // setActiveClass(e.target.id);
+    if (firstLoad) {
+      setFirstLoad(false);
+    }
+    tabSystemClick(e, setActiveTabContent, setActiveClass);
   }
   return (
     <div className="tab-module">
       <div>
-        {tabContent.map(tab => (
-          <div className="tab-title" key={tab.id}>
+        {tabContent.map((tab,i) => (
+          <div className={
+              "tab-title " +
+              (activeClass === tab.id || (firstLoad && i === 0) ? "active" : "")
+            }
+            key={tab.id}
+            id={"tab-link_" + tab.id}
+            data-id={tab.id}
+            onClick={handleOnClick}
+            onKeyDown={() => {}}
+            role="button"
+            >
             <img
               src={picto}
               alt="pictogramme cliquable"
@@ -22,14 +39,8 @@ export default function TabSystemHOldArchive({ tabContent }) {
               height="30"
             />
             <h3
-              title="action"
-              id={tab.title}
-              className={
-                "tab-link " + (activeTabContent === tab.title ? "active" : "")
-              }
-              onClick={handleOnClick}
-              onKeyDown={()=>{}}
-              role="button"
+              id={tab.id}
+              className="tab-link "
             >
               {tab.title}
             </h3>
@@ -37,12 +48,14 @@ export default function TabSystemHOldArchive({ tabContent }) {
         ))}
       </div>
       <div>
-        {tabContent.map(tab => (
+        {tabContent.map((tab, i) => (
           <div key={tab.id}>
             <div
-              id="tab-content"
               className={
-                activeTabContent === tab.title ? "active-tab" : "disabled-tab"
+                "tab-content " +
+                (activeTabContent === tab.id || (firstLoad && i === 0)
+                  ? "active-tab"
+                  : "disabled-tab")
               }
             >
               <ReactMarkdown source={tab.content} />
