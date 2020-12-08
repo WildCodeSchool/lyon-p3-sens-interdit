@@ -34,6 +34,13 @@ export default function ArchiveSpectaclePage({ data }) {
     }
   }
 
+  // navigating between spectacle
+
+  const thisID = data.strapiArchivesOld.strapiId;
+  const listArch = data.allStrapiArchivesOld.nodes;
+  const suivSpect = listArch.find(node => node.strapiId === thisID + 1);
+  const precSpect = listArch.find(node => node.strapiId === thisID - 1);
+
   return (
     <div className="global-spectacle-page">
       <ImageCarouselOldArchive
@@ -68,28 +75,30 @@ export default function ArchiveSpectaclePage({ data }) {
                 data.strapiArchivesOld.photo_1,
             })}
 
-            <ThumbnailOldArchive
-              id={data.strapiArchivesOld.id}
-              key={data.strapiArchivesOld.id}
-              country={data.strapiArchivesOld.pays}
-              name={data.strapiArchivesOld.titre}
-              team={data.strapiArchivesOld.credits_2}
-              affiche={
-                `${process.env.GATSBY_IMAGE_URL}` +
-                data.strapiArchivesOld.photo_1
-              }
-            />
-            <ThumbnailOldArchive
-              id={data.strapiArchivesOld.strapiId}
-              key={data.strapiArchivesOld.titre}
-              country={data.strapiArchivesOld.pays}
-              name={data.strapiArchivesOld.titre}
-              team={data.strapiArchivesOld.credits_2}
-              affiche={
-                `${process.env.GATSBY_IMAGE_URL}` +
-                data.strapiArchivesOld.photo_1
-              }
-            />
+            {precSpect != undefined ? (
+              <ThumbnailOldArchive
+                id={precSpect.strapiId}
+                key={precSpect.id}
+                country={precSpect.pays}
+                name={precSpect.titre}
+                team={precSpect.credits_2}
+                affiche={`${process.env.GATSBY_IMAGE_URL}` + precSpect.photo_1}
+              />
+            ) : (
+              ""
+            )}
+            {suivSpect != undefined ? (
+              <ThumbnailOldArchive
+                id={suivSpect.strapiId}
+                key={suivSpect.id}
+                country={suivSpect.pays}
+                name={suivSpect.titre}
+                team={suivSpect.credits_2}
+                affiche={`${process.env.GATSBY_IMAGE_URL}` + suivSpect.photo_1}
+              />
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
@@ -100,35 +109,45 @@ export default function ArchiveSpectaclePage({ data }) {
 // This query needs to be dynamic based on the id of the spectacle
 // (example: id="test-spectacle" --> the route will be: http://localhost:8000/spectacle/test-spectacle/
 export const query = graphql`
-query MyQueryArchiveDeux($id: Int!) {
-  strapiArchivesOld(strapiId: {eq: $id}) {
-    id
-    strapiId
-    titre
-    duree
-    pays
-    lieu
-    presentation
-    a_noter
-    photo_1
-    photo_2
-    photo_3
-    photo_4
-    photo_5
-    photo_6
-    photo_7
-    photo_8
-    photo_9
-    photo_10
-    photo_11
-    photo_12
-    photo_13
-    url1
-    tableElementArchiveOld {
-      content
-      title
+  query MyQueryArchiveDeux($id: Int!) {
+    strapiArchivesOld(strapiId: { eq: $id }) {
       id
+      strapiId
+      titre
+      duree
+      pays
+      lieu
+      presentation
+      a_noter
+      photo_1
+      photo_2
+      photo_3
+      photo_4
+      photo_5
+      photo_6
+      photo_7
+      photo_8
+      photo_9
+      photo_10
+      photo_11
+      photo_12
+      photo_13
+      url1
+      tableElementArchiveOld {
+        content
+        title
+        id
+      }
+    }
+    allStrapiArchivesOld {
+      nodes {
+        id
+        strapiId
+        titre
+        pays
+        photo_1
+        credits_2
+      }
     }
   }
-}
 `;
