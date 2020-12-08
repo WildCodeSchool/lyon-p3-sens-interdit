@@ -19,6 +19,7 @@ export default function TransmissionsPage() {
             }
           }
           procardcontent {
+            id
             image {
               url
             }
@@ -27,6 +28,7 @@ export default function TransmissionsPage() {
             url
           }
           publiccardcontent {
+            id
             image {
               url
             }
@@ -59,10 +61,10 @@ export default function TransmissionsPage() {
               Ateliers-<span>Transmission</span>
             </h1>
           ) : (
-            <h1>
-              Workshops-<span>Transmission</span>
-            </h1>
-          )}
+              <h1>
+                Workshops-<span>Transmission</span>
+              </h1>
+            )}
           <p>{transmission["description" + LANG]}</p>
         </div>
         <div className="transmission-grid-layout">
@@ -72,10 +74,10 @@ export default function TransmissionsPage() {
                 Avec <span>les publics</span>
               </h1>
             ) : (
-              <h1>
-                With <span>the audiences</span>
-              </h1>
-            )}
+                <h1>
+                  With <span>the audiences</span>
+                </h1>
+              )}
 
             {transmission.publiccardcontent.map(data => (
               <DisplayTabMenu
@@ -93,10 +95,10 @@ export default function TransmissionsPage() {
                 Avec <span>les professionnels</span>
               </h1>
             ) : (
-              <h1>
-                With <span>the professionals</span>
-              </h1>
-            )}
+                <h1>
+                  With <span>the professionals</span>
+                </h1>
+              )}
             {transmission.procardcontent.map(data => (
               <DisplayTabMenu
                 key={data.id}

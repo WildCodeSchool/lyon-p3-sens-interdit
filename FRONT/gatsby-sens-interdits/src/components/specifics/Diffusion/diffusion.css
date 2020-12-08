@@ -9,9 +9,11 @@
   text-align: justify;
   margin-bottom: 50px;
 }
-#diffusion-description h3 {
+#diffusion-description h1 {
+  color: black;
+}
+#diffusion-description span {
   color: #e30613;
-  font-size: 26px;
 }
 /*Menu*/
 #diffusion-menu {
