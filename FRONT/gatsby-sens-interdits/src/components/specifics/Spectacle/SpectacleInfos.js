@@ -49,7 +49,7 @@ const SpectacleInfos = ({
             {tarif !== null ? tarif.tarif : ""}
           </span>
           <ul>
-            {tarif!== null
+            {tarif !== null
               ? tarif.category.map((el, i) => <li key={i}>{el.category}</li>)
               : ""}
           </ul>
@@ -62,7 +62,6 @@ const SpectacleInfos = ({
               title="title here"
               target="blank"
             >
-              {/* TODO set default image **/}
               <img
                 src={
                   picto.image[0] !== undefined
