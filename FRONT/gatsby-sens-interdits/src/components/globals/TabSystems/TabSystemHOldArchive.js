@@ -20,6 +20,7 @@ export default function TabSystemHOldArchive({
   return (
     <div className="tab-module">
       <div>
+      
         {tabContent.map((tab,i) => (
           <div className={
               "tab-title " +
@@ -35,11 +36,11 @@ export default function TabSystemHOldArchive({
             <img
               src={picto}
               alt="pictogramme cliquable"
-              weight="30"
+              width="30"
               height="30"
             />
             <h3
-              id={tab.id}
+              data-id={tab.id}
               className="tab-link "
             >
               {tab.title}
