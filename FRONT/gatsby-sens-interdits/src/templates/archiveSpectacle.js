@@ -9,8 +9,6 @@ import "./archiveSpectacle.css";
 import "../assets/styles/global.css";
 import ImageCarouselOldArchive from "../components/globals/CarouselOldArchive/ImageCarouselOldArchive";
 import SpectacleInfosOldArchive from "../components/specifics/SpectacleOldArchive/SpectacleInfosOldArchive";
-import Thumbnail from "./../components/globals/Thumbnail";
-import TabSystemH from "./../components/globals/TabSystems/TabSystemHOldArchive";
 
 
 export default function ArchiveSpectaclePage({ data }) {
