@@ -19,35 +19,50 @@ export default function Filters({filtersList, language, setFilters, filters}) {
             <h4 className="to-uppercase">
                 {language === "fr" ? "Filtrer par :" : "Filter"}
             </h4>
-            <div className="select-flex-wrapper">
+                <div className="select-flex-wrapper">
                 {filtersList.countries.length > 0 ?
-                <select className="countrySelect" data-type="country" onChange={handleChangeFilter}>
-                    <option value="">{language === "fr" ? "PAYS" : "COUNTRY"}</option>
-                    {filtersList.countries.map((country, i) => (
-                        <option key={i}>{country}</option>
-                    ))}
-                </select> : null}
+                    <div className="filter-col">
+                        <select className="countrySelect" id="countrySelect" data-type="country"
+                                onChange={handleChangeFilter}>
+                            <option value="">{language === "fr" ? "PAYS" : "COUNTRY"}</option>
+                            {filtersList.countries.map((country, i) => (
+                                <option key={i}>{country}</option>
+                            ))}
+                        </select>
+                        {/*<label htmlFor="countrySelect">{filters.country}</label>*/}
+                    </div> : null}
                 {filtersList.directors.length > 0 ?
-                <select className="directorSelect"  data-type="director" onChange={handleChangeFilter}>
-                    <option value="">{language === "fr" ? "METTEUR EN SCÈNE" : "DIRECTOR"}</option>
-                    {filtersList.directors.map((director, i) => (
-                        <option key={i}>{director}</option>
-                    ))}
-                </select> : null}
+                    <div className="filter-col">
+                        <select className="directorSelect" id="directorSelect" data-type="director"
+                                onChange={handleChangeFilter}>
+                            <option value="">{language === "fr" ? "METTEUR EN SCÈNE" : "DIRECTOR"}</option>
+                            {filtersList.directors.map((director, i) => (
+                                <option key={i}>{director}</option>
+                            ))}
+                        </select>
+                        {/*<label htmlFor="directorSelect">{filters.director}</label>*/}
+                    </div> : null}
                 {filtersList.locations.length > 0 ?
-                <select className="locationSelect"  data-type="location" onChange={handleChangeFilter}>
-                    <option value="">{language === "fr" ? "LIEUX" : "LOCATION"}</option>
-                    {filtersList.locations.map((location, i) => (
-                        <option key={i}>{location}</option>
-                    ))}
-                </select> : null}
+                    <div className="filter-col">
+                        <select className="locationSelect" id="locationSelect" data-type="location"
+                                onChange={handleChangeFilter}>
+                            <option value="">{language === "fr" ? "LIEUX" : "LOCATION"}</option>
+                            {filtersList.locations.map((location, i) => (
+                                <option key={i}>{location}</option>
+                            ))}
+                        </select>
+                        {/*<label htmlFor="location">{filters.location}</label>*/}
+                    </div> : null}
                 {filtersList.years.length > 0 ?
-                <select className="yearSelect"  data-type="year" onChange={handleChangeFilter}>
-                    <option value="">{language === "fr" ? "ANNÉE" : "YEAR"}</option>
-                    {filtersList.years.map((year, i) => (
-                        <option key={i}>{year}</option>
-                    ))}
-                </select> : null}
+                    <div className="filter-col">
+                        <select className="yearSelect" id="yearSelect" data-type="year" onChange={handleChangeFilter}>
+                            <option value="">{language === "fr" ? "ANNÉE" : "YEAR"}</option>
+                            {filtersList.years.map((year, i) => (
+                                <option key={i}>{year}</option>
+                            ))}
+                        </select>
+                        {/*<label htmlFor="yearSelect">{filters.year}</label>*/}
+                    </div> : null}
                 <button onClick={handleChangeFilter} data-type="reset">↺</button>
             </div>
         </div>

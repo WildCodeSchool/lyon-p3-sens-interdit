@@ -57,6 +57,10 @@ img.picto-plus {
   display: block;
 
 }
+.select-flex-wrapper {
+  display: flex;
+  flex-direction: row;
+}
 
 .global-Filter-tab {
   display: flex;
@@ -70,7 +74,16 @@ img.picto-plus {
   margin-right: 20px;
 }
 
+.filter-col {
+  display: block;
+  margin-right: 15px;
+}
+/*.global-Filter-tab label {
+  width: 100%;
+}*/
+
 .global-Filter-tab select {
+  width: 100%;
   margin-right: 10px;
   border: 0;
   border-right: solid #e30613 1px;
@@ -78,6 +91,19 @@ img.picto-plus {
 
   -webkit-appearance: none;
   appearance: none;
+  text-align: center;
+}
+.global-Filter-tab select option {
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
+#countrySelect {
+  max-width: 100px;
+}
+
+#yeearSelect {
+  border: 0;
 }
 
 .global-Filter-tab button:focus,
@@ -91,10 +117,6 @@ img.picto-plus {
   text-indent: 1px;
   text-overflow: '';
   outline: none;
-}
-
-.global-Filter-tab select:nth-last-child(2) {
-  border:0;
 }
 
 @media screen and (max-width: 960px) {

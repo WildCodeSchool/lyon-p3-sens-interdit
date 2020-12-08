@@ -18,7 +18,7 @@ export default function Archives() {
 
     const archives = useStaticQuery(graphql`
     query MyQueryArchives {
-      allStrapiArchivesOld(filter: { categorie: { eq: "" } }) {
+      allStrapiArchivesOld(filter: { categorie: { eq: "tournee" } }) {
         edges {
           node {
             id
