@@ -17,7 +17,7 @@ dayjs.locale("fr");
 dayjs.extend(localizedFormat);
 
 export default function HorsScenePage() {
-  const { LANG } = useContext(LanguageContext);
+  const { LANG, language } = useContext(LanguageContext);
 
   const strapiHorsSceneQuery = useStaticQuery(graphql`
     query strapiHorsSceneQuery {
@@ -72,7 +72,6 @@ export default function HorsScenePage() {
   const horsScenePageQuery = strapiHorsSceneQuery.strapiHorsScenePage;
   const spectacleQuery = strapiHorsSceneQuery.allStrapiSpectacle.nodes;
 
-  ////
   const [list, setList] = useState("");
 
   const fullList = [];
@@ -126,7 +125,13 @@ export default function HorsScenePage() {
 
   const affichageList = () => {
     if (list.length === 0 || list === undefined) {
-      return <h3>Il n'y a pas d'évenement programmé ce jour</h3>;
+      return (
+        <h3>
+          {language === "fr"
+            ? "Il n'y a pas d'évenement programmé ce jour"
+            : "There is no event programmed for this date"}
+        </h3>
+      );
     } else {
       return list.map(spectacle => {
         return (
@@ -143,16 +148,14 @@ export default function HorsScenePage() {
                 : "inconnue"
             }
             country={spectacle.country ? spectacle.country : "inconnu"}
-            name={spectacle.title}
+            name={sluggify(spectacle.title)}
             id={spectacle.strapiId}
             team={spectacle.author ? spectacle.author : "inconnu"}
-            url={"/spectacle/" + sluggify(spectacle.title)}
           />
         );
       });
     }
   };
-  ////
 
   return (
     <div>

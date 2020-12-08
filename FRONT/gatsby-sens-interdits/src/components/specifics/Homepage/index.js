@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import "./Index.css";
 import "../../../assets/styles/global.css";
@@ -8,12 +8,13 @@ import LanguageContext from "../../context/LanguageContext";
 import { FestivalContext } from "../../context/FestivalContext";
 
 export default function Homepage() {
+  const [random, setRandom] = useState(0);
   const { LANG } = useContext(LanguageContext);
   const { currentFestivalStrapiId, currentFestivalTitle } = useContext(
     FestivalContext
   );
 
-  const { strapiHomepage } = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query MyQueryHome {
       strapiHomepage {
         carousel {
@@ -25,8 +26,10 @@ export default function Homepage() {
             }
           }
         }
+
         id
         description
+        description_en
         festival {
           title
           title_en
@@ -60,54 +63,88 @@ export default function Homepage() {
           }
         }
       }
+      allStrapiSpectacle {
+        nodes {
+          title
+          id
+          author
+          country
+          archive
+          reserver
+          carousel {
+            id
+            image {
+              credit
+              id
+              image {
+                url
+              }
+            }
+          }
+        }
+      }
     }
   `);
   const imageArray =
-    strapiHomepage.carousel !== null
-      ? strapiHomepage.carousel.image.map(image => image.image)
+    data.strapiHomepage.carousel !== null
+      ? data.strapiHomepage.carousel.image.map(image => image.image)
       : false;
+
+  const redSquareArray =
+    data.strapiHomepage.carousel !== null
+      ? data.allStrapiSpectacle.nodes.filter(spec => spec.archive === false)
+      : false;
+
+  useEffect(() => {
+    setRandom(Math.floor(Math.random() * Math.floor(redSquareArray.length)));
+  }, []);
   return (
     <>
-      <ImageCarousel images={imageArray} />
+      <ImageCarousel
+        images={imageArray}
+        title={redSquareArray[random].title}
+        booking={redSquareArray[random].reserver}
+        displayed={true}
+      />
 
       <div className="global-homepage container">
-        {strapiHomepage.description ? (
+        {data.strapiHomepage["description" + LANG] ? (
           <div>
             <div className="red-arrow"></div>
             <div className="description-content">
-              {strapiHomepage.description}
+              {data.strapiHomepage.description}
             </div>
           </div>
         ) : null}
 
         <div className="content-homepage">
-          {strapiHomepage.festival.visible ? (
+          {data.strapiHomepage.festival.visible ? (
             <DisplayTabMenu
-              title={strapiHomepage.festival["title" + LANG]}
+              title={data.strapiHomepage.festival["title" + LANG]}
               url={`/festival/${currentFestivalTitle}_${currentFestivalStrapiId}`}
               // TODO: gestion context pas de festival en cours (boolean false sur chaque festival)
-              image={strapiHomepage.festival.image[0].url}
+              image={data.strapiHomepage.festival.image[0].url}
             />
           ) : null}
-          {strapiHomepage.publics.visible ? (
+          {data.strapiHomepage.publics.visible ? (
             <DisplayTabMenu
-              title={strapiHomepage.publics["title" + LANG]}
+              title={data.strapiHomepage.publics["title" + LANG]}
               url={`/transmissions`}
-              image={strapiHomepage.publics.image[0].url}
+              image={data.strapiHomepage.publics.image[0].url}
             />
           ) : null}
-          {strapiHomepage.tour.visible ? (
+          {data.strapiHomepage.tour.visible ? (
             <DisplayTabMenu
-              title={strapiHomepage.tour["title" + LANG]}
+              title={data.strapiHomepage.tour["title" + LANG]}
               url={`/programme-tour`}
-              image={strapiHomepage.tour.image[0].url}
+              image={data.strapiHomepage.tour.image[0].url}
             />
           ) : null}
-          {strapiHomepage.association.visible ? (
+          {data.strapiHomepage.association.visible ? (
             <DisplayTabMenu
-              title={strapiHomepage.association["title" + LANG]}
+              title={data.strapiHomepage.association["title" + LANG]}
               url={`/association`}
-              image={strapiHomepage.association.image[0].url}
+              image={data.strapiHomepage.association.image[0].url}
             />
           ) : null}
         </div>

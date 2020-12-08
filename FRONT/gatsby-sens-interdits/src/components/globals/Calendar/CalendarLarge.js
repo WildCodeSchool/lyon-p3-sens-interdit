@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import LanguageContext from "../../context/LanguageContext";
 import "./CalendarLarge.css";
 import CalendarOneDay from "./CalendarOneDay";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import localizedFormat from "dayjs/plugin/localizedFormat";
-dayjs.locale("fr");
-dayjs.extend(localizedFormat);
 
 export default function CalendarLarge(props) {
+  const { language } = useContext(LanguageContext);
+  dayjs.locale(language);
+  dayjs.extend(localizedFormat);
   const sendDateToParent = e => {
     props.dateSetter(e.target.getAttribute("data-date"));
   };
@@ -33,7 +35,7 @@ export default function CalendarLarge(props) {
             key={dayjs(date).format()}
             data-date={date}
             onClick={sendDateToParent}
-            onKeyDown={()=>{}}
+            onKeyDown={() => {}}
           >
             <CalendarOneDay
               key={dayjs(date).format("ddd D MMM")}

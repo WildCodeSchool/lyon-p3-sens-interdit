@@ -1,5 +1,6 @@
 const path = require(`path`);
 const { sluggify } = require("./src/utils/Sluggify");
+
 const {
   removeNameForUrl: removePageNameForUrl,
 } = require("./src/utils/removeNameForUrl");
@@ -65,6 +66,7 @@ async function turnArchiveSpectaclesIntoPages({ graphql, actions }) {
         edges {
           node {
             id
+            titre
           }
         }
       }
@@ -73,8 +75,10 @@ async function turnArchiveSpectaclesIntoPages({ graphql, actions }) {
   ).then(result => {
     // Create pages for each article.
     result.data.allStrapiArchivesOld.edges.forEach(({ node }) => {
+      let archiveSpectacleSlug = sluggify(node.titre);
+      let archiveSpectacleId = removePageNameForUrl(node.id, "Archives-old");
       createPage({
-        path: `/${node.id.toLowerCase()}`,
+        path: `/spectacle/${archiveSpectacleSlug}${archiveSpectacleId}`,
         component: path.resolve(`src/templates/archiveSpectacle.js`),
         context: {
           id: node.id,
@@ -85,6 +89,40 @@ async function turnArchiveSpectaclesIntoPages({ graphql, actions }) {
 
   // Query for articles nodes to use in creating pages.
   return getArchiveSpectacle;
+}
+
+//programmeOld Generate////////////////////////////////////////////////////////////////
+async function archiveProgramme({ graphql, actions }) {
+  const { createPage } = actions;
+
+  const getArchiveProgramme = makeRequest(
+    graphql,
+    `
+    {
+      allStrapiArchivesOld {
+        edges {
+          node {
+            id
+            titre
+            annee
+          }
+        }
+      }
+    }
+  `
+  ).then(result => {
+    result.data.allStrapiArchivesOld.edges.forEach(({ node }) => {
+      createPage({
+        path: `/programme/${node.annee}`,
+        component: path.resolve(`src/templates/programmeOld.js`),
+        context: {
+          annee: node.annee,
+        },
+      });
+    });
+  });
+
+  return getArchiveProgramme;
 }
 
 async function turnArticlesIntoPages({ graphql, actions }) {
@@ -106,6 +144,7 @@ async function turnArticlesIntoPages({ graphql, actions }) {
     `
   ).then(result => {
     // Create pages for each article.
+
     result.data.allStrapiArticlecontent.edges.forEach(({ node }) => {
       let articleSlug = sluggify(node.title);
       let articleId = removePageNameForUrl(node.id, "Articlecontent");
@@ -120,6 +159,7 @@ async function turnArticlesIntoPages({ graphql, actions }) {
   });
 
   // Query for articles nodes to use in creating pages.
+
   return getArticles;
 }
 
@@ -182,13 +222,52 @@ async function turnFestivalsIntoPages({ graphql, actions }) {
   return getFestivals;
 }
 
+async function turnFestivalIntoArchiveFestivalPages({ graphql, actions }) {
+  const { createPage } = actions;
+
+  const getFestivalArchive = makeRequest(
+    graphql,
+    `
+    {
+      allStrapiFestival(filter: {visible: {eq: false}}) {
+        edges {
+          node {
+            visible
+            title
+            id
+            strapiId
+            year
+          }
+        }
+      }
+    }
+    `
+  ).then(result => {
+    // Create pages for each festival-to-display-as-archived.
+    result.data.allStrapiFestival.edges.forEach(({ node }) => {
+      createPage({
+        path: `/programme/${node.year}`,
+        component: path.resolve(`src/templates/archiveFestival.js`),
+        context: {
+          year: node.year,
+        },
+      });
+    });
+  });
+
+  // Query for articles nodes to use in creating pages.
+  return getFestivalArchive;
+}
+
 // Implement the Gatsby API “createPages”. This is called once the
 // data layer is bootstrapped to let plugins create pages from data.
 exports.createPages = async params => {
   await Promise.all([
     turnArchiveSpectaclesIntoPages(params),
     turnSpectaclesIntoPages(params),
+    archiveProgramme(params),
     turnArticlesIntoPages(params),
     turnFestivalsIntoPages(params),
+    turnFestivalIntoArchiveFestivalPages(params),
   ]);
 };
