@@ -79,10 +79,6 @@ function Archive(props) {
     }
   `);
 
-  console.log(
-    data.allStrapiFestival.nodes,
-    "Archive Old festival + spectacle hors - scene + new site festival archive"
-  );
   return (
     <>
       <ImageCarousel
