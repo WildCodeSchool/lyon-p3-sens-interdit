@@ -3,9 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 
 import FestivalPoster from "./FestivalPoster";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
-import FilterTab from "../Programme/FilterTab";
-import ThumbnailOldArchive from "../../globals/ThumbnailOldArchive";
-import FilterBySelect from "./FilterBySelect";
+import Archives from "./Archives";
 import sensinterdits2009 from "../../../assets/img/affiches/sensinterdits2009.jpeg";
 import sensinterdits2011 from "../../../assets/img/affiches/sensinterdits2011.jpeg";
 import sensinterdits2013 from "../../../assets/img/affiches/sensinterdits2013.jpeg";
@@ -15,7 +13,6 @@ import sensinterdits2019 from "../../../assets/img/affiches/sensinterdits2019.pn
 
 
 import "./Archive.css";
-import "../../../assets/styles/global.css";
 import LanguageContext from "../../context/LanguageContext";
 
 function Archive(props) {
@@ -57,18 +54,6 @@ function Archive(props) {
 
   const data = useStaticQuery(graphql`
     query MyQueryArchive {
-      allStrapiArchivesOld(filter: { categorie: { eq: "hors_scene" } }) {
-        edges {
-          node {
-            titre
-            strapiId
-            id
-            credits_2
-            pays
-            photo_1
-          }
-        }
-      }
       allStrapiFestival(filter: { visible: { eq: false } }) {
         nodes {
           title
@@ -80,10 +65,6 @@ function Archive(props) {
     }
   `);
 
-  console.log(
-    data.allStrapiFestival.nodes,
-    "Archive Old festival + spectacle hors - scene + new site festival archive"
-  );
   return (
     <>
       <ImageCarousel
@@ -101,7 +82,6 @@ function Archive(props) {
             Explore <span>the festival's archives</span>
           </h1>
         )}
-        <FilterTab />
         <div className="archive-festivals-grid-wrapper">
           {/* display new website festival archive */}
 
@@ -115,9 +95,7 @@ function Archive(props) {
               />
             );
           })}
-
           {/* display old website festival archive */}
-
           {festivals.map((festival, i) => {
             return (
               <FestivalPoster
@@ -129,32 +107,8 @@ function Archive(props) {
             );
           })}
         </div>
-        {LANG !== "_en" ? (
-          <h1 className="to-uppercase">
-            Découvrez <span>les archives diffusion-production</span>
-          </h1>
-        ) : (
-          <h1 className="to-uppercase">
-            Explore <span>the production's archives</span>
-          </h1>
-        )}
 
-        {/* Archive Page - display off stage spectacle */}
-
-        <FilterTab />
-        <FilterBySelect />
-        <div className="archive-transmission-grid-wrapper">
-          {data.allStrapiArchivesOld.edges.map(elem => (
-            <ThumbnailOldArchive
-              id={elem.node.strapiId}
-              key={elem.node.id}
-              country={elem.node.pays}
-              name={elem.node.titre}
-              team={elem.node.credits_2}
-              affiche={`${process.env.GATSBY_IMAGE_URL}` + elem.node.photo_1}
-            />
-          ))}
-        </div>
+        <Archives  />
       </div>
     </>
   );

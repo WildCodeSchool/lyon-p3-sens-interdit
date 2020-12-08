@@ -16,6 +16,7 @@ const FilterBySelect = () => {
             titre
             date_1
             pays
+            lieu
             annee
             credits_2
             photo_1
@@ -49,7 +50,6 @@ const FilterBySelect = () => {
     setCountrieselected(e.target.value)
     const countrieFilter = allArchives.filter((item) => item.node.pays == countrieSelected);
     setData(countrieFilter)
-
   }
 
   const handleYear = (e) => {

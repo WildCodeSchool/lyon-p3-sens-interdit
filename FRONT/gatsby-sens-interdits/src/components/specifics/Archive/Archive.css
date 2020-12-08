@@ -51,6 +51,52 @@ img.picto-plus {
   height: 38px;
 }
 
+#archives-production {
+  width: 100%;
+  position: relative;
+  display: block;
+
+}
+
+.global-Filter-tab {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.global-Filter-tab h4 {
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.global-Filter-tab select {
+  margin-right: 10px;
+  border: 0;
+  border-right: solid #e30613 1px;
+  cursor: pointer;
+
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.global-Filter-tab button:focus,
+.global-Filter-tab select:focus {
+  outline: none;
+}
+
+.global-Filter-tab select::-ms-expand {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+  outline: none;
+}
+
+.global-Filter-tab select:nth-last-child(2) {
+  border:0;
+}
+
 @media screen and (max-width: 960px) {
   /* ARCHIVES */
   .archive-transmission-grid-wrapper {
@@ -62,5 +108,13 @@ img.picto-plus {
   }
   .festival-poster-wrapper .festival-title-flex img {
     width: 15px;
+  }
+
+  /* FILTERTAB */
+  .global-Filter-tab h3{
+    font-size: 14px;
+  }
+  .global-Filter-tab select {
+    font-size: 12px;
   }
 }
