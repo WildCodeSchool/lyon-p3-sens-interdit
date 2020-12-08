@@ -9,7 +9,7 @@
   src: url(fonts/GothamLightRegular.otf) format("otf"),
 }
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Rambla:wght@700&display=swap');
 
 body {
   margin: 0;
@@ -102,4 +102,12 @@ div.overlay {
   height: 45px;
   background-color: #e30613;
   clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+
+.bold-font {
+  font-family: 'Rambla', arial;
+}
+
+h1 {
+  font-family: 'Rambla', 'Quicksand', arial;
 }

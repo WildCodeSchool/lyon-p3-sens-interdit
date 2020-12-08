@@ -49,7 +49,7 @@ const SpectacleInfos = ({
             {tarif !== null ? tarif.tarif : ""}
           </span>
           <ul>
-            {tarif!== null
+            {tarif !== null
               ? tarif.category.map((el, i) => <li key={i}>{el.category}</li>)
               : ""}
           </ul>

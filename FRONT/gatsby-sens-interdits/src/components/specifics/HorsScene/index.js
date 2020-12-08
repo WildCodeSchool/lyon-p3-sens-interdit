@@ -187,7 +187,7 @@ export default function HorsScenePage() {
   return (
     <div>
       <ImageCarousel images={imageArray} title={redSquareArray[random].title}
-        booking={redSquareArray[random].reserver}
+        booking={redSquareArray[random].reserver} country={redSquareArray[random].country}
         displayed={true} />
       <div className="container">
         <div className="red-arrow"></div>
