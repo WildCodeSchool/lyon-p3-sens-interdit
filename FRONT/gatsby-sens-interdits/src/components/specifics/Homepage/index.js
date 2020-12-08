@@ -9,7 +9,7 @@ import { FestivalContext } from "../../context/FestivalContext";
 
 export default function Homepage() {
   const [random, setRandom] = useState(0);
-  const { LANG } = useContext(LanguageContext);
+  const { LANG, checkEnContext } = useContext(LanguageContext);
   const { currentFestivalStrapiId, currentFestivalTitle } = useContext(
     FestivalContext
   );
@@ -95,7 +95,6 @@ export default function Homepage() {
       ? data.allStrapiSpectacle.nodes.filter(spec => spec.archive === false)
       : false;
 
-
   useEffect(() => {
     setRandom(Math.floor(Math.random() * Math.floor(redSquareArray.length)));
   }, []);
@@ -104,9 +103,15 @@ export default function Homepage() {
     <>
       <ImageCarousel
         images={imageArray}
-        title={redSquareArray[random].title}
+        title={checkEnContext(
+          redSquareArray[random].title,
+          redSquareArray[random].title_en
+        )}
         booking={redSquareArray[random].reserver}
-        country={redSquareArray[random].country}
+        country={checkEnContext(
+          redSquareArray[random].country,
+          redSquareArray[random].country_en
+        )}
         displayed={true}
       />
 
@@ -123,7 +128,10 @@ export default function Homepage() {
         <div className="content-homepage">
           {data.strapiHomepage.festival.visible ? (
             <DisplayTabMenu
-              title={data.strapiHomepage.festival["title" + LANG]}
+              title={checkEnContext(
+                data.strapiHomepage.festival.title,
+                data.strapiHomepage.festival.title_en
+              )}
               url={`/festival/${currentFestivalTitle}_${currentFestivalStrapiId}`}
               // TODO: gestion context pas de festival en cours (boolean false sur chaque festival)
               image={data.strapiHomepage.festival.image[0].url}
@@ -131,21 +139,30 @@ export default function Homepage() {
           ) : null}
           {data.strapiHomepage.publics.visible ? (
             <DisplayTabMenu
-              title={data.strapiHomepage.publics["title" + LANG]}
+              title={checkEnContext(
+                data.strapiHomepage.publics.title,
+                data.strapiHomepage.publics.title_en
+              )}
               url={`/transmissions`}
               image={data.strapiHomepage.publics.image[0].url}
             />
           ) : null}
           {data.strapiHomepage.tour.visible ? (
             <DisplayTabMenu
-              title={data.strapiHomepage.tour["title" + LANG]}
+              title={checkEnContext(
+                data.strapiHomepage.tour.title,
+                data.strapiHomepage.tour.title_en
+              )}
               url={`/programme-tour`}
               image={data.strapiHomepage.tour.image[0].url}
             />
           ) : null}
           {data.strapiHomepage.association.visible ? (
             <DisplayTabMenu
-              title={data.strapiHomepage.association["title" + LANG]}
+              title={checkEnContext(
+                data.strapiHomepage.association.title,
+                data.strapiHomepage.association.title_en
+              )}
               url={`/association`}
               image={data.strapiHomepage.association.image[0].url}
             />
