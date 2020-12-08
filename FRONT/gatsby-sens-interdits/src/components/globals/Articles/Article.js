@@ -5,7 +5,6 @@ import "../../../templates/article.css";
 import dayJs from "dayjs";
 import "dayjs/locale/fr";
 import LanguageContext from "../../context/LanguageContext";
-dayJs.locale("fr");
 
 const { sluggify } = require("../../../utils/Sluggify");
 const { removeNameForUrl } = require("../../../utils/removeNameForUrl");
@@ -15,6 +14,7 @@ export default function Article(props) {
   const article = props.article;
   const textOverFlow = props.textOverFlow;
   const linkStatus = props.linkStatus;
+  dayJs.locale(language);
 
   let articleSlug = sluggify(props.article.title);
   let articleId = removeNameForUrl(props.article.id, "Articlecontent");
@@ -32,7 +32,9 @@ export default function Article(props) {
               {language === "fr" ? "Publié le " : "Plublished on "}
               {dayJs(article.date).format("DD MMMM YYYY")}
             </p>
-            <h4 className="to-uppercase">{article["title" + LANG]}</h4>
+            <h4 className="to-uppercase">
+              {checkEnContext(article.title, article.title_en)}
+            </h4>
             <div>
               {article.picturetop[0] === undefined ? (
                 ""
@@ -80,7 +82,9 @@ export default function Article(props) {
             {language === "fr" ? "Publié le " : "Plublished on "}
             {dayJs(article.date).format("DD MMMM YYYY")}
           </p>
-          <h4 className="to-uppercase">{article["title" + LANG]}</h4>
+          <h4 className="to-uppercase">
+            {[checkEnContext(article.title, article.title_en)]}
+          </h4>
           <div>
             {article.picturetop[0] === undefined ? (
               ""
