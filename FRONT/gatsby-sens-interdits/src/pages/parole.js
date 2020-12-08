@@ -4,12 +4,7 @@ import LanguageContext from "../components/context/LanguageContext";
 import GeneriquePage from "../components/specifics/Generique";
 
 export default function Parole() {
-  const { language } = useContext(LanguageContext);
-  const [LANG, setLANG] = useState("");
-
-  useEffect(() => {
-    language === "en" ? setLANG("_en") : setLANG("");
-  }, [language]);
+  const { checkEnContext } = useContext(LanguageContext);
 
   const data = useStaticQuery(graphql`
     query paroleQuery {
@@ -40,9 +35,18 @@ export default function Parole() {
   return (
     <GeneriquePage
       image={data.strapiParole.image[0].url}
-      title={data.strapiParole["title" + LANG]}
-      description={data.strapiParole["description" + LANG]}
-      tab_element={data.strapiParole["tab_element" + LANG]}
+      title={checkEnContext(
+        data.strapiParole.title,
+        data.strapiParole.title_en
+      )}
+      description={checkEnContext(
+        data.strapiParole.description,
+        data.strapiParole.description_en
+      )}
+      tab_element={checkEnContext(
+        data.strapiParole.tab_element,
+        data.strapiParole.tab_element_en
+      )}
     />
   );
 }
