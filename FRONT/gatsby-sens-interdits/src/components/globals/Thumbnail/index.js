@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+import { sluggify } from "./../../../utils/Sluggify";
 
 import "./Index.css";
 import pictoPlus from "../../../assets/img/picto+.svg";
@@ -7,7 +8,7 @@ import pictoPlus from "../../../assets/img/picto+.svg";
 export default function Thumbnail(props) {
   return (
     <div className="mini-tab">
-      <Link to={`/spectacle/${props.name}_${props.id}`}>
+      <Link to={`/spectacle/${sluggify(props.name)}_${props.id}`}>
         <div className="global-mini-tab">
           <img
             className="img-mini-tab"
