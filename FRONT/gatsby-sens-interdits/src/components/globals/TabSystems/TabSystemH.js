@@ -58,12 +58,12 @@ export default function TabSystemH({
             id={"tab-link_" + tab.id}
             data-id={tab.id}
             onClick={handleOnClick}
-            onKeyDown={() => {}}
+            onKeyDown={() => { }}
             role="button"
           >
             <img src={picto} alt="" width="30" height="30" data-id={tab.id} />
             <h3 data-id={tab.id} className="tab-link ">
-              {checkEnContext(tab.title, tab.title_en)}
+              {checkEnContext(tab.title, tab.title)}
             </h3>
           </div>
         ))}
@@ -83,29 +83,29 @@ export default function TabSystemH({
                 articles.map(article =>
                   checkEnContext(tab.title, tab.title_en) ===
                     "Toutes les actualités" ||
-                  checkEnContext(tab.title, tab.title_en) ===
+                    checkEnContext(tab.title, tab.title_en) ===
                     "All categories" ? (
-                    <Article
-                      article={article}
-                      textOverFlow={textOverFlow}
-                      linkStatus={linkStatus}
-                    />
-                  ) : (
-                    article.typeofarticles.map(cat =>
-                      checkEnContext(cat.category, cat.category_en) ===
-                      checkEnContext(tab.title, tab.title_en) ? (
-                        <Article
-                          article={article}
-                          textOverFlow={textOverFlow}
-                          linkStatus={linkStatus}
-                        />
-                      ) : null
+                      <Article
+                        article={article}
+                        textOverFlow={textOverFlow}
+                        linkStatus={linkStatus}
+                      />
+                    ) : (
+                      article.typeofarticles.map(cat =>
+                        checkEnContext(cat.category, cat.category_en) ===
+                          checkEnContext(tab.title, tab.title_en) ? (
+                            <Article
+                              article={article}
+                              textOverFlow={textOverFlow}
+                              linkStatus={linkStatus}
+                            />
+                          ) : null
+                      )
                     )
-                  )
                 )
               ) : (
-                <TabSystemContent tab={tab} DisplayPicture={DisplayPicture} />
-              )}
+                  <TabSystemContent tab={tab} DisplayPicture={DisplayPicture} />
+                )}
             </div>
           </div>
         ))}

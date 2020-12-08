@@ -47,8 +47,8 @@ export default function SpectaclePage({ data }) {
         {spectacle["tab_element" + LANG] === 0 ? (
           ""
         ) : (
-          <TabSystemH tabContent={spectacle["tab_element" + LANG]} />
-        )}
+            <TabSystemH tabContent={spectacle["tab_element" + LANG]} />
+          )}
         <div className="content">
           <div className="red-arrow-spectacle"></div>
           <p className="content-title to-uppercase">
