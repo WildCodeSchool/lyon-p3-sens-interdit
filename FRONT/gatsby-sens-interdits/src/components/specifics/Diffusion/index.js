@@ -50,7 +50,9 @@ export default function DiffusionPage() {
       <div className="container">
         <div id="diffusion-description">
           <div className="red-arrow"></div>
-          <h3 className="to-uppercase">{strapiDiffusionProduction["title" + LANG]}</h3>
+          <h1 className="to-uppercase">
+            Diffusion-<span>Production</span>
+          </h1>
           <p>{strapiDiffusionProduction["description" + LANG]}</p>
         </div>
         <nav id="diffusion-menu">
