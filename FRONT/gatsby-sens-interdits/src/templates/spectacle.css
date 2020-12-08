@@ -63,3 +63,8 @@ div.red-arrow-spectacle {
   background-color: #e30613;
   clip-path: polygon(50% 100%, 0 0, 100% 0);
 }
+
+/* RESPONSIVE */
+@media screen and (max-width: 960px)  {
+  
+} 

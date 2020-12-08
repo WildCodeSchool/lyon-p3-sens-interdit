@@ -60,3 +60,12 @@ div.image-text .button {
 .display-none {
   display: none;
 }
+
+@media screen and (max-width: 960px) {
+  div.red{
+    display : none;
+  }
+  div.image-text {
+    display : none
+  }
+}

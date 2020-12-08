@@ -37,7 +37,7 @@ export default function ProgrammePage(props) {
     return treatment;
   }
 
-  const majState = () =>{
+  const majState = () => {
     setList(fullList);
   }
 
