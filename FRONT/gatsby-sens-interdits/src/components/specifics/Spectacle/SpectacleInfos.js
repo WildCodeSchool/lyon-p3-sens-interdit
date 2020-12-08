@@ -62,7 +62,6 @@ const SpectacleInfos = ({
               title="title here"
               target="blank"
             >
-              {/* TODO set default image **/}
               <img
                 src={
                   picto.image[0] !== undefined

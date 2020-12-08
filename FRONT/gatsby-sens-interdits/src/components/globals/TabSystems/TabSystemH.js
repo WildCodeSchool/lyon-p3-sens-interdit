@@ -36,7 +36,7 @@ export default function TabSystemH({
   const [activeTabContent, setActiveTabContent] = useState("");
   const [activeClass, setActiveClass] = useState("");
   const [firstLoad, setFirstLoad] = useState(true);
-  const { LANG } = useContext(LanguageContext);
+  const { checkEnContext } = useContext(LanguageContext);
 
   function handleOnClick(e) {
     if (firstLoad) {
@@ -63,7 +63,7 @@ export default function TabSystemH({
           >
             <img src={picto} alt="" width="30" height="30" data-id={tab.id} />
             <h3 data-id={tab.id} className="tab-link ">
-              {tab["title" + LANG]}
+              {checkEnContext(tab.title, tab.title_en)}
             </h3>
           </div>
         ))}
@@ -81,8 +81,10 @@ export default function TabSystemH({
             >
               {articles !== undefined ? (
                 articles.map(article =>
-                  tab["title" + LANG] === "Toutes les actualités" ||
-                  tab["title" + LANG] === "All categories" ? (
+                  checkEnContext(tab.title, tab.title_en) ===
+                    "Toutes les actualités" ||
+                  checkEnContext(tab.title, tab.title_en) ===
+                    "All categories" ? (
                     <Article
                       article={article}
                       textOverFlow={textOverFlow}
@@ -90,7 +92,8 @@ export default function TabSystemH({
                     />
                   ) : (
                     article.typeofarticles.map(cat =>
-                      cat["category" + LANG] === tab["title" + LANG] ? (
+                      checkEnContext(cat.category, cat.category_en) ===
+                      checkEnContext(tab.title, tab.title_en) ? (
                         <Article
                           article={article}
                           textOverFlow={textOverFlow}
