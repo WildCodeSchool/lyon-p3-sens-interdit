@@ -42,7 +42,6 @@ export default function webRadio() {
     }
   `);
 const podcastlink = strapiWebradio.podcastlink;
-console.log(strapiWebradio.galery);
 
 
   const opts = {
