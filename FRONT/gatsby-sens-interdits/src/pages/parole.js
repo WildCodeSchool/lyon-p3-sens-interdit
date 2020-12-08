@@ -20,10 +20,12 @@ export default function Parole() {
           id
         }
         tab_element {
+          id
           title
           content
         }
         tab_element_en {
+          id
           title
           content
         }

@@ -16,7 +16,6 @@ const FilterBySelect = () => {
             titre
             date_1
             pays
-            lieu
             annee
             credits_2
             photo_1
@@ -83,26 +82,26 @@ const FilterBySelect = () => {
       <div className="select-flex-wrapper">
         <select className="countrieSelect to-uppercase" onChange={handleCountrie}>
           <option value={countrieSelected}>{language === "fr" ? "Pays" : "Country"}</option>
-          {allCountries.map(countrie => (
-            <option>{countrie}</option>
+          {allCountries.map((countrie, i) => (
+            <option key={i}>{countrie}</option>
           ))}
         </select>
         <select className="directorSelect to-uppercase" onChange={handleDirector}>
           <option value={directorSelected}>{language === "fr" ? "Metteur en scène" : "Director"}</option>
-          {allDirectors.map(director => (
-            <option>{director}</option>
+          {allDirectors.map((director, i) => (
+            <option key={i}>{director}</option>
           ))}
         </select>
         <select className="locationSelect to-uppercase" onChange={handleLocation}>
           <option value={locationSelected}>{language === "fr" ? "Lieux" : "Location"}</option>
-          {allLocations.map(location => (
-            <option>{location}</option>
+          {allLocations.map((location, i) => (
+            <option key={i}>{location}</option>
           ))}
         </select>
         <select className="yearSelect to-uppercase" onChange={handleYear}>
           <option value={yearSelected}>{language === "fr" ? "Année" : "Year"}</option>
-          {allYears.map(year => (
-            <option>{year}</option>
+          {allYears.map((year, i) => (
+            <option key={i}>{year}</option>
           ))}
         </select>
       </div>

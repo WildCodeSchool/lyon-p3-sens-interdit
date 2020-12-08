@@ -1,10 +1,18 @@
 import React, { useContext } from "react";
+import { graphql, useStaticQuery } from "gatsby";
+
 import FestivalPoster from "./FestivalPoster";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import FilterTab from "../Programme/FilterTab";
-import Thumbnail from "../../globals/Thumbnail";
-import { graphql, useStaticQuery } from "gatsby";
+import ThumbnailOldArchive from "../../globals/ThumbnailOldArchive";
 import FilterBySelect from "./FilterBySelect";
+import sensinterdits2009 from "../../../assets/img/affiches/sensinterdits2009.jpeg";
+import sensinterdits2011 from "../../../assets/img/affiches/sensinterdits2011.jpeg";
+import sensinterdits2013 from "../../../assets/img/affiches/sensinterdits2013.jpeg";
+import sensinterdits2015 from "../../../assets/img/affiches/sensinterdits2015.jpeg";
+import sensinterdits2017 from "../../../assets/img/affiches/sensinterdits2017.jpeg";
+import sensinterdits2019 from "../../../assets/img/affiches/sensinterdits2019.png";
+
 
 import "./Archive.css";
 import "../../../assets/styles/global.css";
@@ -15,49 +23,45 @@ function Archive(props) {
 
   const festivals = [
     {
-      title: "Édition 2013",
-      posterUrl:
-        "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
+      title: "Édition 2019",
+      posterUrl: sensinterdits2019,
+      url: "programme/2019",
+      annee: 2019,
+    },
+    {
+      title: "Édition 2017",
+      posterUrl: sensinterdits2017,
+      url: "programme/2017",
+    },
+    {
+      title: "Édition 2015",
+      posterUrl: sensinterdits2015,
+      url: "programme/2015",
     },
     {
       title: "Édition 2013",
-      posterUrl:
-        "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
+      posterUrl: sensinterdits2013,
+      url: "programme/2013",
     },
     {
-      title: "Édition 2013",
-      posterUrl:
-        "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
+      title: "Édition 2011",
+      posterUrl: sensinterdits2011,
+      url: "programme/2011",
     },
     {
-      title: "Édition 2013",
-      posterUrl:
-        "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
-    },
-    {
-      title: "Édition 2013",
-      posterUrl:
-        "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
-    },
-    {
-      title: "Édition 2013",
-      posterUrl:
-        "https://i.pinimg.com/originals/a5/5d/f0/a55df0b59a4a8400374af61cb71e7ae0.jpg",
+      title: "Édition 2009",
+      posterUrl: sensinterdits2009,
+      url: "programme/2009",
     },
   ];
 
   const data = useStaticQuery(graphql`
     query MyQueryArchive {
-      strapiArchiveDescription {
-        title
-        title_en
-        description
-        description_en
-      }
-      allStrapiArchivesOld {
+      allStrapiArchivesOld(filter: { categorie: { eq: "hors_scene" } }) {
         edges {
           node {
             titre
+            strapiId
             id
             credits_2
             pays
@@ -65,9 +69,21 @@ function Archive(props) {
           }
         }
       }
+      allStrapiFestival(filter: { visible: { eq: false } }) {
+        nodes {
+          title
+          strapiId
+          year
+          id
+        }
+      }
     }
   `);
 
+  console.log(
+    data.allStrapiFestival.nodes,
+    "Archive Old festival + spectacle hors - scene + new site festival archive"
+  );
   return (
     <>
       <ImageCarousel
@@ -76,25 +92,39 @@ function Archive(props) {
         title={props.title ? props.title : ""}
       />
       <div className="container archive-global-styling">
-        <p className="archive-description">
-          {data.strapiArchiveDescription["description" + LANG]}
-        </p>
         {LANG !== "_en" ? (
           <h1 className="to-uppercase">
             Découvrez <span>les archives du festival</span>
           </h1>
         ) : (
           <h1 className="to-uppercase">
-            Discover <span>the festival's archives</span>
+            Explore <span>the festival's archives</span>
           </h1>
         )}
+        <FilterTab />
         <div className="archive-festivals-grid-wrapper">
-          {festivals.map(festival => {
+          {/* display new website festival archive */}
+
+          {data.allStrapiFestival.nodes.map(archivedFestival => {
             return (
               <FestivalPoster
+                key={archivedFestival.strapiId}
+                title={`Edition ${archivedFestival.year}`}
+                poster={sensinterdits2019}
+                url={`programme/${archivedFestival.year}`}
+              />
+            );
+          })}
+
+          {/* display old website festival archive */}
+
+          {festivals.map((festival, i) => {
+            return (
+              <FestivalPoster
+                key={i}
                 title={festival.title}
                 poster={festival.posterUrl}
-                url=""
+                url={festival.url}
               />
             );
           })}
@@ -105,23 +135,26 @@ function Archive(props) {
           </h1>
         ) : (
           <h1 className="to-uppercase">
-            Discover <span>the production's archives</span>
+            Explore <span>the production's archives</span>
           </h1>
         )}
+
+        {/* Archive Page - display off stage spectacle */}
+
+        <FilterTab />
+        <FilterBySelect />
         <div className="archive-transmission-grid-wrapper">
           {data.allStrapiArchivesOld.edges.map(elem => (
-            <Thumbnail
+            <ThumbnailOldArchive
+              id={elem.node.strapiId}
               key={elem.node.id}
-              url={"http://localhost:8000/" + elem.node.id}
-              date={elem.node.date_1}
               country={elem.node.pays}
               name={elem.node.titre}
               team={elem.node.credits_2}
-              affiche={elem.node.photo_1}
+              affiche={`${process.env.GATSBY_IMAGE_URL}` + elem.node.photo_1}
             />
           ))}
         </div>
-        <FilterBySelect />
       </div>
     </>
   );

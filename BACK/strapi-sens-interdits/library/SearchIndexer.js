@@ -44,12 +44,14 @@ class SearchIndexer {
    * @returns {Promise<void>}
    */
   static async createIndexBulk(table, fieldsStr) {
+console.log(table, fieldsStr);
     let results = await query(`SELECT id,${fieldsStr} FROM ${table} ORDER BY id ASC`);
     results.forEach(result => {
       let id = parseInt(result.id);
       delete result.id
       let search = dataToSearch(result);
       const data = {search, api_id: table, content_id: id};
+	console.log(data);
       query('INSERT INTO ' + searchTable + ' SET ?', data)
     })
   }

@@ -18,6 +18,7 @@ export default function Scolaire() {
           id
         }
         tab_element {
+          id
           content
           title
           image {
@@ -25,6 +26,7 @@ export default function Scolaire() {
           }
         }
         tab_element_en {
+          id
           content
           title
           image {

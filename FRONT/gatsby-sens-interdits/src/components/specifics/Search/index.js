@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
 import queryString from 'query-string';
 import Result from "./Result.js";
+import './Result.css';
 
 let searchUrl = process.env.GATSBY_API_URL + '/search?s=';
-// TODO remove console log
-export default function ResultPage() {
+export default function ResultPage(props) {
     const [data, setData] = useState([]);
+    const [hasRequested, setHasRequested] = useState(false);
     useEffect(() => {
         let query = queryString.parse(window.location.search);
         searchUrl += query.s;
@@ -24,12 +25,14 @@ export default function ResultPage() {
             .then(({results}) => {
                 if (results !== null) {
                     setData(results);
+                    setHasRequested(true);
                 } else {
                     //setData(fakeData);
                 }
             })
             .catch(err => {
                 console.log(err);
+                setHasRequested(true);
             });
     }, []);
 
@@ -39,20 +42,20 @@ export default function ResultPage() {
     }
     return (
         <>
-            {(data.length > 0) ?
+            {(data !== undefined && data.length > 0) ?
                 <div className="container">
-                    <h2>{data.length} résulat{data.length > 1 ? 's' : ''} trouvé{data.length > 1 ? 's' : ''}</h2>
-                    {data.map(item => (
+                    <h2><span>{data.length}</span> résulat{data.length > 1 ? 's' : ''} trouvé{data.length > 1 ? 's' : ''}</h2>
+                    {data.map((item, i) => (
                         <Result
-                            key={item.id}
+                            key={i}
                             item={item}
                         />
                     ))}
                 </div>
                 :
-                <div className="container flex">
-                    <h2>{data.length} résulat{data.length > 1 ? 's' : ''} trouvé{data.length > 1 ? 's' : ''}</h2>
-                    <button onClick={handleNewSearch}>Effectuer une nouvelle recherche</button>
+                <div className="container flex" id="no-result">
+                    <h2>{hasRequested ? 'Aucun résultat trouvé pour votre recherche':'Recherche en cours...'} </h2>
+                    {hasRequested ? <button onClick={handleNewSearch}>Effectuer une nouvelle recherche</button> : ""}
                 </div>
             }
         </>

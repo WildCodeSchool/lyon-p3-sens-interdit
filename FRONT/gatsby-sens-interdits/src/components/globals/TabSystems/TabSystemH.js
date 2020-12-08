@@ -48,26 +48,21 @@ export default function TabSystemH({
   return (
     <div className="tab-module">
       <div>
-        {tabContent.map((tab,i) => (
-          <div className={"tab-title " + (activeClass === tab.id || (firstLoad && i === 0) ? "active" : "")}
-               key={tab.id}
-               id={'tab-link_'+tab.id}
-               data-id={tab.id}
-               onClick={handleOnClick}
-               onKeyDown={()=>{}}
-               role="button">
-                 
-            <img
-              src={picto}
-              alt=""
-              width="30"
-              height="30"
-              data-id={tab.id}
-            />
-            <h3
-              data-id={tab.id}
-              className="tab-link "
-            >
+        {tabContent.map((tab, i) => (
+          <div
+            className={
+              "tab-title " +
+              (activeClass === tab.id || (firstLoad && i === 0) ? "active" : "")
+            }
+            key={tab.id}
+            id={"tab-link_" + tab.id}
+            data-id={tab.id}
+            onClick={handleOnClick}
+            onKeyDown={() => {}}
+            role="button"
+          >
+            <img src={picto} alt="" width="30" height="30" data-id={tab.id} />
+            <h3 data-id={tab.id} className="tab-link ">
               {tab["title" + LANG]}
             </h3>
           </div>

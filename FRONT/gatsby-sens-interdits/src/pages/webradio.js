@@ -13,20 +13,6 @@ export default function Webradio() {
         title_en
         description
         description_en
-        tab_element {
-          content
-          title
-          image {
-            url
-          }
-        }
-        tab_element_en {
-          content
-          title
-          image {
-            url
-          }
-        }
         image {
           id
           url
@@ -41,7 +27,6 @@ export default function Webradio() {
         image={strapiWebradio.image[0].url}
         title={strapiWebradio["title" + LANG]}
         description={strapiWebradio["description" + LANG]}
-        tab_element={strapiWebradio["tab_element" + LANG]}
       />
     </div>
   );

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import LanguageContext from "../components/context/LanguageContext";
 import { graphql } from "gatsby";
 
 import "./festival.css";
@@ -12,6 +13,7 @@ const {
 } = require("./../utils/removeNameForUrl");
 
 export default function FestivalPage({ data }) {
+  const { LANG } = useContext(LanguageContext);
   const festival = data.festival;
 
   let festivalSlug = sluggify(festival.title);
@@ -24,16 +26,15 @@ export default function FestivalPage({ data }) {
     <div className="global-festival">
       <ImageCarousel images={imageArray} />
       <div id="festival-content" className="container">
-        <div id="festival-calendar">
-        </div>
+        <div id="festival-calendar"></div>
         <div id="festival-description">
-          <h3>{festival.title}</h3>
-          <p>{festival.content}</p>
+          <h3>{festival["title" + LANG]}</h3>
+          <p>{festival["content" + LANG]}</p>
         </div>
         <nav id="festival-menu">
           {festival.program.visible ? (
             <DisplayTabMenu
-              title={festival.program.title}
+              title={festival.program["title" + LANG]}
               // url={`/festival/${festivalSlug}${festivalId}/programme`}
               url={`/programme`}
               image={festival.program.image[0].url}
@@ -41,7 +42,7 @@ export default function FestivalPage({ data }) {
           ) : null}
           {festival.off_stage.visible ? (
             <DisplayTabMenu
-              title={festival.off_stage.title}
+              title={festival.off_stage["title" + LANG]}
               // url={`/festival/${festivalSlug}${festivalId}/hors-scene`}
               url={`/hors-scene`}
               image={festival.off_stage.image[0].url}
@@ -49,7 +50,7 @@ export default function FestivalPage({ data }) {
           ) : null}
           {festival.school.visible ? (
             <DisplayTabMenu
-              title={festival.school.title}
+              title={festival.school["title" + LANG]}
               // url={`/festival/${festivalSlug}${festivalId}/ecole`}
               url={`/ecole`}
               image={festival.school.image[0].url}
@@ -59,21 +60,21 @@ export default function FestivalPage({ data }) {
             festival.squaremenu.map(elem => (
               <DisplayTabMenu
                 key={elem.id}
-                title={elem.title}
+                title={elem["title" + LANG]}
                 url={elem.url}
                 image={elem.image[0].url}
               />
             ))}
           {festival.info.visible ? (
             <DisplayTabMenu
-              title={festival.info.title}
+              title={festival.info["title" + LANG]}
               url={`/festival/${festivalSlug}${festivalId}/infos`}
               image={festival.info.image[0].url}
             />
           ) : null}
           {festival.place.visible ? (
             <DisplayTabMenu
-              title={festival.place.title}
+              title={festival.place["title" + LANG]}
               url={`/festival/${festivalSlug}${festivalId}/lieux`}
               image={festival.place.image[0].url}
             />
@@ -89,8 +90,10 @@ export const query = graphql`
     festival: strapiFestival(id: { eq: $id }) {
       id
       title
+      title_en
       year
       content
+      content_en
       carousel {
         id
         image {
@@ -103,6 +106,7 @@ export const query = graphql`
       }
       program {
         title
+        title_en
         image {
           url
         }
@@ -111,6 +115,7 @@ export const query = graphql`
       off_stage {
         id
         title
+        title_en
         visible
         image {
           url
@@ -119,6 +124,7 @@ export const query = graphql`
       school {
         id
         title
+        title_en
         visible
         image {
           url
@@ -127,6 +133,7 @@ export const query = graphql`
       info {
         id
         title
+        title_en
         visible
         image {
           url
@@ -138,11 +145,13 @@ export const query = graphql`
           url
         }
         title
+        title_en
         visible
       }
       squaremenu {
         id
         title
+        title_en
         url
         image {
           url

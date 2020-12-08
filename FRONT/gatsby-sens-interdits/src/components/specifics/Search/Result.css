@@ -1,3 +1,10 @@
+h2 {
+
+}
+
+h2 span {
+    color: #ed1c24;
+}
 .result {
     width: 100%;
     height: auto;
@@ -28,4 +35,33 @@
 .result-description span {
     color: #3b3b3b;
     font-size: 15px;
+}
+
+#no-result {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+}
+#no-result h2 {
+    margin-bottom: 35px;
+
+}
+#no-result button {
+    width: auto;
+    height: auto;
+    padding: 10px;
+    color: #fff;
+    background: #1b1b1b;
+    border-radius: 7px;
+    border: 0;
+    border-top: 7px solid #ed1c24;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all .4s ease-in-out;
+}
+
+#no-result button:hover {
+    color: #ed1c24;
+    box-shadow: 0px 4px 4px -2px rgba(0,0,0,0.6);
 }
