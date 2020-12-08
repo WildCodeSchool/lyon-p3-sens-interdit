@@ -11,7 +11,7 @@ const { sluggify } = require("../../../utils/Sluggify");
 const { removeNameForUrl } = require("../../../utils/removeNameForUrl");
 
 export default function Article(props) {
-  const { language, LANG } = useContext(LanguageContext);
+  const { language, LANG, checkEnContext } = useContext(LanguageContext);
   const article = props.article;
   const textOverFlow = props.textOverFlow;
   const linkStatus = props.linkStatus;
@@ -34,7 +34,7 @@ export default function Article(props) {
             </p>
             <h4 className="to-uppercase">{article["title" + LANG]}</h4>
             <div>
-              {article.picturebottom[0] === undefined ? (
+              {article.picturetop[0] === undefined ? (
                 ""
               ) : (
                 <img
@@ -53,10 +53,10 @@ export default function Article(props) {
                 textOverFlow === true ? "article-text-overflow" : "article-text"
               }
             >
-              {article["article" + LANG]}
+              {checkEnContext(article.article, article.article_en)}
             </div>
             <div>
-              {article.picturetop[0] === undefined ? (
+              {article.picturebottom[0] === undefined ? (
                 ""
               ) : (
                 <img
@@ -82,7 +82,7 @@ export default function Article(props) {
           </p>
           <h4 className="to-uppercase">{article["title" + LANG]}</h4>
           <div>
-            {article.picturebottom[0] === undefined ? (
+            {article.picturetop[0] === undefined ? (
               ""
             ) : (
               <img
@@ -101,10 +101,10 @@ export default function Article(props) {
               textOverFlow === true ? "article-text-overflow" : "article-text"
             }
           >
-            {article["article" + LANG]}
+            {checkEnContext(article.article, article.article_en)}
           </div>
           <div>
-            {article.picturetop[0] === undefined ? (
+            {article.picturebottom[0] === undefined ? (
               ""
             ) : (
               <img
