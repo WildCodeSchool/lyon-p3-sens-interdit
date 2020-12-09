@@ -7,10 +7,10 @@
   },
   "options": {},
   "attributes": {
-    "title_en": {
+    "title": {
       "type": "string"
     },
-    "content_en": {
+    "content": {
       "type": "richtext"
     },
     "image": {
