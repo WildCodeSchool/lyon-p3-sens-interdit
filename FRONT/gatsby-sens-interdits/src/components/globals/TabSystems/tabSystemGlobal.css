@@ -12,7 +12,7 @@
 
 .picture-tabsyst-container {
     display: grid;
-    grid-template-columns: repeat(3,190px);
+    grid-template-columns: repeat(3,150px);
     column-gap: 10px;
     row-gap: 10px;
     align-items:center;
@@ -22,14 +22,14 @@
 }
 
 .picture-in-tabsystem {
-    width: 180px;
+    width: 140px;
 }
 .picture-in-tabsystem:hover {
-    -webkit-transform:scale(1.25); /* Safari et Chrome */
-    -moz-transform:scale(1.25); /* Firefox */
-    -ms-transform:scale(1.25); /* Internet Explorer 9 */
-    -o-transform:scale(1.25); /* Opera */
-    transform:scale(1.25);
+    -webkit-transform:scale(2); /* Safari et Chrome */
+    -moz-transform:scale(2); /* Firefox */
+    -ms-transform:scale(2); /* Internet Explorer 9 */
+    -o-transform:scale(2); /* Opera */
+    transform:scale(2);
 }
 
 /*____________responsive grid_______*/
