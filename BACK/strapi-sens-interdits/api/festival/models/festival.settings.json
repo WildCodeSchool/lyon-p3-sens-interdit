@@ -24,8 +24,8 @@
       "type": "richtext"
     },
     "spectacles": {
-      "via": "festival",
-      "collection": "spectacle"
+      "collection": "spectacle",
+      "via": "festival"
     },
     "category": {
       "type": "string"
@@ -83,6 +83,12 @@
       "type": "component",
       "repeatable": false,
       "component": "menu.menulink"
+    },
+    "title_en": {
+      "type": "string"
+    },
+    "content_en": {
+      "type": "richtext"
     }
   }
 }

@@ -24,11 +24,6 @@
     "description": {
       "type": "richtext"
     },
-    "tab_element": {
-      "type": "component",
-      "repeatable": true,
-      "component": "menu.tab-element"
-    },
     "title": {
       "type": "string"
     },
@@ -38,10 +33,25 @@
     "title_en": {
       "type": "string"
     },
-    "tab_element_en": {
+    "podcast": {
       "type": "component",
       "repeatable": true,
-      "component": "menu.tab-element"
+      "component": "text.podcast"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "subtitle_en": {
+      "type": "string"
+    },
+    "gallery": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }

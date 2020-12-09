@@ -122,8 +122,8 @@
       "type": "text"
     },
     "festival": {
-      "model": "festival",
-      "via": "spectacles"
+      "via": "spectacles",
+      "model": "festival"
     },
     "reserver": {
       "type": "string"

@@ -22,6 +22,11 @@
     },
     "content_en": {
       "type": "text"
+    },
+    "carousel": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.medias-slider"
     }
   }
 }
