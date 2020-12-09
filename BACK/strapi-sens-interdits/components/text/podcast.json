@@ -2,7 +2,8 @@
   "collectionName": "components_text_podcasts",
   "info": {
     "name": "podcast",
-    "icon": "arrow-circle-left"
+    "icon": "arrow-circle-left",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -19,12 +20,10 @@
       "type": "string"
     },
     "image": {
-      "model": "file",
+      "collection": "file",
       "via": "related",
       "allowedTypes": [
-        "images",
-        "files",
-        "videos"
+        "images"
       ],
       "plugin": "upload",
       "required": false

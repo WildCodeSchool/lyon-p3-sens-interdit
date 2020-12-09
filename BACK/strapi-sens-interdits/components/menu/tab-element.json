@@ -13,24 +13,6 @@
     "content": {
       "type": "richtext"
     },
-    "image": {
-      "collection": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images"
-      ],
-      "plugin": "upload",
-      "required": false
-    },
-    "video": {
-      "collection": "file",
-      "via": "related",
-      "allowedTypes": [
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false
-    },
     "file": {
       "collection": "file",
       "via": "related",
@@ -54,6 +36,15 @@
       "type": "component",
       "repeatable": true,
       "component": "media.logo"
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }
