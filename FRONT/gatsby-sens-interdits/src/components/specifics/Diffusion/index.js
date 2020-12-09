@@ -42,7 +42,7 @@ export default function DiffusionPage() {
       `)
   const imageArray =
     strapiDiffusionProduction.carousel !== null
-      ? strapiDiffusionProduction.carousel.image.map(image => image.image)
+      ? strapiDiffusionProduction.carousel.carousel_image.map(image => image.image)
       : false;
   return (
     <div className="global-diffusion">
@@ -55,7 +55,7 @@ export default function DiffusionPage() {
         </div>
         <nav id="diffusion-menu">
           {strapiDiffusionProduction.squaremenu.map(elem =>
-            <DisplayTabMenu key={elem.id} title={elem["title" + LANG]} url={elem.url} image={elem.image[0].url} />
+            <DisplayTabMenu key={elem.id} title={elem["title" + LANG]} url={elem.url} image={elem.squaremenuimage[0].url} />
           )
           }
         </nav>

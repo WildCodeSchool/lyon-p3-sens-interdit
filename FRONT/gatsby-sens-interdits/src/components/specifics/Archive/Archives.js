@@ -7,6 +7,7 @@ import LanguageContext from "../../context/LanguageContext";
 export default function Archives() {
     const {LANG, language} = useContext(LanguageContext);
 
+    const [archives, setArchives] = useState([]);
     const [filters, setFilters] = useState({});
     const [filtersList, setFiltersList] = useState({
         countries: [],
@@ -15,58 +16,91 @@ export default function Archives() {
         locations: []
     });
 
-
-    const archives = useStaticQuery(graphql`
-    query MyQueryArchives {
-      allStrapiArchivesOld(filter: { categorie: { eq: "tournee" } }) {
-        edges {
-          node {
-            id
-            titre
-            date_1
-            pays
-            lieu
-            annee
-            credits_2
-            photo_1
-            strapiId
-          }
-        }
-      },
-      
+    const lists = {
+        countries: 'pays',
+        locations: 'lieu',
+        years: 'annee',
+        directors: 'credits_2'
     }
-  `);
+    const listsSing = { // TODO: do it better
+        country: 'pays',
+        location: 'lieu',
+        year: 'annee',
+        director: 'credits_2'
+    }
 
-    const lists = [
-        {countries: 'pays'},
-        {locations: 'lieu'},
-        {years: 'annee'},
-        {directors: 'credits_2'},
-    ]
+    /*
+        function emptyFilters() {
+            let list = {};
+            for(let i in filtersList) {
+                list[i] = []
+            }
+            setFiltersList(list);
+        }*/
+
     function buildFiltersList(archives) {
-        let tmpFiltersList = {...filtersList};
-        archives.allStrapiArchivesOld.edges.forEach(elem => {
-            elem = elem.node;
-            lists.forEach(list => {
-                let key = Object.keys(list)[0];
-                let field = list[key];
-                if (!filtersList[key].includes(elem[field]) && elem[field] !== null && elem[field] !== '') {
+        console.log('"********************')
+        console.log('archives', archives);
+        console.log('filtersList', filtersList);
+        let tmpFiltersList = filtersList;
+        console.log('tmpFiltersList', tmpFiltersList);
+        archives.forEach(elem => {
+            for (let key in lists) {
+                let field = lists[key];
+                if ((!filtersList[key] !== undefined && !filtersList[key].includes(elem[field])) && elem[field] !== null && elem[field] !== '') {
+                    if (tmpFiltersList[key] === undefined) {
+                        tmpFiltersList[key] = [];
+                    }
                     tmpFiltersList[key].push(elem[field]);
                 }
-            })
+            }
         });
+        console.log(tmpFiltersList);
         setFiltersList(tmpFiltersList);
     }
 
-    useEffect(() => {
-        console.log(archives);
-        buildFiltersList(archives);
-    }, [])
+    function getArchives(uri = '', next) {
+        fetch(process.env.GATSBY_API_URL + '/archives-olds?categorie=tournee' + uri)
+            .then(headers => {
+                if (headers.status === 200) {
+                    return headers.json()
+                } else {
+                    next(headers);
+                }
+            })
+            .then(results => {
+                next(null, results);
+            })
+            .catch(err => {
+                next(err);
+            })
+    }
+
+    function buildFilters() {
+        let uri = '';
+        for (let i in filters) {
+            let filter = filters[i];
+            if (filter !== '') {
+                uri += `&${listsSing[i]}=${filter}`
+            }
+        }
+        return uri;
+    }
 
     useEffect(() => {
-        console.log('*************');
-        console.log(filters);
+        console.log('---------')
+        let uri = buildFilters(filters);
+        getArchives(uri, (err, results) => {
+            if (err) {
+                throw err;
+            }
 
+            setArchives(results)
+            console.log(results);
+            buildFiltersList(results);
+            console.log(filtersList);
+
+        })
     }, [filters])
 
 
@@ -80,18 +114,22 @@ export default function Archives() {
                 }
             </h1>
             <Filters language={language} filtersList={filtersList} filters={filters} setFilters={setFilters}/>
-            {<div className="archive-transmission-grid-wrapper">
-                {archives.allStrapiArchivesOld.edges.map(elem => (
-                    <ThumbnailOldArchive
-                        id={elem.node.strapiId}
-                        key={elem.node.id}
-                        country={elem.node.pays}
-                        name={elem.node.titre}
-                        team={elem.node.credits_2}
-                        affiche={`${process.env.GATSBY_API_URL}/images/archives${elem.node.photo_1}`}
-                    />
-                ))}
-            </div>}
+            <div className="archive-transmission-grid-wrapper">
+                {archives.length > 0 ?
+                    archives.map(elem => (
+                        <ThumbnailOldArchive
+                            id={elem.id}
+                            key={elem.id}
+                            country={elem.pays}
+                            name={elem.titre}
+                            team={elem.credits_2}
+                            affiche={`${process.env.GATSBY_API_URL}/images/archives${elem.photo_1}`}
+                        />
+                    ))
+                    :
+                    <></>
+                }
+            </div>
         </div>
     )
 }
