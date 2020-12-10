@@ -2,11 +2,9 @@ import React, { useContext } from "react";
 import LanguageContext from "../components/context/LanguageContext";
 import GeneriquePage from "../components/specifics/Generique";
 import { graphql, useStaticQuery } from "gatsby";
-import SEO from "../components/SEO/seo";
-
 
 export default function Ecole() {
-  const { language, LANG, checkEnContext } = useContext(LanguageContext);
+  const { checkEnContext } = useContext(LanguageContext);
 
   const { strapiEcole } = useStaticQuery(graphql`
     query MyQueryEcole {
@@ -37,31 +35,10 @@ export default function Ecole() {
           url
           name
         }
-        seo_ecole {
-          description
-          description_en
-          id
-          title
-          title_en
-          image_en {
-            url
-          }
-          image {
-            url
-          }
-        }
       }
     }
   `);
-
-  let seo = strapiEcole.seo_ecole;
-  const title = LANG === 'en' ?  seo.title_en : seo.title;
-  const description = LANG === 'en' ? seo.description_en: seo.description;
-  const image = LANG === 'en' ? seo.image[0].url_en : seo.image[0].url;
- 
   return (
-    <>
-    <SEO title={title} description={description} image={image} />
     <div>
       <GeneriquePage
         image={strapiEcole.image[0].url}
@@ -76,6 +53,5 @@ export default function Ecole() {
         )}
       />
     </div>
-    </>
   );
 }
