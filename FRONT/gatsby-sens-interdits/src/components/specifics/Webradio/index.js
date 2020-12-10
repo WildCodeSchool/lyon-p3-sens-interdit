@@ -86,7 +86,7 @@ const imageLink = allStrapiWebradio. nodes[0].image[0].url;
               </div>
             </a>
           </div>
-        ))}
+        )}
       </div>
       <div className="youtube">
         <h3>

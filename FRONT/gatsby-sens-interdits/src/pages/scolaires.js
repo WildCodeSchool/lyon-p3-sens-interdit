@@ -42,16 +42,16 @@ export default function Scolaire() {
     <GeneriquePage
       image={strapiScolaire.image[0].url}
       title={checkEnContext(
-        data.strapiScolaire.title,
-        data.strapiScolaire.title_en
+          strapiScolaire.title,
+        strapiScolaire.title_en
       )}
       description={checkEnContext(
-        data.strapiScolaire.description,
-        data.strapiScolaire.description_en
+        strapiScolaire.description,
+        strapiScolaire.description_en
       )}
       tab_element={checkEnContext(
-        data.strapiScolaire.tab_element,
-        data.strapiScolaire.tab_element_en
+        strapiScolaire.tab_element,
+        strapiScolaire.tab_element_en
       )}
     />
   );
