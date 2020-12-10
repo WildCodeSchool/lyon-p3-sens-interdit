@@ -23,8 +23,8 @@ export default function Filters({filtersList, language, setFilters, filters}) {
                 {filtersList.countries !== undefined && filtersList.countries.length > 0 ?
                     <div className="filter-col">
 
-                        <select className="countrySelect" id="countrySelect" data-type="country" onChange={handleChangeFilter}>
-                            <option value="" selected={filters.country === undefined || filters.country.length === 0}> {language === "fr" ? "PAYS" : "COUNTRY"}</option>
+                        <select className="countrySelect" id="countrySelect" data-type="country" onChange={handleChangeFilter} value={filters.country === undefined ? '': filters.country}>
+                            <option value=""> {language === "fr" ? "PAYS" : "COUNTRY"}</option>
                             {filtersList.countries.map((country, i) => (
                                 <option key={i}>{country}</option>
                             ))}
@@ -33,9 +33,8 @@ export default function Filters({filtersList, language, setFilters, filters}) {
                     </div> : null}
                 {filtersList.directors !== undefined && filtersList.directors.length > 0 ?
                     <div className="filter-col">
-                        <select className="directorSelect" id="directorSelect" data-type="director"
-                                onChange={handleChangeFilter}>
-                            <option value="" selected={filters.director === undefined || filters.director.length === 0}>{language === "fr" ? "METTEUR EN SCÈNE" : "DIRECTOR"}</option>
+                        <select className="directorSelect" id="directorSelect" data-type="director" onChange={handleChangeFilter} value={filters.director === undefined ? '': filters.director}>
+                            <option value="">{language === "fr" ? "METTEUR EN SCÈNE" : "DIRECTOR"}</option>
                             {filtersList.directors.map((director, i) => (
                                 <option key={i}>{director}</option>
                             ))}
@@ -44,9 +43,8 @@ export default function Filters({filtersList, language, setFilters, filters}) {
                     </div> : null}
                 {filtersList.locations !== undefined && filtersList.locations.length > 0 ?
                     <div className="filter-col">
-                        <select className="locationSelect" id="locationSelect" data-type="location"
-                                onChange={handleChangeFilter}>
-                            <option value="" selected={filters.location === undefined || filters.location.length === 0}>{language === "fr" ? "LIEUX" : "LOCATION"}</option>
+                        <select className="locationSelect" id="locationSelect" data-type="location" onChange={handleChangeFilter} value={filters.location === undefined ? '': filters.location}>
+                            <option value="">{language === "fr" ? "LIEUX" : "LOCATION"}</option>
                             {filtersList.locations.map((location, i) => (
                                 <option key={i}>{location}</option>
                             ))}
@@ -55,8 +53,8 @@ export default function Filters({filtersList, language, setFilters, filters}) {
                     </div> : null}
                 {filtersList.years !== undefined && filtersList.years.length > 0 ?
                     <div className="filter-col">
-                        <select className="yearSelect" id="yearSelect" data-type="year" onChange={handleChangeFilter}>
-                            <option value="" selected={filters.year === undefined || filters.year.length === 0}>{language === "fr" ? "ANNÉE" : "YEAR"}</option>
+                        <select className="yearSelect" id="yearSelect" data-type="year" onChange={handleChangeFilter}  value={filters.year === undefined ? '': filters.year}>
+                            <option value="">{language === "fr" ? "ANNÉE" : "YEAR"}</option>
                             {filtersList.years.map((year, i) => (
                                 <option key={i}>{year}</option>
                             ))}
