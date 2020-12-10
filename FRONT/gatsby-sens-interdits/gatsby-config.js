@@ -9,7 +9,7 @@ module.exports = {
         queryLimit: -1, // -1 = No limits // Default to 100
         contentTypes: [
           `festival`,
-          `festival-old`,
+         
           `spectacle`,
           `archives-old`,
           `type-of-event`,
@@ -26,7 +26,7 @@ module.exports = {
           `homepage`,
           `partnerpage`,
           `ecole`,
-          `webradio`,
+          
           `scolaire`,
           `seminaire`,
           `parole`,

@@ -8,7 +8,7 @@ import "./index.css";
 import picto from "../../../assets/img/picto+.svg";
 
 export default function webRadio() {
-  const { language, checkEnContext } = useContext(LanguageContext);
+  /* const { language, checkEnContext } = useContext(LanguageContext);
 
   const { strapiWebradio } = useStaticQuery(graphql`
     query MyQueryWebradio {
@@ -50,9 +50,9 @@ export default function webRadio() {
       autoplay: 1,
     },
   };
-
+ */
   return (
-    <div className="container">
+    {/* <div className="container">
       <img
         src={process.env.GATSBY_API_URL + strapiWebradio.image[0].url}
         alt={checkEnContext(strapiWebradio.title, strapiWebradio.title_en)}
@@ -117,6 +117,6 @@ export default function webRadio() {
           />
         ))}
       </div>
-    </div>
+    </div> */}
   );
 }
