@@ -4,6 +4,7 @@ import tabSystemClick from "../../../utils/tab-system";
 import Article from "../Articles/Article";
 import "../../../assets/styles/global.css";
 import "./tabSystemH.css";
+import "./tabSystemGlobal.css";
 import TabSystemContent from "./TabSystemContent";
 import LanguageContext from "../../context/LanguageContext";
 
@@ -11,16 +12,21 @@ function DisplayPicture({ imageContent }) {
   return (
     <>
       {imageContent.map(img => (
-        <div key={img.id}>
+        <div key={img.id} className="pictures-in-tab-system">
           <p>{img.credit}</p>
-          {img.image.map(elem => (
-            <img
-              key={elem.url}
-              src={process.env.GATSBY_API_URL + elem.url}
-              alt="noalt"
-              width="150"
-            />
-          ))}
+          <div className="picture-tabsyst-container">
+            {img.image.map(elem => (
+              <div>
+                <img
+                  key={elem.url}
+                  src={process.env.GATSBY_API_URL + elem.url}
+                  alt="noalt"
+                  className="picture-in-tabsystem"
+                />
+              </div>
+            ))}
+          </div>
+
         </div>
       ))}
     </>

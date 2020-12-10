@@ -26,7 +26,6 @@ module.exports = {
           `homepage`,
           `partnerpage`,
           `ecole`,
-          `webradio`,
           `scolaire`,
           `seminaire`,
           `parole`,
@@ -40,6 +39,7 @@ module.exports = {
           `diffusion-production`,
           `mentions`,
           `conditions`,
+          `webradio`
         ],
       },
     },
