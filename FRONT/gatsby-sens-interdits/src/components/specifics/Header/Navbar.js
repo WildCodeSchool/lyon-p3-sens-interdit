@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 import { FestivalContext } from "../../context/FestivalContext";
 
 export default function Navbar() {
-  const { LANG } = useContext(LanguageContext);
+  const { checkEnContext } = useContext(LanguageContext);
   const { currentFestivalStrapiId, currentFestivalTitle } = useContext(
     FestivalContext
   );
@@ -63,51 +63,73 @@ export default function Navbar() {
       <ul className="nav-bar">
         {strapiGlobalMenu.home.visible ? (
           <li>
-            <Link to="/">{strapiGlobalMenu.home["title" + LANG]}</Link>
+            <Link to="/">
+              {checkEnContext(
+                strapiGlobalMenu.home.title,
+                strapiGlobalMenu.home.title_en
+              )}
+            </Link>
           </li>
         ) : null}
         {strapiGlobalMenu.festival.visible ? (
           <li>
             <Link
               to={`/festival/${currentFestivalTitle}_${currentFestivalStrapiId}`}
-              // TODO: gestion context pas de festival en cours (boolean false sur chaque festival)
             >
-              {strapiGlobalMenu.festival["title" + LANG]}
+              {checkEnContext(
+                strapiGlobalMenu.festival.title,
+                strapiGlobalMenu.festival.title_en
+              )}
             </Link>
           </li>
         ) : null}
         {strapiGlobalMenu.production.visible ? (
           <li>
             <Link to="/diffusion-production">
-              {strapiGlobalMenu.production["title" + LANG]}
+              {checkEnContext(
+                strapiGlobalMenu.production.title,
+                strapiGlobalMenu.production.title_en
+              )}
             </Link>
           </li>
         ) : null}
         {strapiGlobalMenu.transmission.visible ? (
           <li>
             <Link to="/transmissions">
-              {strapiGlobalMenu.transmission["title" + LANG]}
+              {checkEnContext(
+                strapiGlobalMenu.transmission.title,
+                strapiGlobalMenu.transmission.title_en
+              )}
             </Link>
           </li>
         ) : null}
         {strapiGlobalMenu.association.visible ? (
           <li>
             <Link to="/association">
-              {strapiGlobalMenu.association["title" + LANG]}
+              {checkEnContext(
+                strapiGlobalMenu.association.title,
+                strapiGlobalMenu.association.title_en
+              )}
             </Link>
           </li>
         ) : null}
         {strapiGlobalMenu.news.visible ? (
           <li>
             <Link to="/actualites">
-              {strapiGlobalMenu.news["title" + LANG]}
+              {checkEnContext(
+                strapiGlobalMenu.news.title,
+                strapiGlobalMenu.news.title_en
+              )}
             </Link>
           </li>
         ) : null}
         {strapiGlobalMenu.archives.visible ? (
           <li>
             <Link to="/archives">
-              {strapiGlobalMenu.archives["title" + LANG]}
+              {checkEnContext(
+                strapiGlobalMenu.archives.title,
+                strapiGlobalMenu.archives.title_en
+              )}
             </Link>
           </li>
         ) : null}

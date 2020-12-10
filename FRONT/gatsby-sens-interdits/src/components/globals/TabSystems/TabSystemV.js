@@ -36,7 +36,7 @@ function DisplayPicture({ imageContent }) {
 }
 
 export default function TabSystemV({ tabContent, spectacleQuery }) {
-  const { LANG } = useContext(LanguageContext);
+  const { checkEnContext } = useContext(LanguageContext);
   const [activeTabContent, setActiveTabContent] = useState(null);
   const [activeClass, setActiveClass] = useState(null);
   const [firstLoad, setFirstLoad] = useState(true);
@@ -60,12 +60,12 @@ export default function TabSystemV({ tabContent, spectacleQuery }) {
             id={"tab-link_" + tab.id}
             data-id={tab.id}
             onClick={handleOnClick}
-            onKeyDown={()=>{}}
+            onKeyDown={() => {}}
             role="button"
           >
             <img src={picto} alt="" width="30" height="30" data-id={tab.id} />
             <h3 className="tab-link" data-id={tab.id}>
-              {tab["title" + LANG]}
+              {tab.title}
             </h3>
           </div>
           <div
@@ -76,7 +76,7 @@ export default function TabSystemV({ tabContent, spectacleQuery }) {
                 : "disabled-tab")
             }
           >
-            {tab["content" + LANG]}
+            {tab.content}
             {tab.credited_image !== undefined ? (
               <DisplayPicture
                 imageContent={
@@ -91,13 +91,14 @@ export default function TabSystemV({ tabContent, spectacleQuery }) {
               <div className="thumbnail-list">
                 {spectacleQuery.map(spectacle =>
                   spectacle.type_of_events.map((cat, i) =>
-                    cat["category" + LANG] === tab["title" + LANG] ? (
+                    checkEnContext(cat.category, cat.category_en) ===
+                    tab.title ? (
                       <Thumbnail
-                        key={spectacle["title" + LANG] + spectacle.day}
+                        key={spectacle.title + spectacle.day}
                         affiche={
                           spectacle.thumbnail
                             ? spectacle.thumbnail.internal.description.split(
-                                '"'
+                                '3'
                               )[1]
                             : photoTest
                         }
@@ -107,11 +108,20 @@ export default function TabSystemV({ tabContent, spectacleQuery }) {
                             : "inconnue"
                         }
                         country={
-                          spectacle["country" + LANG]
-                            ? spectacle["country" + LANG]
+                          checkEnContext(
+                            spectacle.country,
+                            spectacle.country_en
+                          )
+                            ? checkEnContext(
+                                spectacle.country,
+                                spectacle.country_en
+                              )
                             : "inconnu"
                         }
-                        name={spectacle["title" + LANG]}
+                        name={checkEnContext(
+                          spectacle.title,
+                          spectacle.title_en
+                        )}
                         id={spectacle.strapiId}
                         team={spectacle.author ? spectacle.author : "inconnu"}
                         url={"/spectacle/" + sluggify(spectacle.title)}
