@@ -11,7 +11,7 @@ import ImageCarouselOldArchive from "../components/globals/CarouselOldArchive/Im
 import SpectacleInfosOldArchive from "../components/specifics/SpectacleOldArchive/SpectacleInfosOldArchive";
 
 
-export default function ArchiveSpectaclePage({ data }) {
+export default function ArchiveSpectaclePage({ data,location }) {
   const image = [
     data.strapiArchivesOld.photo_1,
     data.strapiArchivesOld.photo_2,
