@@ -107,8 +107,8 @@ export default function ArchiveSpectaclePage({ data }) {
 // This query needs to be dynamic based on the id of the spectacle
 // (example: id="test-spectacle" --> the route will be: http://localhost:8000/spectacle/test-spectacle/
 export const query = graphql`
-  query MyQueryArchiveDeux($id: Int!) {
-    strapiArchivesOld(strapiId: { eq: $id }) {
+  query MyQueryArchiveDeux($strapiId: Int!) {
+    strapiArchivesOld(strapiId: { eq: $strapiId }) {
       id
       strapiId
       titre
