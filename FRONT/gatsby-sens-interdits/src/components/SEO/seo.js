@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
 import { useStaticQuery, graphql } from "gatsby";
-import { siteMetadata } from "../../../gatsby-config";
 
 // a ajouter  ? 
 //lang
@@ -14,17 +13,18 @@ export default function SEO  ({ title, description, image, article }) {
 
     const {
         defaultTitle,
-        defaultDescription, 
+        titleTemplate,
+        defaultDescription,
         siteUrl,
         defaultImage,
         twitterUsername,
-    } = site.siteMetadata
+      } = site.siteMetadata
 
     const seo = {
         title: title || defaultTitle,
         description : description || defaultDescription,
-        image: `${siteUrl}${pathname}`,
-        url: `${siteUrl}${pathname || ''}`,
+        image: image || defaultImage,
+        url: `${siteUrl}${pathname}`,
     }
     
     return (
@@ -35,6 +35,7 @@ export default function SEO  ({ title, description, image, article }) {
             {seo.url && <meta property="og:url" content={seo.url} />}
             {(article ? true : null) && <meta property="og:type" content="article" />}
             {seo.title && <meta property="og:title" content={seo.title} />}
+            {seo.title &&<title>{seo.title}</title>}
             {seo.description && (<meta property="og:description" content={seo.description} />)}
             {seo.image && <meta property="og:image" content={seo.image} />}
             <meta name="twitter:card" content="summary_large_image" />
@@ -47,12 +48,27 @@ export default function SEO  ({ title, description, image, article }) {
 
 }
 
+SEO.propTypes = {
+    title: PropTypes.string,
+    description: PropTypes.string,
+    image: PropTypes.string,
+    article: PropTypes.bool,
+  }
+  SEO.defaultProps = {
+    title: null,
+    description: null,
+    image: null,
+    article: false,
+  }
+
+
 const seoQuery = graphql`
     query seoQuery{
         site{
             siteMetadata {
                 defaultTitle: title
-                defaultDescription : description
+                defaultDescription : description,
+                titleTemplate: titleTemplate
                 siteUrl: url
                 defaultImage: image
                 twitterUsername
@@ -60,16 +76,3 @@ const seoQuery = graphql`
         }
     }
     `
-
-SEO.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  article: PropTypes.bool,
-}
-SEO.defaultProps = {
-  title: null,
-  description: null,
-  image: null,
-  article: false,
-}
