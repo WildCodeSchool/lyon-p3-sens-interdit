@@ -51,6 +51,74 @@ img.picto-plus {
   height: 38px;
 }
 
+#archives-production {
+  width: 100%;
+  position: relative;
+  display: block;
+
+}
+.select-flex-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.global-Filter-tab {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.global-Filter-tab h4 {
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.filter-col {
+  display: block;
+  margin-right: 15px;
+}
+/*.global-Filter-tab label {
+  width: 100%;
+}*/
+
+.global-Filter-tab select {
+  width: 100%;
+  margin-right: 10px;
+  border: 0;
+  border-right: solid #e30613 1px;
+  cursor: pointer;
+
+  -webkit-appearance: none;
+  appearance: none;
+  text-align: center;
+}
+.global-Filter-tab select option {
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
+#countrySelect {
+  max-width: 100px;
+}
+
+#yeearSelect {
+  border: 0;
+}
+
+.global-Filter-tab button:focus,
+.global-Filter-tab select:focus {
+  outline: none;
+}
+
+.global-Filter-tab select::-ms-expand {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+  outline: none;
+}
+
 @media screen and (max-width: 960px) {
   /* ARCHIVES */
   .archive-transmission-grid-wrapper {
@@ -62,5 +130,13 @@ img.picto-plus {
   }
   .festival-poster-wrapper .festival-title-flex img {
     width: 15px;
+  }
+
+  /* FILTERTAB */
+  .global-Filter-tab h3{
+    font-size: 14px;
+  }
+  .global-Filter-tab select {
+    font-size: 12px;
   }
 }
