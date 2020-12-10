@@ -27,7 +27,7 @@
 }
 
 /*________________responsive__________*/
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 960px) {
 
     #hors-scene-pres {
         display: flex;
@@ -44,5 +44,8 @@
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 20px;
+    }
+    #hors-scene-Cal {
+        display: none;
     }
 }

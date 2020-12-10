@@ -1,6 +1,5 @@
 .spectacle-info {
   grid-area: spectacle-info;
-  background: #fff;
   position: relative;
 }
 
@@ -37,3 +36,14 @@
   padding-left: 20px;
 }
 
+@media screen and (max-width: 960px) {
+  .spectacle-info {
+    margin-top: 20px;
+  }
+  .spectacle-info .red-arrow {
+    display : none;
+  }
+  .spectacle-info-container {
+    border : none;
+  }
+}

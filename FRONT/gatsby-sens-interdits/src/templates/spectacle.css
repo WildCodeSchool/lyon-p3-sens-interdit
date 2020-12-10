@@ -63,3 +63,33 @@ div.red-arrow-spectacle {
   background-color: #e30613;
   clip-path: polygon(50% 100%, 0 0, 100% 0);
 }
+
+.content-spectacle-page .tab-module {
+  margin-top : 50px;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 960px)  {
+  .content-spectacle-page {
+    width: 90vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 15% 60% 25%;
+    grid-template-rows: 100px repeat(2, minmax(100px, auto));
+    gap: 10px;
+    grid-template-areas:
+      "country-label calendar calendar"
+      "spectacle-info spectacle-info spectacle-info"
+      "tab-module tab-module tab-module"
+      "content content content"
+      ;
+  }
+  .content-spectacle-page .display-mini-tab {
+    width: 90vw;
+  }
+
+  .content-spectacle-page .spectacle-infos-content {
+    width:90vw;
+  }
+
+} 

@@ -9,7 +9,6 @@ import picto from "../../../assets/img/picto+.svg";
 
 export default function webRadio() {
   const { language, checkEnContext } = useContext(LanguageContext);
-
   const { allStrapiWebradio } = useStaticQuery(graphql`
     query MyQueryWebradio {
       allStrapiWebradio {
@@ -47,7 +46,6 @@ const strapiWebradio = allStrapiWebradio.nodes[0];
 const podCastLink = allStrapiWebradio.nodes[0].podcast;
 const imageLink = allStrapiWebradio. nodes[0].image[0].url;
 
-
   const opts = {
     height: "390",
     width: "640",
@@ -58,7 +56,6 @@ const imageLink = allStrapiWebradio. nodes[0].image[0].url;
 
   return (
     <div className="container">
-
       <img src={process.env.GATSBY_API_URL + imageLink } alt={strapiWebradio["title" + LANG]} className="image-webradio"/>
       <h3>{strapiWebradio["subtitle" + LANG]}</h3>
       <h1 className="to-uppercase">{strapiWebradio["title" + LANG]}</h1>

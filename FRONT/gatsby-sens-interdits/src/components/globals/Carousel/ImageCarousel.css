@@ -1,6 +1,6 @@
 div.carousel-loading {
   width: 100%;
-  height: 450px;
+  max-height: 450px;
   overflow: hidden;
 }
 
@@ -20,8 +20,6 @@ div.size-adjustment {
 div.size-adjustment img{
   object-fit: cover;
 }
-
-
 
 div.carousel-wrapper {
   position: relative;
