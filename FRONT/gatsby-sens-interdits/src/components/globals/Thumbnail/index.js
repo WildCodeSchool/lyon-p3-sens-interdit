@@ -17,7 +17,13 @@ export default function Thumbnail(props) {
             width="fit-content"
           />
           <div className="title-mini-tab">
-            <p className="date-mini-tab">{props.date}</p>
+            <p
+              className={`date-mini-tab ${
+                props.date === "inconnue" ? "hidden" : ""
+              }`}
+            >
+              {props.date}
+            </p>
             <p className="country-mini-tab">{props.country}</p>
           </div>
           <img

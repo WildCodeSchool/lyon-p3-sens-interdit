@@ -1,21 +1,29 @@
 import React from "react";
-import ImageCarousel from "../components/globals/Carousel/ImageCarousel";
 import ThumbnailOldArchive from "../components/globals/ThumbnailOldArchive";
 import { graphql } from "gatsby";
 
-import "./archiveSpectacle.css";
+import "./archiveFestival.css";
 
 function Programme({ data }) {
-  
   return (
     <>
       <div className="global-margin archive-global-styling">
-        
+        <div className="image-generique-page">
+          <img
+            src={
+              process.env.GATSBY_API_URL +
+              data.allStrapiFestivalarchive.nodes[0].poster[0].url
+            }
+            alt={data.allStrapiFestivalarchive.nodes[0].title}
+          />
+        </div>
         <h1 className="to-uppercase">
-          Découvrez{" "}
-          <span>les archives du festival {data.allStrapiArchivesOld.nodes[0].annee}</span>
+          Edition {data.allStrapiFestivalarchive.nodes[0].year} -{" "}
+          <span>{data.allStrapiFestivalarchive.nodes[0].title}</span>
         </h1>
-        <div className="archive-programme-grid-wrapper">
+
+        <div>{data.allStrapiFestivalarchive.nodes[0].description}</div>
+        <div className="archive-transmission-grid-wrapper">
           {data.allStrapiArchivesOld.nodes.map(elem => (
             <ThumbnailOldArchive
               id={elem.strapiId}
@@ -44,22 +52,23 @@ export const query = graphql`
         credits_2
         pays
         photo_1
-        presentation
         annee
       }
     }
-
-    # , $year: Int
-
-    # allStrapiSpectacle(filter: { festival: { year: { eq: $year } } }) {
-    #   nodes {
-    #     id
-    #     strapiId
-    #     title
-    #     festival {
-    #       year
-    #     }
-    #   }
-    # }
+    allStrapiFestivalarchive(filter: { year: { eq: $annee } }) {
+      nodes {
+        strapiId
+        id
+        year
+        poster {
+          url
+          id
+        }
+        title
+        title_en
+        description
+        description_en
+      }
+    }
   }
 `;
