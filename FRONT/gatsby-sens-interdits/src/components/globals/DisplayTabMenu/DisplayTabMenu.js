@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "gatsby";
+import { Link } from "gatsby";
 import "./DisplayTabMenu.css";
 import TabMenuContent from './TabMenuContent';
 
@@ -9,11 +9,11 @@ function DisplayTabMenu(props) {
         <div className="display-tab-sticker">
             {external ?
                 <a href={props.url} target="_blank" className="to-uppercase">
-                    <TabMenuContent props={props}/>
+                    <TabMenuContent props={props} />
                 </a>
                 :
                 <Link to={props.url} className="to-uppercase">
-                    <TabMenuContent props={props}/>
+                    <TabMenuContent props={props} />
                 </Link>
             }
         </div>

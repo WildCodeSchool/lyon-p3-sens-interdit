@@ -1,5 +1,5 @@
 import React from "react";
-import RedTitleCard from "./../Carousel/RedTitleCard";
+import RedTitleCardOld from "./../Carousel/RedTitleCardOld";
 import "./../Carousel/ImageCarousel.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -14,7 +14,7 @@ function ImageCarouselOldArchive({ title, images, displayed }) {
     </>
   ) : (
       <>
-        <RedTitleCard title={title} displayed={displayed} />
+        <RedTitleCardOld title={title} displayed={displayed} />
         <Carousel
           autoPlay={true}
           infiniteLoop={true}

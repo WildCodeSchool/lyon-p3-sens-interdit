@@ -13,10 +13,9 @@ import photoTest from "../assets/img/img-sens-interdit.jpg";
 import LanguageContext from "../components/context/LanguageContext";
 
 export default function SpectaclePage({ data }) {
-  const { language, LANG } = useContext(LanguageContext);
+  const { language, LANG, checkEnContext } = useContext(LanguageContext);
 
   const spectacle = data.spectacle;
-
 
   const imageArray =
     spectacle.carousel !== null
@@ -26,34 +25,42 @@ export default function SpectaclePage({ data }) {
   return (
     <div className="global-spectacle-page">
       <ImageCarousel
-        title={spectacle["title" + LANG]}
+        title={checkEnContext(spectacle.title, spectacle.title_en)}
         images={imageArray}
         displayed={true}
         booking={data.spectacle.reserver}
       />
       <div className="content-spectacle-page container">
         <div className="country-label">
-          <p>{spectacle["country" + LANG]}</p>
+          <p>{checkEnContext(spectacle.country, spectacle.country_en)}</p>
         </div>
         <SpectacleCalendar spectacle={spectacle} />
         <SpectacleInfos
           language={language}
           tarif={spectacle.tarif}
-          country={spectacle["country" + LANG]}
-          duration={spectacle["duration" + LANG]}
+          country={checkEnContext(spectacle.country, spectacle.country_en)}
+          duration={checkEnContext(spectacle.duration, spectacle.duration_en)}
           partners={spectacle.partners}
           accessibility={spectacle.accessibility}
-          info={spectacle["spectacle_info" + LANG]}
+          info={checkEnContext(
+            spectacle.spectacle_info,
+            spectacle.spectacle_info_en
+          )}
         />
         {spectacle["tab_element" + LANG] === 0 ? (
           ""
         ) : (
-          <TabSystemH tabContent={spectacle["tab_element" + LANG]} />
+          <TabSystemH
+            tabContent={checkEnContext(
+              spectacle.tab_element,
+              spectacle.tab_element_en
+            )}
+          />
         )}
         <div className="content">
           <div className="red-arrow-spectacle"></div>
           <p className="content-title to-uppercase">
-            {!language ? "Autour du spectacle" : "Suggestions"}
+            {language === "fr" ? "Autour du spectacle" : "More"}
           </p>
           <div className="display-mini-tab">
             <Thumbnail
@@ -77,8 +84,6 @@ export default function SpectaclePage({ data }) {
   );
 }
 
-// This query needs to be dynamic based on the id of the spectacle
-// (example: id="test-spectacle" --> the route will be: http://localhost:8000/spectacle/test-spectacle/
 export const query = graphql`
   query($id: String!) {
     spectacle: strapiSpectacle(id: { eq: $id }) {
