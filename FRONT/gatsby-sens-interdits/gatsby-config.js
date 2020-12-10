@@ -25,7 +25,6 @@ module.exports = {
           `homepage`,
           `partnerpage`,
           `ecole`,
-          `webradio`,
           `scolaire`,
           `seminaire`,
           `parole`,

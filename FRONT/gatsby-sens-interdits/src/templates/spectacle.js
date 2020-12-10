@@ -34,7 +34,7 @@ export default function SpectaclePage({ data }) {
         <div className="country-label">
           <p>{spectacle["country" + LANG]}</p>
         </div>
-        <SpectacleCalendar spectacle={spectacle} />
+        <SpectacleCalendar className="spectacle-calendar" spectacle={spectacle} />
         <SpectacleInfos
           language={language}
           tarif={spectacle.tarif}
@@ -43,6 +43,7 @@ export default function SpectaclePage({ data }) {
           partners={spectacle.partners}
           accessibility={spectacle.accessibility}
           info={spectacle["spectacle_info" + LANG]}
+          className="spectacle-infos-content"
         />
         {spectacle["tab_element" + LANG] === 0 ? (
           ""
