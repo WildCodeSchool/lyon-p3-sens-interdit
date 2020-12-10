@@ -6,7 +6,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import "./TransmissionsPage.css";
 
 export default function TransmissionsPage() {
-  const { LANG } = useContext(LanguageContext);
+  const { LANG, checkEnContext } = useContext(LanguageContext);
   const data = useStaticQuery(graphql`
     query transmissionQuery {
       allStrapiTransmission {
@@ -61,11 +61,16 @@ export default function TransmissionsPage() {
               Ateliers-<span>Transmission</span>
             </h1>
           ) : (
-              <h1>
-                Workshops-<span>Transmission</span>
-              </h1>
+            <h1>
+              Workshops-<span>Transmission</span>
+            </h1>
+          )}
+          <p>
+            {checkEnContext(
+              transmission.description,
+              transmission.description_en
             )}
-          <p>{transmission["description" + LANG]}</p>
+          </p>
         </div>
         <div className="transmission-grid-layout">
           <div className="transmission-public">
@@ -74,16 +79,16 @@ export default function TransmissionsPage() {
                 Avec <span>les publics</span>
               </h1>
             ) : (
-                <h1>
-                  With <span>the audiences</span>
-                </h1>
-              )}
+              <h1>
+                With <span>the audiences</span>
+              </h1>
+            )}
 
             {transmission.publiccardcontent.map(data => (
               <DisplayTabMenu
                 key={data.id}
                 image={data.image[0].url}
-                title={data["credit" + LANG]}
+                title={checkEnContext(data.credit, data.credit_en)}
                 url={data.url}
               />
             ))}
@@ -95,15 +100,15 @@ export default function TransmissionsPage() {
                 Avec <span>les professionnels</span>
               </h1>
             ) : (
-                <h1>
-                  With <span>the professionals</span>
-                </h1>
-              )}
+              <h1>
+                With <span>the professionals</span>
+              </h1>
+            )}
             {transmission.procardcontent.map(data => (
               <DisplayTabMenu
                 key={data.id}
                 image={data.image[0].url}
-                title={data["credit" + LANG]}
+                title={checkEnContext(data.credit, data.credit_en)}
                 url={data.url}
               />
             ))}

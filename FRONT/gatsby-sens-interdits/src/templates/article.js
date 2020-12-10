@@ -1,12 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import Article from "../components/globals/Articles/Article.js";
 import { graphql } from "gatsby";
 // import { Link } from "gatsby";
 import "./article.css";
-import LanguageContext from "../components/context/LanguageContext.js";
 
 export default function ArticlePage({ data }) {
-  const { LANG } = useContext(LanguageContext);
   const textOverFlow = false;
   const linkStatus = false;
 

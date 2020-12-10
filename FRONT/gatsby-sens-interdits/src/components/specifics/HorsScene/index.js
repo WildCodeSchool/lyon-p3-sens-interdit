@@ -19,7 +19,7 @@ dayjs.extend(localizedFormat);
 export default function HorsScenePage() {
   const [random, setRandom] = useState(0);
 
-  const { LANG, language } = useContext(LanguageContext);
+  const { language, checkEnContext } = useContext(LanguageContext);
 
   const strapiHorsSceneQuery = useStaticQuery(graphql`
     query strapiHorsSceneQuery {
@@ -87,12 +87,18 @@ export default function HorsScenePage() {
   /*CAROUSEL*/
   const imageArray =
     strapiHorsSceneQuery.strapiHorsScenePage.carousel !== null
-      ? strapiHorsSceneQuery.strapiHorsScenePage.carousel.image.map(image => image.image)
+      ? strapiHorsSceneQuery.strapiHorsScenePage.carousel.image.map(
+          image => image.image
+        )
       : false;
 
   const redSquareArray =
     strapiHorsSceneQuery.strapiHorsScenePage.carousel !== null
-      ? strapiHorsSceneQuery.allStrapiSpectacle.nodes.filter(spec => spec.type_of_events.length !== 0 && spec.type_of_events.category !== "Spectacles")
+      ? strapiHorsSceneQuery.allStrapiSpectacle.nodes.filter(
+          spec =>
+            spec.type_of_events.length !== 0 &&
+            spec.type_of_events.category !== "Spectacles"
+        )
       : false;
 
   useEffect(() => {
@@ -186,17 +192,35 @@ export default function HorsScenePage() {
 
   return (
     <div>
-      <ImageCarousel images={imageArray} title={redSquareArray[random].title}
-        booking={redSquareArray[random].reserver} country={redSquareArray[random].country}
-        displayed={true} />
+      <ImageCarousel
+        images={imageArray}
+        title={checkEnContext(
+          redSquareArray[random].title,
+          redSquareArray[random].title_en
+        )}
+        booking={redSquareArray[random].reserver}
+        country={checkEnContext(
+          redSquareArray[random].country,
+          redSquareArray[random].country_en
+        )}
+        displayed={true}
+      />
       <div className="container">
         <div className="red-arrow"></div>
         <div id="hors-scene-pres">
           <div id="hors-scene-pres-content">
             <h3 className="to-uppercase">
-              {horsScenePageQuery["title" + LANG]}
+              {checkEnContext(
+                horsScenePageQuery.title,
+                horsScenePageQuery.title_en
+              )}
             </h3>
-            <p>{horsScenePageQuery["content" + LANG]}</p>
+            <p>
+              {checkEnContext(
+                horsScenePageQuery.content,
+                horsScenePageQuery.content_en
+              )}
+            </p>
           </div>
           <div id="hors-scene-Cal">
             <CalendarLarge dateSetter={dateFilter} />

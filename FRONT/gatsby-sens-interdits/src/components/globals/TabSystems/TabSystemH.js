@@ -68,6 +68,7 @@ export default function TabSystemH({
             role="button"
           >
             <img src={picto} alt="" width="30" height="30" data-id={tab.id} />
+
             <h3 data-id={tab.id} className="tab-link ">
               {checkEnContext(tab.title, tab.title_en)}
             </h3>
