@@ -2,6 +2,7 @@ import React from "react";
 import CalendarLarge from "../../globals/Calendar/CalendarLarge";
 import DisplayTabMenu from "../../globals/DisplayTabMenu/DisplayTabMenu";
 import "./festival.css";
+import "../../../assets/styles/global.css";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import { graphql, useStaticQuery } from "gatsby";
 
@@ -24,14 +25,6 @@ export default function FestivalPage() {
                   }
                 }
               }
-              squaremenu {
-                id
-                title
-                url
-                image {
-                  url
-                }
-              }
             }
           }
       }`)
@@ -42,7 +35,7 @@ export default function FestivalPage() {
   return (
     <div className="global-festival">
       <ImageCarousel images={imageArray} />
-      <div id="festival-content">
+      <div id="festival-content" className="container">
         <div id="festival-calendar">
           <CalendarLarge />
         </div>

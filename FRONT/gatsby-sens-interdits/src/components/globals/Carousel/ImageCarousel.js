@@ -5,7 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import placeholder from "../../../assets/img/placeholder-photo-slider.jpg";
 
-function ImageCarousel({ title, images, displayed }) {
+function ImageCarousel({ title, images, displayed, booking, country }) {
   return !images ? (
     <>
       <div className="carousel-loading">
@@ -14,7 +14,7 @@ function ImageCarousel({ title, images, displayed }) {
     </>
   ) : (
       <>
-        <RedTitleCard title={title} displayed={displayed} />
+        <RedTitleCard title={title} displayed={displayed} booking={booking} country={country} />
         <Carousel
           autoPlay={true}
           infiniteLoop={true}

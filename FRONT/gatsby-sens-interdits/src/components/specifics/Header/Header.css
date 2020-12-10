@@ -186,6 +186,10 @@ p {
   margin-right: 30px;
 }
 
+.search-magnifier {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 960px) {
   /* HEADER */
   .header-row2 {

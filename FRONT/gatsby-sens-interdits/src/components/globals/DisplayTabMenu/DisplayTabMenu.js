@@ -1,31 +1,23 @@
 import React from "react";
-import picto from "../../../assets/img/picto+.svg";
+import { Link } from "gatsby";
 import "./DisplayTabMenu.css";
+import TabMenuContent from './TabMenuContent';
 
-export default function DisplayTabMenu(props) {
-  return (
-    <div className="display-tab-sticker">
-      <a href={props.url} title={props.title} className="to-uppercase">
-        <div className="red-wrapper"></div>
-        <img
-          src={process.env.GATSBY_API_URL + props.image}
-          alt={props.title}
-          width="100%"
-          height="100%"
-          className="grayscale img-homepage"
-        />
-      </a>
-      <div className="display-tab-title">
-        <img
-          className="display-tab-logo"
-          src={picto}
-          alt="pictogramme"
-          width="20"
-        />
-        <a href={props.url} title={props.title} className="to-uppercase">
-          {props.title}
-        </a>
-      </div>
-    </div>
-  );
+function DisplayTabMenu(props) {
+    const external = props.url.charAt(0) === 'h';
+    return (
+        <div className="display-tab-sticker">
+            {external ?
+                <a href={props.url} target="_blank" className="to-uppercase">
+                    <TabMenuContent props={props} />
+                </a>
+                :
+                <Link to={props.url} target="_self" className="to-uppercase">
+                    <TabMenuContent props={props} />
+                </Link>
+            }
+        </div>
+    );
 }
+
+export default DisplayTabMenu;

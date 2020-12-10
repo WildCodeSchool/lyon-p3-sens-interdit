@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/archive-description",
+      "handler": "archive-description.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/archive-description",
+      "handler": "archive-description.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/archive-description",
+      "handler": "archive-description.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

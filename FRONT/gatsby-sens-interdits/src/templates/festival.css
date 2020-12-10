@@ -1,8 +1,4 @@
-#festival-content {
-  margin-left: 50px;
-  margin-right: 50px;
 
-}
 /*calendrier*/
 #festival-calendar {
   max-width: 1080px;
@@ -23,7 +19,7 @@
   text-align: justify;
   margin-bottom: 50px;
 }
-#festival-description h3 {
+#festival-description h2 {
   color: #e30613;
   font-size: 26px;
 }

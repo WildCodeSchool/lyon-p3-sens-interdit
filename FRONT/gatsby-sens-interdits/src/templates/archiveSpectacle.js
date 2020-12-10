@@ -1,10 +1,13 @@
 import { graphql } from "gatsby";
 import React from "react";
+
+import ThumbnailOldArchive from "../components/globals/ThumbnailOldArchive";
+import TabSystemHOldArchive from "../components/globals/TabSystems/TabSystemHOldArchive";
+
 import "./archiveSpectacle.css";
+import "../assets/styles/global.css";
 import ImageCarouselOldArchive from "../components/globals/CarouselOldArchive/ImageCarouselOldArchive";
 import SpectacleInfosOldArchive from "../components/specifics/SpectacleOldArchive/SpectacleInfosOldArchive";
-import Thumbnail from "./../components/globals/Thumbnail";
-import TabSystemH from "./../components/globals/TabSystems/TabSystemHOldArchive";
 
 export default function ArchiveSpectaclePage({ data }) {
   const image = [
@@ -23,12 +26,18 @@ export default function ArchiveSpectaclePage({ data }) {
     data.strapiArchivesOld.photo_13,
   ];
   const imageArray = [];
-
   for (const elem of image) {
     if (elem !== null && elem !== undefined && elem !== "") {
-      imageArray.push(elem);
+      imageArray.push(`${process.env.GATSBY_IMAGE_URL}` + elem);
     }
   }
+
+  // navigating between spectacle
+
+  const thisID = data.strapiArchivesOld.strapiId;
+  const listArch = data.allStrapiArchivesOld.nodes;
+  const suivSpect = listArch.find(node => node.strapiId === thisID + 1);
+  const precSpect = listArch.find(node => node.strapiId === thisID - 1);
 
   return (
     <div className="global-spectacle-page">
@@ -37,7 +46,7 @@ export default function ArchiveSpectaclePage({ data }) {
         images={imageArray}
         displayed={true}
       />
-      <div className="content-spectacle-page">
+      <div className="content-spectacle-page container">
         <div className="country-label">
           <p>{data.strapiArchivesOld.pays}</p>
         </div>
@@ -46,32 +55,39 @@ export default function ArchiveSpectaclePage({ data }) {
           duration={data.strapiArchivesOld.duree}
           info={data.strapiArchivesOld.a_noter}
         />
-        tabSsystemforOldArchives
-        {data.strapiArchivesOld.tableElementArchiveOld === 0 ? (
-          ""
-        ) : (
-          <TabSystemH
-            tabContent={data.strapiArchivesOld.tableElementArchiveOld}
-          />
-        )}
+        <TabSystemHOldArchive
+          tabContent={data.strapiArchivesOld.tableElementArchiveOld}
+        />
         <div className="content">
           <div className="red-arrow-spectacle"></div>
-          <p className="content-title to-uppercase">Autour du spectacle</p>
+          <p className="content-title to-uppercase"></p>
           <div className="display-mini-tab">
-            <Thumbnail
-              affiche={data.strapiArchivesOld.photo_1}
-              date="26 Octobre"
-              country="Russie"
-              name="Titre du spectacle"
-              team="Metteur en scène"
-            />
-            <Thumbnail
-              affiche={data.strapiArchivesOld.photo_1}
-              date="26 Octobre"
-              country="Russie"
-              name="Titre du spectacle"
-              team="Metteur en scène"
-            />
+            
+
+            {precSpect != undefined ? (
+              <ThumbnailOldArchive
+                id={precSpect.strapiId}
+                key={precSpect.id}
+                country={precSpect.pays}
+                name={precSpect.titre}
+                team={precSpect.credits_2}
+                affiche={`${process.env.GATSBY_IMAGE_URL}` + precSpect.photo_1}
+              />
+            ) : (
+              ""
+            )}
+            {suivSpect != undefined ? (
+              <ThumbnailOldArchive
+                id={suivSpect.strapiId}
+                key={suivSpect.id}
+                country={suivSpect.pays}
+                name={suivSpect.titre}
+                team={suivSpect.credits_2}
+                affiche={`${process.env.GATSBY_IMAGE_URL}` + suivSpect.photo_1}
+              />
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
@@ -79,20 +95,18 @@ export default function ArchiveSpectaclePage({ data }) {
   );
 }
 
+// This query needs to be dynamic based on the id of the spectacle
+// (example: id="test-spectacle" --> the route will be: http://localhost:8000/spectacle/test-spectacle/
 export const query = graphql`
-  query MyQueryArchiveDeux($id: String!) {
-    strapiArchivesOld(id: { eq: $id }) {
+  query MyQueryArchiveDeux($strapiId: Int!) {
+    strapiArchivesOld(strapiId: { eq: $strapiId }) {
       id
+      strapiId
       titre
       duree
       pays
       lieu
       presentation
-      tableElementArchiveOld {
-        content
-        title
-        id
-      }
       a_noter
       photo_1
       photo_2
@@ -107,6 +121,22 @@ export const query = graphql`
       photo_11
       photo_12
       photo_13
+      url1
+      tableElementArchiveOld {
+        content
+        title
+        id
+      }
+    }
+    allStrapiArchivesOld {
+      nodes {
+        id
+        strapiId
+        titre
+        pays
+        photo_1
+        credits_2
+      }
     }
   }
 `;

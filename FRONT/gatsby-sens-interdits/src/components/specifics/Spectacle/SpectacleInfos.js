@@ -1,5 +1,6 @@
 import React from "react";
 import "./SpectacleInfos.css";
+import "../../../assets/styles/global.css";
 
 const SpectacleInfos = ({
   tarif,
@@ -45,12 +46,12 @@ const SpectacleInfos = ({
         </div>
         <div className="info-container">
           <span style={{ margin: "0", paddingLeft: "20px" }}>
-            {tarif.tarif}
+            {tarif !== null ? tarif.tarif : ""}
           </span>
           <ul>
-            {tarif.category.map((el, i) => (
-              <li key={i}>{el.category}</li>
-            ))}
+            {tarif !== null
+              ? tarif.category.map((el, i) => <li key={i}>{el.category}</li>)
+              : ""}
           </ul>
         </div>
         <div className="partners-logo">
@@ -59,14 +60,13 @@ const SpectacleInfos = ({
               key={picto.id}
               href={picto.url}
               title="title here"
-              target="_blank"
+              target="blank"
             >
-              {/* TODO set default image **/}
               <img
-                src={picto.image[0] !== undefined ?
-                    process.env.GATSBY_API_URL + picto.image[0].url
-                    :
-                    null
+                src={
+                  picto.image[0] !== undefined
+                    ? process.env.GATSBY_API_URL + picto.image[0].url
+                    : null
                 }
                 alt="logo"
                 width="70"

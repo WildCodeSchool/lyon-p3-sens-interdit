@@ -9,6 +9,9 @@
   "attributes": {
     "title": {
       "type": "string"
+    },
+    "title_en": {
+      "type": "string"
     }
   }
 }

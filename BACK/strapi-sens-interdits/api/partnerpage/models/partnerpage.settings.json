@@ -18,6 +18,15 @@
     },
     "content": {
       "type": "richtext"
+    },
+    "content_en": {
+      "type": "richtext"
+    },
+    "title": {
+      "type": "string"
+    },
+    "title_en": {
+      "type": "string"
     }
   }
 }

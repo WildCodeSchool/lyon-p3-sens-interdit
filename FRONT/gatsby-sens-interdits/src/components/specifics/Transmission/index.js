@@ -6,7 +6,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import "./TransmissionsPage.css";
 
 export default function TransmissionsPage() {
-  const { LANG } = useContext(LanguageContext);
+  const { LANG, checkEnContext } = useContext(LanguageContext);
   const data = useStaticQuery(graphql`
     query transmissionQuery {
       allStrapiTransmission {
@@ -19,6 +19,7 @@ export default function TransmissionsPage() {
             }
           }
           procardcontent {
+            id
             image {
               url
             }
@@ -27,6 +28,7 @@ export default function TransmissionsPage() {
             url
           }
           publiccardcontent {
+            id
             image {
               url
             }
@@ -51,7 +53,7 @@ export default function TransmissionsPage() {
   return (
     <>
       <ImageCarousel images={imageArray} displayed={false} />
-      <div className="global-margin">
+      <div className="container">
         <div className="red-arrow"></div>
         <div className="transmission-content">
           {LANG !== "_en" ? (
@@ -63,7 +65,12 @@ export default function TransmissionsPage() {
               Workshops-<span>Transmission</span>
             </h1>
           )}
-          <p>{transmission["description" + LANG]}</p>
+          <p>
+            {checkEnContext(
+              transmission.description,
+              transmission.description_en
+            )}
+          </p>
         </div>
         <div className="transmission-grid-layout">
           <div className="transmission-public">
@@ -81,7 +88,7 @@ export default function TransmissionsPage() {
               <DisplayTabMenu
                 key={data.id}
                 image={data.image[0].url}
-                title={data["credit" + LANG]}
+                title={checkEnContext(data.credit, data.credit_en)}
                 url={data.url}
               />
             ))}
@@ -101,7 +108,7 @@ export default function TransmissionsPage() {
               <DisplayTabMenu
                 key={data.id}
                 image={data.image[0].url}
-                title={data["credit" + LANG]}
+                title={checkEnContext(data.credit, data.credit_en)}
                 url={data.url}
               />
             ))}

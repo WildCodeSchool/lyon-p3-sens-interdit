@@ -4,34 +4,38 @@ import { graphql } from "gatsby";
 // import { Link } from "gatsby";
 import "./article.css";
 
-export default function ArticlePage({data}) {
+export default function ArticlePage({ data }) {
+  const textOverFlow = false;
+  const linkStatus = false;
 
-    const article = data.article;
-    const textOverFlow = false;
-    // console.log ('titre', titleForLink)
-
-    return (
-      // <Link to={"/articles/" + titleForLink.toLowerCase().replaceAll(" ", "-")}>
-        <div id="articles-page">
-            <Article article={article} textOverFlow={textOverFlow}/>
-        </div>
-      // </Link>
-    )
+  return (
+    // <Link to={"/articles/" + titleForLink.toLowerCase().replaceAll(" ", "-")}>
+    <div id="articles-page" className="container">
+      <Article
+        article={data.article}
+        textOverFlow={textOverFlow}
+        linkStatus={linkStatus}
+      />
+    </div>
+    // </Link>
+  );
 }
 
 export const query = graphql`
   query($id: String!) {
     article: strapiArticlecontent(id: { eq: $id }) {
-        article
-        date
-        id
-        title
-        picturebottom {
-            url
-        }
-        picturetop {
-            url
-        }
+      article
+      article_en
+      date
+      id
+      title
+      title_en
+      picturebottom {
+        url
+      }
+      picturetop {
+        url
+      }
     }
   }
 `;

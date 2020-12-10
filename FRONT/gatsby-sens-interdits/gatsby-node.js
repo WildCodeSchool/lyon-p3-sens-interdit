@@ -1,9 +1,9 @@
 const path = require(`path`);
 const { sluggify } = require("./src/utils/Sluggify");
 
-function removePageNameForUrl(text, pageName) {
-  return text.replace(pageName, "");
-}
+const {
+  removeNameForUrl: removePageNameForUrl,
+} = require("./src/utils/removeNameForUrl");
 
 const makeRequest = (graphql, request) =>
   new Promise((resolve, reject) => {
@@ -42,7 +42,7 @@ async function turnSpectaclesIntoPages({ graphql, actions }) {
       let spectacleSlug = sluggify(node.title);
       let spectacleId = removePageNameForUrl(node.id, "Spectacle");
       createPage({
-        path: `/spectacle/${spectacleSlug}${spectacleId}`, //strapiId
+        path: `/spectacle/${spectacleSlug}${spectacleId}`,
         component: path.resolve(`src/templates/spectacle.js`),
         context: {
           id: node.id,
@@ -65,7 +65,9 @@ async function turnArchiveSpectaclesIntoPages({ graphql, actions }) {
         allStrapiArchivesOld {
         edges {
           node {
+            strapiId
             id
+            titre
           }
         }
       }
@@ -74,11 +76,14 @@ async function turnArchiveSpectaclesIntoPages({ graphql, actions }) {
   ).then(result => {
     // Create pages for each article.
     result.data.allStrapiArchivesOld.edges.forEach(({ node }) => {
+      let archiveSpectacleSlug = sluggify(node.titre);
+      let archiveSpectacleId = removePageNameForUrl(node.id, "Archives-old");
       createPage({
-        path: `/${node.id}`,
+        path: `/spectacle/${archiveSpectacleSlug}${archiveSpectacleId}`,
         component: path.resolve(`src/templates/archiveSpectacle.js`),
         context: {
           id: node.id,
+          strapiId: node.strapiId,
         },
       });
     });
@@ -86,6 +91,40 @@ async function turnArchiveSpectaclesIntoPages({ graphql, actions }) {
 
   // Query for articles nodes to use in creating pages.
   return getArchiveSpectacle;
+}
+
+//programmeOld Generate////////////////////////////////////////////////////////////////
+async function archiveProgramme({ graphql, actions }) {
+  const { createPage } = actions;
+
+  const getArchiveProgramme = makeRequest(
+    graphql,
+    `
+    {
+      allStrapiArchivesOld {
+        edges {
+          node {
+            id
+            titre
+            annee
+          }
+        }
+      }
+    }
+  `
+  ).then(result => {
+    result.data.allStrapiArchivesOld.edges.forEach(({ node }) => {
+      createPage({
+        path: `/programme/${node.annee}`,
+        component: path.resolve(`src/templates/programmeOld.js`),
+        context: {
+          annee: node.annee,
+        },
+      });
+    });
+  });
+
+  return getArchiveProgramme;
 }
 
 async function turnArticlesIntoPages({ graphql, actions }) {
@@ -107,6 +146,7 @@ async function turnArticlesIntoPages({ graphql, actions }) {
     `
   ).then(result => {
     // Create pages for each article.
+
     result.data.allStrapiArticlecontent.edges.forEach(({ node }) => {
       let articleSlug = sluggify(node.title);
       let articleId = removePageNameForUrl(node.id, "Articlecontent");
@@ -121,7 +161,104 @@ async function turnArticlesIntoPages({ graphql, actions }) {
   });
 
   // Query for articles nodes to use in creating pages.
+
   return getArticles;
+}
+
+async function turnFestivalsIntoPages({ graphql, actions }) {
+  const { createPage } = actions;
+
+  const getFestivals = makeRequest(
+    graphql,
+    `
+    {
+      festivals: allStrapiFestival {
+        edges{
+          node {
+            title
+            id
+            infopratique {
+              id
+            }
+            festivalplace {
+              id
+            }
+          }
+        }
+      }
+    }
+    `
+  ).then(result => {
+    // Loop over each festival
+    result.data.festivals.edges.forEach(({ node }) => {
+      let festivalSlug = sluggify(node.title);
+      let festivalId = removePageNameForUrl(node.id, "Festival");
+      // Create pages for each festival
+      createPage({
+        path: `/festival/${festivalSlug}${festivalId}`,
+        component: path.resolve(`src/templates/festival.js`),
+        context: {
+          id: node.id,
+        },
+      });
+      // Create pages for each festival's practical information
+      createPage({
+        path: `/festival/${festivalSlug}${festivalId}/infos`,
+        component: path.resolve(`src/templates/festivalInfos.js`),
+        context: {
+          infoId: node.infopratique.id,
+        },
+      });
+      // Create pages for each festival's places
+      createPage({
+        path: `/festival/${festivalSlug}${festivalId}/lieux`,
+        component: path.resolve(`src/templates/festivalPlaces.js`),
+        context: {
+          placeId: node.festivalplace.id,
+        },
+      });
+    });
+  });
+
+  // Query for spectacles nodes to use in creating pages.
+  return getFestivals;
+}
+
+async function turnFestivalIntoArchiveFestivalPages({ graphql, actions }) {
+  const { createPage } = actions;
+
+  const getFestivalArchive = makeRequest(
+    graphql,
+    `
+    {
+      allStrapiFestival(filter: {visible: {eq: false}}) {
+        edges {
+          node {
+            visible
+            title
+            id
+            strapiId
+            year
+          }
+        }
+      }
+    }
+    `
+  ).then(result => {
+    // Create pages for each festival-to-display-as-archived.
+    result.data.allStrapiFestival.edges.forEach(({ node }) => {
+      createPage({
+        path: `/programme/${node.year}`,
+        component: path.resolve(`src/templates/archiveFestival.js`),
+        context: {
+          year: node.year,
+        },
+      });
+    });
+  });
+
+  // Query for articles nodes to use in creating pages.
+  return getFestivalArchive;
 }
 
 // Implement the Gatsby API “createPages”. This is called once the
@@ -130,6 +267,9 @@ exports.createPages = async params => {
   await Promise.all([
     turnArchiveSpectaclesIntoPages(params),
     turnSpectaclesIntoPages(params),
+    archiveProgramme(params),
     turnArticlesIntoPages(params),
+    turnFestivalsIntoPages(params),
+    turnFestivalIntoArchiveFestivalPages(params),
   ]);
 };

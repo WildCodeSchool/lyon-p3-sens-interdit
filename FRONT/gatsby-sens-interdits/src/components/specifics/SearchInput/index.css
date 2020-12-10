@@ -1,0 +1,59 @@
+#overlay-search form {
+    align-self: center;
+    width: auto;
+    height: auto;
+    border-radius: 3px;
+    position: relative;
+}
+
+#overlay-search form a {
+    position: absolute;
+    right: -35px;
+    top: -35px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    border-radius: 50%;
+    justify-content: center;
+    background: #e30613;
+
+}
+#overlay-search form a span {
+    align-self: center;
+    font-weight: 700;
+    font-size: 20px;
+
+}
+#overlay-search form input {
+    width: 350px;
+    height: 45px;
+    font-size: 20px;
+    padding: 10px;
+    padding-right: 50px;
+    background: #1b1b1b;
+    border: 0;
+    box-shadow: 0 0 11px 0 rgba(0,0,0,0.7);
+    border-radius: 7px;
+    color: #fff;
+    border-top: 8px solid #ed1c24;
+}
+input:focus, button {
+    outline: none;
+}
+#overlay-search form button {
+    position: absolute;
+    height: 70px;
+    width: 55px;
+    right: 0;
+    top: 0;
+    background: none;
+    display: block;
+    padding: 0;
+    padding-top: 8px;
+    border: 0;
+    cursor: pointer;
+}
+
+#overlay-search form img {
+    height: 20px;
+}

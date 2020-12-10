@@ -1,8 +1,9 @@
 import React from "react";
 import fbIco from "../../../assets/img/facebook.svg";
 
-function Facebook() {
-  const url = window.location.href; // alors ca fait une erreur par ce que href c'est nul pour faire du local mais ca marche une fois déployé. vous pouvez tester en changeant la valeur par une url existante
+function Facebook({ location }) {
+  const url = location ? location.pathname : "";
+  
   function share_fb(event) {
     event.preventDefault();
     window.open(
@@ -16,9 +17,10 @@ function Facebook() {
   return (
     <div className="fbwrapper">
       <a
-        href="#"
+        role="button"
         className="share-button"
         onClick={share_fb}
+        
         rel="nofollow"
         share_url={url}
       >

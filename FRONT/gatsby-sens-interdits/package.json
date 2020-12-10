@@ -18,13 +18,17 @@
     "dayjs": "^1.9.6",
     "fs": "0.0.1-security",
     "gatsby": "^2.24.79",
+    "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-react-helmet": "^3.6.0",
     "gatsby-source-strapi": "0.0.12",
+    "query-string": "^6.13.7",
     "react": "^16.12.0",
+    "react-cookie": "^4.0.3",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
     "react-markdown": "^5.0.3",
     "react-responsive-carousel": "^3.2.10",
+    "react-youtube": "^7.13.0",
     "showdown": "^1.9.1"
   },
   "devDependencies": {

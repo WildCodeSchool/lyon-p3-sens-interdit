@@ -21,6 +21,9 @@
     },
     "url": {
       "type": "string"
+    },
+    "credit_en": {
+      "type": "string"
     }
   }
 }

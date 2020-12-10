@@ -81,8 +81,8 @@
       "required": false
     },
     "type_of_events": {
-      "collection": "type-of-events",
       "via": "spectacles",
+      "collection": "type-of-events",
       "dominant": true
     },
     "spectacle_info": {
@@ -120,6 +120,13 @@
     },
     "info_en": {
       "type": "text"
+    },
+    "festival": {
+      "model": "festival",
+      "via": "spectacles"
+    },
+    "reserver": {
+      "type": "string"
     }
   }
 }

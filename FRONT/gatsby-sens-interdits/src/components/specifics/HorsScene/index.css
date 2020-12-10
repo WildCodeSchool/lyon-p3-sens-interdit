@@ -1,7 +1,3 @@
-#hors-scene-page {
-    margin-right: 50px;
-    margin-left: 50px;
-}
 
 #hors-scene-pres {
     display: flex;
@@ -23,15 +19,12 @@
     margin-left: auto;
 }
 
-.red-arrow {
-    position: relative;
-    top: 0;
-    left: 100px;
-    width: 40px;
-    height: 45px;
-    background-color: #e30613;
-    clip-path: polygon(50% 100%, 0 0, 100% 0);
-  }
+
+.hors-scene-thumbnail {
+    display: flex;
+    flex-wrap: wrap;
+    width: 630px;
+}
 
 /*________________responsive__________*/
 @media screen and (max-width: 1024px) {

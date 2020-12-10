@@ -10,9 +10,18 @@ div.carousel-loading img {
 }
 
 div.size-adjustment {
-  width: auto;
+  display: flex;
+  width: 100%;
+  min-height: 60vh;
+  margin : auto;
   max-height: calc(100vh - 280px); /*450px*/
 }
+
+div.size-adjustment img{
+  object-fit: cover;
+}
+
+
 
 div.carousel-wrapper {
   position: relative;

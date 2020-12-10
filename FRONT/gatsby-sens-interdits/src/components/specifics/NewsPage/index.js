@@ -1,70 +1,85 @@
-import React from "react";
+import React, { useContext } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import TabSystemH from "../../globals/TabSystems/TabSystemH";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import "../../../assets/styles/global.css";
 import "../../../templates/article.css";
-
-
+import LanguageContext from "../../context/LanguageContext";
 
 export default function NewsPage() {
-
-    const strapiNewsQuery = useStaticQuery(graphql`
-        query strapiNewsQuery {
-            allStrapiNewspage {
-                nodes {
-                    content
-                    id
-                    title
-                }
-            }
-            allStrapiArticlecontent {
-                nodes {
-                    article
-                    date
-                    id
-                    picturebottom {
-                          url
-                    }
-                    picturetop {
-                          url
-                    }
-                    typeofarticles {
-                      category
-                      id
-                    }
-                    title
-                  }
-            }
-            allStrapiNewstab {
-                nodes {
-                  newstab {
-                    id
-                    title
-                  }
-                }
-              }
-            
+  const { checkEnContext } = useContext(LanguageContext);
+  const strapiNewsQuery = useStaticQuery(graphql`
+    query strapiNewsQuery {
+      allStrapiNewspage {
+        nodes {
+          content
+          content_en
+          id
+          title
+          title_en
         }
-      `)
+      }
+      allStrapiArticlecontent {
+        nodes {
+          article
+          article_en
+          date
+          id
+          picturebottom {
+            url
+          }
+          picturetop {
+            url
+          }
+          typeofarticles {
+            category
+            category_en
+            id
+          }
+          title
+          title_en
+        }
+      }
+      allStrapiNewstab {
+        nodes {
+          newstab {
+            id
+            title
+            title_en
+          }
+        }
+      }
+    }
+  `);
 
-    const newsPageQuery = strapiNewsQuery.allStrapiNewspage.nodes[0];
-    const newsTabQuery = strapiNewsQuery.allStrapiNewstab.nodes[0]
-    const newsArticlesQuery = strapiNewsQuery.allStrapiArticlecontent.nodes;
-    const textOverFlow = true;
-    return (
+  const newsPageQuery = strapiNewsQuery.allStrapiNewspage.nodes[0];
+  const newsTabQuery = strapiNewsQuery.allStrapiNewstab.nodes[0];
+  const newsArticlesQuery = strapiNewsQuery.allStrapiArticlecontent.nodes;
+  const textOverFlow = true;
+  const linkStatus = true;
+
+  return (
+    <div>
+      <ImageCarousel />
+      <div className="container">
+        <div className="red-arrow"></div>
         <div>
-            <ImageCarousel/> {/* TODO : passer les props pour ce composant */}
-            <div id ="news-page">
-                <div className="red-arrow"></div>
-                <div>
-                    <h3 className="to-uppercase">{newsPageQuery.title}</h3>
-                    <p>{newsPageQuery.content}</p>
-                </div>
-                <div>
-                    <TabSystemH tabContent={newsTabQuery.newstab} articles={newsArticlesQuery} textOverFlow={textOverFlow}/>
-                </div>  
-            </div>
+          <h3 className="to-uppercase">
+            {checkEnContext(newsPageQuery.title, newsPageQuery.title_en)}
+          </h3>
+          <p>
+            {checkEnContext(newsPageQuery.content, newsPageQuery.content_en)}
+          </p>
         </div>
-    )
+        <div>
+          <TabSystemH
+            tabContent={newsTabQuery.newstab}
+            articles={newsArticlesQuery}
+            textOverFlow={textOverFlow}
+            linkStatus={linkStatus}
+          />
+        </div>
+      </div>
+    </div>
+  );
 }

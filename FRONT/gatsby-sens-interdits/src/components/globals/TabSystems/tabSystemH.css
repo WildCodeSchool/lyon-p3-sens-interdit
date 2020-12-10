@@ -32,8 +32,7 @@
   color: #E30613;
 }
 
-.tab-title:hover {
-}
+
 
 .tab-title img {
   align-self: center;
@@ -56,4 +55,3 @@ div.active-tab {
 div.disabled-tab {
   display: none;
 }
-
