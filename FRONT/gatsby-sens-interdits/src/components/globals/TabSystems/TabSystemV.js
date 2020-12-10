@@ -19,7 +19,8 @@ function DisplayPicture({ imageContent }) {
       <div className="display-img-tab-element">
         {imageContent.map(img => (
           <div key={img.id}>
-            <p>{img.credit}</p>
+            {img.redtitle ? <p className="redtitle-tab-element to-uppercase">{img.redtitle}</p> : null}
+            {img.credit ? <p>{img.credit}</p> : null}
             {img.image.map(elem => (
               <img
                 key={elem.url}
@@ -60,7 +61,7 @@ export default function TabSystemV({ tabContent, spectacleQuery }) {
             id={"tab-link_" + tab.id}
             data-id={tab.id}
             onClick={handleOnClick}
-            onKeyDown={() => {}}
+            onKeyDown={() => { }}
             role="button"
           >
             <img src={picto} alt="" width="30" height="30" data-id={tab.id} />
@@ -84,51 +85,51 @@ export default function TabSystemV({ tabContent, spectacleQuery }) {
                 }
               />
             ) : (
-              ""
-            )}
+                ""
+              )}
 
             {spectacleQuery !== undefined ? (
               <div className="thumbnail-list">
                 {spectacleQuery.map(spectacle =>
                   spectacle.type_of_events.map((cat, i) =>
                     checkEnContext(cat.category, cat.category_en) ===
-                    tab.title ? (
-                      <Thumbnail
-                        key={spectacle.title + spectacle.day}
-                        affiche={
-                          spectacle.thumbnail
-                            ? spectacle.thumbnail.internal.description.split(
+                      tab.title ? (
+                        <Thumbnail
+                          key={spectacle.title + spectacle.day}
+                          affiche={
+                            spectacle.thumbnail
+                              ? spectacle.thumbnail.internal.description.split(
                                 '3'
                               )[1]
-                            : photoTest
-                        }
-                        date={
-                          spectacle.day
-                            ? dayjs(spectacle.day).format("ddd D MMM à HH:mm")
-                            : "inconnue"
-                        }
-                        country={
-                          checkEnContext(
-                            spectacle.country,
-                            spectacle.country_en
-                          )
-                            ? checkEnContext(
+                              : photoTest
+                          }
+                          date={
+                            spectacle.day
+                              ? dayjs(spectacle.day).format("ddd D MMM à HH:mm")
+                              : "inconnue"
+                          }
+                          country={
+                            checkEnContext(
+                              spectacle.country,
+                              spectacle.country_en
+                            )
+                              ? checkEnContext(
                                 spectacle.country,
                                 spectacle.country_en
                               )
-                            : "inconnu"
-                        }
-                        name={checkEnContext(
-                          spectacle.title,
-                          spectacle.title_en
-                        )}
-                        id={spectacle.strapiId}
-                        team={spectacle.author ? spectacle.author : "inconnu"}
-                        url={"/spectacle/" + sluggify(spectacle.title)}
-                      />
-                    ) : (
-                      ""
-                    )
+                              : "inconnu"
+                          }
+                          name={checkEnContext(
+                            spectacle.title,
+                            spectacle.title_en
+                          )}
+                          id={spectacle.strapiId}
+                          team={spectacle.author ? spectacle.author : "inconnu"}
+                          url={"/spectacle/" + sluggify(spectacle.title)}
+                        />
+                      ) : (
+                        ""
+                      )
                   )
                 )}
               </div>
