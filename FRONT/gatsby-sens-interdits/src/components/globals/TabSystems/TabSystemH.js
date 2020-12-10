@@ -4,6 +4,7 @@ import tabSystemClick from "../../../utils/tab-system";
 import Article from "../Articles/Article";
 import "../../../assets/styles/global.css";
 import "./tabSystemH.css";
+import "./tabSystemGlobal.css";
 import TabSystemContent from "./TabSystemContent";
 import LanguageContext from "../../context/LanguageContext";
 
@@ -11,16 +12,21 @@ function DisplayPicture({ imageContent }) {
   return (
     <>
       {imageContent.map(img => (
-        <div key={img.id}>
+        <div key={img.id} className="pictures-in-tab-system">
           <p>{img.credit}</p>
-          {img.image.map(elem => (
-            <img
-              key={elem.url}
-              src={process.env.GATSBY_API_URL + elem.url}
-              alt="noalt"
-              width="150"
-            />
-          ))}
+          <div className="picture-tabsyst-container">
+            {img.image.map(elem => (
+              <div>
+                <img
+                  key={elem.url}
+                  src={process.env.GATSBY_API_URL + elem.url}
+                  alt="noalt"
+                  className="picture-in-tabsystem"
+                />
+              </div>
+            ))}
+          </div>
+
         </div>
       ))}
     </>
@@ -58,7 +64,7 @@ export default function TabSystemH({
             id={"tab-link_" + tab.id}
             data-id={tab.id}
             onClick={handleOnClick}
-            onKeyDown={() => {}}
+            onKeyDown={() => { }}
             role="button"
           >
             <img src={picto} alt="" width="30" height="30" data-id={tab.id} />
@@ -84,29 +90,29 @@ export default function TabSystemH({
                 articles.map(article =>
                   checkEnContext(tab.title, tab.title_en) ===
                     "Toutes les actualités" ||
-                  checkEnContext(tab.title, tab.title_en) ===
+                    checkEnContext(tab.title, tab.title_en) ===
                     "All categories" ? (
-                    <Article
-                      article={article}
-                      textOverFlow={textOverFlow}
-                      linkStatus={linkStatus}
-                    />
-                  ) : (
-                    article.typeofarticles.map(cat =>
-                      checkEnContext(cat.category, cat.category_en) ===
-                      checkEnContext(tab.title, tab.title_en) ? (
-                        <Article
-                          article={article}
-                          textOverFlow={textOverFlow}
-                          linkStatus={linkStatus}
-                        />
-                      ) : null
+                      <Article
+                        article={article}
+                        textOverFlow={textOverFlow}
+                        linkStatus={linkStatus}
+                      />
+                    ) : (
+                      article.typeofarticles.map(cat =>
+                        checkEnContext(cat.category, cat.category_en) ===
+                          checkEnContext(tab.title, tab.title_en) ? (
+                            <Article
+                              article={article}
+                              textOverFlow={textOverFlow}
+                              linkStatus={linkStatus}
+                            />
+                          ) : null
+                      )
                     )
-                  )
                 )
               ) : (
-                <TabSystemContent tab={tab} DisplayPicture={DisplayPicture} />
-              )}
+                  <TabSystemContent tab={tab} DisplayPicture={DisplayPicture} />
+                )}
             </div>
           </div>
         ))}

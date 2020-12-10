@@ -5,7 +5,7 @@ export default function SpectacleDate(props) {
 
   const activator = e => {
     e.preventDefault();
-    console.log(e.target.getAttribute('data-id'));
+    
     props.setActiveModalId(e.target.getAttribute('data-id'))
   };
   let id = parseInt(props.id);

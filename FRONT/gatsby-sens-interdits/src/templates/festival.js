@@ -13,7 +13,7 @@ const {
 } = require("./../utils/removeNameForUrl");
 
 export default function FestivalPage({ data }) {
-  const { LANG } = useContext(LanguageContext);
+  const { checkEnContext } = useContext(LanguageContext);
   const festival = data.festival;
 
   let festivalSlug = sluggify(festival.title);
@@ -28,13 +28,15 @@ export default function FestivalPage({ data }) {
       <div id="festival-content" className="container">
         <div id="festival-calendar"></div>
         <div id="festival-description">
-          <h2 className="to-uppercase">{festival["title" + LANG]}</h2>
-          <p>{festival["content" + LANG]}</p>
+          <h2 className="to-uppercase">
+            {checkEnContext(festival.title, festival.title_en)}
+          </h2>
+          <p>{checkEnContext(festival.content, festival.content_en)}</p>
         </div>
         <nav id="festival-menu">
           {festival.program.visible ? (
             <DisplayTabMenu
-              title={festival.program["title" + LANG]}
+              title={checkEnContext(festival.program, festival.program_en)}
               // url={`/festival/${festivalSlug}${festivalId}/programme`}
               url={`/programme`}
               image={festival.program.image[0].url}
@@ -42,7 +44,10 @@ export default function FestivalPage({ data }) {
           ) : null}
           {festival.off_stage.visible ? (
             <DisplayTabMenu
-              title={festival.off_stage["title" + LANG]}
+              title={checkEnContext(
+                festival.off_stage.title,
+                festival.off_stage.title_en
+              )}
               // url={`/festival/${festivalSlug}${festivalId}/hors-scene`}
               url={`/hors-scene`}
               image={festival.off_stage.image[0].url}
@@ -50,7 +55,10 @@ export default function FestivalPage({ data }) {
           ) : null}
           {festival.school.visible ? (
             <DisplayTabMenu
-              title={festival.school["title" + LANG]}
+              title={checkEnContext(
+                festival.school.title,
+                festival.school.title_en
+              )}
               // url={`/festival/${festivalSlug}${festivalId}/ecole`}
               url={`/ecole`}
               image={festival.school.image[0].url}
@@ -60,21 +68,27 @@ export default function FestivalPage({ data }) {
             festival.squaremenu.map(elem => (
               <DisplayTabMenu
                 key={elem.id}
-                title={elem["title" + LANG]}
+                title={checkEnContext(elem.title, elem.title_en)}
                 url={elem.url}
                 image={elem.image[0].url}
               />
             ))}
           {festival.info.visible ? (
             <DisplayTabMenu
-              title={festival.info["title" + LANG]}
+              title={checkEnContext(
+                festival.info.title,
+                festival.info.title_en
+              )}
               url={`/festival/${festivalSlug}${festivalId}/infos`}
               image={festival.info.image[0].url}
             />
           ) : null}
           {festival.place.visible ? (
             <DisplayTabMenu
-              title={festival.place["title" + LANG]}
+              title={checkEnContext(
+                festival.place.title,
+                festival.place.title_en
+              )}
               url={`/festival/${festivalSlug}${festivalId}/lieux`}
               image={festival.place.image[0].url}
             />

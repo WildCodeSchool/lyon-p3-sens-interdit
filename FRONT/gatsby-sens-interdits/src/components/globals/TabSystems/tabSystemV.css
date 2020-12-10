@@ -58,6 +58,12 @@ div.tab-contentV.disabled-tab {
 
 .display-img-tab-element {
   display: flex;
+  flex-direction: column;
+}
+.display-img-tab-element .redtitle-tab-element {
+  color : #E30613;
+  font-size : 20px;
+  margin : 20px;
 }
 
 .institut-partners {

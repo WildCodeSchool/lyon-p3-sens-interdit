@@ -207,7 +207,7 @@ p {
     width: 100vw;
     position: relative;
     justify-content: center;
-    flex-direction: column-reverse;
+    flex-direction: row;
   }
   .wrapper-header-row1 {
     position: absolute;

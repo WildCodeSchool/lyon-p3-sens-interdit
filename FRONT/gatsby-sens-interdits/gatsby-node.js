@@ -65,6 +65,7 @@ async function turnArchiveSpectaclesIntoPages({ graphql, actions }) {
         allStrapiArchivesOld {
         edges {
           node {
+            strapiId
             id
             titre
           }
@@ -82,6 +83,7 @@ async function turnArchiveSpectaclesIntoPages({ graphql, actions }) {
         component: path.resolve(`src/templates/archiveSpectacle.js`),
         context: {
           id: node.id,
+          strapiId: node.strapiId,
         },
       });
     });

@@ -7,7 +7,7 @@ import "../../../templates/article.css";
 import LanguageContext from "../../context/LanguageContext";
 
 export default function NewsPage() {
-  const { LANG } = useContext(LanguageContext);
+  const { checkEnContext } = useContext(LanguageContext);
   const strapiNewsQuery = useStaticQuery(graphql`
     query strapiNewsQuery {
       allStrapiNewspage {
@@ -60,12 +60,16 @@ export default function NewsPage() {
 
   return (
     <div>
-      <ImageCarousel /> {/* TODO : passer les props pour ce composant */}
+      <ImageCarousel />
       <div className="container">
         <div className="red-arrow"></div>
         <div>
-          <h3 className="to-uppercase">{newsPageQuery["title" + LANG]}</h3>
-          <p>{newsPageQuery["content" + LANG]}</p>
+          <h3 className="to-uppercase">
+            {checkEnContext(newsPageQuery.title, newsPageQuery.title_en)}
+          </h3>
+          <p>
+            {checkEnContext(newsPageQuery.content, newsPageQuery.content_en)}
+          </p>
         </div>
         <div>
           <TabSystemH

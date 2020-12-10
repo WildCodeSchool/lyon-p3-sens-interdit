@@ -12,7 +12,7 @@ function DisplayTabMenu(props) {
                     <TabMenuContent props={props} />
                 </a>
                 :
-                <Link to={props.url} className="to-uppercase">
+                <Link to={props.url} target="_self" className="to-uppercase">
                     <TabMenuContent props={props} />
                 </Link>
             }
