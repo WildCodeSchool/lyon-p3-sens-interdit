@@ -8,7 +8,7 @@ import { sluggify } from "./../utils/Sluggify";
 import "./archiveSpectacle.css";
 
 function ArchivedFestival({ data }) {
-  console.log(data, "ArchivedFestival");
+  
   return (
     <>
       {/* <ImageCarousel displayed={true} images={props.images} /> */}

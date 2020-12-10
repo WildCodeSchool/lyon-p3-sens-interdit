@@ -19,7 +19,7 @@ export default function tabMenuContent({ props }) {
                 alt="pictogramme"
                 width="20"
             />
-            <h2>{props.title}</h2>
+            <h2>{ console.log(props.title) }</h2>
         </div>
     </>
     )

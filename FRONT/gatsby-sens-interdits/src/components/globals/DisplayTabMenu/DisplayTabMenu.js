@@ -9,11 +9,11 @@ function DisplayTabMenu(props) {
         <div className="display-tab-sticker">
             {external ?
                 <a href={props.url} target="_blank" className="to-uppercase">
-                    <TabMenuContent props={props} />
+                    <TabMenuContent props={...props} />
                 </a>
                 :
-                <Link to={props.url} className="to-uppercase">
-                    <TabMenuContent props={props} />
+                <Link to={props.url} target="_self" className="to-uppercase">
+                    <TabMenuContent props={...props} />
                 </Link>
             }
         </div>

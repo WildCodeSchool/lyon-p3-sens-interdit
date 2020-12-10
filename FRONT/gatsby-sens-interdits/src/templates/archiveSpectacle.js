@@ -62,16 +62,7 @@ export default function ArchiveSpectaclePage({ data }) {
           <div className="red-arrow-spectacle"></div>
           <p className="content-title to-uppercase"></p>
           <div className="display-mini-tab">
-            {console.log({
-              id: data.strapiArchivesOld.id,
-              key: data.strapiArchivesOld.id,
-              country: data.strapiArchivesOld.pays,
-              name: data.strapiArchivesOld.titre,
-              team: data.strapiArchivesOld.credits_2,
-              affiche:
-                `${process.env.GATSBY_IMAGE_URL}` +
-                data.strapiArchivesOld.photo_1,
-            })}
+            
 
             {precSpect != undefined ? (
               <ThumbnailOldArchive
