@@ -34,7 +34,6 @@ export default function Archives() {
         let tmpFiltersList = (filters.length > 0) ? {...defaultFiltersList} : filtersList;
         results.forEach(elem => {
             for (let key in lists) {
-                console.log('--');
                 let field = lists[key];
                 if ((filtersList[key] !== undefined && !filtersList[key].includes(elem[field]))
                     && elem[field] !== null && elem[field] !== '') {
