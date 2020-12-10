@@ -23,6 +23,10 @@
   margin: auto;
 }
 
+.global-FilterTab {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 960px) {
   /*PROGRAMME*/
   .global-programme-page .content-programme-page{

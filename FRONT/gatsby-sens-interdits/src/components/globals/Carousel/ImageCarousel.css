@@ -1,24 +1,18 @@
-div.carousel-loading {
-  width: 100%;
-  max-height: 450px;
-  overflow: hidden;
-}
-
-div.carousel-loading img {
-  width: 100%;
-  transform: translate(0, -25%);
-}
-
 div.size-adjustment {
   display: flex;
   width: 100%;
-  min-height: 60vh;
   margin : auto;
   max-height: calc(100vh - 280px); /*450px*/
 }
 
 div.size-adjustment img{
   object-fit: cover;
+  
+}
+div.placeholder-carousel img{
+  width: 100%;
+    vertical-align: top;
+    border: 0;
 }
 
 div.carousel-wrapper {

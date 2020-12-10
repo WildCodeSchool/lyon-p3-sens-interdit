@@ -8,7 +8,7 @@ import "./index.css";
 import picto from "../../../assets/img/picto+.svg";
 
 export default function webRadio() {
-  const { language, checkEnContext } = useContext(LanguageContext);
+  const { language, checkEnContext, LANG } = useContext(LanguageContext);
   const { allStrapiWebradio } = useStaticQuery(graphql`
     query MyQueryWebradio {
       allStrapiWebradio {
@@ -42,9 +42,9 @@ export default function webRadio() {
   `);
 
 
-const strapiWebradio = allStrapiWebradio.nodes[0];
-const podCastLink = allStrapiWebradio.nodes[0].podcast;
-const imageLink = allStrapiWebradio. nodes[0].image[0].url;
+  const strapiWebradio = allStrapiWebradio.nodes[0];
+  const podCastLink = allStrapiWebradio.nodes[0].podcast;
+  const imageLink = allStrapiWebradio.nodes[0].image[0].url;
 
   const opts = {
     height: "390",
@@ -56,13 +56,13 @@ const imageLink = allStrapiWebradio. nodes[0].image[0].url;
 
   return (
     <div className="container">
-      <img src={process.env.GATSBY_API_URL + imageLink } alt={strapiWebradio["title" + LANG]} className="image-webradio"/>
+      <img src={process.env.GATSBY_API_URL + imageLink} alt={strapiWebradio["title" + LANG]} className="image-webradio" />
       <h3>{strapiWebradio["subtitle" + LANG]}</h3>
       <h1 className="to-uppercase">{strapiWebradio["title" + LANG]}</h1>
       <p>{strapiWebradio["description" + LANG]}</p>
       <div className="webRadioLink">
         {podCastLink.map((podcast) =>
-            <div className="display-tab-sticker">
+          <div className="display-tab-sticker">
             <a href={podcast.url} title="link to podcast" target="_blank" rel="noreferrer" >
               <div className="red-wrapper"></div>
               <img
@@ -95,8 +95,8 @@ const imageLink = allStrapiWebradio. nodes[0].image[0].url;
       </div>
       <div className="container-pictures">
         {strapiWebradio.gallery.map(picture =>
-        <img src={process.env.GATSBY_API_URL + picture.url} alt={picture.name} className="pictures" />
-          )}
+          <img src={process.env.GATSBY_API_URL + picture.url} alt={picture.name} className="pictures" />
+        )}
       </div>
     </div>
   );
