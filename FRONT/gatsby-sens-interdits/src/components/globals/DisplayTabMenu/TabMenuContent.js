@@ -3,7 +3,7 @@ import picto from "../../../assets/img/picto+.svg";
 import "./DisplayTabMenu.css";
 
 export default function tabMenuContent({ props }) {
-    const content = {...props}
+    
 
     return (<>
         <div className="red-wrapper" />
