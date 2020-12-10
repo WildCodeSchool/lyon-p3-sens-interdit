@@ -20,7 +20,7 @@ export default function Filters({filtersList, language, setFilters, filters}) {
                 {language === "fr" ? "Filtrer par :" : "Filter"}
             </h4>
                 <div className="select-flex-wrapper">
-                {filtersList.countries.length > 0 ?
+                {filtersList.countries !== undefined && filtersList.countries.length > 0 ?
                     <div className="filter-col">
                         <select className="countrySelect" id="countrySelect" data-type="country"
                                 onChange={handleChangeFilter}>
@@ -31,7 +31,7 @@ export default function Filters({filtersList, language, setFilters, filters}) {
                         </select>
                         {/*<label htmlFor="countrySelect">{filters.country}</label>*/}
                     </div> : null}
-                {filtersList.directors.length > 0 ?
+                {filtersList.directors !== undefined && filtersList.directors.length > 0 ?
                     <div className="filter-col">
                         <select className="directorSelect" id="directorSelect" data-type="director"
                                 onChange={handleChangeFilter}>
@@ -42,7 +42,7 @@ export default function Filters({filtersList, language, setFilters, filters}) {
                         </select>
                         {/*<label htmlFor="directorSelect">{filters.director}</label>*/}
                     </div> : null}
-                {filtersList.locations.length > 0 ?
+                {filtersList.locations !== undefined && filtersList.locations.length > 0 ?
                     <div className="filter-col">
                         <select className="locationSelect" id="locationSelect" data-type="location"
                                 onChange={handleChangeFilter}>
@@ -53,7 +53,7 @@ export default function Filters({filtersList, language, setFilters, filters}) {
                         </select>
                         {/*<label htmlFor="location">{filters.location}</label>*/}
                     </div> : null}
-                {filtersList.years.length > 0 ?
+                {filtersList.years !== undefined && filtersList.years.length > 0 ?
                     <div className="filter-col">
                         <select className="yearSelect" id="yearSelect" data-type="year" onChange={handleChangeFilter}>
                             <option value="">{language === "fr" ? "ANNÉE" : "YEAR"}</option>

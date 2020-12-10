@@ -6,15 +6,15 @@ import LanguageContext from "../../context/LanguageContext";
 
 export default function Archives() {
     const {LANG, language} = useContext(LanguageContext);
-
-    const [archives, setArchives] = useState([]);
-    const [filters, setFilters] = useState({});
-    const [filtersList, setFiltersList] = useState({
+    const defaultFiltersList = {
         countries: [],
         years: [],
         directors: [],
         locations: []
-    });
+    };
+    const [archives, setArchives] = useState([]);
+    const [filters, setFilters] = useState({});
+    const [filtersList, setFiltersList] = useState(defaultFiltersList);
 
     const lists = {
         countries: 'pays',
@@ -22,60 +22,30 @@ export default function Archives() {
         years: 'annee',
         directors: 'credits_2'
     }
-    const listsSing = { // TODO: do it better
+    const listsSing = { // TODO: do it bette, merge both obj
         country: 'pays',
         location: 'lieu',
         year: 'annee',
         director: 'credits_2'
     }
-/*
-    function emptyFilters() {
-        let list = {};
-        for(let i in filtersList) {
-            list[i] = []
-        }
-        setFiltersList(list);
-    }*/
 
-    function buildFiltersList(archives) {
-        console.log('"********************')
-        console.log('archives',archives);
-        console.log('filtersList', filtersList);
-        let tmpFiltersList = filtersList;
-        console.log('tmpFiltersList', tmpFiltersList);
-        archives.forEach(elem => {
+    function buildFiltersList(results) {
+        let tmpFiltersList = (filters.length > 0) ? {...defaultFiltersList} : filtersList;
+        results.forEach(elem => {
             for (let key in lists) {
                 let field = lists[key];
-                if ((!filtersList[key] !== undefined && !filtersList[key].includes(elem[field])) && elem[field] !== null && elem[field] !== '') {
+                if ((filtersList[key] !== undefined && !filtersList[key].includes(elem[field]))
+                    && elem[field] !== null && elem[field] !== '') {
 
                     if (tmpFiltersList[key] === undefined) {
                         tmpFiltersList[key] = [];
                     }
+
                     tmpFiltersList[key].push(elem[field]);
                 }
             }
         });
-        console.log(tmpFiltersList);
         setFiltersList(tmpFiltersList);
-    }
-
-    function getArchives(uri = '') {
-        return new Promise((resolve, reject) => {
-            fetch(process.env.GATSBY_API_URL + '/archives-olds?categorie=tournee' + uri)
-                .then(headers => {
-                    if (headers.status === 200) {
-                        return headers.json()
-                    } else {
-                        reject();
-                    }
-                })
-                .then(results => {
-                    resolve(results);
-                })
-                .catch(err => {
-                    reject(err);
-                })
-        })
     }
 
     function buildFilters() {
@@ -90,19 +60,22 @@ export default function Archives() {
     }
 
     useEffect(() => {
-        (async () => {
-            try {
-                console.log('---------')
-                let uri = buildFilters(filters);
-                const results = await getArchives(uri);
+        let uri = buildFilters(filters);
+        fetch(process.env.GATSBY_API_URL + '/archives-olds?categorie=tournee' + uri)
+            .then(headers => {
+                if (headers.status === 200) {
+                    return headers.json()
+                } else {
+                    console.log(headers);
+                }
+            })
+            .then(results => {
                 setArchives(results)
-                console.log(results);
                 buildFiltersList(results);
-                console.log(filtersList);
-            } catch(err) {
+            })
+            .catch(err => {
                 console.log(err);
-            }
-        })();
+            })
     }, [filters])
 
 
@@ -121,6 +94,7 @@ export default function Archives() {
                     archives.map(elem => (
                     <ThumbnailOldArchive
                         id={elem.id}
+                        date={elem.annee}
                         key={elem.id}
                         country={elem.pays}
                         name={elem.titre}
