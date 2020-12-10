@@ -10,7 +10,7 @@ const { sluggify } = require("../../../utils/Sluggify");
 const { removeNameForUrl } = require("../../../utils/removeNameForUrl");
 
 export default function Article(props) {
-  const { language, LANG, checkEnContext } = useContext(LanguageContext);
+  const { language, checkEnContext } = useContext(LanguageContext);
   const article = props.article;
   const textOverFlow = props.textOverFlow;
   const linkStatus = props.linkStatus;

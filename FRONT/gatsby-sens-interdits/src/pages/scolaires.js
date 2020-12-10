@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import GeneriquePage from "../components/specifics/Generique";
 
 export default function Scolaire() {
-  const { LANG } = useContext(LanguageContext);
+  const { checkEnContext } = useContext(LanguageContext);
 
   const { strapiScolaire } = useStaticQuery(graphql`
     query scolaireQuery {
@@ -41,9 +41,18 @@ export default function Scolaire() {
   return (
     <GeneriquePage
       image={strapiScolaire.image[0].url}
-      title={strapiScolaire["title" + LANG]}
-      description={strapiScolaire["description" + LANG]}
-      tab_element={strapiScolaire["tab_element" + LANG]}
+      title={checkEnContext(
+          strapiScolaire.title,
+        strapiScolaire.title_en
+      )}
+      description={checkEnContext(
+        strapiScolaire.description,
+        strapiScolaire.description_en
+      )}
+      tab_element={checkEnContext(
+        strapiScolaire.tab_element,
+        strapiScolaire.tab_element_en
+      )}
     />
   );
 }

@@ -25,7 +25,7 @@ export default props => {
   };
 
   const checkEnContext = (data, dataEn) => {
-    if (dataEn !== null && language === "en") {
+    if (dataEn !== null && dataEn !== undefined && language === "en") {
       return dataEn;
     } else {
       return data;

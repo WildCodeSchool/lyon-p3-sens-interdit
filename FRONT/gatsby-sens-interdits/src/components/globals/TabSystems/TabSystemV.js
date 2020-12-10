@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 
 import picto from "../../../assets/img/picto.svg";
 import "./tabSystemV.css";
+import "./tabSystemGlobal.css";
 import Thumbnail from "../Thumbnail";
 import tabSystemClick from "../../../utils/tab-system";
 import photoTest from "../../../assets/img/img-sens-interdit.jpg";
@@ -18,16 +19,18 @@ function DisplayPicture({ imageContent }) {
     <>
       <div className="display-img-tab-element">
         {imageContent.map(img => (
-          <div key={img.id}>
+          <div key={img.id} className="pictures-in-tab-system">
             {img.redtitle ? <p className="redtitle-tab-element to-uppercase">{img.redtitle}</p> : null}
             {img.credit ? <p>{img.credit}</p> : null}
             {img.image.map(elem => (
-              <img
-                key={elem.url}
-                src={process.env.GATSBY_API_URL + elem.url}
-                alt="noalt"
-                width="150"
-              />
+              <div className="picture-tabsyst-container">
+                <img
+                  key={elem.url}
+                  src={process.env.GATSBY_API_URL + elem.url}
+                  alt="noalt"
+                  className="picture-in-tabsystem"
+                />
+              </div>
             ))}
           </div>
         ))}

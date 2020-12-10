@@ -38,6 +38,7 @@ module.exports = {
           `diffusion-production`,
           `mentions`,
           `conditions`,
+          `webradio`
         ],
       },
     },

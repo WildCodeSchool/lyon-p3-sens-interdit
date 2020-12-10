@@ -6,19 +6,16 @@ import { graphql } from "gatsby";
 import "./archiveSpectacle.css";
 
 function Programme({ data }) {
-  console.log(data, "programmeOld");
+  
   return (
     <>
-      {/* <ImageCarousel displayed={true} images={props.images} /> */}
       <div className="global-margin archive-global-styling">
-        {/* <className="archive-description">
-          {data.allStrapiArchivesOld.edges.node.presentation}
-        </className=> */}
+        
         <h1 className="to-uppercase">
           Découvrez{" "}
-          {/* <span>les archives du festival {data.allStrapiArchivesOld.edges.node.annee}</span> */}
+          <span>les archives du festival {data.allStrapiArchivesOld.nodes[0].annee}</span>
         </h1>
-        <div className="archive-transmission-grid-wrapper">
+        <div className="archive-programme-grid-wrapper">
           {data.allStrapiArchivesOld.nodes.map(elem => (
             <ThumbnailOldArchive
               id={elem.strapiId}

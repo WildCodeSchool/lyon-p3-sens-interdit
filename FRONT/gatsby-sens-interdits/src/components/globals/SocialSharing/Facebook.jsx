@@ -2,7 +2,8 @@ import React from "react";
 import fbIco from "../../../assets/img/facebook.svg";
 
 function Facebook({ location }) {
-  const url = location ? location.href : "";
+  const url = location ? location.pathname : "";
+  
   function share_fb(event) {
     event.preventDefault();
     window.open(

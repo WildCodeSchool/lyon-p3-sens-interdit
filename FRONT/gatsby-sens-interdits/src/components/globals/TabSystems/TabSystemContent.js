@@ -1,5 +1,6 @@
 
 import React from "react";
+import "./tabSystemGlobal.css";
 
 
 export default function TabSystemContent (props) {
@@ -7,7 +8,7 @@ export default function TabSystemContent (props) {
     const DisplayPicture = props.DisplayPicture;
 
     return (
-        <div>
+        <div className="texte-picture-content">
             <p>{tab.content}</p>
             {tab.credited_image.length !== 0 ? 
             <DisplayPicture imageContent={tab.credited_image} />
