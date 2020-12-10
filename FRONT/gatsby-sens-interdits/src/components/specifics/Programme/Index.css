@@ -25,6 +25,8 @@
 
 .global-FilterTab {
   cursor: pointer;
+  display: flex;
+
 }
 
 @media screen and (max-width: 960px) {

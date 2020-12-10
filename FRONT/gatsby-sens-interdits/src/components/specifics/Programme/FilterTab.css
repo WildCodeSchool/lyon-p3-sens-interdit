@@ -16,6 +16,14 @@
   border-right: solid #e30613 1px;
   cursor: pointer;
 }
+.global-Filter-tab a:last-child p {
+  border-right: none;
+}
+
+.reset-filter-programme {
+  font-size: 30px;
+}
+
 
 
 @media screen and (max-width: 960px) {

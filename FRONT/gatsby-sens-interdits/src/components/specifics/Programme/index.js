@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Index.css";
+import "./FilterTab"
 import "../../../assets/styles/global.css";
 import photoTest from "../../../assets/img/img-sens-interdit.jpg";
 import Thumbnail from "../../globals/Thumbnail";
@@ -86,7 +87,7 @@ export default function ProgrammePage(props) {
     if (list.length === 0 || list === undefined) {
       return (
         <h3>
-          Loading ...
+          Il n'y a pas d'évènement à cette date.
         </h3>
       );
     } else {
@@ -121,8 +122,8 @@ export default function ProgrammePage(props) {
         <div className="calendar-programme-page">
           <CalendarLarge dateSetter={dateFilter} />
         </div>
-        <div className="global-FilterTab">
-          <h2> FILTREZ PAR: </h2>
+        <div className="global-Filter-tab">
+          <h2> TRIER PAR: </h2>
           <a role="button" onClick={countryFilter} >
             <p> PAYS </p>
           </a>
@@ -132,8 +133,8 @@ export default function ProgrammePage(props) {
           <a role="button" onClick={placeFilter} >
             <p> LIEUX </p>
           </a>
-          <a role="button" onClick={resetFilter} >
-            <h3> supprimer filtres </h3>
+          <a role="button" onClick={resetFilter} className="">
+            <p className="reset-filter-programme">↺</p>
           </a>
         </div>
         <div className="display-mini-tab"> {affichageList(list)} </div>

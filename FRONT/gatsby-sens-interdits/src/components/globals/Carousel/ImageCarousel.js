@@ -22,6 +22,7 @@ function ImageCarousel({ title, images, displayed, booking, country }) {
           showThumbs={false}
           showStatus={false}
           showIndicators={false}
+
         >
           {images.map(image => (
             <div className="size-adjustment" key={image[0]}>

@@ -6,8 +6,7 @@ div.size-adjustment {
 }
 
 div.size-adjustment img{
-  object-fit: cover;
-  
+  object-fit: cover;  
 }
 div.placeholder-carousel img{
   width: 100%;
@@ -20,6 +19,8 @@ div.carousel-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
+
 }
 
 div.red {
