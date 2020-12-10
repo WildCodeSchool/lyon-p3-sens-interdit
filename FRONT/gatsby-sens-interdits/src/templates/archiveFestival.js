@@ -1,5 +1,4 @@
 import React from "react";
-import ImageCarousel from "../components/globals/Carousel/ImageCarousel";
 import Thumbnail from "../components/globals/Thumbnail";
 import { graphql } from "gatsby";
 import photoTest from "./../assets/img/img-sens-interdit.jpg";
@@ -8,18 +7,24 @@ import { sluggify } from "./../utils/Sluggify";
 import "./archiveSpectacle.css";
 
 function ArchivedFestival({ data }) {
-  
   return (
     <>
-      {/* <ImageCarousel displayed={true} images={props.images} /> */}
       <div className="global-margin archive-global-styling">
-        {/* <className="archive-description">
-          {data.allStrapiArchivesOld.edges.node.presentation}
-        </className=> */}
+        <div className="image-generique-page">
+          <img
+            src={
+              process.env.GATSBY_API_URL +
+              data.allStrapiFestival.nodes[0].poster[0].url
+            }
+            alt={data.allStrapiFestival.nodes[0].title}
+          />
+        </div>
         <h1 className="to-uppercase">
-          Découvrez{" "}
-          {/* <span>les archives du festival {data.allStrapiArchivesOld.edges.node.annee}</span> */}
+          Edition {data.allStrapiFestival.nodes[0].year} -{" "}
+          <span>{data.allStrapiFestival.nodes[0].title}</span>
         </h1>
+
+        <div>{data.allStrapiFestival.nodes[0].content}</div>
         <div className="archive-transmission-grid-wrapper">
           {data.allStrapiSpectacle.nodes.map(spectacle => (
             <Thumbnail
@@ -67,6 +72,18 @@ export const query = graphql`
         title
         festival {
           year
+        }
+      }
+    }
+    allStrapiFestival(filter: { year: { eq: $year } }) {
+      nodes {
+        year
+        title
+        title_en
+        content
+        content_en
+        poster {
+          url
         }
       }
     }
