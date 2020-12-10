@@ -57,12 +57,21 @@ export default function webRadio() {
     <div className="container">
       <img
         src={process.env.GATSBY_API_URL + imageLink}
-        alt={strapiWebradio["title" + LANG]}
+        alt={strapiWebradio.title}
         className="image-webradio"
       />
-      <h3>{strapiWebradio["subtitle" + LANG]}</h3>
-      <h1 className="to-uppercase">{strapiWebradio["title" + LANG]}</h1>
-      <p>{strapiWebradio["description" + LANG]}</p>
+      <h3>
+        {checkEnContext(strapiWebradio.subtitle, strapiWebradio.subtitle_en)}
+      </h3>
+      <h1 className="to-uppercase">
+        {checkEnContext(strapiWebradio.title, strapiWebradio.title_en)}
+      </h1>
+      <p>
+        {checkEnContext(
+          strapiWebradio.description,
+          strapiWebradio.description_en
+        )}
+      </p>
       <div className="webRadioLink">
         {podCastLink.map(podcast => (
           <div className="display-tab-sticker">

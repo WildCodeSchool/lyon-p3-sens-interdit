@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import LanguageContext from "../../context/LanguageContext";
 import "./Index.css";
 import "../../../assets/styles/global.css";
 import photoTest from "../../../assets/img/img-sens-interdit.jpg";
@@ -14,6 +15,7 @@ dayjs.extend(localizedFormat);
 
 export default function ProgrammePage(props) {
   const [list, setList] = useState("");
+  const { language } = useContext(LanguageContext);
 
   const fullList = [];
 
@@ -39,10 +41,10 @@ export default function ProgrammePage(props) {
 
   const majState = () => {
     setList(fullList);
-  }
+  };
 
   useEffect(() => {
-    majState()
+    majState();
   }, [props.list]);
 
   function dateFilter(date) {
@@ -86,7 +88,9 @@ export default function ProgrammePage(props) {
     if (list.length === 0 || list === undefined) {
       return (
         <h3>
-          Loading ...
+          {language === "fr"
+            ? "Il n'y a pas de spectacle ce jour"
+            : "There is no show programmed for this day"}
         </h3>
       );
     } else {
@@ -123,16 +127,16 @@ export default function ProgrammePage(props) {
         </div>
         <div className="global-FilterTab">
           <h2> FILTREZ PAR: </h2>
-          <a role="button" onClick={countryFilter} >
+          <a role="button" onClick={countryFilter}>
             <p> PAYS </p>
           </a>
-          <a role="button" onClick={authorFilter} >
+          <a role="button" onClick={authorFilter}>
             <p> METTEUR EN SCÈNE </p>
           </a>
-          <a role="button" onClick={placeFilter} >
+          <a role="button" onClick={placeFilter}>
             <p> LIEUX </p>
           </a>
-          <a role="button" onClick={resetFilter} >
+          <a role="button" onClick={resetFilter}>
             <h3> supprimer filtres </h3>
           </a>
         </div>
