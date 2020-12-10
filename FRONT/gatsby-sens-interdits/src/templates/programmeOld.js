@@ -6,7 +6,7 @@ import { graphql } from "gatsby";
 import "./archiveSpectacle.css";
 
 function Programme({ data }) {
-  console.log(data, "programmeOld");
+  
   return (
     <>
       <div className="global-margin archive-global-styling">

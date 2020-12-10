@@ -31,7 +31,7 @@ export default function ResultPage(props) {
                 }
             })
             .catch(err => {
-                console.log(err);
+                
                 setHasRequested(true);
             });
     }, []);
