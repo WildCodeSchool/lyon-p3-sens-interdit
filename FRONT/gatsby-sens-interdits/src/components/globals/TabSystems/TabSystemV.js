@@ -22,16 +22,18 @@ function DisplayPicture({ imageContent }) {
           <div key={img.id} className="pictures-in-tab-system">
             {img.redtitle ? <p className="redtitle-tab-element to-uppercase">{img.redtitle}</p> : null}
             {img.credit ? <p>{img.credit}</p> : null}
-            {img.image.map(elem => (
-              <div className="picture-tabsyst-container">
+            <div className="picture-tabsyst-container">
+              {img.image.map(elem => (
+
                 <img
                   key={elem.url}
                   src={process.env.GATSBY_API_URL + elem.url}
                   alt="noalt"
                   className="picture-in-tabsystem"
                 />
-              </div>
-            ))}
+
+              ))}
+            </div>
           </div>
         ))}
       </div>

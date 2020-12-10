@@ -8,7 +8,7 @@ import placeholder from "../../../assets/img/placeholder-photo-slider.jpg";
 function ImageCarousel({ title, images, displayed, booking, country }) {
   return !images ? (
     <>
-      <div className="carousel-loading">
+      <div className="size-adjustment placeholder-carousel">
         <img src={placeholder} alt="placeholder_photo" />
       </div>
     </>
@@ -22,6 +22,7 @@ function ImageCarousel({ title, images, displayed, booking, country }) {
           showThumbs={false}
           showStatus={false}
           showIndicators={false}
+
         >
           {images.map(image => (
             <div className="size-adjustment" key={image[0]}>

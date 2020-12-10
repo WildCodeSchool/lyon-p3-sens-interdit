@@ -40,7 +40,6 @@ export default function webRadio() {
       }
     }
   `);
-
   const strapiWebradio = allStrapiWebradio.nodes[0];
   const podCastLink = allStrapiWebradio.nodes[0].podcast;
   const imageLink = allStrapiWebradio.nodes[0].image[0].url;
