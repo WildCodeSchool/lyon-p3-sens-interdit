@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import LanguageContext from "../../context/LanguageContext";
 import "./Index.css";
-import "./FilterTab"
+import "./FilterTab";
 import "../../../assets/styles/global.css";
 import photoTest from "../../../assets/img/img-sens-interdit.jpg";
 import Thumbnail from "../../globals/Thumbnail";
@@ -15,6 +16,7 @@ dayjs.extend(localizedFormat);
 
 export default function ProgrammePage(props) {
   const [list, setList] = useState("");
+  const { language } = useContext(LanguageContext);
 
   const fullList = [];
 
@@ -40,10 +42,10 @@ export default function ProgrammePage(props) {
 
   const majState = () => {
     setList(fullList);
-  }
+  };
 
   useEffect(() => {
-    majState()
+    majState();
   }, [props.list]);
 
   function dateFilter(date) {
@@ -87,7 +89,9 @@ export default function ProgrammePage(props) {
     if (list.length === 0 || list === undefined) {
       return (
         <h3>
-          Il n'y a pas d'évènement à cette date.
+          {language === "fr"
+            ? "Il n'y a pas d'évènement à cette date."
+            : "There is no event programmed for this date"}
         </h3>
       );
     } else {
@@ -122,16 +126,16 @@ export default function ProgrammePage(props) {
         <div className="calendar-programme-page">
           <CalendarLarge dateSetter={dateFilter} />
         </div>
-        <div className="global-Filter-tab">
-          <h2> TRIER PAR: </h2>
-          <a role="button" onClick={countryFilter} >
-            <p> PAYS </p>
+        <div className="global-Filter-tab to-uppercase">
+          <h2>{language === "fr" ? "Trier par : " : "Sort by : "}</h2>
+          <a role="button" onClick={countryFilter}>
+            <p>{language === "fr" ? "Pays" : "Country"}</p>
           </a>
-          <a role="button" onClick={authorFilter} >
-            <p> METTEUR EN SCÈNE </p>
+          <a role="button" onClick={authorFilter}>
+            <p> {language === "fr" ? "Metteur en scène" : "Director"} </p>
           </a>
-          <a role="button" onClick={placeFilter} >
-            <p> LIEUX </p>
+          <a role="button" onClick={placeFilter}>
+            <p> {language === "fr" ? "Lieux" : "Place"} </p>
           </a>
           <a role="button" onClick={resetFilter} className="">
             <p className="reset-filter-programme">↺</p>

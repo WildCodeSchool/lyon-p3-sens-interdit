@@ -13,7 +13,7 @@ export default props => {
   }, []);
 
   useEffect(() => {
-    setCookie("language", language, "sameSite=true");
+    setCookie("language", language, { sameSite: "strict" });
     if (!hasMounted) {
       setLanguage(cookies.language);
     }
