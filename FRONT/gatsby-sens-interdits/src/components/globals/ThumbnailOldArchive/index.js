@@ -11,8 +11,7 @@ export default function ThumbnailOldArchive(props) {
 
   return (
     <div className="mini-tab">
-      <Link 
-      to={`/spectacle/${archiveSpectacleSlug}_${props.id}`}>
+      <Link to={`/spectacle/${archiveSpectacleSlug}_${props.id}`}>
         <div className="global-mini-tab">
           <img
             className="img-mini-tab"
@@ -21,7 +20,6 @@ export default function ThumbnailOldArchive(props) {
             width="fit-content"
           />
           <div className="title-mini-tab">
-            <p className="date-mini-tab">{props.date}</p>
             <p className="country-mini-tab">{props.country}</p>
           </div>
           <img
