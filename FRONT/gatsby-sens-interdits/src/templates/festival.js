@@ -28,7 +28,7 @@ export default function FestivalPage({ data }) {
       <div id="festival-content" className="container">
         <div id="festival-calendar"></div>
         <div id="festival-description">
-          <h3>{festival["title" + LANG]}</h3>
+          <h2 className="to-uppercase">{festival["title" + LANG]}</h2>
           <p>{festival["content" + LANG]}</p>
         </div>
         <nav id="festival-menu">

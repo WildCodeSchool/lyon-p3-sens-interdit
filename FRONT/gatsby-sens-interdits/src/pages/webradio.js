@@ -1,13 +1,9 @@
-import React, { useContext } from "react";
-import LanguageContext from "../components/context/LanguageContext";
-import GeneriquePage from "../components/specifics/Generique";
-import { graphql, useStaticQuery } from "gatsby";
+import React from "react";
+import WebRadio from "../components/specifics/Webradio";
 
 export default function Webradio() {
-  
-  return (
-    <div>
-      
-    </div>
-  );
+
+
+  return <WebRadio />;
+
 }

@@ -17,7 +17,6 @@ export default function SpectaclePage({ data }) {
 
   const spectacle = data.spectacle;
 
-
   const imageArray =
     spectacle.carousel !== null
       ? spectacle.carousel.image.map(image => image.image)
@@ -53,7 +52,7 @@ export default function SpectaclePage({ data }) {
         <div className="content">
           <div className="red-arrow-spectacle"></div>
           <p className="content-title to-uppercase">
-            {!language ? "Autour du spectacle" : "Suggestions"}
+            {!language ? "Autour du spectacle" : "More"}
           </p>
           <div className="display-mini-tab">
             <Thumbnail

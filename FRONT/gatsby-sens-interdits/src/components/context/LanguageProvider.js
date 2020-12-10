@@ -6,7 +6,7 @@ export default props => {
   const [hasMounted, setHasMounted] = useState(false);
   const [language, setLanguage] = useState("fr");
   const [LANG, setLANG] = useState("");
-  const [cookies, setCookie, removeCookie] = useCookies(["language"]);
+  const [cookies, setCookie] = useCookies(["language"]);
 
   useEffect(() => {
     setHasMounted(true);
@@ -24,8 +24,18 @@ export default props => {
     language === "fr" ? setLanguage("en") : setLanguage("fr");
   };
 
+  const checkEnContext = (data, dataEn) => {
+    if (dataEn !== null && dataEn !== undefined && language === "en") {
+      return dataEn;
+    } else {
+      return data;
+    }
+  };
+
   return (
-    <LanguageContext.Provider value={{ language, LANG, toggleLanguage }}>
+    <LanguageContext.Provider
+      value={{ language, LANG, toggleLanguage, checkEnContext }}
+    >
       {props.children}
     </LanguageContext.Provider>
   );

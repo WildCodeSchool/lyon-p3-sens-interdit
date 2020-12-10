@@ -79,10 +79,6 @@ function Archive(props) {
     }
   `);
 
-  console.log(
-    data.allStrapiFestival.nodes,
-    "Archive Old festival + spectacle hors - scene + new site festival archive"
-  );
   return (
     <>
       <ImageCarousel
@@ -100,7 +96,7 @@ function Archive(props) {
             Explore <span>the festival's archives</span>
           </h1>
         )}
-        <FilterTab />
+
         <div className="archive-festivals-grid-wrapper">
           {/* display new website festival archive */}
 
@@ -114,8 +110,6 @@ function Archive(props) {
               />
             );
           })}
-
-          {/* display old website festival archive */}
 
           {festivals.map((festival, i) => {
             return (
@@ -138,9 +132,6 @@ function Archive(props) {
           </h1>
         )}
 
-        {/* Archive Page - display off stage spectacle */}
-
-        <FilterTab />
         <FilterBySelect />
         <div className="archive-transmission-grid-wrapper">
           {data.allStrapiArchivesOld.edges.map(elem => (
