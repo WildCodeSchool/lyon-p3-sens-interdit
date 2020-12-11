@@ -21,6 +21,11 @@ div.image-text {
   width: 550px;
   height: 250px;
   text-align: center;
+  align-items: center;
+  padding-top: 50px;
+}
+div.image-text-old{
+  top: 350px;
 }
 
 div.image-text .title {

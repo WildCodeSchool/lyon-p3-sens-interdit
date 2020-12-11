@@ -1,7 +1,7 @@
 import React from "react";
 import ThumbnailOldArchive from "../components/globals/ThumbnailOldArchive";
-import { graphql } from "gatsby";
-
+import { graphql,Link } from "gatsby";
+import Playicon from "../assets/img/play_icon.png"
 import "./archiveFestival.css";
 
 function Programme({ data }) {
@@ -18,10 +18,11 @@ function Programme({ data }) {
           />
         </div>
         <h1 className="to-uppercase">
-          Edition {data.allStrapiFestivalarchive.nodes[0].year} -{" "}
           <span>{data.allStrapiFestivalarchive.nodes[0].title}</span>
+        <a href={process.env.GATSBY_API_URL + data.allStrapiFestivalarchive.nodes[0].download[0].url} download>
+        <san className="downloadPdf"><img src={Playicon} alt="bouton telechargement" width="30" />Télécharger le programme</san>
+        </a>
         </h1>
-
         <div>{data.allStrapiFestivalarchive.nodes[0].description}</div>
         <div className="archive-transmission-grid-wrapper">
           {data.allStrapiArchivesOld.nodes.map(elem => (
@@ -68,6 +69,9 @@ export const query = graphql`
         title_en
         description
         description_en
+        download {
+          url
+        }
       }
     }
   }

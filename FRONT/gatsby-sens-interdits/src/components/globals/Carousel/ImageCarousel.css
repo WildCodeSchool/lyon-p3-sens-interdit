@@ -28,22 +28,6 @@ div.carousel-wrapper {
   align-items: center;
 }
 
-div.red {
-  position: absolute;
-  z-index: 1;
-  align-self: center;
-  background-color: #e30613;
-  mix-blend-mode: multiply;
-  width: 450px;
-  height: 150px;
-}
-
-div.image-text {
-  z-index: 1;
-  text-align: center;
-  position: absolute;
-}
-
 div.image-text p {
   color: #fff;
   font-size: 26px;
