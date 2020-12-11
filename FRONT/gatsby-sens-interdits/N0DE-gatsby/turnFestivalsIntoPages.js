@@ -69,5 +69,5 @@ const turnFestivalsIntoPages = async function ({ graphql, actions }) {
 };
 
 
-module.exports.turnFestivalsIntoPages = turnFestivalsIntoPages;
+module.exports = turnFestivalsIntoPages;
 

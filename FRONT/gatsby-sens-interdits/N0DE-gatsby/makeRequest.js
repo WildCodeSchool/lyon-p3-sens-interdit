@@ -12,4 +12,4 @@ const makeRequest = (graphql, request) =>
     );
   });
 
-module.exports.makeRequest = makeRequest;
+module.exports = makeRequest;

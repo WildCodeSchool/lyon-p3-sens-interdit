@@ -42,4 +42,4 @@ const archiveProgramme = async function ({ graphql, actions }) {
 };
 
 
-module.exports.archiveProgramme = archiveProgramme;
+module.exports = archiveProgramme;

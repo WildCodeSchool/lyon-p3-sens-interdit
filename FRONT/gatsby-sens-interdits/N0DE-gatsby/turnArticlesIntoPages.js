@@ -47,4 +47,4 @@ const turnArticlesIntoPages = async function ({ graphql, actions }) {
 };
 
 
-module.exports.turnArticlesIntoPages = turnArticlesIntoPages;
+module.exports = turnArticlesIntoPages;

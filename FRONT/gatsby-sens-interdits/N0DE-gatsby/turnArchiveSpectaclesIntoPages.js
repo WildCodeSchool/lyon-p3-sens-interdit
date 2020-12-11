@@ -49,4 +49,4 @@ const turnArchiveSpectaclesIntoPages = async function ({ graphql, actions }) {
 };
 
 
-module.exports.turnArchiveSpectaclesIntoPages = turnArchiveSpectaclesIntoPages;
+module.exports = turnArchiveSpectaclesIntoPages;

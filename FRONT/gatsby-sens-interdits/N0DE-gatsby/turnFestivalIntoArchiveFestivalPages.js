@@ -43,4 +43,4 @@ const turnFestivalIntoArchiveFestivalPages = async function ({
   return getFestivalArchive;
 };
 
-module.exports.turnFestivalIntoArchiveFestivalPages = turnFestivalIntoArchiveFestivalPages;
+module.exports = turnFestivalIntoArchiveFestivalPages;
