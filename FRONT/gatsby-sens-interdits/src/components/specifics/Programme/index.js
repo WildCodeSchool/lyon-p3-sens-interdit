@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import LanguageContext from "../../context/LanguageContext";
 import "./Index.css";
 import "./FilterTab";
+import { graphql, useStaticQuery } from "gatsby";
 import "../../../assets/styles/global.css";
 import photoTest from "../../../assets/img/img-sens-interdit.jpg";
 import Thumbnail from "../../globals/Thumbnail";
@@ -15,9 +16,49 @@ dayjs.locale("fr");
 dayjs.extend(localizedFormat);
 
 export default function ProgrammePage(props) {
-  const [list, setList] = useState("");
-  const { language } = useContext(LanguageContext);
+  //-----------------CAROUSEL START
+  const [random, setRandom] = useState(0);
+  const { LANG, checkEnContext } = useContext(LanguageContext);
+  const data = useStaticQuery(graphql`
+  query MyQueryProg {
+    allStrapiSpectacle {
+      nodes {
+        title
+        id
+        author
+        country
+        archive
+        reserver
+        carousel {
+          id
+          image {
+            credit
+            id
+            image {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+`);
+  const redSquareArray =
+    data.allStrapiSpectacle.nodes.carousel !== null
+      ? data.allStrapiSpectacle.nodes.filter(spec => spec.archive === false)
+      : false;
+  const imageArray =
+    data.allStrapiSpectacle.nodes.carousel !== null
+      ? redSquareArray[random].carousel.image.map(image => image.image)
+      : false;
 
+  useEffect(() => {
+    setRandom(Math.floor(Math.random() * Math.floor(redSquareArray.length)));
+  }, []);
+  //-----------------CAROUSEL END
+
+  //-----------------PROGRAM START
+  const [list, setList] = useState("");
   const fullList = [];
 
   props.list.map(spectacle => {
@@ -89,9 +130,10 @@ export default function ProgrammePage(props) {
     if (list.length === 0 || list === undefined) {
       return (
         <h3>
-          {language === "fr"
-            ? "Il n'y a pas d'évènement à cette date."
-            : "There is no event programmed for this date"}
+          {checkEnContext(
+            "Il n'y a pas d'évènement à cette date.",
+            "There is no event programmed for this date"
+          )}
         </h3>
       );
     } else {
@@ -119,23 +161,52 @@ export default function ProgrammePage(props) {
       });
     }
   };
+  //------------PROGRAM END
   return (
     <div className="global-programme-page">
-      <ImageCarousel />
+      <ImageCarousel
+        images={imageArray}
+        title={checkEnContext(
+          redSquareArray[random].title,
+          redSquareArray[random].title_en
+        )}
+        booking={redSquareArray[random].reserver}
+        country={checkEnContext(
+          redSquareArray[random].country,
+          redSquareArray[random].country_en
+        )}
+        displayed={true}
+      />
       <div className="content-programme-page container">
         <div className="calendar-programme-page">
           <CalendarLarge dateSetter={dateFilter} />
         </div>
         <div className="global-Filter-tab to-uppercase">
-          <h2>{language === "fr" ? "Trier par : " : "Sort by : "}</h2>
+          <h2>{
+            checkEnContext(
+              "Trier par :",
+              "Sort by :"
+            )}</h2>
           <a role="button" onClick={countryFilter}>
-            <p>{language === "fr" ? "Pays" : "Country"}</p>
+            <p>{
+              checkEnContext(
+                "Pays",
+                "Country"
+              )}</p>
           </a>
           <a role="button" onClick={authorFilter}>
-            <p> {language === "fr" ? "Metteur en scène" : "Director"} </p>
+            <p>{
+              checkEnContext(
+                "Metteur en scène",
+                "Director"
+              )} </p>
           </a>
           <a role="button" onClick={placeFilter}>
-            <p> {language === "fr" ? "Lieux" : "Place"} </p>
+            <p>{
+              checkEnContext(
+                "Lieux",
+                "Place"
+              )}</p>
           </a>
           <a role="button" onClick={resetFilter} className="">
             <p className="reset-filter-programme">↺</p>

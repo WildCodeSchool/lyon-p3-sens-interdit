@@ -31,15 +31,26 @@ function Archive(props) {
           }
         }
       }
+      strapiArchiveDescription {
+        carousel {
+          image {
+            image {
+              url
+            }
+          }
+        }
+      }
     }
   `);
+  const imageArray =
+    data.strapiArchiveDescription.carousel !== null
+      ? data.strapiArchiveDescription.carousel.image.map(image => image.image)
+      : false;
 
   return (
     <>
       <ImageCarousel
-        displayed={true}
-        images={props.images}
-        title={props.title ? props.title : ""}
+        images={imageArray}
       />
       <div className="container archive-global-styling">
         {LANG !== "_en" ? (
@@ -47,10 +58,10 @@ function Archive(props) {
             Découvrez <span>les archives du festival</span>
           </h1>
         ) : (
-          <h1 className="to-uppercase">
-            Explore <span>the festival's archives</span>
-          </h1>
-        )}
+            <h1 className="to-uppercase">
+              Explore <span>the festival's archives</span>
+            </h1>
+          )}
         <div className="archive-festivals-grid-wrapper">
           {/* display new website festival archive */}
 
