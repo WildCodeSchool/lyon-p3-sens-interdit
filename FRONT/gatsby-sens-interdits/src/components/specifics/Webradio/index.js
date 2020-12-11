@@ -59,6 +59,7 @@ export default function webRadio() {
 const strapiWebradio = allStrapiWebradio.nodes[0];
 const podCastLink = allStrapiWebradio.nodes[0].podcast;
 const imageLink = allStrapiWebradio. nodes[0].image[0].url;
+
 let seo = allStrapiWebradio.nodes[0].seo_webradio;
 const title = LANG === 'en' ?  seo.title_en : seo.title;
 const description = LANG === 'en' ? seo.description_en: seo.description;
