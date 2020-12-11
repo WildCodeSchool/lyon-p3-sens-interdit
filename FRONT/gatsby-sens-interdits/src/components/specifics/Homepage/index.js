@@ -6,6 +6,8 @@ import DisplayTabMenu from "../../globals/DisplayTabMenu/DisplayTabMenu.js";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import LanguageContext from "../../context/LanguageContext";
 import { FestivalContext } from "../../context/FestivalContext";
+import SEO from "../../SEO/seo";
+
 
 export default function Homepage() {
   const [random, setRandom] = useState(0);
@@ -17,6 +19,15 @@ export default function Homepage() {
   const data = useStaticQuery(graphql`
     query MyQueryHome {
       strapiHomepage {
+        carousel {
+          id
+          image {
+            id
+            image {
+              url
+            }
+          }
+        }
         id
         description
         description_en
@@ -52,6 +63,18 @@ export default function Homepage() {
             url
           }
         }
+        seo_home {
+          description
+          description_en
+          image {
+            url
+          }
+          image_en {
+            url
+          }
+          title
+          title_en
+        }
       }
       allStrapiSpectacle {
         nodes {
@@ -86,12 +109,20 @@ export default function Homepage() {
       ? redSquareArray[random].carousel.image.map(image => image.image)
       : false;
 
+  let seo = data.strapiHomepage.seo_home;
+  const title = LANG === 'en' ?  seo.title_en : seo.title;
+  const description = LANG === 'en' ? seo.description_en: seo.description;
+  const image = LANG === 'en' ? seo.image[0].url_en : seo.image[0].url;
+
   useEffect(() => {
     setRandom(Math.floor(Math.random() * Math.floor(redSquareArray.length)));
   }, []);
 
   return (
     <>
+      <SEO title={title !== undefined ? title : ""}
+        description={description !== undefined ? description : ""}
+        image={image !== undefined ? image : ""} />
       <ImageCarousel
         images={imageArray}
         title={checkEnContext(

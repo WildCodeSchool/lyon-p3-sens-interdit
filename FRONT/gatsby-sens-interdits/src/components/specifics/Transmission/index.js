@@ -3,6 +3,7 @@ import LanguageContext from "../../context/LanguageContext";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import DisplayTabMenu from "../../globals/DisplayTabMenu/DisplayTabMenu";
 import { graphql, useStaticQuery } from "gatsby";
+import SEO from "../../../components/SEO/seo";
 import "./TransmissionsPage.css";
 
 export default function TransmissionsPage() {
@@ -38,6 +39,18 @@ export default function TransmissionsPage() {
           }
           description
           description_en
+          seo_transmission {
+            description
+            description_en
+            image {
+              url
+            }
+            image_en {
+              url
+            }
+            title
+            title_en
+          }
         }
       }
     }
@@ -49,9 +62,18 @@ export default function TransmissionsPage() {
     transmission.carousel !== null
       ? transmission.carousel.image.map(image => image.image)
       : false;
+  
+  let seo = data.allStrapiTransmission.nodes[0].seo_transmission;
+  const title = LANG === 'en' ?  seo.title_en : seo.title;
+  const description = LANG === 'en' ? seo.description_en: seo.description;
+  const image = LANG === 'en' ? seo.image[0].url_en : seo.image[0].url;
 
   return (
     <>
+      <SEO 
+        title={title !== undefined ? title : ""} 
+        description={description !== undefined ? description : ""} 
+        image={image !== undefined ? image : ""} />
       <ImageCarousel images={imageArray} displayed={false} />
       <div className="container">
         <div className="red-arrow"></div>

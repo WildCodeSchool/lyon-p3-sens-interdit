@@ -5,9 +5,10 @@ import "./Association.css";
 import "../../../assets/styles/global.css";
 import { graphql, useStaticQuery } from "gatsby";
 import TabSystemV from "../../globals/TabSystems/TabSystemV";
+import SEO from "../../../components/SEO/seo";
 
 export default function AssociationPage() {
-  const { checkEnContext } = useContext(LanguageContext);
+  const { checkEnContext, LANG } = useContext(LanguageContext);
   const { strapiAssopage } = useStaticQuery(graphql`
     query MyQueryAsso {
       strapiAssopage {
@@ -52,6 +53,19 @@ export default function AssociationPage() {
             }
           }
         }
+        seo_asso {
+          description
+          description_en
+          id
+          image {
+            url
+          }
+          image_en {
+            url
+          }
+          title
+          title_en
+        }
       }
     }
   `);
@@ -59,8 +73,17 @@ export default function AssociationPage() {
     strapiAssopage.carousel !== null
       ? strapiAssopage.carousel.image.map(image => image.image)
       : false;
+
+  let seo = strapiAssopage.seo_asso;
+  const title = LANG === 'en' ?  seo.title_en : seo.title;
+  const description = LANG === 'en' ? seo.description_en: seo.description;
+  const image = LANG === 'en' ? seo.image[0].url_en : seo.image[0].url;
+
   return (
     <>
+      <SEO title={title !== undefined ? title : checkEnContext(strapiAssopage.title, strapiAssopage.title_en)} 
+        description={description !== undefined ? description : ""}  
+        image={image !== undefined ? image : ""} />
       <ImageCarousel images={imageArray} />
       <div className="container">
         <div className="red-arrow"></div>

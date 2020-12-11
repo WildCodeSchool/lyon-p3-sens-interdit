@@ -6,6 +6,7 @@ import "../../globals/DisplayTabMenu/DisplayTabMenu.css";
 import "../../../assets/styles/global.css";
 import "./index.css";
 import picto from "../../../assets/img/picto+.svg";
+import SEO from "../../../components/SEO/seo";
 
 export default function webRadio() {
   const { language, LANG, checkEnContext } = useContext(LanguageContext);
@@ -36,6 +37,18 @@ export default function webRadio() {
               url
             }
           }
+          seo_webradio {
+            description
+            description_en
+            title
+            title_en
+            image {
+              url
+            }
+            image_en {
+              url
+            }
+          }
         }
       }
     }
@@ -43,6 +56,12 @@ export default function webRadio() {
   const strapiWebradio = allStrapiWebradio.nodes[0];
   const podCastLink = allStrapiWebradio.nodes[0].podcast;
   const imageLink = allStrapiWebradio.nodes[0].image[0].url;
+
+let seo = allStrapiWebradio.nodes[0].seo_webradio;
+const title = LANG === 'en' ?  seo.title_en : seo.title;
+const description = LANG === 'en' ? seo.description_en: seo.description;
+const image = LANG === 'en' ? seo.image[0].url_en : seo.image[0].url;
+
 
   const opts = {
     height: "390",
@@ -53,6 +72,11 @@ export default function webRadio() {
   };
 
   return (
+    <>
+    <SEO
+      title={title !== undefined ? title : strapiWebradio["title" + LANG]}
+      description={description !== undefined ? description :strapiWebradio["description" + LANG] }
+      image={image !== undefined ? image : process.env.GATSBY_API_URL + podcast.image[0].url} />
     <div className="container">
       <img
         src={process.env.GATSBY_API_URL + imageLink}
@@ -119,5 +143,6 @@ export default function webRadio() {
         ))}
       </div>
     </div>
+  </>
   );
 }
