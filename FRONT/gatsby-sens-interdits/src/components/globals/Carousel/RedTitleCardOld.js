@@ -6,9 +6,11 @@ function RedTitleCardOld({ title, displayed, booking}) {
   return displayed ? (
     <>
       <div className="red"></div>
-      <div className="image-text">
-        <p>{title}</p>
+      <div className="image-text image-text-old">
+    
+        <p >{title}</p>
       </div>
+      
     </>
   ) : (
     <></>
