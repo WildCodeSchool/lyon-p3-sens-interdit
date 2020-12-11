@@ -19,8 +19,10 @@ function Programme({ data }) {
         </div>
         <h1 className="to-uppercase">
           <span>{data.allStrapiFestivalarchive.nodes[0].title}</span>
-        <a href={process.env.GATSBY_API_URL + data.allStrapiFestivalarchive.nodes[0].download[0].url} download>
-        <san className="downloadPdf"><img src={Playicon} alt="bouton telechargement" width="30" />Télécharger le programme</san>
+        <a href={process.env.GATSBY_API_URL + data.allStrapiFestivalarchive.nodes[0].download[0].url}
+        title="download programme"
+        download>
+        <span className="downloadPdf"><img src={Playicon} alt="bouton telechargement" width="30" />Télécharger le programme</span>
         </a>
         </h1>
         <div>{data.allStrapiFestivalarchive.nodes[0].description}</div>
