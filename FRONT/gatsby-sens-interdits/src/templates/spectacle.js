@@ -34,7 +34,7 @@ export default function SpectaclePage({ data }) {
         <div className="country-label">
           <p>{checkEnContext(spectacle.country, spectacle.country_en)}</p>
         </div>
-        <SpectacleCalendar spectacle={spectacle} />
+        <SpectacleCalendar className="spectacle-calendar" spectacle={spectacle} />
         <SpectacleInfos
           language={language}
           tarif={spectacle.tarif}
@@ -46,17 +46,18 @@ export default function SpectaclePage({ data }) {
             spectacle.spectacle_info,
             spectacle.spectacle_info_en
           )}
+          className="spectacle-infos-content"
         />
         {spectacle["tab_element" + LANG] === 0 ? (
           ""
         ) : (
-          <TabSystemH
-            tabContent={checkEnContext(
-              spectacle.tab_element,
-              spectacle.tab_element_en
-            )}
-          />
-        )}
+            <TabSystemH
+              tabContent={checkEnContext(
+                spectacle.tab_element,
+                spectacle.tab_element_en
+              )}
+            />
+          )}
         <div className="content">
           <div className="red-arrow-spectacle"></div>
           <p className="content-title to-uppercase">
@@ -107,6 +108,7 @@ export const query = graphql`
         tarif
         category {
           category
+          info
         }
       }
       carousel {

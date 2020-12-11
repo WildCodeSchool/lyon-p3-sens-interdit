@@ -18,6 +18,14 @@ export default function NewsPage() {
           id
           title
           title_en
+          carousel {
+            image {
+              id
+              image {
+                url
+              }
+            }
+          }
           seo_newspage {
             description
             description_en
@@ -70,6 +78,10 @@ export default function NewsPage() {
   const newsArticlesQuery = strapiNewsQuery.allStrapiArticlecontent.nodes;
   const textOverFlow = true;
   const linkStatus = true;
+  const imageArray =
+    newsPageQuery.carousel !== null
+      ? newsPageQuery.carousel.image.map(image => image.image)
+      : false;
   let seo = newsPageQuery.seo_newspage;
   const title = LANG === 'en' ?  seo.title_en : seo.title;
   const description = LANG === 'en' ? seo.description_en : seo.description;
@@ -77,12 +89,12 @@ export default function NewsPage() {
 
   return (
     <>
-      <SEO 
-        title={title !== undefined ? title : newsPageQuery["title" + LANG]} 
-        description={description !== undefined ? description : newsPageQuery["description" + LANG] } 
+      <SEO
+        title={title !== undefined ? title : newsPageQuery["title" + LANG]}
+        description={description !== undefined ? description : newsPageQuery["description" + LANG] }
         image={image !== undefined ? image : newsTabQuery.picturetop[0].url} />
       <div>
-        <ImageCarousel />
+        <ImageCarousel images={imageArray}  />
         <div className="container">
           <div className="red-arrow"></div>
           <div>

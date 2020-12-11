@@ -1,25 +1,42 @@
-import React from "react";
-import ImageCarousel from "../components/globals/Carousel/ImageCarousel";
+import React, { useContext } from "react";
 import Thumbnail from "../components/globals/Thumbnail";
 import { graphql } from "gatsby";
 import photoTest from "./../assets/img/img-sens-interdit.jpg";
 import { sluggify } from "./../utils/Sluggify";
 
 import "./archiveSpectacle.css";
+import LanguageContext from "../components/context/LanguageContext";
 
 function ArchivedFestival({ data }) {
-  
+  const { checkEnContext } = useContext(LanguageContext);
   return (
     <>
-      {/* <ImageCarousel displayed={true} images={props.images} /> */}
       <div className="global-margin archive-global-styling">
-        {/* <className="archive-description">
-          {data.allStrapiArchivesOld.edges.node.presentation}
-        </className=> */}
+        <div className="image-generique-page">
+          <img
+            src={
+              process.env.GATSBY_API_URL +
+              data.allStrapiFestival.nodes[0].poster[0].url
+            }
+            alt={data.allStrapiFestival.nodes[0].title}
+          />
+        </div>
         <h1 className="to-uppercase">
-          Découvrez{" "}
-          {/* <span>les archives du festival {data.allStrapiArchivesOld.edges.node.annee}</span> */}
+          Edition {data.allStrapiFestival.nodes[0].year} -{" "}
+          <span>
+            {checkEnContext(
+              data.allStrapiFestival.nodes[0].title,
+              data.allStrapiFestival.nodes[0].title_en
+            )}
+          </span>
         </h1>
+
+        <div>
+          {checkEnContext(
+            data.allStrapiFestival.nodes[0].content,
+            data.allStrapiFestival.nodes[0].content_en
+          )}
+        </div>
         <div className="archive-transmission-grid-wrapper">
           {data.allStrapiSpectacle.nodes.map(spectacle => (
             <Thumbnail
@@ -34,8 +51,8 @@ function ArchivedFestival({ data }) {
                   ? dayjs(spectacle.day).format("ddd D MMM à HH:mm")
                   : "inconnue"
               }
-              country={spectacle.country ? spectacle.country : "inconnu"}
-              name={spectacle.title}
+              country={checkEnContext(spectacle.country, spectacle.country_en)}
+              name={checkEnContext(spectacle.title, spectacle.title_en)}
               id={spectacle.strapiId}
               team={spectacle.author ? spectacle.author : "inconnu"}
               url={"/spectacle/" + sluggify(spectacle.title)}
@@ -60,13 +77,26 @@ export const query = graphql`
         }
         strapiId
         title
+        title_en
         author
         country
+        country_en
         id
         strapiId
-        title
         festival {
           year
+        }
+      }
+    }
+    allStrapiFestival(filter: { year: { eq: $year } }) {
+      nodes {
+        year
+        title
+        title_en
+        content
+        content_en
+        poster {
+          url
         }
       }
     }

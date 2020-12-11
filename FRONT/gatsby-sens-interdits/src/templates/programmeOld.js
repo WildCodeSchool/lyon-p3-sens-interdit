@@ -1,21 +1,37 @@
 import React from "react";
-import ImageCarousel from "../components/globals/Carousel/ImageCarousel";
 import ThumbnailOldArchive from "../components/globals/ThumbnailOldArchive";
-import { graphql } from "gatsby";
-
-import "./archiveSpectacle.css";
+import { graphql,Link } from "gatsby";
+import Playicon from "../assets/img/play_icon.png"
+import "./archiveFestival.css";
 
 function Programme({ data }) {
-  
+    const archive = data.allStrapiFestivalarchive.nodes[0];
   return (
     <>
       <div className="global-margin archive-global-styling">
-        
+        <div className="image-generique-page">
+            {archive !== undefined ?
+              <img
+                src={
+                  process.env.GATSBY_API_URL +
+                  archive.poster[0].url
+                }
+                alt={archive.title}
+              />
+          : null}
+        </div>
         <h1 className="to-uppercase">
-          Découvrez{" "}
-          <span>les archives du festival {data.allStrapiArchivesOld.nodes[0].annee}</span>
+            Edition {archive !== undefined ? archive.year : null} -{" "}
+            <span>{archive !== undefined ? archive.title : null}</span>
+        <a href={process.env.GATSBY_API_URL + data.allStrapiFestivalarchive.nodes[0].download[0].url}
+           title="download programme"
+        download>
+        <span className="downloadPdf">
+            <img src={Playicon} alt="bouton telechargement" width="30" />Télécharger le programme</span>
+        </a>
         </h1>
-        <div className="archive-programme-grid-wrapper">
+        <div>{archive !== undefined ? archive.description : null}</div>
+        <div className="archive-transmission-grid-wrapper">
           {data.allStrapiArchivesOld.nodes.map(elem => (
             <ThumbnailOldArchive
               id={elem.strapiId}
@@ -44,22 +60,26 @@ export const query = graphql`
         credits_2
         pays
         photo_1
-        presentation
         annee
       }
     }
-
-    # , $year: Int
-
-    # allStrapiSpectacle(filter: { festival: { year: { eq: $year } } }) {
-    #   nodes {
-    #     id
-    #     strapiId
-    #     title
-    #     festival {
-    #       year
-    #     }
-    #   }
-    # }
+    allStrapiFestivalarchive(filter: { year: { eq: $annee } }) {
+      nodes {
+        strapiId
+        id
+        year
+        poster {
+          url
+          id
+        }
+        title
+        title_en
+        description
+        description_en
+        download {
+          url
+        }
+      }
+    }
   }
 `;

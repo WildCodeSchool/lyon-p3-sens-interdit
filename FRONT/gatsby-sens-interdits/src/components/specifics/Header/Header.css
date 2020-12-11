@@ -67,8 +67,10 @@ header {
   border-top: solid #e30613 4px;
   border-left: solid #e30613 1px;
   border-right: solid #e30613 1px;
-  border-radius: 0 0 7px 7px;
+  border-radius: 0 0 5px 5px;
   font-size: 10px;
+  padding: 3px;
+
 }
 
 .newsletter-header a {
@@ -207,7 +209,7 @@ p {
     width: 100vw;
     position: relative;
     justify-content: center;
-    flex-direction: column-reverse;
+    flex-direction: row;
   }
   .wrapper-header-row1 {
     position: absolute;
@@ -215,9 +217,7 @@ p {
   .newsletter-header {
     display: none;
   }
-  .search-magnifier {
-    display: none;
-  }
+
   .nav-bar {
     position: absolute;
     left: 0;

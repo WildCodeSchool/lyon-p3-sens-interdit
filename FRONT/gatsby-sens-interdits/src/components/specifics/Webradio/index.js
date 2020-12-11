@@ -9,8 +9,7 @@ import picto from "../../../assets/img/picto+.svg";
 import SEO from "../../../components/SEO/seo";
 
 export default function webRadio() {
-  const { language, checkEnContext, LANG } = useContext(LanguageContext);
-
+  const { language, LANG, checkEnContext } = useContext(LanguageContext);
   const { allStrapiWebradio } = useStaticQuery(graphql`
     query MyQueryWebradio {
       allStrapiWebradio {
@@ -54,11 +53,9 @@ export default function webRadio() {
       }
     }
   `);
-
-
-const strapiWebradio = allStrapiWebradio.nodes[0];
-const podCastLink = allStrapiWebradio.nodes[0].podcast;
-const imageLink = allStrapiWebradio. nodes[0].image[0].url;
+  const strapiWebradio = allStrapiWebradio.nodes[0];
+  const podCastLink = allStrapiWebradio.nodes[0].podcast;
+  const imageLink = allStrapiWebradio.nodes[0].image[0].url;
 
 let seo = allStrapiWebradio.nodes[0].seo_webradio;
 const title = LANG === 'en' ?  seo.title_en : seo.title;
@@ -70,26 +67,43 @@ const image = LANG === 'en' ? seo.image[0].url_en : seo.image[0].url;
     height: "390",
     width: "640",
     playerVars: {
-      autoplay: 1,
+      autoplay: 0,
     },
   };
 
   return (
     <>
-    <SEO 
-      title={title !== undefined ? title : strapiWebradio["title" + LANG]} 
-      description={description !== undefined ? description :strapiWebradio["description" + LANG] } 
+    <SEO
+      title={title !== undefined ? title : strapiWebradio["title" + LANG]}
+      description={description !== undefined ? description :strapiWebradio["description" + LANG] }
       image={image !== undefined ? image : process.env.GATSBY_API_URL + podcast.image[0].url} />
     <div className="container">
-
-      <img src={process.env.GATSBY_API_URL + imageLink } alt={strapiWebradio["title" + LANG]} className="image-webradio"/>
-      <h3>{strapiWebradio["subtitle" + LANG]}</h3>
-      <h1 className="to-uppercase">{strapiWebradio["title" + LANG]}</h1>
-      <p>{strapiWebradio["description" + LANG]}</p>
+      <img
+        src={process.env.GATSBY_API_URL + imageLink}
+        alt={strapiWebradio.title}
+        className="image-webradio"
+      />
+      <h3>
+        {checkEnContext(strapiWebradio.subtitle, strapiWebradio.subtitle_en)}
+      </h3>
+      <h1 className="to-uppercase">
+        {checkEnContext(strapiWebradio.title, strapiWebradio.title_en)}
+      </h1>
+      <p>
+        {checkEnContext(
+          strapiWebradio.description,
+          strapiWebradio.description_en
+        )}
+      </p>
       <div className="webRadioLink">
-        {podCastLink.map((podcast) =>
-            <div className="display-tab-sticker">
-            <a href={podcast.url} title="link to podcast" target="_blank" rel="noreferrer" >
+        {podCastLink.map(podcast => (
+          <div className="display-tab-sticker">
+            <a
+              href={podcast.url}
+              title="link to podcast"
+              target="_blank"
+              rel="noreferrer"
+            >
               <div className="red-wrapper"></div>
               <img
                 src={process.env.GATSBY_API_URL + podcast.image[0].url}
@@ -109,7 +123,7 @@ const image = LANG === 'en' ? seo.image[0].url_en : seo.image[0].url;
               </div>
             </a>
           </div>
-        )}
+        ))}
       </div>
       <div className="youtube">
         <h3>
@@ -120,9 +134,13 @@ const image = LANG === 'en' ? seo.image[0].url_en : seo.image[0].url;
         <YouTube videoId="LbQQrlFXs8s" opts={opts} />
       </div>
       <div className="container-pictures">
-        {strapiWebradio.gallery.map(picture =>
-        <img src={process.env.GATSBY_API_URL + picture.url} alt={picture.name} className="pictures" />
-          )}
+        {strapiWebradio.gallery.map(picture => (
+          <img
+            src={process.env.GATSBY_API_URL + picture.url}
+            alt={picture.name}
+            className="pictures"
+          />
+        ))}
       </div>
     </div>
   </>

@@ -9,7 +9,7 @@ export default function FestivalInfosPage({ data }) {
   return (
     <div>
       <GeneriquePage
-        image={festivalInfo.image[0].url}
+        image={festivalInfo.images !== undefined && festivalInfo.image[0].url}
         title="Informations Pratiques"
         description={festivalInfo.description}
         tab_element={festivalInfo.tab_element}

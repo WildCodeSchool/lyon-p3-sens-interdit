@@ -87,6 +87,15 @@ export default function HorsScenePage() {
             category
             category_en
           }
+          carousel {
+            id
+            image {
+              id
+              image {
+                url
+              }
+            }
+          }
         }
       }
     }
@@ -112,12 +121,19 @@ export default function HorsScenePage() {
       : false;
 
   const redSquareArray =
-    strapiHorsSceneQuery.strapiHorsScenePage.carousel !== null
+    strapiHorsSceneQuery.allStrapiSpectacle.nodes[0].carousel !== null
       ? strapiHorsSceneQuery.allStrapiSpectacle.nodes.filter(
-          spec =>
-            spec.type_of_events.length !== 0 &&
-            spec.type_of_events.category !== "Spectacles"
-        )
+        spec =>
+          spec.type_of_events.length !== 0 &&
+          spec.type_of_events.category !== "Spectacles"
+      )
+      : false;
+
+  const imageArray =
+    strapiHorsSceneQuery.allStrapiSpectacle.nodes[0].carousel !== null
+      ? redSquareArray[random].carousel.image.map(
+        image => image.image
+      )
       : false;
 
   useEffect(() => {
@@ -200,7 +216,7 @@ export default function HorsScenePage() {
                 : "inconnue"
             }
             country={spectacle.country ? spectacle.country : "inconnu"}
-            name={sluggify(spectacle.title)}
+            name={(spectacle.title)}
             id={spectacle.strapiId}
             team={spectacle.author ? spectacle.author : "inconnu"}
           />
@@ -211,8 +227,8 @@ export default function HorsScenePage() {
 
   return (
     <div>
-      <SEO title={title !== undefined ? title : checkEnContext(horsScenePageQuery.title,horsScenePageQuery.title_en)} 
-        description={description !== undefined ? description : ""}  
+      <SEO title={title !== undefined ? title : checkEnContext(horsScenePageQuery.title,horsScenePageQuery.title_en)}
+        description={description !== undefined ? description : ""}
         image={image !== undefined ? image : ""} />
       <ImageCarousel
         images={imageArray}

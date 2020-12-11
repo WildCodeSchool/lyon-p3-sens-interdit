@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import fbIco from "../../../assets/img/facebook.svg";
 
-function Facebook({ location }) {
-  const url = location ? location.pathname : "";
+function Facebook(props) {
+  const [url,setURL]= useState("http://www.sensinterdits.org/")
   
+  useEffect(() => {
+    if (location) {
+      setURL(location.href);
+    }
+    
+  }, [location,url]);
+
   function share_fb(event) {
     event.preventDefault();
+    console.log("url", url);
     window.open(
       "https://www.facebook.com/sharer/sharer.php?u=" + url,
       "facebook-share-dialog",
@@ -15,12 +23,11 @@ function Facebook({ location }) {
   }
 
   return (
-    <div className="fbwrapper">
+    <div className="fbwrapper" style={{ cursor: "pointer" }}>
       <a
         role="button"
         className="share-button"
         onClick={share_fb}
-        
         rel="nofollow"
         share_url={url}
       >

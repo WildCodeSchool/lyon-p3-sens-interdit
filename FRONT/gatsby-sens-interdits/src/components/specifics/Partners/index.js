@@ -43,6 +43,13 @@ export default function PartnersPage() {
                 url
               }
             }
+            carousel {
+              image {
+                image {
+                  url
+                }
+              }
+            }
           }
         }
       }
@@ -59,13 +66,17 @@ export default function PartnersPage() {
   const image = LANG === 'en' ? seo.image[0].url_en : seo.image[0].url;
 
 
+  const imageArray =
+    data.partners.edges[0].node.carousel !== null
+      ? data.partners.edges[0].node.carousel.image.map(image => image.image)
+      : false;
   return (
     <>
-       <SEO 
-      title={title !== undefined ? title : partner["title" + LANG]} 
-      description={description !== undefined ? description : partner["description" + LANG] } 
+       <SEO
+      title={title !== undefined ? title : partner["title" + LANG]}
+      description={description !== undefined ? description : partner["description" + LANG] }
       image={image !== undefined ? image : ""} />
-      <ImageCarousel />
+      <ImageCarousel images={imageArray} />
       <div className="container">
         <div className="red-arrow"></div>
         <div className="partner-content">

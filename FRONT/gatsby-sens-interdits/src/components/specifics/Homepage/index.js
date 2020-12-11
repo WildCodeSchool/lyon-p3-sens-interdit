@@ -79,9 +79,11 @@ export default function Homepage() {
       allStrapiSpectacle {
         nodes {
           title
+          title_en
           id
           author
           country
+          country_en
           archive
           reserver
           carousel {
@@ -98,16 +100,15 @@ export default function Homepage() {
       }
     }
   `);
-  const imageArray =
-    data.strapiHomepage.carousel !== null
-      ? data.strapiHomepage.carousel.image.map(image => image.image)
-      : false;
-
   const redSquareArray =
     data.strapiHomepage.carousel !== null
       ? data.allStrapiSpectacle.nodes.filter(spec => spec.archive === false)
       : false;
-  
+  const imageArray =
+    data.allStrapiSpectacle.carousel !== null
+      ? redSquareArray[random].carousel.image.map(image => image.image)
+      : false;
+
   let seo = data.strapiHomepage.seo_home;
   const title = LANG === 'en' ?  seo.title_en : seo.title;
   const description = LANG === 'en' ? seo.description_en: seo.description;
@@ -119,8 +120,8 @@ export default function Homepage() {
 
   return (
     <>
-      <SEO title={title !== undefined ? title : ""} 
-        description={description !== undefined ? description : ""}  
+      <SEO title={title !== undefined ? title : ""}
+        description={description !== undefined ? description : ""}
         image={image !== undefined ? image : ""} />
       <ImageCarousel
         images={imageArray}

@@ -33,6 +33,8 @@ export default function AssociationPage() {
           title
           credited_image {
             id
+            redtitle
+            credit
             image {
               url
             }
@@ -44,6 +46,8 @@ export default function AssociationPage() {
           title
           credited_image {
             id
+            redtitle
+            credit
             image {
               url
             }
