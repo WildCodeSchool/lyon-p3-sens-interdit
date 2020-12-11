@@ -51,10 +51,11 @@ module.exports = {
     }
   ],
   siteMetadata:{
-    title :"Festival Sens Interdit",
+    title :"Sens Interdits - Festival international de théâtre",
+    titleTemplate: "%s · The Real Hero",
     description : "Biénnale Internationale de théâtre  ",
-    url:"https://festival-sens-interdit",
+    url:"http://sensinterdits.org/",
     image:"",
     twitterUsername: "@sens-interdits",
-  }
+  },
 }
