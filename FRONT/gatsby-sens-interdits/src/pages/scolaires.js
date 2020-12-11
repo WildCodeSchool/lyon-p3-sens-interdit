@@ -56,12 +56,11 @@ export default function Scolaire() {
   const title = LANG === 'en' ?  seo.title_en : seo.title;
   const description = LANG === 'en' ? seo.description_en: seo.description;
   const image = LANG === 'en' ? seo.image[0].url_en : seo.image[0].url;
-console.log ({seo})
 
   return (
     <>
-      <SEO title={title !== undefined ? title : checkEnContext(strapiScolaire.title, strapiScolaire.title_en)} 
-        description={description !== undefined ? description : ""}  
+      <SEO title={title !== undefined ? title : checkEnContext(strapiScolaire.title, strapiScolaire.title_en)}
+        description={description !== undefined ? description : ""}
         image={image !== undefined ? image : strapiScolaire.image[0].url} />
       <GeneriquePage
         image={strapiScolaire.image[0].url}

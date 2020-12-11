@@ -49,12 +49,11 @@ export default function Parole() {
   const title = LANG === 'en' ?  seo.title_en : seo.title;
   const description = LANG === 'en' ? seo.description_en: seo.description;
   const image = LANG === 'en' ? seo.image[0].url_en : seo.image[0].url;
-console.log({description})
 
   return (
     <>
-      <SEO title={title !== undefined ? title : checkEnContext(data.strapiParole.title, data.strapiParole.title_en)} 
-        description={description !== undefined ? description : ""}  
+      <SEO title={title !== undefined ? title : checkEnContext(data.strapiParole.title, data.strapiParole.title_en)}
+        description={description !== undefined ? description : ""}
         image={image !== undefined ? image : data.strapiParole.image[0].url} />
       <GeneriquePage
         image={data.strapiParole.image[0].url}
