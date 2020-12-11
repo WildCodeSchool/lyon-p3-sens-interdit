@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { graphql } from "gatsby";
 import "./spectacle.css";
 import "../assets/styles/global.css";
+import SEO from "../components/SEO/seo";
 
 import SpectacleInfos from "../components/specifics/Spectacle/SpectacleInfos.js";
 import TabSystemH from "../components/globals/TabSystems/TabSystemH";
@@ -22,8 +23,16 @@ export default function SpectaclePage({ data }) {
       ? spectacle.carousel.image.map(image => image.image)
       : false;
 
+  const description = spectacle.info;
+  const description_en = spectacle.info_en;
+  const image = spectacle.carousel.image[0].image[0].url;
+  console.log(description_en)
+
   return (
     <div className="global-spectacle-page">
+      <SEO title={checkEnContext(spectacle.title, spectacle.title_en)} 
+        description={checkEnContext(description,description_en)}  
+        image={image !== undefined ? image : ""} />
       <ImageCarousel
         title={checkEnContext(spectacle.title, spectacle.title_en)}
         images={imageArray}

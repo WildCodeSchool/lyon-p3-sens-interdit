@@ -4,12 +4,12 @@ import fbIco from "../../../assets/img/facebook.svg";
 function Facebook(props) {
   const [url,setURL]= useState("http://www.sensinterdits.org/")
   
-  useEffect(() => {
-    if (location) {
-      setURL(location.href);
-    }
+  // useEffect(() => {
+  //   if (location) {
+  //     setURL(location.href);
+  //   }
     
-  }, [location,url]);
+  // }, [location,url]);
 
   function share_fb(event) {
     event.preventDefault();
