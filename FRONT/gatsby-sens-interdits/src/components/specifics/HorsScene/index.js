@@ -110,7 +110,6 @@ export default function HorsScenePage() {
   const title = LANG === 'en' ?  seo.title_en : seo.title;
   const description = LANG === 'en' ? seo.description_en: seo.description;
   const image = LANG === 'en' ? seo.image[0].url_en : seo.image[0].url;
-  console.log ({seo})
 
   /*CAROUSEL*/
   const imageArray =

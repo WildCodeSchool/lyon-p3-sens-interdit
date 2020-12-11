@@ -6,46 +6,51 @@ import "./archiveFestival.css";
 
 function Programme({ data }) {
     const archive = data.allStrapiFestivalarchive.nodes[0];
-  return (
-    <>
-      <div className="global-margin archive-global-styling">
-        <div className="image-generique-page">
-            {archive !== undefined ?
-              <img
-                src={
-                  process.env.GATSBY_API_URL +
-                  archive.poster[0].url
-                }
-                alt={archive.title}
-              />
-          : null}
-        </div>
-        <h1 className="to-uppercase">
-            Edition {archive !== undefined ? archive.year : null} -{" "}
-            <span>{archive !== undefined ? archive.title : null}</span>
-        <a href={process.env.GATSBY_API_URL + data.allStrapiFestivalarchive.nodes[0].download[0].url}
-           title="download programme"
-        download>
-        <span className="downloadPdf">
-            <img src={Playicon} alt="bouton telechargement" width="30" />Télécharger le programme</span>
-        </a>
-        </h1>
-        <div>{archive !== undefined ? archive.description : null}</div>
-        <div className="archive-transmission-grid-wrapper">
-          {data.allStrapiArchivesOld.nodes.map(elem => (
-            <ThumbnailOldArchive
-              id={elem.strapiId}
-              key={elem.id}
-              country={elem.pays}
-              name={elem.titre}
-              team={elem.credits_2}
-              affiche={`${process.env.GATSBY_IMAGE_URL}` + elem.photo_1}
-            />
-          ))}
-        </div>
-      </div>
-    </>
-  );
+    if (archive !== undefined) {
+        return (
+            <>
+                <div className="global-margin archive-global-styling">
+                    <div className="image-generique-page">
+                        {archive !== undefined ?
+                            <img
+                                src={
+                                    process.env.GATSBY_API_URL +
+                                    archive.poster[0].url
+                                }
+                                alt={archive.title}
+                            />
+                            : null}
+                    </div>
+                    <h1 className="to-uppercase">
+                        Edition {archive !== undefined ? archive.year : null} -{" "}
+                        <span>{archive !== undefined ? archive.title : null}</span>
+                        {archive.download[0] !== undefined ?
+                            <a href={process.env.GATSBY_API_URL + archive.download[0].url}
+                               title="download programme"
+                               download>
+            <span className="downloadPdf">
+                <img src={Playicon} alt="bouton telechargement" width="30"/>Télécharger le programme</span>
+                            </a> : null}
+                    </h1>
+                    <div>{archive !== undefined ? archive.description : null}</div>
+                    <div className="archive-transmission-grid-wrapper">
+                        {data.allStrapiArchivesOld.nodes.map(elem => (
+                            <ThumbnailOldArchive
+                                id={elem.strapiId}
+                                key={elem.id}
+                                country={elem.pays}
+                                name={elem.titre}
+                                team={elem.credits_2}
+                                affiche={`${process.env.GATSBY_IMAGE_URL}` + elem.photo_1}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </>
+        );
+    } else {
+        return(<></>);
+    }
 }
 
 export default Programme;

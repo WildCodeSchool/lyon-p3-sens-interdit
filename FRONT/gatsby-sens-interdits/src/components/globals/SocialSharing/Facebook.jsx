@@ -3,17 +3,16 @@ import fbIco from "../../../assets/img/facebook.svg";
 
 function Facebook(props) {
   const [url,setURL]= useState("http://www.sensinterdits.org/")
-  
+
   useEffect(() => {
-    if (location) {
-      setURL(location.href);
+    if (props.location) {
+      setURL(props.location.href);
     }
-    
-  }, [location,url]);
+
+  }, [props.location,url]);
 
   function share_fb(event) {
     event.preventDefault();
-    console.log("url", url);
     window.open(
       "https://www.facebook.com/sharer/sharer.php?u=" + url,
       "facebook-share-dialog",

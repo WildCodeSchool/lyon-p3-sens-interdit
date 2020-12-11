@@ -4,11 +4,11 @@ import shareIco from "../../../assets/img/share.svg";
 function GenericSharing(props) {
   const [url,setURL]= useState("Festival Sens Interdits - http://www.sensinterdits.org/")
   useEffect(() => {
-    if (location) {
-     setURL(location.href);
+    if (props.location) {
+     setURL(props.location.href);
     }
-    
-  }, [location,url]);
+
+  }, [props.location,url]);
 
   return (
     <div className="sharewrapper">

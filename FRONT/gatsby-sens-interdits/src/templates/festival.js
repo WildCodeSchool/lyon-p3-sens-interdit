@@ -23,6 +23,7 @@ export default function FestivalPage({ data }) {
       ? festival.carousel.image.map(image => image.image)
       : false;
   return (
+
     <div className="global-festival">
       <ImageCarousel images={imageArray} />
       <div id="festival-content" className="container">
