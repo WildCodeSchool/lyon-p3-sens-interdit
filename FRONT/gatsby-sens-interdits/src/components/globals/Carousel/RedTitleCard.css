@@ -1,6 +1,6 @@
 div.red {
   position: absolute;
-  top: 300px;
+  top: 30%;
   left: calc(50vw - 225px);
   z-index: 1;
   align-self: center;
@@ -16,16 +16,13 @@ div.image-text {
   display: flex;
   flex-direction: column;
   z-index: 1;
-  top: 300px;
+  top: 30%;
   left: calc(50vw - 225px);
   width: 550px;
   height: 250px;
   text-align: center;
   align-items: center;
   padding-top: 50px;
-}
-div.image-text-old{
-  top: 350px;
 }
 
 div.image-text .title {
@@ -67,6 +64,15 @@ div.image-text .button {
 }
 
 @media screen and (max-width: 960px) {
+  div.red{
+    display : none;
+  }
+  div.image-text {
+    display : none
+  }
+}
+
+@media screen and (max-height: 600px) {
   div.red{
     display : none;
   }
