@@ -27,6 +27,11 @@
       "type": "component",
       "repeatable": false,
       "component": "menu.medias-slider"
+    },
+    "seo_horscenepage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }

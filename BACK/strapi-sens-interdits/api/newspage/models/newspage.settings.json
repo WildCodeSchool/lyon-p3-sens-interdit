@@ -22,6 +22,16 @@
     },
     "content_en": {
       "type": "text"
+    },
+    "carousel": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.medias-slider"
+    },
+    "seo_newspage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }

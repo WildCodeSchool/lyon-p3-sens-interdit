@@ -27,6 +27,16 @@
     },
     "title_en": {
       "type": "string"
+    },
+    "seo_partner": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "carousel": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.medias-slider"
     }
   }
 }

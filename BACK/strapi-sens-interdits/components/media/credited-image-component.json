@@ -24,6 +24,9 @@
     },
     "credit_en": {
       "type": "string"
+    },
+    "redtitle": {
+      "type": "string"
     }
   }
 }

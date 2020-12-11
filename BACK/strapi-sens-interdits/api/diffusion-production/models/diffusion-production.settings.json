@@ -32,6 +32,11 @@
     },
     "description_en": {
       "type": "richtext"
+    },
+    "seo_diffusionproduction": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }

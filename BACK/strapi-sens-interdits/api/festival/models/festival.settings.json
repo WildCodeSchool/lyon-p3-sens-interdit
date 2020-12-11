@@ -89,6 +89,17 @@
     },
     "content_en": {
       "type": "richtext"
+    },
+    "poster": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
     }
   }
 }

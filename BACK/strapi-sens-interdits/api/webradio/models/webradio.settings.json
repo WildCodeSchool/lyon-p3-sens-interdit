@@ -51,6 +51,11 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "seo_webradio": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }

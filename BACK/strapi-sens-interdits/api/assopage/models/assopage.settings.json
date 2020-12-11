@@ -37,6 +37,11 @@
     },
     "content": {
       "type": "richtext"
+    },
+    "seo_asso": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }

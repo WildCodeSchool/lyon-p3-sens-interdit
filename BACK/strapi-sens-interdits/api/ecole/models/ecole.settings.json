@@ -42,6 +42,11 @@
       "type": "component",
       "repeatable": true,
       "component": "menu.tab-element"
+    },
+    "seo_ecole": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }

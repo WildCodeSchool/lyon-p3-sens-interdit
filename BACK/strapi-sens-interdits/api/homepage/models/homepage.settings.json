@@ -41,6 +41,11 @@
     },
     "description_en": {
       "type": "richtext"
+    },
+    "seo_home": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }

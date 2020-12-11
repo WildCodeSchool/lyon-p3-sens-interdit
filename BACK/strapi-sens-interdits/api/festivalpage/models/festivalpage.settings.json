@@ -2,7 +2,8 @@
   "kind": "singleType",
   "collectionName": "festivalpages",
   "info": {
-    "name": "festivalpage"
+    "name": "festivalpage",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -25,6 +26,11 @@
       "type": "component",
       "repeatable": true,
       "component": "menu.display-tab-menu"
+    },
+    "seo_festival": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }
