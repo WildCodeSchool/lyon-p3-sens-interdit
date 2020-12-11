@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Thumbnail from "../components/globals/Thumbnail";
 import { graphql } from "gatsby";
 import photoTest from "./../assets/img/img-sens-interdit.jpg";
 import { sluggify } from "./../utils/Sluggify";
 
 import "./archiveSpectacle.css";
+import LanguageContext from "../components/context/LanguageContext";
 
 function ArchivedFestival({ data }) {
+  const { checkEnContext } = useContext(LanguageContext);
   return (
     <>
       <div className="global-margin archive-global-styling">
@@ -21,10 +23,20 @@ function ArchivedFestival({ data }) {
         </div>
         <h1 className="to-uppercase">
           Edition {data.allStrapiFestival.nodes[0].year} -{" "}
-          <span>{data.allStrapiFestival.nodes[0].title}</span>
+          <span>
+            {checkEnContext(
+              data.allStrapiFestival.nodes[0].title,
+              data.allStrapiFestival.nodes[0].title_en
+            )}
+          </span>
         </h1>
 
-        <div>{data.allStrapiFestival.nodes[0].content}</div>
+        <div>
+          {checkEnContext(
+            data.allStrapiFestival.nodes[0].content,
+            data.allStrapiFestival.nodes[0].content_en
+          )}
+        </div>
         <div className="archive-transmission-grid-wrapper">
           {data.allStrapiSpectacle.nodes.map(spectacle => (
             <Thumbnail
@@ -39,8 +51,8 @@ function ArchivedFestival({ data }) {
                   ? dayjs(spectacle.day).format("ddd D MMM à HH:mm")
                   : "inconnue"
               }
-              country={spectacle.country ? spectacle.country : "inconnu"}
-              name={spectacle.title}
+              country={checkEnContext(spectacle.country, spectacle.country_en)}
+              name={checkEnContext(spectacle.title, spectacle.title_en)}
               id={spectacle.strapiId}
               team={spectacle.author ? spectacle.author : "inconnu"}
               url={"/spectacle/" + sluggify(spectacle.title)}
@@ -65,11 +77,12 @@ export const query = graphql`
         }
         strapiId
         title
+        title_en
         author
         country
+        country_en
         id
         strapiId
-        title
         festival {
           year
         }
