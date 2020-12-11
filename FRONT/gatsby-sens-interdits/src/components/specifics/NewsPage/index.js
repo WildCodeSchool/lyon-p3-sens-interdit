@@ -17,6 +17,14 @@ export default function NewsPage() {
           id
           title
           title_en
+          carousel {
+            image {
+              id
+              image {
+                url
+              }
+            }
+          }
         }
       }
       allStrapiArticlecontent {
@@ -57,10 +65,14 @@ export default function NewsPage() {
   const newsArticlesQuery = strapiNewsQuery.allStrapiArticlecontent.nodes;
   const textOverFlow = true;
   const linkStatus = true;
+  const imageArray =
+    newsPageQuery.carousel !== null
+      ? newsPageQuery.carousel.image.map(image => image.image)
+      : false;
 
   return (
     <div>
-      <ImageCarousel />
+      <ImageCarousel images={imageArray} />
       <div className="container">
         <div className="red-arrow"></div>
         <div>
