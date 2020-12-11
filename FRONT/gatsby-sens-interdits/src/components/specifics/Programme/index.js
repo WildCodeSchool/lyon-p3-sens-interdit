@@ -42,8 +42,29 @@ export default function ProgrammePage(props) {
         }
       }
     }
+    strapiProgramme {
+      seo_programme {
+        description
+        description_en
+        image {
+          url
+        }
+        image_en {
+          url
+        }
+        title
+        title_en
+      }
+    }
   }
 `);
+
+const title = data.strapiProgramme.seo_programme.title;
+const title_en = data.strapiProgramme.seo_programme.title_en;
+const description = data.strapiProgramme.seo_programme.description;
+const description_en = data.strapiProgramme.seo_programme.description_en;
+const image = data.strapiProgramme.seo_programme.image[0].url;
+
   const redSquareArray =
     data.allStrapiSpectacle.nodes.carousel !== null
       ? data.allStrapiSpectacle.nodes.filter(spec => spec.archive === false)

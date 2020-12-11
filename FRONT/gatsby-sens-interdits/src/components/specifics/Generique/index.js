@@ -13,7 +13,7 @@ export default function GeneriquePage(props) {
     <div className="container">
       <SEO title={checkEnContext(props.title, props.title_en)} 
         description={checkEnContext(props.description,props.description_en)}  
-        image={image !== undefined ? props.image : ""} />
+        image={props.image !== undefined ? props.image : ""} />
       <div className="image-generique-page">
         <img src={process.env.GATSBY_API_URL + props.image} alt={props.name} />
       </div>

@@ -15,7 +15,8 @@ export default function ArticlePage({ data }) {
   const description = data.article.article;
   const description_en = data.article.article_en;
 
-  const image = data.article.picturetop[0].url;
+  const image = data.article.picturetop[0];
+  console.log({image});
   
 
   return (
@@ -23,7 +24,7 @@ export default function ArticlePage({ data }) {
     <div id="articles-page" className="container">
       <SEO title={checkEnContext(title, title_en)} 
         description={checkEnContext(description, description_en)}  
-        image={image !== undefined ? image : ""} />
+        image={image !== undefined ? image.url : ""} />
       <Article
         article={data.article}
         textOverFlow={textOverFlow}
