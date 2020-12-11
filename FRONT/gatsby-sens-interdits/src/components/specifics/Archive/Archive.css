@@ -78,6 +78,9 @@ img.picto-plus {
   display: block;
   margin-right: 15px;
 }
+.filter-col select {
+  background: none;
+}
 /*.global-Filter-tab label {
   width: 100%;
 }*/
