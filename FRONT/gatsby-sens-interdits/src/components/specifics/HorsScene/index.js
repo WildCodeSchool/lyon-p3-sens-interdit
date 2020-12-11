@@ -85,14 +85,9 @@ export default function HorsScenePage() {
   const spectacleQuery = strapiHorsSceneQuery.allStrapiSpectacle.nodes;
 
   /*CAROUSEL*/
-  const imageArray =
-    strapiHorsSceneQuery.strapiHorsScenePage.carousel !== null
-      ? strapiHorsSceneQuery.strapiHorsScenePage.carousel.image.map(
-        image => image.image
-      )
-      : false;
+
   const redSquareArray =
-    strapiHorsSceneQuery.strapiHorsScenePage.carousel !== null
+    strapiHorsSceneQuery.allStrapiSpectacle.nodes[0].carousel !== null
       ? strapiHorsSceneQuery.allStrapiSpectacle.nodes.filter(
         spec =>
           spec.type_of_events.length !== 0 &&
@@ -101,8 +96,10 @@ export default function HorsScenePage() {
       : false;
 
   const imageArray =
-    strapiHorsSceneQuery.allStrapiSpectacle.carousel !== null
-      ? redSquareArray[random].carousel.image.map(image => image.image)
+    strapiHorsSceneQuery.allStrapiSpectacle.nodes[0].carousel !== null
+      ? redSquareArray[random].carousel.image.map(
+        image => image.image
+      )
       : false;
 
   useEffect(() => {
