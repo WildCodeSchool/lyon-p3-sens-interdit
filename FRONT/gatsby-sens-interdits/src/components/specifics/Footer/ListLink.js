@@ -8,6 +8,11 @@ export default function ListLink() {
     <div className="footer-list-link footer-one">
       <ul>
         <li>
+          <Link to="/partners" title="Partenaires">
+            {language === "fr" ? "Partenaires" : "Partners"}
+          </Link>
+        </li>
+        <li>
           <Link to="/mentions" title="Mentions Légales">
             {language === "fr" ? "Mentions Légales" : "Legal Notice"}
           </Link>

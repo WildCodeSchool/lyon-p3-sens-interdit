@@ -31,6 +31,13 @@ export default function PartnersPage() {
             content_en
             title
             title_en
+            carousel {
+              image {
+                image {
+                  url
+                }
+              }
+            }
           }
         }
       }
@@ -39,9 +46,13 @@ export default function PartnersPage() {
 
   const partnersLogo = data.partners.edges[0].node.partners_logo;
   const content = data.partners.edges[0].node["content" + LANG];
+  const imageArray =
+    data.partners.edges[0].node.carousel !== null
+      ? data.partners.edges[0].node.carousel.image.map(image => image.image)
+      : false;
   return (
     <>
-      <ImageCarousel />
+      <ImageCarousel images={imageArray} />
       <div className="container">
         <div className="red-arrow"></div>
         <div className="partner-content">
