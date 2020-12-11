@@ -100,11 +100,6 @@ export default function HorsScenePage() {
       )
       : false;
 
-  const imageArray =
-    strapiHorsSceneQuery.allStrapiSpectacle.carousel !== null
-      ? redSquareArray[random].carousel.image.map(image => image.image)
-      : false;
-
   useEffect(() => {
     setRandom(Math.floor(Math.random() * Math.floor(redSquareArray.length)));
   }, []);
