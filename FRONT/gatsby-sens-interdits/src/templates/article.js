@@ -12,6 +12,9 @@ export default function ArticlePage({ data }) {
   const linkStatus = false;
   const title = data.article.title;
   const title_en = data.article.title_en;
+  const description = data.article.article;
+  const description_en = data.article.article_en;
+
   const image = data.article.picturetop[0].url;
   
 
@@ -19,7 +22,7 @@ export default function ArticlePage({ data }) {
 
     <div id="articles-page" className="container">
       <SEO title={checkEnContext(title, title_en)} 
-        description={""}  
+        description={checkEnContext(description, description_en)}  
         image={image !== undefined ? image : ""} />
       <Article
         article={data.article}
