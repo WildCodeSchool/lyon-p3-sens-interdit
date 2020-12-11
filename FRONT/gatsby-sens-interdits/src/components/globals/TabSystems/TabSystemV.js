@@ -104,7 +104,7 @@ export default function TabSystemV({ tabContent, spectacleQuery }) {
                           affiche={
                             spectacle.thumbnail
                               ? spectacle.thumbnail.internal.description.split(
-                                '3'
+                                '"'
                               )[1]
                               : photoTest
                           }

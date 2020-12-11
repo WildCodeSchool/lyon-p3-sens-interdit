@@ -88,17 +88,17 @@ export default function HorsScenePage() {
   const imageArray =
     strapiHorsSceneQuery.strapiHorsScenePage.carousel !== null
       ? strapiHorsSceneQuery.strapiHorsScenePage.carousel.image.map(
-          image => image.image
-        )
+        image => image.image
+      )
       : false;
 
   const redSquareArray =
     strapiHorsSceneQuery.strapiHorsScenePage.carousel !== null
       ? strapiHorsSceneQuery.allStrapiSpectacle.nodes.filter(
-          spec =>
-            spec.type_of_events.length !== 0 &&
-            spec.type_of_events.category !== "Spectacles"
-        )
+        spec =>
+          spec.type_of_events.length !== 0 &&
+          spec.type_of_events.category !== "Spectacles"
+      )
       : false;
 
   useEffect(() => {
@@ -181,7 +181,7 @@ export default function HorsScenePage() {
                 : "inconnue"
             }
             country={spectacle.country ? spectacle.country : "inconnu"}
-            name={sluggify(spectacle.title)}
+            name={(spectacle.title)}
             id={spectacle.strapiId}
             team={spectacle.author ? spectacle.author : "inconnu"}
           />
