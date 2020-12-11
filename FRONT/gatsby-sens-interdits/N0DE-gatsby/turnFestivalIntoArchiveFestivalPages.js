@@ -1,6 +1,5 @@
 const path = require(`path`);
 
-
 const makeRequest = require("./makeRequest")
 
 

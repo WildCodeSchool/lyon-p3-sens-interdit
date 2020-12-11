@@ -1,5 +1,11 @@
 const path = require(`path`);
 
+const { sluggify } = require("./../src/utils/Sluggify");
+
+const {
+  removeNameForUrl: removePageNameForUrl,
+} = require("./../src/utils/removeNameForUrl");
+
 const makeRequest = require("./makeRequest")
 
 const archiveProgramme = async function ({ graphql, actions }) {
