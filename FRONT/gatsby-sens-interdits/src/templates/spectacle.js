@@ -26,7 +26,7 @@ export default function SpectaclePage({ data }) {
   const description = spectacle.info;
   const description_en = spectacle.info_en;
   const image = spectacle.carousel.image[0].image[0].url;
-  console.log(description_en)
+
 
   return (
     <div className="global-spectacle-page">

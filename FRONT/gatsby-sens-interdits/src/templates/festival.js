@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import LanguageContext from "../components/context/LanguageContext";
 import { graphql } from "gatsby";
+import SEO from "../components/SEO/seo";
 
 import "./festival.css";
 import "../assets/styles/global.css";
@@ -15,6 +16,12 @@ const {
 export default function FestivalPage({ data }) {
   const { checkEnContext } = useContext(LanguageContext);
   const festival = data.festival;
+  const title = data.festival.title;
+  const title_en = data.festival.title_en;
+  const description = data.festival.content;
+  const description_en = data.festival.content_en;
+  const image = data.festival.carousel.image[0].image[0].url;
+
 
   let festivalSlug = sluggify(festival.title);
   let festivalId = removePageNameForUrl(festival.id, "Festival");
@@ -22,9 +29,13 @@ export default function FestivalPage({ data }) {
     festival.carousel !== null
       ? festival.carousel.image.map(image => image.image)
       : false;
+
   return (
 
     <div className="global-festival">
+      <SEO title={checkEnContext(title, title_en)} 
+        description={checkEnContext(description, description_en)}  
+        image={image !== undefined ? image : ""} />
       <ImageCarousel images={imageArray} />
       <div id="festival-content" className="container">
         <div id="festival-calendar"></div>

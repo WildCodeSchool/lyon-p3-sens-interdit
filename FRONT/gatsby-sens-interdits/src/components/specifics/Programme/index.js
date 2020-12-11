@@ -8,6 +8,7 @@ import photoTest from "../../../assets/img/img-sens-interdit.jpg";
 import Thumbnail from "../../globals/Thumbnail";
 import CalendarLarge from "../../globals/Calendar/CalendarLarge";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
+import SEO from "../../SEO/seo";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import localizedFormat from "dayjs/plugin/localizedFormat";
@@ -164,6 +165,9 @@ export default function ProgrammePage(props) {
   //------------PROGRAM END
   return (
     <div className="global-programme-page">
+      <SEO title={checkEnContext(title, title_en)} 
+        description={checkEnContext(description, description_en)}  
+        image={image !== undefined ? image : ""} />
       <ImageCarousel
         images={imageArray}
         title={checkEnContext(
