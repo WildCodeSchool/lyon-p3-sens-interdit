@@ -8,7 +8,7 @@ import placeholder from "../../../assets/img/placeholder-photo-slider.jpg";
 function ImageCarouselOldArchive({ title, images, displayed }) {
   return !images ? (
     <>
-      <div className="carousel-loading">
+      <div className="size-adjustment placeholder-carousel">
         <img src={placeholder} alt="placeholder_photo" />
       </div>
     </>
