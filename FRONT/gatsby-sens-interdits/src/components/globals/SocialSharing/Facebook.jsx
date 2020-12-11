@@ -9,7 +9,7 @@ function Facebook(props) {
   //     setURL(location.href);
   //   }
     
-  // }, [location,url]);
+  // }, [location,
 
   function share_fb(event) {
     event.preventDefault();
