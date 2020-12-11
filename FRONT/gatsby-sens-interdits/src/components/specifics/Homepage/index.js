@@ -17,16 +17,6 @@ export default function Homepage() {
   const data = useStaticQuery(graphql`
     query MyQueryHome {
       strapiHomepage {
-        carousel {
-          id
-          image {
-            id
-            image {
-              url
-            }
-          }
-        }
-
         id
         description
         description_en
@@ -85,14 +75,13 @@ export default function Homepage() {
       }
     }
   `);
-  const imageArray =
-    data.strapiHomepage.carousel !== null
-      ? data.strapiHomepage.carousel.image.map(image => image.image)
-      : false;
-
   const redSquareArray =
     data.strapiHomepage.carousel !== null
       ? data.allStrapiSpectacle.nodes.filter(spec => spec.archive === false)
+      : false;
+  const imageArray =
+    data.allStrapiSpectacle.carousel !== null
+      ? redSquareArray[random].carousel.image.map(image => image.image)
       : false;
 
   useEffect(() => {
