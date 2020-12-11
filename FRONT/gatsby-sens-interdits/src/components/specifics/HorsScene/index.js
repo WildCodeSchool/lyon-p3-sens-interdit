@@ -11,6 +11,7 @@ import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 import { sluggify } from "../../../utils/Sluggify";
+import SEO from "../../../components/SEO/seo";
 import LanguageContext from "../../context/LanguageContext";
 
 dayjs.locale("fr");
@@ -19,7 +20,7 @@ dayjs.extend(localizedFormat);
 export default function HorsScenePage() {
   const [random, setRandom] = useState(0);
 
-  const { language, checkEnContext } = useContext(LanguageContext);
+  const { language, checkEnContext , LANG} = useContext(LanguageContext);
 
   const strapiHorsSceneQuery = useStaticQuery(graphql`
     query strapiHorsSceneQuery {
@@ -48,6 +49,18 @@ export default function HorsScenePage() {
               url
             }
           }
+        }
+        seo_horscenepage {
+          description
+          description_en
+          image {
+            url
+          }
+          image_en {
+            url
+          }
+          title
+          title_en
         }
       }
       allStrapiSpectacle {
@@ -83,6 +96,12 @@ export default function HorsScenePage() {
     strapiHorsSceneQuery.allStrapiHorsSceneTab.nodes[0].horsscenetab;
   const horsScenePageQuery = strapiHorsSceneQuery.strapiHorsScenePage;
   const spectacleQuery = strapiHorsSceneQuery.allStrapiSpectacle.nodes;
+
+  let seo = horsScenePageQuery.seo_horscenepage;
+  const title = LANG === 'en' ?  seo.title_en : seo.title;
+  const description = LANG === 'en' ? seo.description_en: seo.description;
+  const image = LANG === 'en' ? seo.image[0].url_en : seo.image[0].url;
+  console.log ({seo})
 
   /*CAROUSEL*/
   const imageArray =
@@ -192,6 +211,9 @@ export default function HorsScenePage() {
 
   return (
     <div>
+      <SEO title={title !== undefined ? title : checkEnContext(horsScenePageQuery.title,horsScenePageQuery.title_en)} 
+        description={description !== undefined ? description : ""}  
+        image={image !== undefined ? image : ""} />
       <ImageCarousel
         images={imageArray}
         title={checkEnContext(
