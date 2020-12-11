@@ -61,7 +61,9 @@ export default function Ecole() {
 
     return (
         <>
-            <SEO title={title} description={description} image={image} />
+            <SEO title={title !== undefined ? title : checkEnContext(strapiEcole.title, strapiEcole.title_en)} 
+            description={description !== undefined ? description : checkEnContext(strapiEcole.description,strapiEcole.description_en)}  
+            image={image !== undefined ? image : strapiEcole.image[0].url} />
             <div>
                 <GeneriquePage
                     image={strapiEcole.image[0].url}

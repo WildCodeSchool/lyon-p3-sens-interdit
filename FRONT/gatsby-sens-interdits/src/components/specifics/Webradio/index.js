@@ -63,7 +63,7 @@ let seo = allStrapiWebradio.nodes[0].seo_webradio;
 const title = LANG === 'en' ?  seo.title_en : seo.title;
 const description = LANG === 'en' ? seo.description_en: seo.description;
 const image = LANG === 'en' ? seo.image[0].url_en : seo.image[0].url;
-console.log({seo});
+
 
   const opts = {
     height: "390",
@@ -75,7 +75,10 @@ console.log({seo});
 
   return (
     <>
-    <SEO title={title} description={description} image={image} />
+    <SEO 
+      title={title !== undefined ? title : strapiWebradio["title" + LANG]} 
+      description={description !== undefined ? description :strapiWebradio["description" + LANG] } 
+      image={image !== undefined ? image : process.env.GATSBY_API_URL + podcast.image[0].url} />
     <div className="container">
 
       <img src={process.env.GATSBY_API_URL + imageLink } alt={strapiWebradio["title" + LANG]} className="image-webradio"/>
