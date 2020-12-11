@@ -40,15 +40,6 @@ export default function HorsScenePage() {
         id
         content
         content_en
-        carousel {
-          id
-          image {
-            id
-            image {
-              url
-            }
-          }
-        }
       }
       allStrapiSpectacle {
         nodes {
@@ -74,6 +65,15 @@ export default function HorsScenePage() {
             category
             category_en
           }
+          carousel {
+            id
+            image {
+              id
+              image {
+                url
+              }
+            }
+          }
         }
       }
     }
@@ -84,14 +84,6 @@ export default function HorsScenePage() {
   const horsScenePageQuery = strapiHorsSceneQuery.strapiHorsScenePage;
   const spectacleQuery = strapiHorsSceneQuery.allStrapiSpectacle.nodes;
 
-  /*CAROUSEL*/
-  const imageArray =
-    strapiHorsSceneQuery.strapiHorsScenePage.carousel !== null
-      ? strapiHorsSceneQuery.strapiHorsScenePage.carousel.image.map(
-          image => image.image
-        )
-      : false;
-
   const redSquareArray =
     strapiHorsSceneQuery.strapiHorsScenePage.carousel !== null
       ? strapiHorsSceneQuery.allStrapiSpectacle.nodes.filter(
@@ -99,6 +91,11 @@ export default function HorsScenePage() {
             spec.type_of_events.length !== 0 &&
             spec.type_of_events.category !== "Spectacles"
         )
+      : false;
+
+  const imageArray =
+    strapiHorsSceneQuery.allStrapiSpectacle.carousel !== null
+      ? redSquareArray[random].carousel.image.map(image => image.image)
       : false;
 
   useEffect(() => {
