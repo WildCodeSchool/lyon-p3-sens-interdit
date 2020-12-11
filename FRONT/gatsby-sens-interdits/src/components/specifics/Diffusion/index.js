@@ -5,9 +5,11 @@ import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import "./diffusion.css";
 import "../../../assets/styles/global.css";
 import LanguageContext from "../../context/LanguageContext";
+import SEO from "../../../components/SEO/seo";
+
 
 export default function DiffusionPage() {
-  const { checkEnContext } = useContext(LanguageContext);
+  const { checkEnContext, LANG } = useContext(LanguageContext);
 
   const { strapiDiffusionProduction } = useStaticQuery(graphql`
     query MyQueryDiffusion {
@@ -37,6 +39,18 @@ export default function DiffusionPage() {
             id
           }
         }
+        seo_diffusionproduction {
+          description
+          description_en
+          image {
+            url
+          }
+          image_en {
+            url
+          }
+          title
+          title_en
+        }
       }
     }
   `);
@@ -44,7 +58,17 @@ export default function DiffusionPage() {
     strapiDiffusionProduction.carousel !== null
       ? strapiDiffusionProduction.carousel.image.map(image => image.image)
       : false;
+
+  let seo = strapiDiffusionProduction.seo_diffusionproduction;
+  const title = LANG === 'en' ?  seo.title_en : seo.title;
+  const description = LANG === 'en' ? seo.description_en: seo.description;
+  const image = LANG === 'en' ? seo.image[0].url_en : seo.image[0].url;
+
   return (
+    <>
+    <SEO title={title !== undefined ? title : checkEnContext(strapiDiffusionProduction.title, strapiDiffusionProduction.title_en)} 
+      description={description !== undefined ? description : checkEnContext(strapiDiffusionProduction.description,strapiDiffusionProduction.description_en)}  
+      image={image !== undefined ? image : ""} />
     <div className="global-diffusion">
       <ImageCarousel images={imageArray} />
       <div className="container">
@@ -75,5 +99,6 @@ export default function DiffusionPage() {
         </nav>
       </div>
     </div>
+    </>
   );
 }
