@@ -56,9 +56,11 @@ export default function Homepage() {
       allStrapiSpectacle {
         nodes {
           title
+          title_en
           id
           author
           country
+          country_en
           archive
           reserver
           carousel {
