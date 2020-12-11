@@ -1,8 +1,5 @@
 const utf8 = require('utf8')
 const stringSearch = (str) => {
-  if (str === null) {
-    console.log('ta meeme');
-  }
   str = decodeURI(utf8.encode(str));
   return str
     .trim()

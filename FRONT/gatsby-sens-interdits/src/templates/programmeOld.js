@@ -5,27 +5,32 @@ import Playicon from "../assets/img/play_icon.png"
 import "./archiveFestival.css";
 
 function Programme({ data }) {
+    const archive = data.allStrapiFestivalarchive.nodes[0];
   return (
     <>
       <div className="global-margin archive-global-styling">
         <div className="image-generique-page">
-          <img
-            src={
-              process.env.GATSBY_API_URL +
-              data.allStrapiFestivalarchive.nodes[0].poster[0].url
-            }
-            alt={data.allStrapiFestivalarchive.nodes[0].title}
-          />
+            {archive !== undefined ?
+              <img
+                src={
+                  process.env.GATSBY_API_URL +
+                  archive.poster[0].url
+                }
+                alt={archive.title}
+              />
+          : null}
         </div>
         <h1 className="to-uppercase">
-          <span>{data.allStrapiFestivalarchive.nodes[0].title}</span>
+            Edition {archive !== undefined ? archive.year : null} -{" "}
+            <span>{archive !== undefined ? archive.title : null}</span>
         <a href={process.env.GATSBY_API_URL + data.allStrapiFestivalarchive.nodes[0].download[0].url}
-        title="download programme"
+           title="download programme"
         download>
-        <span className="downloadPdf"><img src={Playicon} alt="bouton telechargement" width="30" />Télécharger le programme</span>
+        <span className="downloadPdf">
+            <img src={Playicon} alt="bouton telechargement" width="30" />Télécharger le programme</span>
         </a>
         </h1>
-        <div>{data.allStrapiFestivalarchive.nodes[0].description}</div>
+        <div>{archive !== undefined ? archive.description : null}</div>
         <div className="archive-transmission-grid-wrapper">
           {data.allStrapiArchivesOld.nodes.map(elem => (
             <ThumbnailOldArchive
