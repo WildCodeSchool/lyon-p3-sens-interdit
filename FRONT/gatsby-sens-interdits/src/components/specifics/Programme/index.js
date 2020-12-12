@@ -64,6 +64,8 @@ const title_en = data.strapiProgramme.seo_programme.title_en;
 const description = data.strapiProgramme.seo_programme.description;
 const description_en = data.strapiProgramme.seo_programme.description_en;
 const image = data.strapiProgramme.seo_programme.image[0].url;
+const image_en = data.strapiProgramme.seo_programme.image_en[0].url;
+
 
   const redSquareArray =
     data.allStrapiSpectacle.nodes.carousel !== null
@@ -188,7 +190,7 @@ const image = data.strapiProgramme.seo_programme.image[0].url;
     <div className="global-programme-page">
       <SEO title={checkEnContext(title, title_en)} 
         description={checkEnContext(description, description_en)}  
-        image={image !== undefined ? image : ""} />
+        image={image !== undefined ? checkEnContext(image, image_en) : ""} />
       <ImageCarousel
         images={imageArray}
         title={checkEnContext(

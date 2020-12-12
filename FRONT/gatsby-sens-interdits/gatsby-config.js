@@ -40,6 +40,7 @@ module.exports = {
           `mentions`,
           `conditions`,
           `programme`,
+          `programm-tour`,
           `webradio`
         ],
       },
