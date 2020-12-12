@@ -41,7 +41,6 @@ export default function Filters({filtersList, language, setFilters, filters}) {
                         </select>
                         {/*<label htmlFor="directorSelect">{filters.director}</label>*/}
                     </div> : null}
-                    {console.log(filtersList.locations)}
                 {filtersList.locations !== undefined && filtersList.locations.length > 0 ?
                     <div className="filter-col">
                         <select className="locationSelect" id="locationSelect" data-type="location" onChange={handleChangeFilter} value={filters.location === undefined ? '': filters.location}>
