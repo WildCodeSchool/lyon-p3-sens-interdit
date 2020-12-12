@@ -3,7 +3,7 @@ import LanguageContext from "../../context/LanguageContext";
 
 export default function Ticketing() {
   const { language } = useContext(LanguageContext);
-  const url = "http://localhost:8000";
+  const url = "";
   return (
     <div className="billetterie-programme">
       <a
