@@ -29,13 +29,6 @@ export default function SocialNetwork() {
           className="filter-invert"
           width="30"
         /></a></li>
-      <li><a href="https://www.sensinterdits.org" title="link to radio" target="_blank" rel="noreferrer"
-      ><img
-          src={radio}
-          alt="radio"
-          width="30"
-          className="filter-invert"
-        /></a></li>
       <li><a href="https://www.sensinterdits.org" title="link to share" target="_blank" rel="noreferrer"
       ><img
           src={share}
