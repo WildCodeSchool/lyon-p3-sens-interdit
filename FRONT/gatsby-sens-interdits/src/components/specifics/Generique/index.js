@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import TabSystemV from "../../globals/TabSystems/TabSystemV.js";
 import "./index.css";
 import "../../../assets/styles/global.css";
-import tabSystem from "../../../utils/tab-system.js";
+import SEO from "../../SEO/seo";
+import LanguageContext from "../../context/LanguageContext";
+
 
 export default function GeneriquePage(props) {
+  const { checkEnContext , LANG} = useContext(LanguageContext);
 
   return (
     <div className="container">
+      <SEO title={checkEnContext(props.title, props.title_en)} 
+        description={checkEnContext(props.description,props.description_en)}  
+        image={props.image !== undefined ? props.image : ""} />
       <div className="image-generique-page">
         <img src={process.env.GATSBY_API_URL + props.image} alt={props.name} />
       </div>

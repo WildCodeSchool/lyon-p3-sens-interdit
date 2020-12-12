@@ -8,6 +8,7 @@ import photoTest from "../../../assets/img/img-sens-interdit.jpg";
 import Thumbnail from "../../globals/Thumbnail";
 import CalendarLarge from "../../globals/Calendar/CalendarLarge";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
+import SEO from "../../SEO/seo";
 import dayjs from "dayjs";
 import "dayjs/locale/fr";
 import localizedFormat from "dayjs/plugin/localizedFormat";
@@ -41,8 +42,27 @@ export default function ProgrammePage(props) {
         }
       }
     }
+    strapiProgramme {
+      seo_programme {
+        description
+        description_en
+        image {
+          url
+        }
+        image_en {
+          url
+        }
+        title
+        title_en
+      }
+    }
   }
 `);
+
+const title = LANG === 'en' ? data.strapiProgramme.seo_programme.title_en: data.strapiProgramme.seo_programme.title;
+const description = LANG === 'en' ? data.strapiProgramme.seo_programme.description_en : data.strapiProgramme.seo_programme.description;
+const image = LANG === 'en' ? data.strapiProgramme.seo_programme.image_en[0].url : data.strapiProgramme.seo_programme.image[0].url;
+
   const redSquareArray =
     data.allStrapiSpectacle.nodes.carousel !== null
       ? data.allStrapiSpectacle.nodes.filter(spec => spec.archive === false)
@@ -164,6 +184,9 @@ export default function ProgrammePage(props) {
   //------------PROGRAM END
   return (
     <div className="global-programme-page">
+      <SEO title={title !== undefined ? title : ""} 
+        description={description !== undefined ? description : ""}  
+        image={image !== undefined ? image : ""} />
       <ImageCarousel
         images={imageArray}
         title={checkEnContext(

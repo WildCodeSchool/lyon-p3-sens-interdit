@@ -78,10 +78,12 @@ export default function NewsPage() {
   const newsArticlesQuery = strapiNewsQuery.allStrapiArticlecontent.nodes;
   const textOverFlow = true;
   const linkStatus = true;
+  
   const imageArray =
     newsPageQuery.carousel !== null
       ? newsPageQuery.carousel.image.map(image => image.image)
       : false;
+
   let seo = newsPageQuery.seo_newspage;
   const title = LANG === 'en' ?  seo.title_en : seo.title;
   const description = LANG === 'en' ? seo.description_en : seo.description;
