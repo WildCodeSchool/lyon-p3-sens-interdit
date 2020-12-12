@@ -5,6 +5,7 @@ import FestivalPoster from "./FestivalPoster";
 import ImageCarousel from "../../globals/Carousel/ImageCarousel";
 import Archives from "./Archives";
 import sensinterdits2019 from "../../../assets/img/affiches/sensinterdits2019.png";
+import SEO from "../../SEO/seo";
 
 import "./Archive.css";
 import LanguageContext from "../../context/LanguageContext";
@@ -26,6 +27,10 @@ function Archive(props) {
         nodes {
           strapiId
           year
+          title
+          title_en
+          description_en
+          description
           poster {
             url
           }
@@ -49,6 +54,9 @@ function Archive(props) {
 
   return (
     <>
+      <SEO title={data.allStrapiFestivalarchive.nodes[0].title} 
+        description={data.allStrapiFestivalarchive.nodes[0].description}  
+        image={data.allStrapiFestivalarchive.nodes[0].poster[0].url !== undefined ? data.allStrapiFestivalarchive.nodes[0].poster[0].url : ""} />
       <ImageCarousel
         images={imageArray}
       />
