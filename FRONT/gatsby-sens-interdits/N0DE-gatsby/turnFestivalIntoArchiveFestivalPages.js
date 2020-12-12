@@ -1,7 +1,6 @@
 const path = require(`path`);
 
-const makeRequest = require("./makeRequest")
-
+const makeRequest = require("./makeRequest");
 
 const turnFestivalIntoArchiveFestivalPages = async function ({
   graphql,
