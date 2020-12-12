@@ -7,7 +7,6 @@ async function index() {
     let tables = Indexer.getTablesList();
 
     await Indexer.setFieldsOnTables(tables, (tablesFields) => {
-      console.log(1);
       console.log(tablesFields);
       Indexer.loopOnTablesToIndex(tablesFields, () => {
         console.log('done');

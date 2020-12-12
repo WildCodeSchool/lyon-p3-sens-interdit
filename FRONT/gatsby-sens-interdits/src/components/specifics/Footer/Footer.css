@@ -8,7 +8,8 @@ footer {
 }
 
 .wrapper-footer {
-  width: 1080px;
+  width: 100%;
+  max-width: 1080px;
   margin: 0 auto;
   display: flex;
 }
@@ -87,7 +88,7 @@ footer {
 }
 
 .newsletter-container .input-newsletter {
-  
+
   background: #3b3b3b;
   border: none;
   height: 35px;
@@ -148,12 +149,16 @@ footer {
     justify-content: center;
   }
   .newsletter-container {
-    width: 280px;
-    margin: 10px 10px;
-    font-size: 10px;
+    width: calc(100% - 40px);
+    margin: 10px;
+    font-size: 12px;
+  }
+  Footer .footer-one {
+    display: none;
   }
   .footer-one {
-    display: none;
+    margin-top: auto;
+    margin-bottom: 15px;
   }
   .footer-list-link ul {
     margin: 0 30px;

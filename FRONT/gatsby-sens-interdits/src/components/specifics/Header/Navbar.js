@@ -3,8 +3,9 @@ import { graphql, useStaticQuery } from "gatsby";
 import LanguageContext from "../../context/LanguageContext";
 import { Link } from "gatsby";
 import { FestivalContext } from "../../context/FestivalContext";
+import ListLink from "../Footer/ListLink";
 
-export default function Navbar() {
+export default function Navbar(props) {
   const { checkEnContext } = useContext(LanguageContext);
   const { currentFestivalStrapiId, currentFestivalTitle } = useContext(
     FestivalContext
@@ -134,6 +135,7 @@ export default function Navbar() {
           </li>
         ) : null}
       </ul>
+        {props.isMobile !== undefined && props.isMobile ? <ListLink />:null}
     </nav>
   );
 }

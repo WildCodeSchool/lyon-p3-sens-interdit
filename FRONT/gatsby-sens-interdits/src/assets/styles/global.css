@@ -6,7 +6,7 @@
     url(fonts/gothamBold/gothamBold.woff) format("woff"),
     url(fonts/gothamBold/gothamBold.woff2) format("woff2");
   font-family: "gothamLight";
-  src: url(fonts/GothamLightRegular.otf) format("otf"),
+  src: url(fonts/GothamLightRegular.otf) format("otf")
 }
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rambla:wght@400;700&display=swap');
@@ -16,6 +16,7 @@ body {
   box-sizing: border-box;
   font-family: 'Quicksand', "gothamLight", arial, sans-serif;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 .body {
@@ -75,10 +76,11 @@ div.overlay {
 }
 
 .container {
-  width: 100%;
+  width: calc(100% - 30px);
   max-width: 1080px;
   height: auto;
   margin: 0 auto;
+  padding: 0 15px;
 }
 
 .flex {

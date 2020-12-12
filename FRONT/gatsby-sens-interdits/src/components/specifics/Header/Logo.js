@@ -15,7 +15,7 @@ export default function Logo() {
       `);
     return (
         <div className="main-logo">
-            <a href="https://www.sensinterdits.org" title="site sens-interdits">
+            <a href="/" title="Sens Interdits">
                 <img src={process.env.GATSBY_API_URL + strapiLogoPrincipal.Logo[0].url} alt={strapiLogoPrincipal.title} />
             </a>
         </div>
