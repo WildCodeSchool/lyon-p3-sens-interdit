@@ -12,6 +12,11 @@ import ImageCarousel from "../components/globals/Carousel/ImageCarousel";
 
 import photoTest from "../assets/img/img-sens-interdit.jpg";
 import LanguageContext from "../components/context/LanguageContext";
+import dayjs from "dayjs";
+import "dayjs/locale/fr";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+dayjs.locale("fr");
+dayjs.extend(localizedFormat);
 
 export default function SpectaclePage({ data }) {
   const { language, LANG, checkEnContext } = useContext(LanguageContext);
@@ -27,12 +32,20 @@ export default function SpectaclePage({ data }) {
   const description_en = spectacle.info_en;
   const image = spectacle.carousel.image[0].image[0].url;
 
+  // navigating between spectacle
+
+  const thisID = spectacle.strapiId;
+  const listAll = data.allStrapiSpectacle.nodes;
+  const suivSpect = listAll.find(node => node.strapiId === thisID + 1);
+  const precSpect = listAll.find(node => node.strapiId === thisID - 1);
 
   return (
     <div className="global-spectacle-page">
-      <SEO title={checkEnContext(spectacle.title, spectacle.title_en)} 
-        description={checkEnContext(description,description_en)}  
-        image={image !== undefined ? image : ""} />
+      <SEO
+        title={checkEnContext(spectacle.title, spectacle.title_en)}
+        description={checkEnContext(description, description_en)}
+        image={image !== undefined ? image : ""}
+      />
       <ImageCarousel
         title={checkEnContext(spectacle.title, spectacle.title_en)}
         images={imageArray}
@@ -43,7 +56,10 @@ export default function SpectaclePage({ data }) {
         <div className="country-label">
           <p>{checkEnContext(spectacle.country, spectacle.country_en)}</p>
         </div>
-        <SpectacleCalendar className="spectacle-calendar" spectacle={spectacle} />
+        <SpectacleCalendar
+          className="spectacle-calendar"
+          spectacle={spectacle}
+        />
         <SpectacleInfos
           language={language}
           tarif={spectacle.tarif}
@@ -60,33 +76,51 @@ export default function SpectaclePage({ data }) {
         {spectacle["tab_element" + LANG] === 0 ? (
           ""
         ) : (
-            <TabSystemH
-              tabContent={checkEnContext(
-                spectacle.tab_element,
-                spectacle.tab_element_en
-              )}
-            />
-          )}
+          <TabSystemH
+            tabContent={checkEnContext(
+              spectacle.tab_element,
+              spectacle.tab_element_en
+            )}
+          />
+        )}
         <div className="content">
           <div className="red-arrow-spectacle"></div>
           <p className="content-title to-uppercase">
             {language === "fr" ? "Autour du spectacle" : "More"}
           </p>
           <div className="display-mini-tab">
-            <Thumbnail
-              affiche={photoTest}
-              date="26 Octobre"
-              country="Russie"
-              name="Titre du spectacle"
-              team="Metteur en scène"
-            />
-            <Thumbnail
-              affiche={photoTest}
-              date="26 Octobre"
-              country="Russie"
-              name="Titre du spectacle"
-              team="Metteur en scène"
-            />
+            {precSpect != undefined ? (
+              <Thumbnail
+                id={precSpect.strapiId}
+                key={precSpect.id}
+                country={precSpect.country}
+                date={dayjs(spectacle.horaires[0].Day).format("ddd D MMM à HH:mm")}
+                name={precSpect.title}
+                team={precSpect.author}
+                affiche={
+                  `${process.env.GATSBY_IMAGE_URL}` +
+                  precSpect.carousel.image[0].image[0].url
+                }
+              />
+            ) : (
+              ""
+            )}
+            {suivSpect != undefined ? (
+              <Thumbnail
+                id={suivSpect.strapiId}
+                key={suivSpect.id}
+                date={dayjs(spectacle.horaires[0].Day).format("ddd D MMM à HH:mm")}
+                country={suivSpect.country}
+                name={suivSpect.title}
+                team={suivSpect.author}
+                affiche={
+                  `${process.env.GATSBY_IMAGE_URL}` +
+                  suivSpect.carousel.image[0].image[0].url
+                }
+              />
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
@@ -172,6 +206,25 @@ export const query = graphql`
         id
         image {
           url
+        }
+      }
+    }
+    allStrapiSpectacle {
+      nodes {
+        id
+        strapiId
+        title
+        country
+        carousel {
+          image {
+            image {
+              url
+            }
+          }
+        }
+        author
+        horaires {
+          Day
         }
       }
     }
