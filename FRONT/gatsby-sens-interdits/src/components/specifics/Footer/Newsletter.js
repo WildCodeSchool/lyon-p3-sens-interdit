@@ -49,7 +49,7 @@ export default function Newsletter() {
         ) : null}
         <div className="newsletter-title">
           <h3 className="to-uppercase">Newsletter</h3>
-          <p>{language === "fr" ? "Recevez nos actualités" : ""}</p>
+          <p>{language === "fr" ? "Recevez nos actualités" : "Receive our actualities"}</p>
         </div>
         <form onSubmit={handleSubmit}>
           <input
@@ -57,6 +57,7 @@ export default function Newsletter() {
             type="email"
             className="input-newsletter"
             id="newsletter"
+            placeholder={language === "fr" ? "Votre email..." : "Your e-mail"}
             required
           />
           <input type="submit" value="OK" className="submit-newsletter" />

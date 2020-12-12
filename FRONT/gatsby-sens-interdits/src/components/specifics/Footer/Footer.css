@@ -90,12 +90,12 @@ footer {
 .newsletter-container .input-newsletter {
 
   background: #3b3b3b;
-  border: none;
-  height: 35px;
+  height: 37px;
   width: 75%;
   color: white;
   outline: none;
   padding-left: 10px;
+  border: none;
 }
 
 .newsletter-container .submit-newsletter {
