@@ -21,47 +21,57 @@ export default function ProgrammePage(props) {
   const [random, setRandom] = useState(0);
   const { LANG, checkEnContext } = useContext(LanguageContext);
   const data = useStaticQuery(graphql`
-  query MyQueryProg {
-    allStrapiSpectacle {
-      nodes {
-        title
-        id
-        author
-        country
-        archive
-        reserver
-        carousel {
+    query MyQueryProg {
+      allStrapiSpectacle {
+        nodes {
+          title
           id
-          image {
-            credit
+          strapiId
+          author
+          country
+          archive
+          reserver
+          carousel {
             id
             image {
-              url
+              credit
+              id
+              image {
+                url
+              }
             }
           }
         }
       }
-    }
-    strapiProgramme {
-      seo_programme {
-        description
-        description_en
-        image {
-          url
+      strapiProgramme {
+        seo_programme {
+          description
+          description_en
+          image {
+            url
+          }
+          image_en {
+            url
+          }
+          title
+          title_en
         }
-        image_en {
-          url
-        }
-        title
-        title_en
       }
     }
-  }
-`);
+  `);
 
-const title = LANG === 'en' ? data.strapiProgramme.seo_programme.title_en: data.strapiProgramme.seo_programme.title;
-const description = LANG === 'en' ? data.strapiProgramme.seo_programme.description_en : data.strapiProgramme.seo_programme.description;
-const image = LANG === 'en' ? data.strapiProgramme.seo_programme.image_en[0].url : data.strapiProgramme.seo_programme.image[0].url;
+  const title =
+    LANG === "en"
+      ? data.strapiProgramme.seo_programme.title_en
+      : data.strapiProgramme.seo_programme.title;
+  const description =
+    LANG === "en"
+      ? data.strapiProgramme.seo_programme.description_en
+      : data.strapiProgramme.seo_programme.description;
+  const image =
+    LANG === "en"
+      ? data.strapiProgramme.seo_programme.image_en[0].url
+      : data.strapiProgramme.seo_programme.image[0].url;
 
   const redSquareArray =
     data.allStrapiSpectacle.nodes.carousel !== null
@@ -175,7 +185,9 @@ const image = LANG === 'en' ? data.strapiProgramme.seo_programme.image_en[0].url
             name={spectacle.title}
             id={spectacle.strapiId}
             team={spectacle.author ? spectacle.author : "inconnu"}
-            url={"/spectacle/" + sluggify(spectacle.title)}
+            url={`/spectacle/${sluggify(spectacle.title)}_${
+              spectacle.strapiId
+            }`}
           />
         );
       });
@@ -184,9 +196,11 @@ const image = LANG === 'en' ? data.strapiProgramme.seo_programme.image_en[0].url
   //------------PROGRAM END
   return (
     <div className="global-programme-page">
-      <SEO title={title !== undefined ? title : ""} 
-        description={description !== undefined ? description : ""}  
-        image={image !== undefined ? image : ""} />
+      <SEO
+        title={title !== undefined ? title : ""}
+        description={description !== undefined ? description : ""}
+        image={image !== undefined ? image : ""}
+      />
       <ImageCarousel
         images={imageArray}
         title={checkEnContext(
@@ -205,31 +219,15 @@ const image = LANG === 'en' ? data.strapiProgramme.seo_programme.image_en[0].url
           <CalendarLarge dateSetter={dateFilter} />
         </div>
         <div className="global-Filter-tab to-uppercase">
-          <h2>{
-            checkEnContext(
-              "Trier par :",
-              "Sort by :"
-            )}</h2>
+          <h2>{checkEnContext("Trier par :", "Sort by :")}</h2>
           <a role="button" onClick={countryFilter}>
-            <p>{
-              checkEnContext(
-                "Pays",
-                "Country"
-              )}</p>
+            <p>{checkEnContext("Pays", "Country")}</p>
           </a>
           <a role="button" onClick={authorFilter}>
-            <p>{
-              checkEnContext(
-                "Metteur en scène",
-                "Director"
-              )} </p>
+            <p>{checkEnContext("Metteur en scène", "Director")} </p>
           </a>
           <a role="button" onClick={placeFilter}>
-            <p>{
-              checkEnContext(
-                "Lieux",
-                "Place"
-              )}</p>
+            <p>{checkEnContext("Lieux", "Place")}</p>
           </a>
           <a role="button" onClick={resetFilter} className="">
             <p className="reset-filter-programme">↺</p>

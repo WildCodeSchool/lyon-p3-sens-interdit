@@ -3,12 +3,10 @@ const path = require(`path`);
 const { sluggify } = require("./../src/utils/Sluggify");
 
 const {
-    removeNameForUrl: removePageNameForUrl,
-  } = require("./../src/utils/removeNameForUrl");
+  removeNameForUrl: removePageNameForUrl,
+} = require("./../src/utils/removeNameForUrl");
 
-const makeRequest = require("./makeRequest")
-
-
+const makeRequest = require("./makeRequest");
 
 const turnArchiveSpectaclesIntoPages = async function ({ graphql, actions }) {
   const { createPage } = actions;
@@ -34,7 +32,7 @@ const turnArchiveSpectaclesIntoPages = async function ({ graphql, actions }) {
       let archiveSpectacleSlug = sluggify(node.titre);
       let archiveSpectacleId = removePageNameForUrl(node.id, "Archives-old");
       createPage({
-        path: `/spectacle/${archiveSpectacleSlug}${archiveSpectacleId}`,
+        path: `/archives/spectacle/${archiveSpectacleSlug}${archiveSpectacleId}`,
         component: path.resolve(`src/templates/archiveSpectacle.js`),
         context: {
           id: node.id,
@@ -47,6 +45,5 @@ const turnArchiveSpectaclesIntoPages = async function ({ graphql, actions }) {
   // Query for articles nodes to use in creating pages.
   return getArchiveSpectacle;
 };
-
 
 module.exports = turnArchiveSpectaclesIntoPages;

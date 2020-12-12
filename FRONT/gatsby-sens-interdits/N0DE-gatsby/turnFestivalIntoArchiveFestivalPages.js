@@ -1,7 +1,6 @@
 const path = require(`path`);
 
-const makeRequest = require("./makeRequest")
-
+const makeRequest = require("./makeRequest");
 
 const turnFestivalIntoArchiveFestivalPages = async function ({
   graphql,
@@ -16,10 +15,6 @@ const turnFestivalIntoArchiveFestivalPages = async function ({
       allStrapiFestival(filter: {visible: {eq: false}}) {
         edges {
           node {
-            visible
-            title
-            id
-            strapiId
             year
           }
         }
@@ -30,7 +25,7 @@ const turnFestivalIntoArchiveFestivalPages = async function ({
     // Create pages for each festival-to-display-as-archived.
     result.data.allStrapiFestival.edges.forEach(({ node }) => {
       createPage({
-        path: `/programme/${node.year}`,
+        path: `/archives/programme/${node.year}`,
         component: path.resolve(`src/templates/archiveFestival.js`),
         context: {
           year: node.year,

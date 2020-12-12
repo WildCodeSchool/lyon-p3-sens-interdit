@@ -54,22 +54,26 @@ function Archive(props) {
 
   return (
     <>
-      <SEO title={data.allStrapiFestivalarchive.nodes[0].title} 
-        description={data.allStrapiFestivalarchive.nodes[0].description}  
-        image={data.allStrapiFestivalarchive.nodes[0].poster[0].url !== undefined ? data.allStrapiFestivalarchive.nodes[0].poster[0].url : ""} />
-      <ImageCarousel
-        images={imageArray}
+      <SEO
+        title={data.allStrapiFestivalarchive.nodes[0].title}
+        description={data.allStrapiFestivalarchive.nodes[0].description}
+        image={
+          data.allStrapiFestivalarchive.nodes[0].poster[0].url !== undefined
+            ? data.allStrapiFestivalarchive.nodes[0].poster[0].url
+            : ""
+        }
       />
+      <ImageCarousel images={imageArray} />
       <div className="container archive-global-styling">
         {LANG !== "_en" ? (
           <h1 className="to-uppercase">
             Découvrez <span>les archives du festival</span>
           </h1>
         ) : (
-            <h1 className="to-uppercase">
-              Explore <span>the festival's archives</span>
-            </h1>
-          )}
+          <h1 className="to-uppercase">
+            Explore <span>the festival's archives</span>
+          </h1>
+        )}
         <div className="archive-festivals-grid-wrapper">
           {/* display new website festival archive */}
 
@@ -79,7 +83,7 @@ function Archive(props) {
                 key={archivedFestival.strapiId}
                 title={`Edition ${archivedFestival.year}`}
                 poster={sensinterdits2019}
-                url={`programme/${archivedFestival.year}`}
+                url={`/archives/programme/${archivedFestival.year}`}
               />
             );
           })}
@@ -94,7 +98,7 @@ function Archive(props) {
                   `${process.env.GATSBY_API_URL}` +
                   oldArchivedFestival.poster[0].url
                 }
-                url={`programme/${oldArchivedFestival.year}`}
+                url={`/archives/programme/${oldArchivedFestival.year}`}
               />
             );
           })}

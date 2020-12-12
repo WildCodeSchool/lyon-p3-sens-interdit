@@ -1,12 +1,6 @@
 const path = require(`path`);
 
-const { sluggify } = require("./../src/utils/Sluggify");
-
-const {
-  removeNameForUrl: removePageNameForUrl,
-} = require("./../src/utils/removeNameForUrl");
-
-const makeRequest = require("./makeRequest")
+const makeRequest = require("./makeRequest");
 
 const archiveProgramme = async function ({ graphql, actions }) {
   const { createPage } = actions;
@@ -29,7 +23,7 @@ const archiveProgramme = async function ({ graphql, actions }) {
   ).then(result => {
     result.data.allStrapiArchivesOld.edges.forEach(({ node }) => {
       createPage({
-        path: `/programme/${node.annee}`,
+        path: `/archives/programme/${node.annee}`,
         component: path.resolve(`src/templates/programmeOld.js`),
         context: {
           annee: node.annee,
@@ -40,6 +34,5 @@ const archiveProgramme = async function ({ graphql, actions }) {
 
   return getArchiveProgramme;
 };
-
 
 module.exports = archiveProgramme;
