@@ -358,5 +358,6 @@ p {
         color: #fff;
         display: flex;
         flex-direction: column;
+        padding-bottom: 35px;
     }
 }
