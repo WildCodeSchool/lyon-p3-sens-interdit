@@ -25,8 +25,8 @@
 
 }
 #overlay-search form input {
-    width: 350px;
-    height: 45px;
+    width: 400px;
+    height: 70px;
     font-size: 20px;
     padding: 10px;
     padding-right: 50px;
@@ -37,6 +37,11 @@
     color: #fff;
     border-top: 8px solid #ed1c24;
 }
+@media screen and (max-width: 420px) {
+
+    #overlay-search form input {
+        width: 100%;
+    }}
 input:focus, button {
     outline: none;
 }
