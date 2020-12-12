@@ -235,6 +235,7 @@ p {
         order: 2;
         position: relative;
         width: 100%;
+        padding: 5px 15px
     }
 
     .wrapper-header {
@@ -347,8 +348,8 @@ p {
 
 
     #overlay-menu nav {
+        max-width: 280px;
         width: 100%;
-        max-width: 250px;
         height: 100vh;
         z-index: 10000;
         top: 0;
@@ -358,6 +359,6 @@ p {
         color: #fff;
         display: flex;
         flex-direction: column;
-        padding-bottom: 35px;
+        padding-bottom: 55px;
     }
 }
