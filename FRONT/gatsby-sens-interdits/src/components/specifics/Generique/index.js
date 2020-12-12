@@ -11,11 +11,12 @@ export default function GeneriquePage(props) {
 
   return (
     <div className="container">
-      <SEO title={checkEnContext(props.title, props.title_en)} 
-        description={checkEnContext(props.description,props.description_en)}  
-        image={props.image !== undefined ? props.image : ""} />
+      <SEO title={checkEnContext(props.title, props.title_en)}
+        description={checkEnContext(props.description,props.description_en)}
+        image={props.image !== undefined && props.image ? props.image : ""} />
       <div className="image-generique-page">
-        <img src={process.env.GATSBY_API_URL + props.image} alt={props.name} />
+          {props.image !== undefined && props.image ? <img src={process.env.GATSBY_API_URL + props.image} alt={props.name} /> : ""}
+
       </div>
       <div>
         <h1>{props.title}</h1>

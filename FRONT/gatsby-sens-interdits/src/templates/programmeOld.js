@@ -11,7 +11,7 @@ function Programme({ data }) {
             <>
                 <div className="global-margin archive-global-styling">
                     <div className="image-generique-page">
-                        {archive !== undefined ?
+                        {archive.poster[0] !== undefined && archive.poster[0] ?
                             <img
                                 src={
                                     process.env.GATSBY_API_URL +

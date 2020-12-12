@@ -29,13 +29,14 @@ function ArchivedFestival({ data }) {
       />
       <div className="global-margin archive-global-styling">
         <div className="image-generique-page">
-          <img
-            src={
-              process.env.GATSBY_API_URL +
-              data.allStrapiFestival.nodes[0].poster[0].url
-            }
-            alt={data.allStrapiFestival.nodes[0].title}
-          />
+            {data.allStrapiFestival.nodes[0].poster[0] !== undefined && data.allStrapiFestival.nodes[0].poster[0] ? <img
+                src={
+                    process.env.GATSBY_API_URL +
+                    data.allStrapiFestival.nodes[0].poster[0].url
+                }
+                alt={data.allStrapiFestival.nodes[0].title}
+            /> : null}
+
         </div>
         <h1 className="to-uppercase">
           Edition {data.allStrapiFestival.nodes[0].year} -{" "}
