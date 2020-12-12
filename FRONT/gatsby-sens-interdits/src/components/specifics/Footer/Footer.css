@@ -149,7 +149,7 @@ footer {
     justify-content: center;
   }
   .newsletter-container {
-    width: calc(100% - 40px);
+    width: calc(100% - 20px);
     margin: 10px;
     font-size: 12px;
   }
