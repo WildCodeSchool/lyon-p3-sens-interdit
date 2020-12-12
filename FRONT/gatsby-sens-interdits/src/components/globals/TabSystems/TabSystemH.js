@@ -16,7 +16,7 @@ function DisplayPicture({ imageContent }) {
           <p>{img.credit}</p>
           <div className="picture-tabsyst-container">
             {img.image.map(elem => (
-              <div>
+              <div key={elem.url +img.credit+ elem.url}>
                 <img
                   key={elem.url}
                   src={process.env.GATSBY_API_URL + elem.url}
