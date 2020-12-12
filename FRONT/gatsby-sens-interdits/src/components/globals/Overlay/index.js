@@ -5,6 +5,7 @@ function Overlay({ showOverlay, setShowOverlay }) {
     function handleClick(e) {
         e.stopPropagation();
         setShowOverlay(false);
+        document.body.classList.remove('prevent-scroll');
     }
     return (
         <div id="overlay-menu" className={'overlay ' + (showOverlay ? '':'hidden')} onClick={handleClick}>
