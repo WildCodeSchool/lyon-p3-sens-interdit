@@ -45,6 +45,8 @@ export default function SEO  ({ title, description, image, article, location }) 
 
             <link rel='dns-prefetch' href='//fonts.googleapis.com' />
             <link rel='dns-prefetch' href='//s.w.org' />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+
         </Helmet>
     )
 
