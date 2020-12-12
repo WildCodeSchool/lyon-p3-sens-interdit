@@ -6,6 +6,7 @@ function Twitter() {
     <div className="twitwrapper">
       <a
         href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+        target="_blank"
         className="share-button"
         data-show-count="false"
       >
