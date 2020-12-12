@@ -8,7 +8,7 @@ import pictoPlus from "../../../assets/img/picto+.svg";
 export default function Thumbnail(props) {
   return (
     <div className="mini-tab">
-      <Link to={`/spectacle/${sluggify(props.name)}_${props.id}`}>
+      <Link to={props.url}>
         <div className="global-mini-tab">
           <img
             className="img-mini-tab"
@@ -19,10 +19,12 @@ export default function Thumbnail(props) {
           <div className="title-mini-tab">
             <p
               className={`date-mini-tab ${
-                props.date === "inconnue" ? "hidden" : ""
+                props.date === "inconnue" || props.date === undefined
+                  ? "hidden"
+                  : ""
               }`}
             >
-              {props.date}
+              {props.date ? props.date : null}
             </p>
             <p className="country-mini-tab">{props.country}</p>
           </div>

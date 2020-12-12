@@ -11,14 +11,10 @@ import Thumbnail from "../components/globals/Thumbnail";
 import SpectacleCalendar from "../components/globals/Calendar/SpectacleCalendar";
 import ImageCarousel from "../components/globals/Carousel/ImageCarousel";
 
+import photoTest from "../assets/img/img-sens-interdit.jpg";
 import LanguageContext from "../components/context/LanguageContext";
-import dayjs from "dayjs";
-import "dayjs/locale/fr";
-import localizedFormat from "dayjs/plugin/localizedFormat";
-dayjs.locale("fr");
-dayjs.extend(localizedFormat);
 
-export default function SpectaclePage({ data }) {
+export default function ArchiveSpectaclePage({ data }) {
   const { language, LANG, checkEnContext } = useContext(LanguageContext);
 
   const spectacle = data.spectacle;
@@ -94,12 +90,9 @@ export default function SpectaclePage({ data }) {
                 id={precSpect.strapiId}
                 key={precSpect.id}
                 country={precSpect.country}
-                date={dayjs(spectacle.horaires[0].Day).format(
-                  "ddd D MMM à HH:mm"
-                )}
                 name={precSpect.title}
                 team={precSpect.author}
-                url={`/spectacle/${sluggify(
+                url={`/archives/spectacle/${sluggify(
                   checkEnContext(precSpect.title, precSpect.title_en)
                 )}_${precSpect.strapiId}`}
                 affiche={
@@ -114,13 +107,10 @@ export default function SpectaclePage({ data }) {
               <Thumbnail
                 id={suivSpect.strapiId}
                 key={suivSpect.id}
-                date={dayjs(spectacle.horaires[0].Day).format(
-                  "ddd D MMM à HH:mm"
-                )}
                 country={suivSpect.country}
                 name={suivSpect.title}
                 team={suivSpect.author}
-                url={`/spectacle/${sluggify(
+                url={`/archives/spectacle/${sluggify(
                   checkEnContext(suivSpect.title, suivSpect.title_en)
                 )}_${suivSpect.strapiId}`}
                 affiche={
@@ -140,7 +130,10 @@ export default function SpectaclePage({ data }) {
 
 export const query = graphql`
   query($id: String!) {
-    spectacle: strapiSpectacle(id: { eq: $id }) {
+    spectacle: strapiSpectacle(
+      festival: { visible: { eq: false } }
+      id: { eq: $id }
+    ) {
       title
       title_en
       id
@@ -219,7 +212,7 @@ export const query = graphql`
         }
       }
     }
-    allStrapiSpectacle(filter: { festival: { visible: { eq: true } } }) {
+    allStrapiSpectacle(filter: { festival: { visible: { eq: false } } }) {
       nodes {
         id
         strapiId

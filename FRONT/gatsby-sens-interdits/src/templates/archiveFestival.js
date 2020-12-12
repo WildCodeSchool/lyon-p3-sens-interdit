@@ -9,13 +9,24 @@ import LanguageContext from "../components/context/LanguageContext";
 
 function ArchivedFestival({ data }) {
   const { checkEnContext } = useContext(LanguageContext);
- 
 
   return (
     <>
-      <SEO title={checkEnContext(data.allStrapiFestival.nodes[0].title,data.allStrapiFestival.nodes[0].title_en)} 
-        description={checkEnContext(data.allStrapiFestival.nodes[0].content,data.allStrapiFestival.nodes[0].content_en)}  
-        image={data.allStrapiFestival.nodes[0].poster[0].url !== undefined ? data.allStrapiFestival.nodes[0].poster[0].url : ""} />
+      <SEO
+        title={checkEnContext(
+          data.allStrapiFestival.nodes[0].title,
+          data.allStrapiFestival.nodes[0].title_en
+        )}
+        description={checkEnContext(
+          data.allStrapiFestival.nodes[0].content,
+          data.allStrapiFestival.nodes[0].content_en
+        )}
+        image={
+          data.allStrapiFestival.nodes[0].poster[0].url !== undefined
+            ? data.allStrapiFestival.nodes[0].poster[0].url
+            : ""
+        }
+      />
       <div className="global-margin archive-global-styling">
         <div className="image-generique-page">
           <img
@@ -60,7 +71,9 @@ function ArchivedFestival({ data }) {
               name={checkEnContext(spectacle.title, spectacle.title_en)}
               id={spectacle.strapiId}
               team={spectacle.author ? spectacle.author : "inconnu"}
-              url={"/spectacle/" + sluggify(spectacle.title)}
+              url={`/archives/spectacle/${sluggify(
+                checkEnContext(spectacle.title, spectacle.title_en)
+              )}_${spectacle.strapiId}`}
             />
           ))}
         </div>
