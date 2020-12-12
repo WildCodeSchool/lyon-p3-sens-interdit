@@ -59,13 +59,9 @@ export default function ProgrammePage(props) {
   }
 `);
 
-const title = data.strapiProgramme.seo_programme.title;
-const title_en = data.strapiProgramme.seo_programme.title_en;
-const description = data.strapiProgramme.seo_programme.description;
-const description_en = data.strapiProgramme.seo_programme.description_en;
-const image = data.strapiProgramme.seo_programme.image[0].url;
-const image_en = data.strapiProgramme.seo_programme.image_en[0].url;
-
+const title = LANG === 'en' ? data.strapiProgramme.seo_programme.title_en: data.strapiProgramme.seo_programme.title;
+const description = LANG === 'en' ? data.strapiProgramme.seo_programme.description_en : data.strapiProgramme.seo_programme.description;
+const image = LANG === 'en' ? data.strapiProgramme.seo_programme.image_en[0].url : data.strapiProgramme.seo_programme.image[0].url;
 
   const redSquareArray =
     data.allStrapiSpectacle.nodes.carousel !== null
@@ -188,9 +184,9 @@ const image_en = data.strapiProgramme.seo_programme.image_en[0].url;
   //------------PROGRAM END
   return (
     <div className="global-programme-page">
-      <SEO title={checkEnContext(title, title_en)} 
-        description={checkEnContext(description, description_en)}  
-        image={image !== undefined ? checkEnContext(image, image_en) : ""} />
+      <SEO title={title !== undefined ? title : ""} 
+        description={description !== undefined ? description : ""}  
+        image={image !== undefined ? image : ""} />
       <ImageCarousel
         images={imageArray}
         title={checkEnContext(

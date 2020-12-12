@@ -47,19 +47,16 @@ export default function ProgrammeTour() {
     }
   `);
 
-  const title =  data.strapiProgrammTour.seo_programm_tour.title ;
-  const title_en =  data.strapiProgrammTour.seo_programm_tour.title_en ;
-  const description_en =  data.strapiProgrammTour.seo_programm_tour.description_en ;
-  const description =  data.strapiProgrammTour.seo_programm_tour.description ;
-
-  console.log ("programme tour", title)
+  const seo = data.strapiProgrammTour.seo_programm_tour
+  const title =  LANG === 'en' ? seo.title_en : seo.title ;
+  const description =   LANG === 'en' ? seo.description_en : seo.description ;
+  const image =  LANG === 'en' ? seo.image_en : seo.image ;
 
   return (
     <>
-      {/* <SEO title={checkEnContext(title, title_en)} 
-        description={checkEnContext(description, description_en)}  
-        image={image !== undefined ? image : ""} /> */}
-
+      <SEO title={title !== undefined ? title : ""} 
+        description={description !== undefined ? description : ""} 
+        image={image !== undefined ? image : ""}/>
       <ProgrammePage list={data.allStrapiSpectacle.nodes} />
     </>
   );

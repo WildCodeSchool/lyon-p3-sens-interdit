@@ -3,14 +3,19 @@ import Thumbnail from "../components/globals/Thumbnail";
 import { graphql } from "gatsby";
 import photoTest from "./../assets/img/img-sens-interdit.jpg";
 import { sluggify } from "./../utils/Sluggify";
-
+import SEO from "../components/SEO/seo";
 import "./archiveSpectacle.css";
 import LanguageContext from "../components/context/LanguageContext";
 
 function ArchivedFestival({ data }) {
   const { checkEnContext } = useContext(LanguageContext);
+ 
+
   return (
     <>
+      <SEO title={checkEnContext(data.allStrapiFestival.nodes[0].title,data.allStrapiFestival.nodes[0].title_en)} 
+        description={checkEnContext(data.allStrapiFestival.nodes[0].content,data.allStrapiFestival.nodes[0].content_en)}  
+        image={data.allStrapiFestival.nodes[0].poster[0].url !== undefined ? data.allStrapiFestival.nodes[0].poster[0].url : ""} />
       <div className="global-margin archive-global-styling">
         <div className="image-generique-page">
           <img

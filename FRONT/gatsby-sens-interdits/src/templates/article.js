@@ -16,8 +16,7 @@ export default function ArticlePage({ data }) {
   const description_en = data.article.article_en;
 
   const image = data.article.picturetop[0];
-  console.log({image});
-  
+
 
   return (
 

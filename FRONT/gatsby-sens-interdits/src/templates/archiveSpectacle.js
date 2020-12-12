@@ -1,6 +1,6 @@
 import { graphql } from "gatsby";
 import React from "react";
-
+import SEO from "../components/SEO/seo";
 import ThumbnailOldArchive from "../components/globals/ThumbnailOldArchive";
 import TabSystemHOldArchive from "../components/globals/TabSystems/TabSystemHOldArchive";
 
@@ -41,6 +41,9 @@ export default function ArchiveSpectaclePage({ data }) {
 
   return (
     <div className="global-spectacle-page">
+      <SEO title={data.strapiArchivesOld.titre !== undefined ? data.strapiArchivesOld.titre : ""} 
+        description={data.strapiArchivesOld.presentation}  
+        image={image !== undefined ? image[0] : ""} />
       <ImageCarouselOldArchive
         title={data.strapiArchivesOld.titre}
         images={imageArray}
