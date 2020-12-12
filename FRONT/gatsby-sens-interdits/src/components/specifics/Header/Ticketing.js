@@ -3,7 +3,6 @@ import LanguageContext from "../../context/LanguageContext";
 
 export default function Ticketing() {
   const { language } = useContext(LanguageContext);
-  const url = "http://localhost:8000";
   return (
     <div className="billetterie-programme">
       <a
@@ -16,7 +15,7 @@ export default function Ticketing() {
         {language === "fr" ? "Billetterie" : "Tickets Infos"}
       </a>
       <a
-        href={url + "/programme"}
+        href={"/programme"}
         title="programme"
         className="highlight to-uppercase"
       >
