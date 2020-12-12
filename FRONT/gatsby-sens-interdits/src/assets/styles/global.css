@@ -1,4 +1,6 @@
-/* GENERAL - GRID LAYOUT GLOBAL */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rambla:wght@400;700&display=swap');
+
 @font-face {
   font-family: "gothamBold";
   src: url(fonts/gothamBold/gothamBold.eot) format("eot"),
@@ -8,9 +10,6 @@
   font-family: "gothamLight";
   src: url(fonts/GothamLightRegular.otf) format("otf")
 }
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rambla:wght@400;700&display=swap');
-
 * {
   box-sizing: border-box;
 }
