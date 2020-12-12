@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useState, useRef} from "react";
 import {graphql, Link, useStaticQuery} from 'gatsby';
 import ThumbnailOldArchive from "../../globals/ThumbnailOldArchive";
 import Filters from "./Filters";
@@ -13,8 +13,19 @@ export default function Archives() {
         locations: []
     };
     const [archives, setArchives] = useState([]);
-    const [filters, setFilters] = useState({});
-    const [filtersList, setFiltersList] = useState(defaultFiltersList);
+    const [filters, _setFilters] = useState({});
+    const [filtersList, _setFiltersList] = useState(defaultFiltersList);
+    const filtersListRef = useRef(filtersList);
+    const filtersRef = useRef(filters);
+
+    function setFiltersList(data) {
+        filtersListRef.current = data;
+        _setFiltersList(data);
+    }
+    function setFilters(data) {
+        filtersRef.current = data;
+        _setFilters(data);
+    }
 
     const lists = {
         countries: 'pays',
@@ -30,39 +41,32 @@ export default function Archives() {
     }
 
     function buildFiltersList(results) {
-        // TODO useRef to avoid setState async behavior to be able to filter into filterlists
-        let tmpFiltersList = (filters.length > 0) ? {...defaultFiltersList} : filtersList;
-        results.forEach(elem => {
-            for (let key in lists) {
-                let field = lists[key];
-                if ((filtersList[key] !== undefined && !filtersList[key].includes(elem[field]))
-                    && elem[field] !== null && elem[field] !== '') {
-
-                    if (tmpFiltersList[key] === undefined) {
-                        tmpFiltersList[key] = [];
-                    }
-
-                    tmpFiltersList[key].push(elem[field]);
+        let tmpFiltersList = defaultFiltersList;
+        results.forEach(archive => {
+            for (let i in lists) {
+                if (archive[lists[i]] !== null && !tmpFiltersList[i].includes(archive[lists[i]])) {
+                    tmpFiltersList[i].push(archive[lists[i]]);
                 }
             }
         });
         setFiltersList(tmpFiltersList);
-
     }
 
-    function buildFilters() {
+    function buildFilters(elems) {
         let uri = '';
-        for (let i in filters) {
-            let filter = filters[i];
-            if (filter !== '') {
-                uri += `&${listsSing[i]}=${filter}`
+        if (Object.keys(elems).length > 0) {
+            for (let i in elems) {
+                let elem = elems[i];
+                if (elem !== '') {
+                    uri += `&${listsSing[i]}=${elem}`
+                }
             }
         }
         return uri;
     }
 
     useEffect(() => {
-        let uri = buildFilters(filters);
+        let uri = buildFilters(filtersRef.current);
         fetch(process.env.GATSBY_API_URL + '/archives-olds?categorie=tournee' + uri)
             .then(headers => {
                 if (headers.status === 200) {
@@ -90,7 +94,7 @@ export default function Archives() {
                     <>Explore <span>the production's archives</span></>
                 }
             </h1>
-            <Filters language={language} filtersList={filtersList} filters={filters} setFilters={setFilters}/>
+            <Filters language={language} filtersList={filtersListRef.current} filters={filtersRef.current} setFilters={setFilters}/>
             <div className="archive-transmission-grid-wrapper">
                 {archives.length > 0 ?
                     archives.map(elem => (
