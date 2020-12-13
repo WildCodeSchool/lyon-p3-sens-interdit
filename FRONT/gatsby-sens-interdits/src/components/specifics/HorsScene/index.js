@@ -217,6 +217,9 @@ export default function HorsScenePage() {
             name={spectacle.title}
             id={spectacle.strapiId}
             team={spectacle.author ? spectacle.author : "inconnu"}
+            url={`/spectacle/${sluggify(spectacle.title)}_${
+              spectacle.strapiId
+            }`}
           />
         );
       });
