@@ -126,7 +126,7 @@ export default function webRadio() {
               target="_blank"
               rel="noreferrer"
             >
-              <div className="red-wrapper"></div>
+              <div className="red-wrapper" />
               <img
                 src={process.env.GATSBY_API_URL + podcast.image[0].url}
                 alt={podcast.title}
