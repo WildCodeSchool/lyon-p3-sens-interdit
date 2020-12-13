@@ -38,13 +38,21 @@
 p {
     text-align: justify;
 }
-
 /* ______responsive grid____*/
 @media (max-width: 1024px){
     .container-pictures {
         display: grid;
         grid-template-columns: repeat(3,200px);
     }
+}
+@media screen and (max-width: 960px) {
+    .display-tab-sticker:nth-child(6),
+    .display-tab-sticker:nth-child(7),
+    .display-tab-sticker:nth-child(8),
+    .display-tab-sticker:nth-child(5) {
+        margin-top: 0;
+    }
+
 }
 @media (max-width: 600px){
     .container-pictures {
