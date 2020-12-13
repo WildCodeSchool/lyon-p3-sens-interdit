@@ -25,10 +25,7 @@
   font-size: 30px;
 }
 
-
-
 @media screen and (max-width: 960px) {
-  /* FILTERTAB */
   .global-Filter-tab h2{
     font-size: 14px;
   }

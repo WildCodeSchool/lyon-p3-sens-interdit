@@ -23,6 +23,7 @@
 
 .picture-in-tabsystem {
     width: 140px;
+    transition: all .4s ease-in-out;
 }
 .picture-in-tabsystem:hover {
     -webkit-transform:scale(2); /* Safari et Chrome */
@@ -30,6 +31,7 @@
     -ms-transform:scale(2); /* Internet Explorer 9 */
     -o-transform:scale(2); /* Opera */
     transform:scale(2);
+    box-shadow: 0 0 4px -1px rgba(0,0,0,0.7)
 }
 
 /*____________responsive grid_______*/
