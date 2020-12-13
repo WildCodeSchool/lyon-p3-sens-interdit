@@ -164,15 +164,14 @@ export default function HorsScenePage() {
         return false;
       }
     });
-    console.log("list avant maj", list);
-    console.log("filteredList maj", filteredList);
+    
     setList(filteredList);
     
   };
 
   useEffect(() => {
     majState();
-    console.log("list après", list);
+    
   }, [spectacleQuery]);
 
   function dateFilter(date) {
