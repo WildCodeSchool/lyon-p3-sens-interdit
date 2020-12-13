@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import LanguageContext from "../../context/LanguageContext";
+
+import { FestivalContext } from "../../context/FestivalContext";
+import { Link } from "gatsby";
+
 import './index.css'
 
 export default function SitemapPage() {
+    const { checkEnContext } = useContext(LanguageContext);
+    const { currentFestivalStrapiId, currentFestivalTitle } = useContext(
+        FestivalContext
+    );
     return (
         <div>
             <div className='global-sitemap'>
@@ -9,36 +18,128 @@ export default function SitemapPage() {
                 <h1 className='to-uppercase'>Sitemap</h1>
                 <div className='sitemap-list'>
                     <ul>
-                        <li><a href='/' title="lien vers la page d'accueil"><h1>Accueil</h1></a></li>
-                        
+                        <Link to="/">
+                            <h1>{checkEnContext(
+                                "Accueil",
+                                "Home"
+                            )}</h1>
+                        </Link>
                     </ul>
                     <ul>
-                        <li><a href='/festival' title='lien vers la page festival'><h1>Festival</h1></a></li>
-                        <li><a href='/programme' title="lien vers le programme du festival">Programme</a></li>
-                        <li><a href='/hors-scene' title="lien vers la page hors-scene">Hors-scène</a></li>
-                        <li><a href='/ecole' title="lien vers la page ecole">Ecole</a></li>
-                        <li><a href="https://sensinterdits.mapado.com/" title="lien vers la billetterie">Billetterie</a></li>
-                        <li><a href='/infos' title="lien vers la page infos pratiques">Infos pratiques</a></li>
-                        <li><a href='/lieux' title="lien vers la page lieux">Lieux</a></li>
+                        <li><Link
+                            to={`/festival/${currentFestivalTitle}_${currentFestivalStrapiId}`}>
+                            <h1>{checkEnContext(
+                                "Festival",
+                                "Festival"
+                            )}</h1>
+                        </Link></li>
+                        <li><Link to='/programme'>{checkEnContext(
+                            "Programme",
+                            "Program"
+                        )}</Link></li>
+                        <li><Link to='/hors-scene'>{checkEnContext(
+                            "Hors-scène",
+                            "Off scene"
+                        )}</Link></li>
+                        <li><Link to='/ecole'>{checkEnContext(
+                            "Ecole",
+                            "Academic"
+                        )}</Link></li>
+                        <li><Link to="https://sensinterdits.mapado.com/">{checkEnContext(
+                            "Billetterie",
+                            "Ticket infos"
+                        )}</Link></li>
+                        <li><Link
+                            to={`/festival/${currentFestivalTitle}_${currentFestivalStrapiId}/infos`}>
+                            {checkEnContext(
+                                "Informations Pratiques",
+                                "Informations"
+                            )}
+                        </Link></li>
+                        <li><Link
+                            to={`/festival/${currentFestivalTitle}_${currentFestivalStrapiId}/lieux`}>
+                            {checkEnContext(
+                                "Lieux",
+                                "Places"
+                            )}
+                        </Link></li>
                     </ul>
                     <ul>
-                        <li><a href='/transmission'><h1>Ateliers-transmission</h1></a></li>
+                        <li>
+                            <Link to="/diffusion-production" ><h1>
+                                {checkEnContext(
+                                    "Diffusion-Production",
+                                    "Production"
+                                )}
+                            </h1>
+                            </Link>
+                        </li>
+                        <li><Link to='/ecole'>{checkEnContext(
+                            "Ecole",
+                            "Academic"
+                        )}</Link></li>
+                        <li><Link to='/programme-tour'>{checkEnContext(
+                            "Spectacles en tournée",
+                            "On tour"
+                        )}</Link></li>
+
+                    </ul>
+
+                    <ul>
+                        <li><Link to="/transmissions"><h1>
+                            {checkEnContext(
+                                "Ateliers-Transmission",
+                                "Transmission"
+                            )}
+                        </h1>
+
+                        </Link></li>
                         <li><h2>Avec les publics</h2></li>
-                        <li><a href='/webradio' title="lien vers la page webradio">Webradio</a></li>
-                        <li><a href='/parole' title="lien vers la page paroles-d'exil">Paroles d'exil</a></li>
-                        <li><a href='/scolaires' title="lien vers la page scolaires">Scolaires</a></li>
+                        <li><Link to='/webradio'>Webradio</Link></li>
+                        <li><Link to='/parole'>{checkEnContext(
+                            "Paroles d'exil",
+                            "Exile words"
+                        )}</Link></li>
+                        <li><Link to='/scolaires'>{checkEnContext(
+                            "Scolaires",
+                            "School"
+                        )}</Link></li>
                         <li><h2>Avec les professionnels</h2></li>
-                        <li><a href='/ecole' title="lien vers la page ecole">Ecole</a></li>
-                        <li><a href='/seminaires' title="lien vers la page séminaires">Séminaires</a></li>
+                        <li><Link to='/ecole'>{checkEnContext(
+                            "Ecole",
+                            "Academic"
+                        )}</Link></li>
+                        <li><Link to='/seminaires'>{checkEnContext(
+                            "Séminaire",
+                            "Seminar"
+                        )}</Link></li>
                     </ul>
                     <ul>
-                        <li><a href='/association'><h1>Association</h1></a></li>
+                        <li><Link to="/association"><h1>
+                            {checkEnContext(
+                                "Association",
+                                "Association"
+                            )}
+                        </h1>
+                        </Link></li>
                     </ul>
                     <ul>
-                        <li><a href='/actualites'><h1>Actualités</h1></a></li>
+                        <li><Link to="/actualites">
+                            <h1>{checkEnContext(
+                                "Actualités",
+                                "News"
+                            )}</h1>
+
+                        </Link></li>
                     </ul>
                     <ul>
-                        <li><a href='/Archives'><h1>Archives</h1></a></li>
+                        <li><Link to="/archives"><h1>
+                            {checkEnContext(
+                                "Archives",
+                                "Archives"
+                            )}
+                        </h1>
+                        </Link></li>
                     </ul>
                 </div>
             </div>
