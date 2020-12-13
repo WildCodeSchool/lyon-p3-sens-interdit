@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
 .content-spectacle-page {
   display: grid;
   grid-template-columns: 15% 60% 25%;
