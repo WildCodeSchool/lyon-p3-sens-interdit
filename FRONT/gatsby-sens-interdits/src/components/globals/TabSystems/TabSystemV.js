@@ -55,7 +55,6 @@ export default function TabSystemV({ tabContent, spectacleQuery }) {
     }
     tabSystemClick(e, setActiveTabContent, setActiveClass);
   }
-  console.log(tabContent);
 
   return (
     <div className="tab-moduleV">
