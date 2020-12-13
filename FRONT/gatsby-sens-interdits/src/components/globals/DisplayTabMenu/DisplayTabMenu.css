@@ -27,7 +27,7 @@
 }
 .display-tab-sticker:hover a > img {
   width: 135%;
-  filter: blur(2px) grayscale(1);;
+  filter: blur(2px) grayscale(1);
 }
 
 
@@ -104,9 +104,6 @@
   .content-homepage .display-tab-sticker:nth-child(3) .red-wrapper {
     display: none;
   }
-
-
-
 }
 
 
