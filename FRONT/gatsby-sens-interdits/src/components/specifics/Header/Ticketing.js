@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import LanguageContext from "../../context/LanguageContext";
+import {Link} from 'gatsby';
 
 export default function Ticketing() {
   const { language } = useContext(LanguageContext);

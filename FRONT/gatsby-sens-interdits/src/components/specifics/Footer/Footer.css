@@ -4,7 +4,7 @@ footer {
   background-color: black;
   display: flex;
   color: rgb(190, 190, 190);
-  padding: 10px;
+  padding: 20px 0;
 }
 
 .wrapper-footer {
@@ -12,12 +12,20 @@ footer {
   max-width: 1080px;
   margin: 0 auto;
   display: flex;
+
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1080px) {
+  .wrapper-footer {
+    padding: 20px 15px;
+  }
 }
 /* FOOTER COLUMN1 */
 .footer-column1 {
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  margin: 20px 0;
 }
 .footer-column1 .main-logo a img {
   width: 330px;
@@ -82,7 +90,7 @@ footer {
   background: #1b1b1b;
   padding: 10px;
   margin: 20px 0;
-  width: 650px;
+  width: 100%;
 }
 
 .newsletter-title :nth-child(1n) {
@@ -184,5 +192,9 @@ footer a.underlined:hover:before {
   }
   .footer-list-link ul {
     margin: 0 30px;
+  }
+
+  .footer-column1-socialnetwork {
+    margin-top: 0;
   }
 }
