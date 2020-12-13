@@ -89,7 +89,7 @@ export default function ProgrammePage(props) {
 
   //-----------------PROGRAM START
   const [list, setList] = useState("");
-  const fullList = [];
+  let fullList = [];
 
   props.list.map(spectacle => {
     if (spectacle.horaires[0]) {
