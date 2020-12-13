@@ -42,11 +42,10 @@ div.image-text .country {
   width: fit-content;
   height: fit-content;
   font-size: 18px;
-  margin-top:10px;
-  margin-left:20px;
-  padding: 1px 5px;
+  padding: 3px 7px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  margin-bottom: 10px;
 
 }
 
@@ -61,6 +60,15 @@ div.image-text .button {
   margin-bottom:0;
   width:fit-content;
   margin-top: 25px;
+  transition: all .2s ease-in-out;
+}
+
+
+div.image-text .button:hover {
+  border: 1px solid #000;
+  border-top-color: #E30613;
+  background: #000;
+  box-shadow: 0 5px 10px -4px rgba(0,0,0,0.7);
 }
 
 .display-none {
