@@ -1,6 +1,7 @@
 .spectacle-info {
   grid-area: spectacle-info;
   position: relative;
+  margin-left : 20px;
 }
 
 .spectacle-info-container {

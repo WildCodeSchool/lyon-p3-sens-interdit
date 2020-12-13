@@ -39,8 +39,8 @@ const SpectacleInfos = ({
               key={picto.id}
               src={process.env.GATSBY_API_URL + picto.url}
               alt="pic"
-              width="70"
-              height="70"
+              width="100"
+              height="100"
             />
           ))}
         </div>
