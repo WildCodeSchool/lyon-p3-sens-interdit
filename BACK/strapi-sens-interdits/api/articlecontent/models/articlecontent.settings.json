@@ -39,8 +39,8 @@
       "required": false
     },
     "typeofarticles": {
-      "via": "articlecontents",
       "collection": "typeofarticle",
+      "via": "articlecontents",
       "dominant": true
     },
     "title_en": {
@@ -48,6 +48,11 @@
     },
     "article_en": {
       "type": "richtext"
+    },
+    "carousel": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.carousel"
     }
   }
 }

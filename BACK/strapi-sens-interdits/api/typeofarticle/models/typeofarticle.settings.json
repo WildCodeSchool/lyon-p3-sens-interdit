@@ -15,8 +15,8 @@
       "type": "string"
     },
     "articlecontents": {
-      "collection": "articlecontent",
-      "via": "typeofarticles"
+      "via": "typeofarticles",
+      "collection": "articlecontent"
     },
     "category_en": {
       "type": "string"

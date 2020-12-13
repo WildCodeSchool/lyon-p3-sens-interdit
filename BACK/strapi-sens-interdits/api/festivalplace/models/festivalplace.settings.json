@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "festivalplaces",
   "info": {
-    "name": "festivalplace"
+    "name": "festivalplace",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -28,8 +29,16 @@
       "component": "menu.tab-element"
     },
     "festival": {
-      "via": "festivalplace",
-      "model": "festival"
+      "model": "festival",
+      "via": "festivalplace"
+    },
+    "description_en": {
+      "type": "richtext"
+    },
+    "tab_element_en": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.tab-element"
     }
   }
 }

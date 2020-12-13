@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "programm_tours",
+  "info": {
+    "name": "programm_tour"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "seo_programm_tour": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}

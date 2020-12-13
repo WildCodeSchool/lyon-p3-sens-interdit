@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_media_carousels",
+  "info": {
+    "name": "carousel",
+    "icon": "arrow-circle-up"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "credit": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "credit_en": {
+      "type": "string"
+    },
+    "redtitle": {
+      "type": "string"
+    }
+  }
+}

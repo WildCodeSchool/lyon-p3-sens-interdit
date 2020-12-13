@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "programmes",
+  "info": {
+    "name": "programme"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "seo_programme": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}

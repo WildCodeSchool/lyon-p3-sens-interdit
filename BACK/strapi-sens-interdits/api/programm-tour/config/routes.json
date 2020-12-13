@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/programm-tour",
+      "handler": "programm-tour.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/programm-tour",
+      "handler": "programm-tour.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/programm-tour",
+      "handler": "programm-tour.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -29,8 +29,16 @@
       "component": "menu.tab-element"
     },
     "festival": {
-      "via": "infopratique",
-      "model": "festival"
+      "model": "festival",
+      "via": "infopratique"
+    },
+    "description_en": {
+      "type": "richtext"
+    },
+    "tab_element_en": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.tab-element"
     }
   }
 }
