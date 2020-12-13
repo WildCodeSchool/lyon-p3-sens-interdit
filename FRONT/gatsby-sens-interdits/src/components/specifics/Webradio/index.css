@@ -34,6 +34,11 @@
 .pictures {
     width: 200px;
 }
+
+p {
+    text-align: justify;
+}
+
 /* ______responsive grid____*/
 @media (max-width: 1024px){
     .container-pictures {

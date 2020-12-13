@@ -7,11 +7,17 @@
   overflow: hidden;
 }
 .display-tab-sticker:nth-child(2),
-.display-tab-sticker:nth-child(4) {
+.display-tab-sticker:nth-child(4),
+.display-tab-sticker:nth-child(6),
+.display-tab-sticker:nth-child(8) {
   margin-right: 0;
 }
 .display-tab-sticker:nth-child(3),
-.display-tab-sticker:nth-child(4) {
+.display-tab-sticker:nth-child(4),
+.display-tab-sticker:nth-child(5),
+.display-tab-sticker:nth-child(6),
+.display-tab-sticker:nth-child(7),
+.display-tab-sticker:nth-child(8) {
   margin-top: 40px;
 }
 .display-tab-sticker a {
@@ -76,6 +82,10 @@
   .display-tab-sticker:nth-child(3),
   .display-tab-sticker:nth-child(4) {
     margin: 0;
+  }
+  .display-tab-sticker:nth-child(5),
+  .display-tab-sticker:nth-child(7) {
+    margin-right: 0;
   }
   .display-tab-sticker {
     position: relative;

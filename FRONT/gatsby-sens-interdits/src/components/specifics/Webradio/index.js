@@ -108,8 +108,6 @@ const image = LANG === 'en' ? seo.image[0].url_en : seo.image[0].url;
               <img
                 src={process.env.GATSBY_API_URL + podcast.image[0].url}
                 alt={podcast.title}
-                width="100%"
-                height="100%"
                 className="grayscale img-homepage"
               />
               <div className="display-tab-title">
