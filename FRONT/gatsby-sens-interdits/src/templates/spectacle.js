@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, {useContext, useEffect, useState, useRef } from "react";
 import { graphql } from "gatsby";
 import "./spectacle.css";
 import "../assets/styles/global.css";
@@ -7,6 +7,7 @@ import { sluggify } from "./../utils/Sluggify";
 
 import SpectacleInfos from "../components/specifics/Spectacle/SpectacleInfos.js";
 import TabSystemH from "../components/globals/TabSystems/TabSystemH";
+import TabSystemV from "../components/globals/TabSystems/TabSystemV";
 import Thumbnail from "../components/globals/Thumbnail";
 import SpectacleCalendar from "../components/globals/Calendar/SpectacleCalendar";
 import ImageCarousel from "../components/globals/Carousel/ImageCarousel";
@@ -20,6 +21,25 @@ dayjs.extend(localizedFormat);
 
 export default function SpectaclePage({ data }) {
   const { language, LANG, checkEnContext } = useContext(LanguageContext);
+  const [isMobile, _setIsMobile] = useState(false);
+  const isMobileRef = useRef(isMobile);
+  function setIsMobile(data) {
+    isMobileRef.current = data;
+    _setIsMobile(data);
+  }
+  function checkIsMobile() {
+    if (window.innerWidth < 960) {
+      setIsMobile(true);
+    }
+  }
+
+  useEffect(() => {
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    return () => {
+      window.removeEventListener('resize', checkIsMobile)
+    }
+  }, []);
 
   const spectacle = data.spectacle;
 
@@ -76,12 +96,19 @@ export default function SpectaclePage({ data }) {
         {spectacle["tab_element" + LANG] === 0 ? (
           ""
         ) : (
-          <TabSystemH
-            tabContent={checkEnContext(
-              spectacle.tab_element,
-              spectacle.tab_element_en
-            )}
-          />
+            <>
+            {isMobileRef.current ? <TabSystemV
+                tabContent={checkEnContext(
+                    spectacle.tab_element,
+                    spectacle.tab_element_en
+                )}
+            />: <TabSystemH
+                tabContent={checkEnContext(
+                    spectacle.tab_element,
+                    spectacle.tab_element_en
+                )}
+            />}
+          </>
         )}
         <div className="content">
           <div className="red-arrow-spectacle"></div>

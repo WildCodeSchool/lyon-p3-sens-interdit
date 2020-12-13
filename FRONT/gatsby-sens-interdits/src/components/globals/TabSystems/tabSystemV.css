@@ -100,3 +100,9 @@ div.tab-contentV.disabled-tab {
   flex-direction: row;
   flex-wrap: wrap;
 }
+
+@media screen and (max-width: 960px) {
+  .tab-moduleV {
+    padding: 0;
+  }
+}
