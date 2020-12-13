@@ -3,8 +3,8 @@ footer {
   grid-area: footer;
   background-color: black;
   display: flex;
-  height: 350px;
   color: rgb(190, 190, 190);
+  padding: 10px;
 }
 
 .wrapper-footer {
