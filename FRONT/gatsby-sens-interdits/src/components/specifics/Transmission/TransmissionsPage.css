@@ -6,7 +6,7 @@
 }
 
 .transmission-grid-layout .display-tab-sticker {
-  margin: 20px 0 20px 0;
+  margin: 20px auto;
   width: 80%;
   height: 240px;
 }
@@ -32,13 +32,18 @@
   font-size: 1.8em;
   font-weight: 1000;
   text-transform: uppercase;
+  text-align : center;
 }
+
 
 @media screen and (max-width: 960px) {
   /* TRANSMISSION */
   .transmission-grid-layout {
     display: flex;
     flex-direction: column;
+  }
+  .transmission-grid-layout .display-tab-sticker{
+    margin: auto;
   }
 }
 
