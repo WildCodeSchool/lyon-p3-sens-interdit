@@ -2,7 +2,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width : 70vw;
+  width : 100%;
 }
 
 .global-Filter-tab h2 {
