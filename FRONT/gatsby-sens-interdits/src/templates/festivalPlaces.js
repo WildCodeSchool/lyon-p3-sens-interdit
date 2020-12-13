@@ -14,7 +14,7 @@ export default function FestivalInfosPage({ data }) {
   return (
     <div>
       <GeneriquePage
-        image={festivalPlace.image[0].url}
+        image={festivalPlace.image !== undefined && festivalPlace.image[0].url}
         title="Lieux"
         description={checkEnContext(
           festivalPlace.description,
