@@ -88,6 +88,7 @@ export default function webRadio() {
   }, [isMobile]);
 
   useEffect(() => {
+    checkIsMobile();
     window.addEventListener('resize', checkIsMobile);
     return () => {
       window.removeEventListener('resize', checkIsMobile)
