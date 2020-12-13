@@ -105,22 +105,6 @@ header {
     position: relative;
 }
 
-.nav-bar li a:before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -3px;
-    left: 0;
-    background-color: #ed1c24;
-    visibility: hidden;
-    transition: all 0.3s ease-in-out;
-    margin: 0 5%;
-}
-.nav-bar li a:hover:before {
-    visibility: visible;
-    width: 90%;
-}
 
 .nav-bar :nth-last-child(1) {
     border-right: none;

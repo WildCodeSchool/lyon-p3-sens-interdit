@@ -40,15 +40,21 @@ footer {
 .footer-list-link ul {
   margin: 0;
   margin-left: 10px;
-  padding: 0 1em;
+  padding: 0;
   list-style: none;
+  padding-left: 7px;
+}
+.footer-list-link.footer-one ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .footer-list-link ul a {
   color: rgb(190, 190, 190);
 }
 
-.footer-list-link ul li:before {
+.footer-list-link ul li.arrow:before {
   content: "";
   border-color: transparent #e30613;
   border-style: solid;
@@ -121,6 +127,17 @@ footer {
   right : 0;
   z-index:3;
 
+}
+
+footer .footer-one li {
+  margin-bottom: 5px;
+}
+footer a.underlined:before {
+  height: 1px;
+  margin: 0;
+}
+footer a.underlined:hover:before {
+  width: 100%;
 }
 
 @media screen and (max-width: 960px) {

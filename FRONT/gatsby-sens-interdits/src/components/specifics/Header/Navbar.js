@@ -64,7 +64,7 @@ export default function Navbar(props) {
       <ul className="nav-bar">
         {strapiGlobalMenu.home.visible ? (
           <li>
-            <Link to="/">
+            <Link to="/"   className="underlined">
               {checkEnContext(
                 strapiGlobalMenu.home.title,
                 strapiGlobalMenu.home.title_en
@@ -76,7 +76,7 @@ export default function Navbar(props) {
           <li>
             <Link
               to={`/festival/${currentFestivalTitle}_${currentFestivalStrapiId}`}
-            >
+              className="underlined">
               {checkEnContext(
                 strapiGlobalMenu.festival.title,
                 strapiGlobalMenu.festival.title_en
@@ -86,7 +86,7 @@ export default function Navbar(props) {
         ) : null}
         {strapiGlobalMenu.production.visible ? (
           <li>
-            <Link to="/diffusion-production">
+            <Link to="/diffusion-production"  className="underlined">
               {checkEnContext(
                 strapiGlobalMenu.production.title,
                 strapiGlobalMenu.production.title_en
@@ -96,7 +96,7 @@ export default function Navbar(props) {
         ) : null}
         {strapiGlobalMenu.transmission.visible ? (
           <li>
-            <Link to="/transmissions">
+            <Link to="/transmissions"  className="underlined">
               {checkEnContext(
                 strapiGlobalMenu.transmission.title,
                 strapiGlobalMenu.transmission.title_en
@@ -106,7 +106,7 @@ export default function Navbar(props) {
         ) : null}
         {strapiGlobalMenu.association.visible ? (
           <li>
-            <Link to="/association">
+            <Link to="/association"  className="underlined">
               {checkEnContext(
                 strapiGlobalMenu.association.title,
                 strapiGlobalMenu.association.title_en
@@ -116,7 +116,7 @@ export default function Navbar(props) {
         ) : null}
         {strapiGlobalMenu.news.visible ? (
           <li>
-            <Link to="/actualites">
+            <Link to="/actualites"  className="underlined">
               {checkEnContext(
                 strapiGlobalMenu.news.title,
                 strapiGlobalMenu.news.title_en
@@ -126,7 +126,7 @@ export default function Navbar(props) {
         ) : null}
         {strapiGlobalMenu.archives.visible ? (
           <li>
-            <Link to="/archives">
+            <Link to="/archives"  className="underlined">
               {checkEnContext(
                 strapiGlobalMenu.archives.title,
                 strapiGlobalMenu.archives.title_en
