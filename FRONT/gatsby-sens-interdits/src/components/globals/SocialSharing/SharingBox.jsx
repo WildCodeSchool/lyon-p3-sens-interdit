@@ -6,10 +6,13 @@ import "./sharingbox.css"
 
 function SharingBox() {
 
-    return (<div className="sharingbox">
-        <Twitter />
-        <Facebook />
-        <Share />
-    </div>)
+    return (
+        <div id="sharingbox">
+            <Twitter/>
+            <Facebook/>
+            <Share/>
+        </div>
+    )
 }
+
 export default SharingBox;

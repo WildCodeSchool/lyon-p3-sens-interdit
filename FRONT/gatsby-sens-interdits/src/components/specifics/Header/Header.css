@@ -226,7 +226,9 @@ p {
 #hamburger {
     display: none;
 }
-
+.carousel.carousel-slider {
+    z-index: 3;
+}
 @media screen and (max-width: 960px) {
     header {
         height: auto;

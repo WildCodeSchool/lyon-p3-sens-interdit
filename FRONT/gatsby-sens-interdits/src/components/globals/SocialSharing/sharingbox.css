@@ -1,21 +1,22 @@
-.sharingbox {
-  position: fixed;
-  top: 50%;
-  right: 0;
-  display: flex;
-  flex-flow: column nowrap;
-  border: solid 1px black;
-  border-radius: 7px 0 0 7px;
-  padding: 5px;
-  width: 22px;
-  justify-content: space-around;
-  align-items: center;
-  background-color: whitesmoke;
-  z-index:12;
+#sharingbox {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    width: 40px;
+    margin-top: -50px;
+    background: #fff;
+    display: flex;
+    z-index: 2;
+    flex-direction: column;
+    padding: 10px 9px;
+    border-radius: 10px 0 0 10px;
+    box-shadow: 0 0 10px -4px rgba(0,0,0,0.4);
+}
+#sharingbox > div {
+    width: 100%;
+    margin-bottom: 5px;
 }
 
-.sharingbox img {
-  width: 22px;
-  height: 22px;
-  padding: 5px;
+#sharingbox > div:last-child {
+    margin-bottom: 0;
 }
