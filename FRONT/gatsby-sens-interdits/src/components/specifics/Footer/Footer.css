@@ -111,6 +111,11 @@ footer {
   height: 37px;
   width: 15%;
   color: white;
+  cursor: pointer;
+}
+
+.newsletter-container .submit-newsletter:hover {
+  background: #E30613;
 }
 
 /* message newsletter subscribe */
