@@ -65,6 +65,8 @@ div.tab-contentV.disabled-tab {
   color : #E30613;
   font-size : 20px;
   margin : 20px;
+  width: 30vw;
+  text-align: start;
 }
 
 .display-img-tab-element .pictures-in-tab-system{
@@ -74,6 +76,7 @@ div.tab-contentV.disabled-tab {
 
 .display-img-tab-element .pictures-in-tab-system .picture-tabsyst-container{
   display: flex;
+  flex-wrap: wrap;
 }
 
 

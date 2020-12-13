@@ -29,14 +29,16 @@ function ArchivedFestival({ data }) {
       />
       <div className="global-margin archive-global-styling">
         <div className="image-generique-page">
-            {data.allStrapiFestival.nodes[0].poster[0] !== undefined && data.allStrapiFestival.nodes[0].poster[0] ? <img
-                src={
-                    process.env.GATSBY_API_URL +
-                    data.allStrapiFestival.nodes[0].poster[0].url
-                }
-                alt={data.allStrapiFestival.nodes[0].title}
-            /> : null}
-
+          {data.allStrapiFestival.nodes[0].poster[0] !== undefined &&
+          data.allStrapiFestival.nodes[0].poster[0] ? (
+            <img
+              src={
+                process.env.GATSBY_API_URL +
+                data.allStrapiFestival.nodes[0].poster[0].url
+              }
+              alt={data.allStrapiFestival.nodes[0].title}
+            />
+          ) : null}
         </div>
         <h1 className="to-uppercase">
           Edition {data.allStrapiFestival.nodes[0].year} -{" "}
@@ -48,7 +50,7 @@ function ArchivedFestival({ data }) {
           </span>
         </h1>
 
-        <div>
+        <div className="text-justify">
           {checkEnContext(
             data.allStrapiFestival.nodes[0].content,
             data.allStrapiFestival.nodes[0].content_en
