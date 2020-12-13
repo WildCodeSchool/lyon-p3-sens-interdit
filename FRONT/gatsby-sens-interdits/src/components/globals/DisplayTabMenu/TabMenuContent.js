@@ -11,7 +11,6 @@ export default function tabMenuContent({ props }) {
             src={process.env.GATSBY_API_URL + props.image}
             alt={ props.title.title ? props.title.title : props.title }
             width="100%"
-            height="100%"
             className="grayscale img-homepage"
         />
         <div className="display-tab-title">

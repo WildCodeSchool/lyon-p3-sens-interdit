@@ -1,14 +1,34 @@
 .display-tab-sticker {
   position: relative;
-  width: 450px;
-  height: 300px;
-  margin: 40px;
+  width: calc(50% - 20px);
+  height: 285px;
+  margin-right: 40px;
   background-color: grey;
+  overflow: hidden;
+}
+.display-tab-sticker:nth-child(2),
+.display-tab-sticker:nth-child(4) {
+  margin-right: 0;
+}
+.display-tab-sticker:nth-child(3),
+.display-tab-sticker:nth-child(4) {
+  margin-top: 40px;
+}
+.display-tab-sticker a {
+  display: flex;
+  width: 100%;
+  height: inherit;
+  justify-content: center;
+}
+.display-tab-sticker a > img {
+  width: 100%;
+  align-self: center;
+  transition: all .4s ease-in-out;
+}
+.display-tab-sticker:hover a > img {
+  width: 145%;
 }
 
-.display-tab-sticker .img-homepage {
-  object-fit: cover;
-}
 
 .display-tab-sticker .display-tab-title {
   position: absolute;
@@ -90,14 +110,47 @@
 
 @media screen and (max-width: 960px) {
   /* DISPLAYTABMENU */
+
+  .display-tab-sticker:nth-child(1),
+  .display-tab-sticker:nth-child(2),
+  .display-tab-sticker:nth-child(3),
+  .display-tab-sticker:nth-child(4) {
+    margin: 0;
+  }
   .display-tab-sticker {
     position: relative;
-    width: 250px;
-    height: 150px;
-    margin: 10px;
-    background-color: grey;
+    width: 100%;
+    margin-bottom: 25px !important;
   }
   .display-tab-sticker .display-tab-title h2 {
     font-size: 20px;
+  }
+
+  .display-tab-sticker .img-homepage {
+    object-fit: cover;
+  }
+}
+
+
+@media screen and (max-width: 680px) {
+
+  .display-tab-sticker {
+    height: 250px;
+  }
+}
+
+
+@media screen and (max-width: 490px) {
+
+  .display-tab-sticker {
+    height: 220px;
+  }
+}
+
+
+@media screen and (max-width: 400px) {
+
+  .display-tab-sticker {
+    height: 180px;
   }
 }
