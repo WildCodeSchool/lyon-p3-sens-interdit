@@ -51,6 +51,7 @@ header {
     margin-right: 5px;
     color: #e30613;
     margin-top: 3px;
+    width: 2px;
 }
 
 .fr-en p {
@@ -66,12 +67,20 @@ header {
 .highlight {
     color: #000000;
     background: white;
-    border-top: solid #e30613 4px;
-    border-left: solid #e30613 1px;
-    border-right: solid #e30613 1px;
+    border-top: solid #e30613 2px;
     border-radius: 0 0 5px 5px;
     font-size: 10px;
     padding: 3px;
+    transition: all .2s ease-in-out;
+}
+
+.highlight:hover {
+    background: #000;
+    color: #fff;
+}
+.highlight:hover a {
+    color: #fff;
+
 }
 
 .newsletter-header a {
@@ -93,6 +102,24 @@ header {
 
 .nav-bar li a {
     color: white;
+    position: relative;
+}
+
+.nav-bar li a:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: #ed1c24;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    margin: 0 5%;
+}
+.nav-bar li a:hover:before {
+    visibility: visible;
+    width: 90%;
 }
 
 .nav-bar :nth-last-child(1) {
@@ -188,19 +215,30 @@ p {
 }
 
 .social-network a {
-    margin-left: 5px;
+    margin-left: 10px;
     height: 30px;
+}
+.social-network a:hover img {
+    filter: invert(0%);
+}
+.social-network li:first-child a {
+    margin-left: 0;
 }
 
 .header-row2 .social-network {
     justify-content: flex-end;
-    margin-right: 30px;
 }
 
 .search-magnifier {
     cursor: pointer;
 }
-
+.search-magnifier img {
+    filter: invert(50%);
+    transition: all .2s ease-in-out;
+}
+.search-magnifier:hover img {
+    filter: invert(100%);
+}
 #hamburger {
     display: none;
 }
