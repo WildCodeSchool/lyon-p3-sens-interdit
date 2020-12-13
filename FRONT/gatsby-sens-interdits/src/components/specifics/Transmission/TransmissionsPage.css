@@ -5,10 +5,10 @@
   grid-template-areas: "transmission-public transmission-pro";
 }
 
-.transmission-grid-layout div div.display-tab-sticker {
+.transmission-grid-layout .display-tab-sticker {
   margin: 20px 0 20px 0;
-  width: 250px;
-  height: 250px;
+  width: 80%;
+  height: 240px;
 }
 
 .transmission-grid-layout span,
@@ -39,5 +39,18 @@
   .transmission-grid-layout {
     display: flex;
     flex-direction: column;
+  }
+}
+
+
+@media screen and (max-width: 680px) {
+  .transmission-grid-layout .display-tab-sticker {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .transmission-grid-layout .display-tab-sticker {
+    height: 140px;
   }
 }

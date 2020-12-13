@@ -66,8 +66,8 @@ export default function DiffusionPage() {
 
   return (
     <>
-    <SEO title={title !== undefined ? title : checkEnContext(strapiDiffusionProduction.title, strapiDiffusionProduction.title_en)} 
-      description={description !== undefined ? description : checkEnContext(strapiDiffusionProduction.description,strapiDiffusionProduction.description_en)}  
+    <SEO title={title !== undefined ? title : checkEnContext(strapiDiffusionProduction.title, strapiDiffusionProduction.title_en)}
+      description={description !== undefined ? description : checkEnContext(strapiDiffusionProduction.description,strapiDiffusionProduction.description_en)}
       image={image !== undefined ? image : ""} />
     <div className="global-diffusion">
       <ImageCarousel images={imageArray} />
@@ -87,7 +87,7 @@ export default function DiffusionPage() {
             )}
           </p>
         </div>
-        <nav id="diffusion-menu">
+        <div id="diffusion-menu">
           {strapiDiffusionProduction.squaremenu.map(elem => (
             <DisplayTabMenu
               key={elem.id}
@@ -96,7 +96,7 @@ export default function DiffusionPage() {
               image={elem.image[0].url}
             />
           ))}
-        </nav>
+        </div>
       </div>
     </div>
     </>

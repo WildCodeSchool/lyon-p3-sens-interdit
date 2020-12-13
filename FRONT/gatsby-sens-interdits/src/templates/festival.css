@@ -1,4 +1,6 @@
-
+#festival-content {
+  margin-bottom: 40px;
+}
 /*calendrier*/
 #festival-calendar {
   max-width: 1080px;
