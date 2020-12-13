@@ -84,6 +84,10 @@ export default function Archives() {
             })
     }, [filters])
 
+    useEffect(() => {
+        setFilters([]);
+    }, [])
+
 
     return (
         <div id="archives-production">
