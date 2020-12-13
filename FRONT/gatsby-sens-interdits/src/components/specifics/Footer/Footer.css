@@ -192,9 +192,13 @@ footer a.underlined:hover:before {
   .footer-one {
     margin-top: auto;
     margin-bottom: 15px;
+    padding: 15px;
   }
   .footer-list-link ul {
     margin: 0 30px;
+  }
+  .footer-list-link ul li {
+    margin-bottom: 5px;
   }
 
   .footer-column1-socialnetwork {
