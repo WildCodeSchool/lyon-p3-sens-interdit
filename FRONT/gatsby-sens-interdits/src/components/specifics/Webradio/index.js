@@ -95,7 +95,7 @@ export default function webRadio() {
     }
   }, []);
   return (
-    <>
+    <div id="page-webradio">
     <SEO
       title={title !== undefined ? title : strapiWebradio["title" + LANG]}
       description={description !== undefined ? description :strapiWebradio["description" + LANG] }
@@ -165,6 +165,6 @@ export default function webRadio() {
         ))}
       </div>
     </div>
-  </>
+  </div>
   );
 }

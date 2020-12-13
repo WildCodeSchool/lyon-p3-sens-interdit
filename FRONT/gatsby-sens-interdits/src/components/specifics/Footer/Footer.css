@@ -168,6 +168,9 @@ footer a.underlined:hover:before {
   .wrapper-footer {
     flex-direction: column;
   }
+  .footer-column1-socialnetwork p {
+    text-align: center;
+  }
   .footer-column1 .main-logo a img {
     display: none;
   }
