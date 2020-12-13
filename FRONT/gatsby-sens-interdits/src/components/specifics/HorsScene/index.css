@@ -38,7 +38,7 @@
         margin-right: auto;
     }
     #hors-scene-pres div {
-        width: 400px;
+        width: 100%;
     }
     #hors-scene-pres div:first-child {
         margin-left: auto;

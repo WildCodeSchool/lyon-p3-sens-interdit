@@ -14,13 +14,13 @@ export default function Ticketing() {
       >
         {language === "fr" ? "Billetterie" : "Tickets Infos"}
       </a>
-      <a
-        href={"/programme"}
+      <Link
+        to={"/programme"}
         title="programme"
         className="highlight to-uppercase"
       >
         {language === "fr" ? "Programme" : "Program"}
-      </a>
+      </Link>
     </div>
   );
 }
