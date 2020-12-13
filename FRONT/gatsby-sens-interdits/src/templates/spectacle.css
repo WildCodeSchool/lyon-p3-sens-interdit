@@ -4,7 +4,7 @@
 }
 
 .content-spectacle-page {
-  width: 1280px;
+  width: 1080px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 15% 60% 25%;
@@ -66,6 +66,7 @@ div.red-arrow-spectacle {
 
 .content-spectacle-page .tab-module {
   margin-top : 50px;
+  margin-right : 20px;
 }
 
 /* RESPONSIVE */
