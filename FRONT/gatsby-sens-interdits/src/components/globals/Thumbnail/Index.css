@@ -53,6 +53,7 @@
   border-radius: 0 0 7px 0;
   border: solid grey 1px;
   width: max-content;
+  border-top: 0;
 }
 
 .pictoPlus {
@@ -75,6 +76,14 @@
   font-size: 18px;
   font-weight: bold;
 }
-.hidden {
-  display: none;
+
+.display-mini-tab {
+    justify-content: space-between !important;
+}
+@media screen and (max-width: 960px) {
+  .display-mini-tab {
+    width: 100% !important;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+  }
 }
