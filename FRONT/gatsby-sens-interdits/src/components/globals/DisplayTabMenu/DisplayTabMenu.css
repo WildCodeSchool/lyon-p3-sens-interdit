@@ -26,7 +26,8 @@
   transition: all .4s ease-in-out;
 }
 .display-tab-sticker:hover a > img {
-  width: 145%;
+  width: 135%;
+  filter: blur(2px) grayscale(1);;
 }
 
 

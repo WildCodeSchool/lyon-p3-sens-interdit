@@ -43,12 +43,12 @@ export default function FestivalPage() {
           <h3>{allStrapiFestival.nodes[0].title}</h3>
           <p>{allStrapiFestival.nodes[0].content}</p>
         </div>
-        <nav id="festival-menu">
+        <div id="festival-menu">
           {allStrapiFestival.nodes[0].squaremenu.map(elem =>
             <DisplayTabMenu key={elem.id} title={elem.title} url={elem.url} image={elem.image[0].url} />
           )
           }
-        </nav>
+        </div>
       </div>
     </div>
 

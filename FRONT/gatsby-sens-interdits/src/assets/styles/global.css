@@ -105,7 +105,15 @@ div.overlay {
   max-width: 1080px;
   height: auto;
   margin: 0 auto;
+  padding: 40px 0;
 }
+
+@media screen and (max-width: 960px) {
+  .container {
+    padding: 25px 20px;
+  }
+}
+
 .red-arrow {
   position: relative;
   top: 0;

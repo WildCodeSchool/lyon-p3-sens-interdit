@@ -33,8 +33,8 @@ export default function FestivalPage({ data }) {
   return (
 
     <div className="global-festival">
-      <SEO title={checkEnContext(title, title_en)} 
-        description={checkEnContext(description, description_en)}  
+      <SEO title={checkEnContext(title, title_en)}
+        description={checkEnContext(description, description_en)}
         image={image !== undefined ? image : ""} />
       <ImageCarousel images={imageArray} />
       <div id="festival-content" className="container">
@@ -45,7 +45,7 @@ export default function FestivalPage({ data }) {
           </h2>
           <p>{checkEnContext(festival.content, festival.content_en)}</p>
         </div>
-        <nav id="festival-menu">
+        <div id="festival-menu">
           {festival.program.visible ? (
             <DisplayTabMenu
               title={checkEnContext(festival.program, festival.program_en)}
@@ -105,7 +105,7 @@ export default function FestivalPage({ data }) {
               image={festival.place.image[0].url}
             />
           ) : null}
-        </nav>
+        </div>
       </div>
     </div>
   );
