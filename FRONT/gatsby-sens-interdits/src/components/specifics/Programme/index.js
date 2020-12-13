@@ -89,7 +89,7 @@ export default function ProgrammePage(props) {
 
   //-----------------PROGRAM START
   const [list, setList] = useState("");
-  const fullList = [];
+  let fullList = [];
 
   props.list.map(spectacle => {
     if (spectacle.horaires[0]) {
@@ -168,9 +168,11 @@ export default function ProgrammePage(props) {
       );
     } else {
       return list.map(spectacle => {
+        const rng =
+          Math.floor(Math.random() * 8) * Math.floor(Math.random() * 50);
         return (
           <Thumbnail
-            key={spectacle.title + spectacle.day}
+            key={spectacle.title + spectacle.day + rng}
             affiche={
               spectacle.thumbnail
                 ? spectacle.thumbnail.internal.description.split('"')[1]

@@ -20,7 +20,7 @@ dayjs.extend(localizedFormat);
 export default function HorsScenePage() {
   const [random, setRandom] = useState(0);
 
-  const { language, checkEnContext , LANG} = useContext(LanguageContext);
+  const { language, checkEnContext, LANG } = useContext(LanguageContext);
 
   const strapiHorsSceneQuery = useStaticQuery(graphql`
     query strapiHorsSceneQuery {
@@ -107,9 +107,9 @@ export default function HorsScenePage() {
   const spectacleQuery = strapiHorsSceneQuery.allStrapiSpectacle.nodes;
 
   let seo = horsScenePageQuery.seo_horscenepage;
-  const title = LANG === 'en' ?  seo.title_en : seo.title;
-  const description = LANG === 'en' ? seo.description_en: seo.description;
-  const image = LANG === 'en' ? seo.image[0].url_en : seo.image[0].url;
+  const title = LANG === "en" ? seo.title_en : seo.title;
+  const description = LANG === "en" ? seo.description_en : seo.description;
+  const image = LANG === "en" ? seo.image[0].url_en : seo.image[0].url;
 
   /*CAROUSEL*/
   const imageArray =
@@ -122,12 +122,11 @@ export default function HorsScenePage() {
   const redSquareArray =
     strapiHorsSceneQuery.allStrapiSpectacle.nodes[0].carousel !== null
       ? strapiHorsSceneQuery.allStrapiSpectacle.nodes.filter(
-        spec =>
-          spec.type_of_events.length !== 0 &&
-          spec.type_of_events.category !== "Spectacles"
-      )
+          spec =>
+            spec.type_of_events.length !== 0 &&
+            spec.type_of_events.category !== "Spectacles"
+        )
       : false;
-
 
   useEffect(() => {
     setRandom(Math.floor(Math.random() * Math.floor(redSquareArray.length)));
@@ -135,7 +134,7 @@ export default function HorsScenePage() {
 
   const [list, setList] = useState("");
 
-  const fullList = [];
+  let fullList = [];
 
   spectacleQuery.map(spectacle => {
     if (spectacle.horaires[0]) {
@@ -165,11 +164,14 @@ export default function HorsScenePage() {
         return false;
       }
     });
+    
     setList(filteredList);
+    
   };
 
   useEffect(() => {
     majState();
+    
   }, [spectacleQuery]);
 
   function dateFilter(date) {
@@ -180,8 +182,9 @@ export default function HorsScenePage() {
         return false;
       }
     });
-
+    
     setList(filteredList);
+    
   }
 
   const affichageList = () => {
@@ -195,9 +198,10 @@ export default function HorsScenePage() {
       );
     } else {
       return list.map(spectacle => {
+        const rng =  Math.floor(Math.random() * 8) * Math.floor(Math.random() * 50)
         return (
           <Thumbnail
-            key={spectacle.title + spectacle.day}
+            key={spectacle.title + spectacle.day + rng}
             affiche={
               spectacle.thumbnail
                 ? spectacle.thumbnail.internal.description.split('"')[1]
@@ -209,7 +213,7 @@ export default function HorsScenePage() {
                 : "inconnue"
             }
             country={spectacle.country ? spectacle.country : "inconnu"}
-            name={(spectacle.title)}
+            name={spectacle.title}
             id={spectacle.strapiId}
             team={spectacle.author ? spectacle.author : "inconnu"}
           />
@@ -220,9 +224,18 @@ export default function HorsScenePage() {
 
   return (
     <div>
-      <SEO title={title !== undefined ? title : checkEnContext(horsScenePageQuery.title,horsScenePageQuery.title_en)}
+      <SEO
+        title={
+          title !== undefined
+            ? title
+            : checkEnContext(
+                horsScenePageQuery.title,
+                horsScenePageQuery.title_en
+              )
+        }
         description={description !== undefined ? description : ""}
-        image={image !== undefined ? image : ""} />
+        image={image !== undefined ? image : ""}
+      />
       <ImageCarousel
         images={imageArray}
         title={checkEnContext(
