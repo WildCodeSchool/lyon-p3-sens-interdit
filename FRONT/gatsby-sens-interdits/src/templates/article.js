@@ -18,27 +18,23 @@ export default function ArticlePage({ data }) {
   const description_en = data.article.article_en;
   const image = data.article.picturetop[0];
   const carousel = data.article.carousel;
-  console.log (carousel);
   const imageArray =
     carousel!== undefined
       ? carousel.map(image => image.image)
       : false;
 
-
-
   return (
-
     <div id="articles-page">
       <SEO title={checkEnContext(title, title_en)}
         description={checkEnContext(description, description_en)}
         image={image !== undefined ? image.url : ""} />
-      <ImageCarousel 
+      <ImageCarousel
         title={checkEnContext(title, title_en)}
         images={imageArray}
         displayed={true}
       />
       <div className="container">
-          <div className="red-arrow"></div>
+          <div className="red-arrow" />
           <div>
             <Article
               article={data.article}
