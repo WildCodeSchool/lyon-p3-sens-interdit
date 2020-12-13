@@ -11,6 +11,7 @@
   justify-content: space-around;
   align-items: center;
   background-color: whitesmoke;
+  z-index:12;
 }
 
 .sharingbox img {
