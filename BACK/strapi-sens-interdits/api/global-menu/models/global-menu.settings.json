@@ -1,0 +1,56 @@
+{
+  "kind": "singleType",
+  "collectionName": "global_menus",
+  "info": {
+    "name": "global_menu",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "global_menu_link": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.global-menu-link",
+      "max": 8
+    },
+    "home": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menulink"
+    },
+    "festival": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menulink"
+    },
+    "production": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menulink"
+    },
+    "transmission": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menulink"
+    },
+    "association": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menulink"
+    },
+    "news": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menulink"
+    },
+    "archives": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menulink"
+    }
+  }
+}

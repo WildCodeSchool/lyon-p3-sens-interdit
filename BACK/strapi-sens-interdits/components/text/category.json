@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_text_categories",
+  "info": {
+    "name": "category",
+    "icon": "align-center",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "info": {
+      "type": "string"
+    },
+    "bookingUrl": {
+      "type": "string"
+    }
+  }
+}

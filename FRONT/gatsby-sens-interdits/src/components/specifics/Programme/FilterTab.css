@@ -1,9 +1,8 @@
 .global-Filter-tab {
-  width: 1080px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin: auto;
+  width : 100%;
 }
 
 .global-Filter-tab h2 {
@@ -15,5 +14,22 @@
 .global-Filter-tab p {
   margin-right: 10px;
   padding-right: 10px;
-  border-right: solid #E30613 1px;
+  border-right: solid #e30613 1px;
+  cursor: pointer;
+}
+.global-Filter-tab a:last-child p {
+  border-right: none;
+}
+
+.reset-filter-programme {
+  font-size: 30px;
+}
+
+@media screen and (max-width: 960px) {
+  .global-Filter-tab h2{
+    font-size: 14px;
+  }
+  .global-Filter-tab p {
+    font-size: 12px;
+  }
 }

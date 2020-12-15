@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useContext } from "react";
+import LanguageContext from "../../context/LanguageContext";
+import {Link} from 'gatsby';
 
 export default function Ticketing() {
+  const { language } = useContext(LanguageContext);
   return (
     <div className="billetterie-programme">
-      <a href="https://www.sensinterdits.org" title="billetterie" className="highlight to-uppercase">Billetterie</a>
-      <a href="https://www.sensinterdits.org" title="programme" className="highlight to-uppercase">Programme</a>
+      <a
+        href="https://sensinterdits.mapado.com/"
+        title="billetterie"
+        className="highlight to-uppercase"
+        target="_blank"
+        rel="noreferrer"
+      >
+        {language === "fr" ? "Billetterie" : "Tickets Infos"}
+      </a>
+      <Link
+        to={"/programme"}
+        title="programme"
+        className="highlight to-uppercase"
+      >
+        {language === "fr" ? "Programme" : "Program"}
+      </Link>
     </div>
-  )
+  );
 }

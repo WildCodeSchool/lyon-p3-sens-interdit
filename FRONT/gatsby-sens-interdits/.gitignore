@@ -1,3 +1,5 @@
+
+src/pages/pablotest.js
 # Logs
 logs
 *.log
@@ -57,7 +59,7 @@ typings/
 # gatsby files
 .cache/
 public
-
+static/uploads
 # Mac files
 .DS_Store
 
@@ -67,3 +69,7 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# history
+.history
+*/.history 

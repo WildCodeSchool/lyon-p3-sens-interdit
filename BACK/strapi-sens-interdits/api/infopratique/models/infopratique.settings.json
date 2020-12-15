@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "infopratiques",
+  "info": {
+    "name": "infopratique",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "tab_element": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.tab-element"
+    },
+    "festival": {
+      "via": "infopratique",
+      "model": "festival"
+    }
+  }
+}

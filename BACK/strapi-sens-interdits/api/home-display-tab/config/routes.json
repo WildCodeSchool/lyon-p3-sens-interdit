@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/home-display-tab",
+      "handler": "home-display-tab.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/home-display-tab",
+      "handler": "home-display-tab.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/home-display-tab",
+      "handler": "home-display-tab.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

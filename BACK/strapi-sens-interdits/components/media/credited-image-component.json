@@ -8,7 +8,7 @@
   "options": {},
   "attributes": {
     "image": {
-      "model": "file",
+      "collection": "file",
       "via": "related",
       "allowedTypes": [
         "images"
@@ -17,6 +17,12 @@
       "required": true
     },
     "credit": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "credit_en": {
       "type": "string"
     }
   }

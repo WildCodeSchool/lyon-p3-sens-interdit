@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_media_partners_logos",
+  "info": {
+    "name": "partners_logo",
+    "icon": "address-book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "component",
+      "repeatable": true,
+      "component": "media.logo"
+    },
+    "title_en": {
+      "type": "string"
+    }
+  }
+}

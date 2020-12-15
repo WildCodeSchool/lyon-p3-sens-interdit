@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/hors-scene-page",
+      "handler": "hors-scene-page.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/hors-scene-page",
+      "handler": "hors-scene-page.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/hors-scene-page",
+      "handler": "hors-scene-page.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

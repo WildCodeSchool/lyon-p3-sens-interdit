@@ -1,0 +1,92 @@
+{
+  "kind": "collectionType",
+  "collectionName": "archives_olds",
+  "info": {
+    "name": "archives_old",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "archive": {
+      "type": "string"
+    },
+    "categorie": {
+      "type": "string"
+    },
+    "pays": {
+      "type": "string"
+    },
+    "titre": {
+      "type": "string"
+    },
+    "credits_1": {
+      "type": "richtext"
+    },
+    "credits_2": {
+      "type": "richtext"
+    },
+    "duree": {
+      "type": "string"
+    },
+    "lieu": {
+      "type": "text"
+    },
+    "a_noter": {
+      "type": "richtext"
+    },
+    "annee": {
+      "type": "string"
+    },
+    "photo_1": {
+      "type": "string"
+    },
+    "photo_2": {
+      "type": "string"
+    },
+    "photo_3": {
+      "type": "string"
+    },
+    "photo_4": {
+      "type": "string"
+    },
+    "photo_5": {
+      "type": "string"
+    },
+    "photo_6": {
+      "type": "string"
+    },
+    "photo_7": {
+      "type": "string"
+    },
+    "photo_8": {
+      "type": "string"
+    },
+    "photo_9": {
+      "type": "string"
+    },
+    "photo_10": {
+      "type": "string"
+    },
+    "photo_11": {
+      "type": "string"
+    },
+    "photo_12": {
+      "type": "string"
+    },
+    "tableElementArchiveOld": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.tab-element"
+    },
+    "bookinglink": {
+      "type": "string"
+    },
+    "url1": {
+      "type": "string"
+    }
+  }
+}

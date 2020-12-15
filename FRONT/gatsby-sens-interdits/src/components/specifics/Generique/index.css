@@ -1,0 +1,11 @@
+.container .image-generique-page img {
+  object-fit: scale-down;
+  height: 400px;
+  width: 1080px;
+  margin-top: 50px;
+}
+@media screen and (max-width: 960px) {
+  .container .image-generique-page img {
+    display:none;
+  }
+}

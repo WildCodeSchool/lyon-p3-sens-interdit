@@ -1,0 +1,36 @@
+
+/*content*/
+#diffusion-description {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.container {
+  padding-bottom: 40px;
+}
+
+@media screen and (max-width: 960px) {
+  .container {
+    padding-bottom: 20px;
+  }
+}
+
+#diffusion-description p {
+  text-align: justify;
+  margin-bottom: 50px;
+}
+#diffusion-description h1 {
+  color: black;
+}
+#diffusion-description span {
+  color: #e30613;
+}
+/*Menu*/
+#diffusion-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto 0 auto;
+  max-width: 1080px;
+}

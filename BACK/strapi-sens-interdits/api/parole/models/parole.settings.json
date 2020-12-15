@@ -1,0 +1,46 @@
+{
+  "kind": "singleType",
+  "collectionName": "paroles",
+  "info": {
+    "name": "parole",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "tab_element": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.tab-element"
+    },
+    "title_en": {
+      "type": "string"
+    },
+    "description_en": {
+      "type": "richtext"
+    },
+    "tab_element_en": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.tab-element"
+    }
+  }
+}

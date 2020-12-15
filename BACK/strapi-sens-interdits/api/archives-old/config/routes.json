@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/archives-olds",
+      "handler": "archives-old.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/archives-olds/count",
+      "handler": "archives-old.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/archives-olds/:id",
+      "handler": "archives-old.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/archives-olds",
+      "handler": "archives-old.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/archives-olds/:id",
+      "handler": "archives-old.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/archives-olds/:id",
+      "handler": "archives-old.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

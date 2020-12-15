@@ -1,27 +1,42 @@
-/* GENERAL - GRID LAYOUT GLOBAL */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rambla:wght@400;700&display=swap');
+
 @font-face {
-  font-family: "gothamBold";
-  src: url(fonts/gothamBold/gothamBold.eot) format("oet"),
+  font-family: 'gothamBold', Helvetica, sans-serif;
+  src: url(fonts/gothamBold/gothamBold.eot) format("eot"),
     url(fonts/gothamBold/gothamBold.ttf) format("tff"),
     url(fonts/gothamBold/gothamBold.woff) format("woff"),
     url(fonts/gothamBold/gothamBold.woff2) format("woff2");
-  font-family: "gothamLight";
-  src: url(fonts/gothamLight/Metropolis-Medium.otf) format("otf"),
-    url(fonts/gothamLight/Metropolis-MediumItalic.otf) format("otf");
+}
+
+@font-face {
+  font-family: "gothamLight", Helvetica, sans-serif;
+  src: url(fonts/GothamLightRegular.otf) format("otf")
+}
+* {
+  box-sizing: border-box;
 }
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "gothamLight", arial, sans-serif;
-  font-size: 14px;
+  font-family: 'Quicksand', "gothamLight", arial, sans-serif;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+body.prevent-scroll {
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 .body {
   display: grid;
   grid-template-columns: 20% 60% 20%;
   grid-template-rows: minmax(200px, auto) 1fr minmax(300px, auto);
-  gap: 0px 0px;
+  gap: 0;
   grid-template-areas:
     "header header header"
     "main main main"
@@ -36,6 +51,7 @@ main {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 li {
@@ -50,4 +66,87 @@ li {
 
 .to-uppercase {
   text-transform: uppercase;
+}
+
+.grayscale {
+  filter: grayscale(1);
+}
+
+.hidden {
+  display: none !important;
+}
+
+div.overlay {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.7);
+}
+
+.container {
+  width: calc(100% - 30px);
+  max-width: 1080px;
+  height: auto;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.flex {
+  display: flex;
+
+}
+.container {
+  width: 100%;
+  max-width: 1080px;
+  height: auto;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 960px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+.red-arrow {
+  position: relative;
+  top: 0;
+  left: 100px;
+  width: 40px;
+  height: 45px;
+  background-color: #e30613;
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
+
+.bold-font {
+  font-family: 'Rambla', Arial, sans-serif;
+}
+
+h1, h2 {
+  font-family: 'Rambla', 'Quicksand', Arial, sans-serif;
+}
+a.underlined {
+  position:relative;
+}
+
+a.underlined:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #ed1c24;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  margin: 0 5%;
+}
+a.underlined:hover:before {
+  visibility: visible;
+  width: 90%;
 }

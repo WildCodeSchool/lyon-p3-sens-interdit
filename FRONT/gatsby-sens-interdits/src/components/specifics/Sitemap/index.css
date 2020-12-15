@@ -1,0 +1,29 @@
+.global-sitemap{
+    width: 1080px;
+    margin: auto;
+    padding-left : 10px;
+
+}
+
+.global-sitemap .sitemap-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.global-sitemap .sitemap-list h1 {
+    font-size: 24px;
+    color: red;
+}
+
+.global-sitemap .sitemap-list h2 {
+    font-size: 20px;
+}
+
+@media screen and (max-width: 960px){
+    .global-sitemap .sitemap-list{
+        flex-direction: column;
+        margin-left: 20px;
+    } 
+}

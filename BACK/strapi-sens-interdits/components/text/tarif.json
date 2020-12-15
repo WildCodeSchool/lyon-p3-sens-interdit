@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_text_tarifs",
+  "info": {
+    "name": "tarif",
+    "icon": "align-left",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "tarif": {
+      "type": "string"
+    },
+    "category": {
+      "type": "component",
+      "repeatable": true,
+      "component": "text.category"
+    }
+  }
+}

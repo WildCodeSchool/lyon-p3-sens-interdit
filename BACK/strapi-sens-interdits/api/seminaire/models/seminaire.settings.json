@@ -1,0 +1,48 @@
+{
+  "kind": "singleType",
+  "collectionName": "seminaires",
+  "info": {
+    "name": "Seminaire",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "tab_element": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.tab-element"
+    },
+    "title": {
+      "type": "string"
+    },
+    "title_en": {
+      "type": "string"
+    },
+    "description_en": {
+      "type": "richtext"
+    },
+    "tab_element_en": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.tab-element"
+    }
+  }
+}

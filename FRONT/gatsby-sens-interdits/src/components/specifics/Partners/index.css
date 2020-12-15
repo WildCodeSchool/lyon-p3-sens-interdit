@@ -1,0 +1,17 @@
+
+
+.partner-content h1 {
+  font-weight: 1000;
+  text-transform: uppercase;
+}
+
+.partner-content p {
+  letter-spacing: 1px;
+  text-align: justify;
+  margin-bottom: 4vh;
+  font-size: 16px;
+}
+
+.partner-block h2 {
+  color: #e30613;
+}

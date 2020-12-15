@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/diffusion-production",
+      "handler": "diffusion-production.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/diffusion-production",
+      "handler": "diffusion-production.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/diffusion-production",
+      "handler": "diffusion-production.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

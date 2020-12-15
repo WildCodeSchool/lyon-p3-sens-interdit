@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "typeofarticles",
+  "info": {
+    "name": "typeofarticle",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "category": {
+      "type": "string"
+    },
+    "articlecontents": {
+      "collection": "articlecontent",
+      "via": "typeofarticles"
+    },
+    "category_en": {
+      "type": "string"
+    }
+  }
+}

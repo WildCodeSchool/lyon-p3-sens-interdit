@@ -2,16 +2,29 @@
 
 .tab-moduleV {
   grid-area: tab-module;
-  display: flex;
   flex-direction: column;
-  background: pink;
+  background: #fff;
   display: flex;
   padding: 20px;
+  transition: 0.3s ease-in-out;
+  overflow: hidden;
 }
 
-#tab-contentV {
+div.tab-contentV {
+  padding-top: 10px;
   text-align: justify;
-  margin: 0px;
+  margin: 0;
+  display: block;
+  overflow: hidden;
+  transition: 0.4s ease-in-out;
+}
+
+div.tab-contentV.active-tab {
+  max-height: 1000px;
+}
+
+div.tab-contentV.disabled-tab {
+  max-height: 0;
 }
 
 /* signe + et title*/
@@ -20,19 +33,20 @@
   flex-direction: row;
   min-width: 200px;
   border-bottom: 1px solid black;
-}
-
-.tab-titleV:hover {
   cursor: pointer;
+}
+.tab-titleV:hover h3 {
+  color: #E30613;
 }
 
 .tab-titleV img {
-  margin-top: 5px;
+  align-self: center;
 }
 
 .tab-titleV h3 {
   margin-left: 20px;
-  margin-top: 10px;
+  font-size: 22px;
+  align-self: center;
 }
 
 /* tab active*/
@@ -40,10 +54,58 @@
   color: #E30613;
 }
 
-div.active-tab {
-  display: block;
+/* DISPLAY CREDITED_IMG */
+
+.display-img-tab-element {
+  display: flex;
+  flex-direction: column;
+
+}
+.display-img-tab-element .redtitle-tab-element {
+  color : #E30613;
+  font-size : 20px;
+  margin : 20px;
+  width: 30vw;
+  text-align: start;
 }
 
-div.disabled-tab {
-  display: none;
+.display-img-tab-element .pictures-in-tab-system{
+  margin-right:auto;
+  margin-left:0;
+}
+
+.display-img-tab-element .pictures-in-tab-system .picture-tabsyst-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+.institut-partners {
+  font-size: 20px;
+  margin: 20px;
+  color : #E30613;
+}
+
+.thumbnail-list {
+  margin: auto;
+  justify-content: space-around;
+}
+
+/*________________spécifique à Hors Scene Page ______*/
+
+.tab-module-HS{
+  margin: 50px;
+}
+
+.thumbnail-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 960px) {
+  .tab-moduleV {
+    padding: 0;
+  }
 }

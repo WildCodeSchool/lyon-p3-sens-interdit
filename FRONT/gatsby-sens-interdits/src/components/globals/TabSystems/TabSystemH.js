@@ -1,73 +1,122 @@
-import React, { useState, useEffect } from "react";
-import AxiosCallToApi from "../../../utils/AxiosCallToApi.js";
+import React, { useContext, useState } from "react";
 import picto from "../../../assets/img/picto.svg";
+import tabSystemClick from "../../../utils/tab-system";
+import Article from "../Articles/Article";
+import "../../../assets/styles/global.css";
 import "./tabSystemH.css";
+import "./tabSystemGlobal.css";
+import TabSystemContent from "./TabSystemContent";
+import LanguageContext from "../../context/LanguageContext";
 
-function TabSystemH() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [contentTab, setContentTab] = useState([]);
-  const [activeTabContent, setActiveTabContent] = useState("");
-  const [activeClass, setActiveClass] = useState("");
+function DisplayPicture({ imageContent }) {
+  return (
+    <>
+      {imageContent.map(img => (
+        <div key={img.id} className="pictures-in-tab-system">
+          <p>{img.credit}</p>
+          <div className="picture-tabsyst-container">
+            {img.image.map(elem => (
+              <div key={elem.url +img.credit+ elem.url}>
+                <img
+                  key={elem.url}
+                  src={process.env.GATSBY_API_URL + elem.url}
+                  alt="noalt"
+                  className="picture-in-tabsystem"
+                />
+              </div>
+            ))}
+          </div>
 
-  useEffect(() => {
-    AxiosCallToApi(tabSystemUri, tabSystemDataTreatmeant);
-  }, []);
-
-  const tabSystemUri = "spectacles";
-
-  function tabSystemDataTreatmeant(data) {
-    setContentTab(data[0].tab_element);
-    setActiveTabContent(data[0].tab_element[0].title);
-    setActiveClass(data[0].tab_element[0].title);
-    setIsLoading(false);
-  }
-
-  function handleOnClick(e) {
-    setActiveTabContent(e.target.id);
-    setActiveClass(e.target.id);
-  }
-
-  return isLoading ? (
-    <p>Loading please wait </p>
-  ) : (
-      <div className="tab-module">
-        <div>
-          {contentTab.map(tab => (
-            <div className="tab-title">
-              <img
-                src={picto}
-                alt="pictogramme cliquable"
-                weight="30"
-                height="30"
-              />
-              <h3
-                title="action"
-                id={tab.title}
-                className={
-                  "tab-link " + (activeClass === tab.title ? "active" : "")
-                }
-                onClick={handleOnClick}
-                onKeyDown={handleOnClick}
-              >
-                {tab.title}
-              </h3>
-            </div>
-          ))}
         </div>
-        <div>
-          {contentTab.map(tab => (
-            <div
-              id="tab-content"
-              className={
-                activeTabContent === tab.title ? "active-tab" : "disabled-tab"
-              }
-            >
-              {tab.content}
-            </div>
-          ))}
-        </div>
-      </div>
-    );
+      ))}
+    </>
+  );
 }
 
-export default TabSystemH;
+export default function TabSystemH({
+  tabContent,
+  articles,
+  textOverFlow,
+  linkStatus,
+}) {
+  const [activeTabContent, setActiveTabContent] = useState("");
+  const [activeClass, setActiveClass] = useState("");
+  const [firstLoad, setFirstLoad] = useState(true);
+  const { checkEnContext } = useContext(LanguageContext);
+
+  function handleOnClick(e) {
+    if (firstLoad) {
+      setFirstLoad(false);
+    }
+    tabSystemClick(e, setActiveTabContent, setActiveClass);
+  }
+
+  return (
+    <div className="tab-module">
+      <div>
+        {tabContent.map((tab, i) => (
+          <div
+            className={
+              "tab-title " +
+              (activeClass === tab.id || (firstLoad && i === 0) ? "active" : "")
+            }
+            key={tab.id}
+            id={"tab-link_" + tab.id}
+            data-id={tab.id}
+            onClick={handleOnClick}
+            onKeyDown={() => { }}
+            role="button"
+          >
+            <img src={picto} alt="" width="30" height="30" data-id={tab.id} />
+
+            <h3 data-id={tab.id} className="tab-link ">
+              {checkEnContext(tab.title, tab.title_en)}
+            </h3>
+          </div>
+        ))}
+      </div>
+      <div>
+        {tabContent.map((tab, i) => (
+          <div key={tab.id}>
+            <div
+              className={
+                "tab-content " +
+                (activeTabContent === tab.id || (firstLoad && i === 0)
+                  ? "active-tab"
+                  : "disabled-tab")
+              }
+            >
+              {articles !== undefined ? (
+                articles.map(article =>
+                  checkEnContext(tab.title, tab.title_en) ===
+                    "Toutes les actualités" ||
+                    checkEnContext(tab.title, tab.title_en) ===
+                    "All categories" ? (
+                      <Article
+                        article={article}
+                        textOverFlow={textOverFlow}
+                        linkStatus={linkStatus}
+                      />
+                    ) : (
+                      article.typeofarticles.map(cat =>
+                        checkEnContext(cat.category, cat.category_en) ===
+                          checkEnContext(tab.title, tab.title_en) ? (
+                            <Article
+                              article={article}
+                              textOverFlow={textOverFlow}
+                              linkStatus={linkStatus}
+                            />
+                          ) : null
+                      )
+                    )
+                )
+              ) : (
+                  <TabSystemContent tab={tab} DisplayPicture={DisplayPicture} />
+                )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}

@@ -5,15 +5,14 @@
 
 .global-programme-page .slider img {
   width: 100%;
-  max-height: 500px;
+  /* max-height: 500px; */
   object-fit: cover;
 }
 
-.global-homepage .content-homepage {
+.global-programme-page .content-programme-page {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0 auto 0 auto;
   max-width: 1080px;
 }
 
@@ -22,4 +21,29 @@
   flex-wrap: wrap;
   width: 1080px;
   margin: auto;
+}
+
+.global-FilterTab {
+  cursor: pointer;
+  display: flex;
+
+}
+
+@media screen and (max-width: 960px) {
+  /*PROGRAMME*/
+  .global-programme-page .content-programme-page{
+    flex-direction: column;
+  }
+  .global-programme-page .display-mini-tab{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100vw;
+  }
+  .calendar-programme-page{
+    display:none;
+  }
+  .global-programme-page .global-FilterTab{
+    width: 100vw;
+  }
 }

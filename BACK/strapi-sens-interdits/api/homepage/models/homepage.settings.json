@@ -1,0 +1,46 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "name": "homepage",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "carousel": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.medias-slider"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "festival": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menulink"
+    },
+    "publics": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menulink"
+    },
+    "tour": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menulink"
+    },
+    "association": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menulink"
+    },
+    "description_en": {
+      "type": "richtext"
+    }
+  }
+}

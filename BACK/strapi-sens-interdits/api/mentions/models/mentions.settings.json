@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "mentions",
+  "info": {
+    "name": "mentions"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    }
+  }
+}

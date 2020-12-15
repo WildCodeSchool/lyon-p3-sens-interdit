@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/assopage",
+      "handler": "assopage.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/assopage",
+      "handler": "assopage.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/assopage",
+      "handler": "assopage.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

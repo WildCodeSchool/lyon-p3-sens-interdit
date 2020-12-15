@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "festivalpages",
+  "info": {
+    "name": "festivalpage"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "carousel": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.medias-slider"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "squaremenu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.display-tab-menu"
+    }
+  }
+}

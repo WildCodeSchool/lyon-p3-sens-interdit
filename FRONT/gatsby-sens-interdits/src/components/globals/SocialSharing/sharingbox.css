@@ -1,0 +1,22 @@
+#sharingbox {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    width: 40px;
+    margin-top: -50px;
+    background: #fff;
+    display: flex;
+    z-index: 2;
+    flex-direction: column;
+    padding: 10px 9px;
+    border-radius: 10px 0 0 10px;
+    box-shadow: 0 0 10px -4px rgba(0,0,0,0.4);
+}
+#sharingbox > div {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+#sharingbox > div:last-child {
+    margin-bottom: 0;
+}

@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_display_tabs",
+  "info": {
+    "name": "Home_display_tab",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Display_tab_menu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.display-tab-menu"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+.archive-global-styling {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.image-generique-page img {
+  object-fit: scale-down;
+  height: 400px;
+  width: 1080px;
+  margin-top: 50px;
+}
+.downloadPdf {
+  font-size: 16px;
+  color: #000 !important;
+  padding-left: 24%;
+  text-align: center;
+}
+.downloadPdf img {
+  position: relative;
+  top: 10px;
+  left: -10px;
+}
+@media screen and (max-width: 1140px) {
+  /* TODO */
+  .text-justify {
+    padding: 20px 40px;
+  }
+  .global-margin h1 {
+    padding: 10px 40px;
+  }
+  .archive-transmission-grid-wrapper {
+    grid-template-columns: 50% 50%;
+    justify-items: center;
+  }
+  .name-mini-tab,
+  .team-mini-tab {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .image-generique-page img {
+    display: none;
+  }
+  .downloadPdf img {
+    display: none;
+  }
+  .global-margin h1 {
+    text-align: center;
+  }
+  .mini-tab {
+    margin: auto;
+    padding: 20px 0;
+  }
+}
