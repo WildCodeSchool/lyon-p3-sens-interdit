@@ -18,7 +18,7 @@ header {
 .wrapper-header-row1 {
     width: 100vw;
     position: fixed;
-    z-index: 2;
+    z-index: 6;
     background-color: black;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.65);
 }
