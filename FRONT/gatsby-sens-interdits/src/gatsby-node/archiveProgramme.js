@@ -1,6 +1,6 @@
 const path = require(`path`);
 
-const makeRequest = require("./makeRequest");
+const makeRequest = require("../utils/makeRequest");
 
 const archiveProgramme = async function ({ graphql, actions }) {
   const { createPage } = actions;

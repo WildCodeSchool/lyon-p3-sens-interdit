@@ -1,10 +1,10 @@
-const turnArchiveSpectaclesIntoPages = require("./N0DE-gatsby/turnArchiveSpectaclesIntoPages");
-const turnSpectaclesIntoPages = require("./N0DE-gatsby/turnSpectaclesIntoPages");
-const archiveProgramme = require("./N0DE-gatsby/archiveProgramme");
-const turnArticlesIntoPages = require("./N0DE-gatsby/turnArticlesIntoPages");
-const turnFestivalsIntoPages = require("./N0DE-gatsby/turnFestivalsIntoPages");
-const turnFestivalIntoArchiveFestivalPages = require("./N0DE-gatsby/turnFestivalIntoArchiveFestivalPages");
-const turnNewSpectacleIntoArchive = require("./N0DE-gatsby/turnNewSpectacleIntoArchive");
+const turnArchiveSpectaclesIntoPages = require("./src/gatsby-node/turnArchiveSpectaclesIntoPages");
+const turnSpectaclesIntoPages = require("./src/gatsby-node/turnSpectaclesIntoPages");
+const archiveProgramme = require("./src/gatsby-node/archiveProgramme");
+const turnArticlesIntoPages = require("./src/gatsby-node/turnArticlesIntoPages");
+const turnFestivalsIntoPages = require("./src/gatsby-node/turnFestivalsIntoPages");
+const turnFestivalIntoArchiveFestivalPages = require("./src/gatsby-node/turnFestivalIntoArchiveFestivalPages");
+const turnNewSpectacleIntoArchive = require("./src/gatsby-node/turnNewSpectacleIntoArchive");
 
 // Implement the Gatsby API “createPages”. This is called once the
 // data layer is bootstrapped to let plugins create pages from data.

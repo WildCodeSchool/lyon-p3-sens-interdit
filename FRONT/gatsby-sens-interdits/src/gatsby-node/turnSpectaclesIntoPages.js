@@ -1,12 +1,12 @@
 const path = require(`path`);
 
-const { sluggify } = require("./../src/utils/Sluggify");
+const { sluggify } = require("../utils/Sluggify");
 
 const {
     removeNameForUrl: removePageNameForUrl,
-  } = require("./../src/utils/removeNameForUrl");
+  } = require("../utils/removeNameForUrl");
 
-const makeRequest = require("./makeRequest")
+const makeRequest = require("../utils/makeRequest")
 
 const turnSpectaclesIntoPages = async function ({ graphql, actions }) {
   const { createPage } = actions;
