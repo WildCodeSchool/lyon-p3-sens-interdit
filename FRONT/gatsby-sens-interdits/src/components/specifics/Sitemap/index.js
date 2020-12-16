@@ -13,10 +13,10 @@ export default function SitemapPage() {
     );
     return (
         <div>
-            <div className='global-sitemap'>
+            <div className="global-sitemap container">
                 <div className="red-arrow"></div>
-                <h1 className='to-uppercase'>Sitemap</h1>
-                <div className='sitemap-list'>
+                <h1 className="to-uppercase">Sitemap</h1>
+                <div className="sitemap-list">
                     <ul>
                         <Link to="/" title="vers la page d'accueil">
                             <h1>{checkEnContext(
@@ -33,15 +33,15 @@ export default function SitemapPage() {
                                 "Festival"
                             )}</h1>
                         </Link></li>
-                        <li><Link to='/programme' title="vers la page du programme en cours">{checkEnContext(
+                        <li><Link to="/programme" title="vers la page du programme en cours">{checkEnContext(
                             "Programme",
                             "Program"
                         )}</Link></li>
-                        <li><Link to='/hors-scene' title="vers la page des évènements hors-scène">{checkEnContext(
+                        <li><Link to="/hors-scene" title="vers la page des évènements hors-scène">{checkEnContext(
                             "Hors-scène",
                             "Off scene"
                         )}</Link></li>
-                        <li><Link to='/ecole' title="vers la page des écoles">{checkEnContext(
+                        <li><Link to="/ecole" title="vers la page des écoles">{checkEnContext(
                             "Ecole",
                             "Academic"
                         )}</Link></li>
@@ -74,11 +74,11 @@ export default function SitemapPage() {
                             </h1>
                             </Link>
                         </li>
-                        <li><Link to='/ecole' title="vers les écoles">{checkEnContext(
+                        <li><Link to="/ecole" title="vers les écoles">{checkEnContext(
                             "Ecole",
                             "Academic"
                         )}</Link></li>
-                        <li><Link to='/programme-tour' title="vers le programme des spectacles en tournée">{checkEnContext(
+                        <li><Link to="/programme-tour" title="vers le programme des spectacles en tournée">{checkEnContext(
                             "Spectacles en tournée",
                             "On tour"
                         )}</Link></li>
@@ -95,21 +95,21 @@ export default function SitemapPage() {
 
                         </Link></li>
                         <li><h2>Avec les publics</h2></li>
-                        <li><Link to='/webradio' title="vers les webradios">Webradio</Link></li>
-                        <li><Link to='/parole' title="vers la page des paroles d'exiles">{checkEnContext(
+                        <li><Link to="/webradio" title="vers les webradios">Webradio</Link></li>
+                        <li><Link to="/parole" title="vers la page des paroles d'exiles">{checkEnContext(
                             "Paroles d'exil",
                             "Exile words"
                         )}</Link></li>
-                        <li><Link to='/scolaires' title="vers la page des scolaires">{checkEnContext(
+                        <li><Link to="/scolaires" title="vers la page des scolaires">{checkEnContext(
                             "Scolaires",
                             "School"
                         )}</Link></li>
                         <li><h2>Avec les professionnels</h2></li>
-                        <li><Link to='/ecole' title="vers la page des écoles">{checkEnContext(
+                        <li><Link to="/ecole" title="vers la page des écoles">{checkEnContext(
                             "Ecole",
                             "Academic"
                         )}</Link></li>
-                        <li><Link to='/seminaires' title="vers la page des séminaires">{checkEnContext(
+                        <li><Link to="/seminaires" title="vers la page des séminaires">{checkEnContext(
                             "Séminaire",
                             "Seminar"
                         )}</Link></li>
