@@ -31,7 +31,8 @@
     "carousel": {
       "type": "component",
       "repeatable": false,
-      "component": "menu.medias-slider"
+      "component": "menu.medias-slider",
+      "required": true
     }
   }
 }
