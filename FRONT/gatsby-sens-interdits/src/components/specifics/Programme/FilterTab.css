@@ -32,4 +32,36 @@
   .global-Filter-tab p {
     font-size: 12px;
   }
+
+
+  .global-Filter-tab {
+    display: block;
+    position: relative;
+  }
+
+  .global-Filter-tab  h4 {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+
+  .global-Filter-tab .select-flex-wrapper {
+    display: block;
+    padding: 0 30px;
+    margin-top: 15px;
+  }
+
+  .global-Filter-tab  .select-flex-wrapper select {
+    width: 100%;
+    text-align: center;
+    border: none;
+    border-bottom: solid #e30613 1px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+  }
+  .global-Filter-tab  .select-flex-wrapper button {
+    position: absolute;
+    top: 0;
+    right: 45px;
+  }
 }
